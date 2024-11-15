@@ -5546,7 +5546,6 @@ figcaption {
   background-image: linear-gradient(to right, #bc5c48, #1a0297 70%);
   -webkit-background-clip: text;
   background-clip: text;
-  width: 40%;
 }
 
 .div-block-15.blob {
@@ -9834,10 +9833,6 @@ figcaption {
   .new-container {
     padding-left: 125px;
     padding-right: 125px;
-  }
-
-  .div-block-15.blob {
-    width: 30%;
   }
 
   .img-case.ins {
