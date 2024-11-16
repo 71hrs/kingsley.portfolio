@@ -3135,7 +3135,7 @@ figcaption {
 .logo {
   width: 20%;
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .logo.ig {
@@ -3144,7 +3144,7 @@ figcaption {
 }
 
 .logo.height-prio {
-  width: 28%;
+  width: 35%;
 }
 
 .gradient-proj {
