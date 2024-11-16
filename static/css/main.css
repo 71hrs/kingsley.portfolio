@@ -2507,6 +2507,7 @@ figcaption {
 
 .name-text {
   letter-spacing: 5px;
+  margin-top: 50px;
   margin-bottom: 30px;
   font-family: Gooper, sans-serif;
   font-size: 44px;
