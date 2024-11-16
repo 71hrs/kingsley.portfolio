@@ -51,7 +51,8 @@
                             </nav>
                         </div>
                         <a href="about.html" data-w-id="69118560-d0bc-15fc-bbf8-b8fe5f6535bf" class="navigation-item w-nav-link">Playground</a>
-                        <a href="https://drive.google.com/file/d/1GDh7A0q2EPbzfSmEoDu2TpZeVoKFcZbh/view?usp=sharing" data-w-id="7304b1c8-6801-5483-a17a-dd86c8766901" target="_blank" class="navigation-item w-nav-link">Resume</a>
+                        <a href="https://drive.google.com/file/d/1GDh7A0q2EPbzfSmEoDu2TpZeVoKFcZbh/view?usp=sharing" 
+                           data-w-id="7304b1c8-6801-5483-a17a-dd86c8766901" target="_blank" class="navigation-item w-nav-link">Resume</a>
                         <a href="about.html" data-w-id="69118560-d0bc-15fc-bbf8-b8fe5f6535bf" class="navigation-item w-nav-link">About</a>
                     </nav>
                     <div class="menu-button w-nav-button">
@@ -63,8 +64,7 @@
     </div>
     <div class="code-section w-embed w-script">
         <script src="static/js/three.min.js"></script>
-        <script id="vertexShader" type="x-shader/x-vertex">void main() { gl_Position = vec4(position, 1.0); }
-        </script>
+        <script id="vertexShader" type="x-shader/x-vertex">void main() { gl_Position = vec4(position, 1.0); }</script>
         <script id="fragmentShader" type="x-shader/x-fragment">uniform vec2 u_resolution; uniform vec2 u_mouse; uniform float u_time; uniform sampler2D u_noise; uniform sampler2D u_buffer; uniform bool u_renderpass; const float blurMultiplier = 0.95; const float circleSize = .25; const float blurStrength
             = .98; const float threshold = .5; const float scale = 4.; #define _fract true #define PI 3.141592653589793#define TAU 6.283185307179586 vec2 hash2(vec2 p) { vec2 o = texture2D(u_noise, (p + 0.5) / 256.0, -100.0).xy; return o; } vec3 hsb2rgb(
             in vec3 c) { vec3 rgb = clamp(abs(mod(c.x * 6.0 + vec3(0.0, 4.0, 2.0), 6.0) - 3.0) - 1.0, 0.0, 1.0); rgb = rgb * rgb * (3.0 - 2.0 * rgb); return c.z * mix(vec3(1.0), rgb, c.y); } vec3 domain(vec2 z) { return vec3(hsb2rgb(vec3(atan(z.y, z.x)
@@ -104,7 +104,7 @@
                     </div>
                 </div>
                 <h1 class="heading">
-                    is a full stack product designer creating digital experiences that simplify, uplift, and nurture human connection.
+                    "A New York-based creative designer and multidisciplinary artist whose work bridges art, science, and technology"
                     <br>
                 </h1>
                 <!--
