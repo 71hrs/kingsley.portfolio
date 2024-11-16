@@ -2506,7 +2506,7 @@ figcaption {
 }
 
 .name-text {
-  letter-spacing: 10px;
+  letter-spacing: 5px;
   margin-bottom: 30px;
   font-family: Gooper, sans-serif;
   font-size: 44px;
@@ -2940,7 +2940,7 @@ figcaption {
 
 .heading {
   color: var(--white);
-  letter-spacing: 2px;
+  letter-spacing: 0px;
   margin-bottom: 38px;
   font-family: Apercu, sans-serif;
   font-size: 28px;
@@ -3365,14 +3365,15 @@ figcaption {
 
 .h-hu-am {
   color: #fff;
-  margin-bottom: 20px;
+  margin-top: 50px;
+  margin-bottom: 40px;
   font-family: Gooper, sans-serif;
   font-size: 28px;
   line-height: 36px;
 }
 
 .h-hu-am.larger {
-  font-size: 40px;
+  font-size: 30px;
   line-height: 40px;
 }
 
