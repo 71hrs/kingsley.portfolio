@@ -1458,3 +1458,63 @@ html {
     font-style: normal;
     font-display: swap;
   }
+
+
+/*DIY*/
+
+.full-content {
+  background-color: #fff;
+  padding-top: 100px;
+  padding-bottom: 150px;
+}
+
+.part-content {
+  background-color: #fff;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+/* 容器样式 */
+.container {
+  background-color: #fff; /* 白色背景 */
+  display: flex;
+  overflow: hidden; /* 去掉内容溢出 */
+  padding-left: 18%; /* 左侧留10%的空白 */
+  padding-right: 18%; /* 右侧留10%的空白 */
+  padding-top: 30px;
+}
+
+/* 左列样式 */
+.left-column {
+  flex: 0 0 30%; /* 左列占30% */
+  padding: 10px;
+  padding-right: 20px;
+  display: flex;
+  justify-content: flex-start; /* 左列内容靠左对齐 */
+  flex-direction: column; /* 子元素从上到下排列 */
+}
+
+/* 右列样式 */
+.right-column {
+  flex: 0 0 70%; /* 右列占70% */
+  padding: 10px;
+  padding-left: 20px;
+  display: flex;
+  justify-content: flex-start; /* 右列内容靠左对齐 */
+  flex-direction: column; /* 子元素从上到下排列 */
+}
+
+/* 标题样式 */
+.title {
+  font-size: 17px;
+  font-weight: bold;
+  text-align: left; /* 标题靠左对齐 */
+  margin: 0; /* 去掉可能的默认外边距 */
+}
+
+/* 内容样式 */
+.content {
+  font-size: 1em;
+  line-height: 1.6;
+  color: #333;
+}
