@@ -1498,7 +1498,7 @@ html {
 .right-column {
   flex: 0 0 70%; /* 右列占70% */
   padding: 70px;
-  padding-left: 170px;
+  padding-left: 200px;
   display: flex;
   justify-content: flex-start; /* 右列内容靠左对齐 */
   flex-direction: column; /* 子元素从上到下排列 */
