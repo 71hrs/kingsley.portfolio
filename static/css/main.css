@@ -3132,8 +3132,32 @@ figcaption {
   margin-bottom: 20px;
 }
 
-.logo {
+.logo-dollar-flip {
+  width: 40%;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.logo-close-to-me {
   width: 15%;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.logo-chem-guard {
+  width: 15%;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.logo-shared-dressing-room {
+  width: 15%;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.logo-valentino-beauty {
+  width: 12%;
   margin-top: 0;
   margin-bottom: 10px;
 }
