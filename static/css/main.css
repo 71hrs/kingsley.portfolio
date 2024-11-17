@@ -3777,7 +3777,7 @@ figcaption {
   grid-column-gap: 40px;
   grid-row-gap: 40px;
   grid-template-rows: auto;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   margin-top: 5px;
   margin-left: 95px;
   margin-right: 95px;
@@ -5906,7 +5906,7 @@ figcaption {
 
 .div-case-hero {
   grid-column-gap: 30px;
-  grid-row-gap: 30px;
+  grid-row-gap: 0px;
   flex-direction: column;
   align-items: center;
   display: flex;
@@ -5921,6 +5921,7 @@ figcaption {
   background-color: #ffffff2e;
   width: 90%;
   height: 1px;
+  transform: translateY(120px);
 }
 
 .gifs-phone {
@@ -9598,10 +9599,11 @@ figcaption {
   }
 
   .grid-project-info {
-    grid-column-gap: 60px;
-    grid-row-gap: 60px;
+    grid-column-gap: 90px;
+    grid-row-gap: 90px;
     margin-left: -4px;
     margin-right: -4px;
+    transform: translateY(185px);
   }
 
   .des-proje.pad {
@@ -9903,6 +9905,7 @@ figcaption {
 
   .line-divider-full {
     width: 100%;
+    transform: translateY(150px);
   }
 
   .image-56 {
