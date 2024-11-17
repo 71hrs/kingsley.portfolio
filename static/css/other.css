@@ -1499,7 +1499,7 @@ html {
 .right-column {
   flex: 0 0 60%; /* 右列占70% */
   padding: 70px;
-  padding-left: 100px;
+  padding-left: 140px;
   padding-right: 0px;
   display: flex;
   justify-content: flex-start; /* 右列内容靠左对齐 */
@@ -1623,7 +1623,7 @@ html {
 .douller-ui-row {
   display: flex; /* Flexbox 布局 */
   justify-content: space-between; /* 每个 item 平分左右空间，且之间有间距 */
-  margin-bottom: 20px; /* 行之间的间距 */
+  margin-bottom: 50px; /* 行之间的间距 */
 }
 
 /* 单个项目样式 */
