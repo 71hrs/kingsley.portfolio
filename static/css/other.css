@@ -1518,3 +1518,168 @@ html {
   line-height: 1.6;
   color: #333;
 }
+
+/* 图片容器样式 */
+.douller-research {
+  display: flex; /* 使用 flexbox */
+  justify-content: center; /* 水平居中对齐 */
+  align-items: center; /* 垂直居中对齐（可选，根据需要） */
+  margin-top: 20px; /* 可选：与上方内容间距 */
+  margin-bottom: 20px;
+}
+
+/* 图片样式 */
+.douller-research img {
+  width: 45%; /* 图片宽度占容器的80% */
+  height: auto; /* 保持图片比例 */
+  display: block; /* 防止默认内联图片间隙 */
+}
+
+/* 图片容器样式 */
+.douller-swot {
+  display: flex; /* 使用 flexbox */
+  justify-content: center; /* 水平居中对齐 */
+  align-items: center; /* 垂直居中对齐（可选，根据需要） */
+  margin-top: 20px; /* 可选：与上方内容间距 */
+  margin-bottom: 20px;
+}
+
+/* 图片样式 */
+.douller-swot img {
+  width: 45%; /* 图片宽度占容器的80% */
+  height: auto; /* 保持图片比例 */
+  display: block; /* 防止默认内联图片间隙 */
+}
+
+/* 父容器样式 */
+.douller-persona {
+  text-align: center; /* 容器内内容水平居中 */
+}
+
+/* 图片容器样式 */
+.douller-persona img {
+  display: inline-block; /* 图片设置为行内块元素 */
+  width: 35%; /* 每张图片占父容器45%宽度 */
+  margin: 0 2%; /* 图片之间留出空隙 */
+  vertical-align: top; /* 保证图片顶部对齐 */
+}
+
+/* 图片容器样式 */
+.douller-ideation {
+  display: flex; /* 使用 flexbox */
+  justify-content: center; /* 水平居中对齐 */
+  align-items: center; /* 垂直居中对齐（可选，根据需要） */
+  margin-top: 20px; /* 可选：与上方内容间距 */
+}
+
+/* 图片样式 */
+.douller-ideation img {
+  width: 50%; /* 图片宽度占容器的80% */
+  height: auto; /* 保持图片比例 */
+  display: block; /* 防止默认内联图片间隙 */
+}
+
+/* 图片容器样式 */
+.douller-initial-design {
+  display: flex; /* 使用 flexbox */
+  justify-content: center; /* 水平居中对齐 */
+  align-items: center; /* 垂直居中对齐（可选，根据需要） */
+  margin-top: 20px; /* 可选：与上方内容间距 */
+}
+
+/* 图片样式 */
+.douller-initial-design img {
+  width: 65%; /* 图片宽度占容器的80% */
+  height: auto; /* 保持图片比例 */
+  display: block; /* 防止默认内联图片间隙 */
+}
+
+/* 图片容器样式 */
+.douller-user-testing {
+  display: flex; /* 使用 flexbox */
+  justify-content: center; /* 水平居中对齐 */
+  align-items: center; /* 垂直居中对齐（可选，根据需要） */
+  margin-top: 20px; /* 可选：与上方内容间距 */
+}
+
+/* 图片样式 */
+.douller-user-testing img {
+  width: 55%; /* 图片宽度占容器的80% */
+  height: auto; /* 保持图片比例 */
+  display: block; /* 防止默认内联图片间隙 */
+}
+
+/* 容器样式 */
+.douller-ui {
+  width: 90%; /* 容器宽度 */
+  max-width: 1200px; /* 最大宽度 */
+  margin: 20px auto; /* 容器上下留空并水平居中 */
+  padding: 0 10%; /* 添加内边距，确保容器内有适当的空隙 */
+}
+
+/* 每行样式 */
+.douller-ui-row {
+  display: flex; /* Flexbox 布局 */
+  justify-content: space-between; /* 每个 item 平分左右空间，且之间有间距 */
+  margin-bottom: 20px; /* 行之间的间距 */
+}
+
+/* 单个项目样式 */
+.douller-ui-item {
+  display: flex; /* Flexbox 布局，确保图片和文字横向排列 */
+  align-items: center; /* 子元素垂直居中 */
+  justify-content: flex-start; /* 图片和文字从左对齐 */
+  width: 48%; /* 每个项目宽度，保证两列布局 */
+  text-align: left; /* 文字居左对齐 */
+  margin-top: 50px;
+}
+
+/* 图片样式 */
+.douller-ui-item img {
+  width: 50%; /* 图片宽度 */
+  height: auto; /* 保持图片比例 */
+  display: block; /* 避免底部空白间隙 */
+  margin: 0 auto; /* 使图片在容器中水平居中 */
+  margin-right: 20px; /* 图片和文字之间的间距 */
+}
+
+/* 文字样式 */
+.douller-ui-item .douller-ui-text {
+  font-size: 14px;
+  line-height: 1.6; /* 行高调整 */
+  color: #333;
+  max-width: 200px; /* 设置文字部分的最大宽度 */
+  word-wrap: break-word; /* 确保长单词不会超出边界 */
+  flex-shrink: 1; /* 允许文字部分在空间不足时收缩 */
+}
+
+/* 图片容器样式 */
+.douller-development {
+  display: flex; /* 使用 flexbox */
+  justify-content: center; /* 水平居中对齐 */
+  align-items: center; /* 垂直居中对齐（可选，根据需要） */
+  margin-top: 20px; /* 可选：与上方内容间距 */
+}
+
+/* 图片样式 */
+.douller-development img {
+  width: 65%; /* 图片宽度占容器的80% */
+  height: auto; /* 保持图片比例 */
+  display: block; /* 防止默认内联图片间隙 */
+}
+
+/* 图片容器样式 */
+.douller-testing {
+  display: flex; /* 使用 flexbox */
+  justify-content: center; /* 水平居中对齐 */
+  align-items: center; /* 垂直居中对齐（可选，根据需要） */
+  margin-top: 20px; /* 可选：与上方内容间距 */
+  margin-bottom: 20px; /* 可选：与上方内容间距 */
+}
+
+/* 图片样式 */
+.douller-testing img {
+  width: 45%; /* 图片宽度占容器的80% */
+  height: auto; /* 保持图片比例 */
+  display: block; /* 防止默认内联图片间隙 */
+}
