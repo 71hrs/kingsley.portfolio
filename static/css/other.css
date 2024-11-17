@@ -1487,7 +1487,7 @@ html {
 /* 左列样式 */
 .left-column {
   flex: 0 0 30%; /* 左列占30% */
-  padding: 10px;
+  padding: 70px;
   padding-right: 20px;
   display: flex;
   justify-content: flex-start; /* 左列内容靠左对齐 */
@@ -1497,8 +1497,8 @@ html {
 /* 右列样式 */
 .right-column {
   flex: 0 0 70%; /* 右列占70% */
-  padding: 10px;
-  padding-left: 20px;
+  padding: 70px;
+  padding-left: 170px;
   display: flex;
   justify-content: flex-start; /* 右列内容靠左对齐 */
   flex-direction: column; /* 子元素从上到下排列 */
