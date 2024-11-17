@@ -1486,8 +1486,9 @@ html {
 
 /* 左列样式 */
 .left-column {
-  flex: 0 0 30%; /* 左列占30% */
+  flex: 0 0 40%; /* 左列占30% */
   padding: 70px;
+  padding-left: 0px;
   padding-right: 20px;
   display: flex;
   justify-content: flex-start; /* 左列内容靠左对齐 */
@@ -1496,9 +1497,10 @@ html {
 
 /* 右列样式 */
 .right-column {
-  flex: 0 0 70%; /* 右列占70% */
+  flex: 0 0 60%; /* 右列占70% */
   padding: 70px;
-  padding-left: 200px;
+  padding-left: 100px;
+  padding-right: 0px;
   display: flex;
   justify-content: flex-start; /* 右列内容靠左对齐 */
   flex-direction: column; /* 子元素从上到下排列 */
