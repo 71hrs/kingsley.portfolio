@@ -3185,57 +3185,49 @@ figcaption {
   background-image: linear-gradient(135deg, #1b34f0, #000);
 }
 
-.gradient-proj.logitech {
-  background-image: linear-gradient(135deg, #04ace8, #000 30%);
+.gradient-proj.dollar-flip {
+  background-image: linear-gradient(135deg, #9c9df9, #000 40%);
 }
 
-.gradient-proj.logitech:hover {
+.gradient-proj.dollar-flip:hover {
   background-color: #0000;
-  background-image: linear-gradient(135deg, #04ace8, #000);
+  background-image: linear-gradient(135deg, #9c9df9, #000);
 }
 
-.gradient-proj.ripple {
-  background-image: linear-gradient(135deg, #c033af, #000 80%);
+.gradient-proj.close-to-me {
+  background-image: linear-gradient(135deg, #AED3FF, #000 40%);
 }
 
-.gradient-proj.ripple:hover {
+.gradient-proj.close-to-me:hover {
   background-color: #0000;
-  background-image: linear-gradient(135deg, #c033af, #1f081c 100%, #000);
+  background-image: linear-gradient(135deg, #AED3FF, #000);
 }
 
-.gradient-proj.netflix {
-  background-image: linear-gradient(135deg, red, #000 30%);
+.gradient-proj.chem-guard {
+  background-image: linear-gradient(135deg, #c2c2c2, #000 40%);
 }
 
-.gradient-proj.netflix:hover {
-  background-image: linear-gradient(135deg, red, #000 67%);
+.gradient-proj.chem-guard:hover {
+  background-color: #0000;
+  background-image: linear-gradient(135deg, #c2c2c2, #000);
 }
 
-.gradient-proj.inst {
-  background-color: #606ab2;
-  background-image: linear-gradient(135deg, #ff00c3, #000 30%);
+.gradient-proj.shared-dressing-room {
+  background-image: linear-gradient(135deg, #FFF19C, #000 40%);
 }
 
-.gradient-proj.inst:hover {
-  background-image: linear-gradient(135deg, #ff00c3, #000 83%);
+.gradient-proj.shared-dressing-room:hover {
+  background-color: #0000;
+  background-image: linear-gradient(135deg, #FFF19C, #000);
 }
 
-.gradient-proj.instac {
-  background-color: #4f5d00;
-  background-image: linear-gradient(135deg, #0aad0a, #000 30%);
+.gradient-proj.valentino-beauty {
+  background-image: linear-gradient(135deg, #F60049, #000 40%);
 }
 
-.gradient-proj.spotify {
-  background-color: var(--greeene);
-  background-image: linear-gradient(135deg, #0ec249, #000 30%);
-}
-
-.gradient-proj.spotify:hover {
-  background-image: linear-gradient(135deg, #0ec249, #000 86%);
-}
-
-.gradient-proj.spotify.gradient-hover {
-  opacity: 1;
+.gradient-proj.valentino-beauty:hover {
+  background-color: #0000;
+  background-image: linear-gradient(135deg, #F60049, #000);
 }
 
 .design-proj-grid {
