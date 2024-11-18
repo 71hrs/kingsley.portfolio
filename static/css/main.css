@@ -180,10 +180,18 @@ h1 {
   position: absolute;
 }
 
+.w-dropdown-list.w--open {
+  display: block;
+}
+
 .w-dropdown-link {
   color: #222;
   padding: 10px 20px;
   display: block;
+}
+
+.w-dropdown-link.w--current {
+  color: #0082f3;
 }
 
 .w-dropdown-link:focus {
