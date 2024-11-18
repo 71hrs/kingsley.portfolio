@@ -139,7 +139,7 @@ h1 {
   position: relative;
 }
 
-.w-dropdown-btn, .w-dropdown-toggle, .w-dropdown-link {
+.w-dropdown-toggle, .w-dropdown-link {
   vertical-align: top;
   color: #222;
   text-align: left;
@@ -180,18 +180,10 @@ h1 {
   position: absolute;
 }
 
-.w-dropdown-list.w--open {
-  display: block;
-}
-
 .w-dropdown-link {
   color: #222;
   padding: 10px 20px;
   display: block;
-}
-
-.w-dropdown-link.w--current {
-  color: #0082f3;
 }
 
 .w-dropdown-link:focus {
@@ -650,51 +642,6 @@ img {
   margin-top: 0;
 }
 
-.w-lightbox-backdrop {
-  cursor: auto;
-  letter-spacing: normal;
-  text-indent: 0;
-  text-shadow: none;
-  text-transform: none;
-  visibility: visible;
-  white-space: normal;
-  word-break: normal;
-  word-spacing: normal;
-  word-wrap: normal;
-  color: #fff;
-  text-align: center;
-  z-index: 2000;
-  opacity: 0;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -webkit-tap-highlight-color: transparent;
-  background: #000000e6;
-  outline: 0;
-  font-family: Helvetica Neue, Helvetica, Ubuntu, Segoe UI, Verdana, sans-serif;
-  font-size: 17px;
-  font-style: normal;
-  font-weight: 300;
-  line-height: 1.2;
-  list-style: disc;
-  position: fixed;
-  inset: 0;
-  -webkit-transform: translate(0);
-}
-
-.w-lightbox-backdrop, .w-lightbox-container {
-  -webkit-overflow-scrolling: touch;
-  height: 100%;
-  overflow: auto;
-}
-
-.w-nav[data-collapse="all"] .w-nav-button, .w--nav-dropdown-open, .w--nav-dropdown-toggle-open {
-  display: block;
-}
-
-.w--nav-dropdown-list-open {
-  position: static;
-}
-
 .dropdown-toggle {
   opacity: .6;
   color: var(--white);
@@ -722,16 +669,6 @@ img {
 
 .work-dropdown:hover {
   opacity: 1;
-}
-
-.work-dropdown.w--current {
-  padding-top: 7px;
-  padding-bottom: 7px;
-}
-
-.work-drop.w--open {
-  background-color: #ddd0;
-  margin-top: 40px;
 }
 
 .shape-6 {
@@ -2959,3 +2896,35 @@ img {
 }
 
 
+
+
+
+
+
+/*dropdown*/
+
+.work-dropdown {
+  color: #fff;
+  font-family: Apercu, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.w-dropdown-link {
+  color: #222;
+  padding: 10px 20px;
+  display: block;
+}
+
+.w-dropdown-btn, .w-dropdown-toggle, .w-dropdown-link {
+  vertical-align: top;
+  color: #222;
+  text-align: left;
+  white-space: nowrap;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  text-decoration: none;
+  position: relative;
+}
