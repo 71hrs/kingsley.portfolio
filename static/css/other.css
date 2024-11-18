@@ -1696,3 +1696,16 @@ html {
 
 
 
+
+/* 鼠标跟随 */
+#follow-text {
+  position: absolute;
+  pointer-events: none; /* 避免鼠标事件干扰 */
+  color: #ffffff;
+  white-space: nowrap; /* 防止文字换行 */
+  z-index: 9999; /* 确保文字位于所有图层的最上方 */
+  font-family: futura-pt, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 16px;
+}
