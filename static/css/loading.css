@@ -1463,20 +1463,19 @@ html {
 /*DIY*/
 
 .full-content {
-  background-color: #fff;
+  background-color: #f8f8f8;
   padding-top: 70px;
   padding-bottom: 100px;
 }
 
 .part-content {
-  background-color: #fff;
+  background-color: #f8f8f8;
   padding-top: 30px;
   padding-bottom: 30px;
 }
 
 /* 容器样式 */
 .container {
-  background-color: #fff; /* 白色背景 */
   display: flex;
   overflow: hidden; /* 去掉内容溢出 */
   padding-left: 18%; /* 左侧留10%的空白 */
