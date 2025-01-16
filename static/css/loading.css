@@ -1477,13 +1477,13 @@ html {
 .container {
   display: flex;
   overflow: hidden; /* 去掉内容溢出 */
-  padding-left: 18%; /* 左侧留10%的空白 */
-  padding-right: 18%; /* 右侧留10%的空白 */
+  padding-left: 17%; /* 左侧留10%的空白 */
+  padding-right: 17%; /* 右侧留10%的空白 */
 }
 
 /* 左列样式 */
 .left-column {
-  flex: 0 0 40%; /* 左列占30% */
+  flex: 0 0 30%; /* 左列占30% */
   padding: 0px;
   padding-left: 0px;
   padding-right: 20px;
@@ -1494,9 +1494,9 @@ html {
 
 /* 右列样式 */
 .right-column {
-  flex: 0 0 60%; /* 右列占70% */
+  flex: 0 0 70%; /* 右列占70% */
   padding: 0px;
-  padding-left: 140px;
+  padding-left: 170px;
   padding-right: 0px;
   display: flex;
   justify-content: flex-start; /* 右列内容靠左对齐 */
@@ -1693,15 +1693,14 @@ html {
   display: flex; /* 使用 flexbox */
   justify-content: center; /* 水平居中对齐 */
   align-items: center; /* 垂直居中对齐（可选，根据需要） */
-  margin-top: 100px; /* 可选：与上方内容间距 */
-  margin-bottom: 100px; /* 可选：与上方内容间距 */
 }
 
 /* 图片样式 */
 .douller-testing img {
-  width: 45%; /* 图片宽度占容器的80% */
   height: auto; /* 保持图片比例 */
   display: block; /* 防止默认内联图片间隙 */
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 /* 图片样式 */
