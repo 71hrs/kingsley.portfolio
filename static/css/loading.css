@@ -1524,6 +1524,19 @@ html {
   font-size: 16px;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* 图片容器样式 */
 .douller-research {
   display: flex; /* 使用 flexbox */
@@ -1691,18 +1704,42 @@ html {
   display: block; /* 防止默认内联图片间隙 */
 }
 
-
-
-
-
-
-/* dollar-flip */
+/* 图片样式 */
 .competitive-container {
   display: flex;
   overflow: hidden; /* 去掉内容溢出 */
   padding-left: 18%; /* 左侧留10%的空白 */
   padding-right: 18%; /* 右侧留10%的空白 */
 }
+
+/* 图片样式 */
+.douller-color img {
+  height: auto; /* 保持图片比例 */
+  display: block; /* 防止默认内联图片间隙 */
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+/* 图片样式 */
+.douller-logo img {
+  height: auto; /* 保持图片比例 */
+  display: block; /* 防止默认内联图片间隙 */
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+/* 图片样式 */
+.douller-font img {
+  height: auto; /* 保持图片比例 */
+  display: block; /* 防止默认内联图片间隙 */
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+
+
+
+
 
 
 
