@@ -1754,6 +1754,266 @@ html {
 
 
 
+
+
+
+.close-to-me-target-audience {
+  display: flex;
+  justify-content: center; /* 让所有元素水平居中 */
+  align-items: center; /* 让元素在垂直方向上对齐 */
+  gap: 120px; /* 控制每组元素之间的间距 */
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.close-to-me-audience-group {
+  display: flex;
+  align-items: center; /* 让图片和文字垂直居中对齐 */
+  gap: 50px; /* 控制图片和文字之间的间距 */
+}
+
+.close-to-me-audience-group img {
+  max-height: 100px; /* 适当调整图片大小，防止图片过大 */
+  width: auto;
+}
+
+.close-to-me-audience-group p {
+  margin: 0; /* 去除默认的段落间距 */
+  line-height: 1.6;
+  color: #333;
+  font-family: futura-pt, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 16px;
+}
+
+/* 图片样式 */
+.close-to-me-overview-1 img {
+  height: auto; /* 保持图片比例 */
+  display: block; /* 防止默认内联图片间隙 */
+  padding-top: 50px;
+}
+
+/* 图片样式 */
+.close-to-me-overview-2 img {
+  height: auto; /* 保持图片比例 */
+  display: block; /* 防止默认内联图片间隙 */
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+/* 图片样式 */
+.close-to-me-pain-point img {
+  height: auto; /* 保持图片比例 */
+  display: block; /* 防止默认内联图片间隙 */
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+/* 图片样式 */
+.close-to-me-persona {
+  display: flex;
+  flex-direction: column; /* 让子元素垂直排列 */
+  align-items: center; /* 水平居中 */
+}
+
+.close-to-me-persona-01,
+.close-to-me-persona-02 {
+  text-align: center; /* 让内容居中 */
+}
+
+.close-to-me-persona-01 img,
+.close-to-me-persona-02 img {
+  height: auto; /* 保持图片比例 */
+  display: block; /* 避免 inline-block 布局导致的额外间隙 */
+  margin: 0 auto; /* 让图片在 div 内水平居中 */
+  padding-top: 100px;
+}
+
+.close-to-me-persona-caption {
+  font-size: 16px;
+  color: #666; /* 设定文字颜色 */
+  margin-top: 10px; /* 可调整文字与图片的间距 */
+  text-align: center;
+  font-family: futura-pt, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* 图片样式 */
+.close-to-me-prototype img {
+  height: auto; /* 保持图片比例 */
+  display: block; /* 防止默认内联图片间隙 */
+  padding-top: 100px;
+}
+
+.close-to-me-promotion img {
+  height: auto; /* 保持图片比例 */
+  display: block; /* 防止默认内联图片间隙 */
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+/* 容器样式 */
+.close-to-me-contestant-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 17%;
+  padding-right: 17%;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+/* 每一行的样式 */
+.close-to-me-contestant-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 70px; /* 行与行之间的间隔 */
+  width: 100%;
+  gap: 20px; /* 图片与文字之间的间隔 */
+}
+
+/* 每一列图片样式 */
+.close-to-me-contestant-image {
+  flex: 0 1 45%;  /* 图片占据容器的 45% */
+  display: flex;
+  justify-content: center;
+}
+
+/* 每一列文字样式 */
+.close-to-me-contestant-text {
+  flex: 0 1 45%;  /* 文字占据容器的 45% */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 20px;  /* 文字部分左右内边距 */
+  text-align: left;
+}
+
+/* 图片样式 */
+.close-to-me-contestant-image img {
+  max-width: 100%;  /* 确保图片不超出容器 */
+  height: auto;  /* 保持图片的比例 */
+}
+
+/* 标题样式 */
+.close-to-me-contestant-title {
+  color: rgb(183, 152, 216);
+  text-decoration: none;
+  font-family: futura-pt, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 16px;
+}
+
+/* 文字描述样式 */
+.close-to-me-contestant-text p {
+  color: #333;
+  margin-top: 10px;
+  font-family: futura-pt, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 16px;
+}
+
+/* 容器样式 */
+.close-to-me-audience-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 17%;
+  padding-right: 17%;
+  padding-top: 100px;
+}
+
+/* 每一行的样式 */
+.close-to-me-audience-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 70px; /* 行与行之间的间隔 */
+  width: 100%;
+  gap: 20px; /* 图片与文字之间的间隔 */
+}
+
+/* 每一列图片样式 */
+.close-to-me-audience-image {
+  flex: 0 1 45%;  /* 图片占据容器的 45% */
+  display: flex;
+  justify-content: center;
+}
+
+/* 每一列文字样式 */
+.close-to-me-audience-text {
+  flex: 0 1 45%;  /* 文字占据容器的 45% */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 20px;  /* 文字部分左右内边距 */
+  text-align: left;
+}
+
+/* 图片样式 */
+.close-to-me-audience-image img {
+  max-width: 100%;  /* 确保图片不超出容器 */
+  height: auto;  /* 保持图片的比例 */
+}
+
+/* 标题样式 */
+.close-to-me-audience-title {
+  color: rgb(183, 152, 216);
+  text-decoration: none;
+  font-family: futura-pt, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 16px;
+}
+
+/* 文字描述样式 */
+.close-to-me-audience-text p {
+  color: #333;
+  margin-top: 10px;
+  font-family: futura-pt, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 16px;
+}
+
+.close-to-me-effect-container {
+  display: flex;
+  justify-content: center;  /* 让整个容器居中 */
+  align-items: center;
+  gap: 50px;  /* 控制图片之间的间隔 */
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.close-to-me-effect-image {
+  flex: 1;  /* 让每个图片区域均分可用空间 */
+  display: flex;
+  justify-content: center; /* 让图片在各自的容器内居中 */
+  align-items: center;
+}
+
+.close-to-me-effect-image img {
+  max-width: 100%; /* 控制图片大小，可根据需要调整 */
+  height: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* 鼠标跟随 */
 #follow-text {
   position: absolute;
