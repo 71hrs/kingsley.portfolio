@@ -1859,8 +1859,8 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-left: 20%;
-  padding-right: 20%;
+  padding-left: 17%;
+  padding-right: 17%;
   padding-top: 100px;
   padding-bottom: 100px;
 }
@@ -1877,14 +1877,14 @@ html {
 
 /* 每一列图片样式 */
 .close-to-me-contestant-image {
-  flex: 0 1 45%;  /* 图片占据容器的 45% */
+  flex: 0 1 40%;  /* 图片占据容器的 45% */
   display: flex;
   justify-content: center;
 }
 
 /* 每一列文字样式 */
 .close-to-me-contestant-text {
-  flex: 0 1 45%;  /* 文字占据容器的 45% */
+  flex: 0 1 40%;  /* 文字占据容器的 45% */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1923,8 +1923,8 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-left: 20%;
-  padding-right: 20%;
+  padding-left: 17%;
+  padding-right: 17%;
   padding-top: 100px;
 }
 
@@ -1940,18 +1940,18 @@ html {
 
 /* 每一列图片样式 */
 .close-to-me-audience-image {
-  flex: 0 1 45%;  /* 图片占据容器的 45% */
+  flex: 0 1 40%;  /* 图片占据容器的 45% */
   display: flex;
   justify-content: center;
 }
 
 /* 每一列文字样式 */
 .close-to-me-audience-text {
-  flex: 0 1 45%;  /* 文字占据容器的 45% */
+  flex: 0 1 40%;  /* 文字占据容器的 45% */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 2\10px;  /* 文字部分左右内边距 */
+  padding: 0 10px;  /* 文字部分左右内边距 */
   text-align: left;
 }
 
