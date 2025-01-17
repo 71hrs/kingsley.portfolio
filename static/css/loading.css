@@ -2459,7 +2459,7 @@ html {
   justify-content: space-between; /* 图片之间留有间隔 */
   gap: 20px; /* 设置图片之间的间隔 */
   width: 100%; /* 容器宽度占满整个父容器 */
-  padding: 20px; /* 内边距，确保内容不紧贴边缘 */
+  padding-top: 100px;
 }
 
 /* 每张图片 */
@@ -2479,7 +2479,7 @@ html {
   justify-content: space-between; /* 图片之间留有间隔 */
   gap: 20px; /* 设置图片之间的间隔 */
   width: 100%; /* 容器宽度占满整个父容器 */
-  padding: 20px; /* 内边距，确保内容不紧贴边缘 */
+  padding-top: 100px;
 }
 
 /* 每张图片 */
