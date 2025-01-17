@@ -2431,7 +2431,25 @@ html {
   height: auto; /* 保持图片比例 */
 }
 
+/* 视频容器 */
+.valentino-beauty-wechat {
+  display: flex; /* 使用 flex 布局 */
+  flex-wrap: wrap; /* 允许换行 */
+  justify-content: space-between; /* 每行视频之间保持间隔 */
+  gap: 20px; /* 设置视频之间的间隔 */
+  width: 100%; /* 容器宽度占满整个父容器 */
+  padding: 20px; /* 内边距，确保内容不紧贴边缘 */
+}
 
+/* 每个视频的包裹容器 */
+.valentino-beauty-wechat iframe {
+  width: 100%; /* 容器宽度占满父容器 */
+  height: auto; /* 自动调整高度，保持原始比例 */
+  aspect-ratio: 16/9; /* 保持视频的宽高比 */
+  max-width: 100%; /* 保证视频宽度不会超过父容器 */
+  display: block; /* 使其为块级元素，居中 */
+  margin: 0 auto; /* 垂直和水平居中 */
+}
 
 
 
