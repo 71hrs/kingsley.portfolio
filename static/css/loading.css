@@ -2415,6 +2415,44 @@ html {
 
 
 
+
+/* 图片容器 */
+.valentino-beauty-weibo {
+  display: flex; /* 使用flex布局 */
+  flex-direction: column; /* 图片竖直排列 */
+  align-items: center; /* 图片居中 */
+  gap: 20px; /* 图片之间的间隔，可以根据需求调整 */
+  padding-top: 100px;
+}
+
+/* 图片样式 */
+.valentino-beauty-weibo img {
+  width: 100%; /* 控制图片宽度，可以调整为你需要的比例 */
+  height: auto; /* 保持图片比例 */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* 鼠标跟随 */
 #follow-text {
   position: absolute;
