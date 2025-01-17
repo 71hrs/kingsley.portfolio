@@ -2375,8 +2375,33 @@ html {
   padding-bottom: 50px;
 }
 
+/* 图片样式 */
+.glamhub-workflow img {
+  height: auto; /* 保持图片比例 */
+  display: block; /* 防止默认内联图片间隙 */
+  padding-top: 50px;
+}
 
+/* 图片样式 */
+.glamhub-prototype img {
+  height: auto; /* 保持图片比例 */
+  display: block; /* 防止默认内联图片间隙 */
+  padding-top: 100px;
+}
 
+/* 图片样式 */
+.glamhub-outcome-01 img {
+  height: auto; /* 保持图片比例 */
+  display: block; /* 防止默认内联图片间隙 */
+  padding-top: 100px;
+}
+
+/* 图片样式 */
+.glamhub-outcome-02 img {
+  height: auto; /* 保持图片比例 */
+  display: block; /* 防止默认内联图片间隙 */
+  padding-top: 100px;
+}
 
 
 
