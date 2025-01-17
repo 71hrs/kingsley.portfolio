@@ -2037,6 +2037,228 @@ html {
 
 
 
+
+
+/* 容器样式 */
+.chem-guard-research-image {
+  display: flex;
+  justify-content: space-between;  /* 保证图片之间有相等的间隔 */
+  align-items: center;  /* 垂直居中对齐 */
+  gap: 100px;  /* 设置图片之间的间距 */
+  width: 100%;  /* 保证容器占满整个宽度 */
+  padding-top: 100px;
+}
+
+/* 每个图片容器的样式 */
+.chem-guard-research-image-container {
+  flex: 1;  /* 每个图片容器占据相同的空间 */
+  display: flex;
+  justify-content: center;  /* 图片居中 */
+}
+
+/* 图片样式 */
+.chem-guard-research-image-container img {
+  width: 100%;  /* 图片宽度填充容器 */
+  height: auto;  /* 保持图片比例 */
+  object-fit: contain;  /* 保证图片适应容器 */
+}
+
+/* 场景容器样式 */
+.chem-guard-scenarios {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2列布局 */
+  grid-template-rows: repeat(2, 1fr); /* 2行布局 */
+  grid-gap: 20px; /* 每个图片间的间隔 */
+  width: 100%;
+  height: 100%;
+  padding-bottom: 100px;
+}
+
+/* 单个图片容器样式 */
+.chem-guard-scenario {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%; /* 图片容器撑满父容器 */
+}
+
+/* 图片样式 */
+.chem-guard-scenario img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 保证图片不失真并充满容器 */
+}
+
+/* sketch容器 */
+.chem-guard-sketch {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 三列布局 */
+  gap: 40px; /* 每个图片之间的间距 */
+  width: 100%; /* 使图片占满容器 */
+  max-width: 1200px; /* 限制容器最大宽度 */
+  padding-top: 100px;
+}
+
+/* 每个图片容器 */
+.chem-guard-sketch-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 图片样式 */
+.chem-guard-sketch-container img {
+  max-width: 75%;  /* 确保图片不会超出容器 */
+  height: auto;  /* 保持图片比例 */
+}
+
+/* 文字样式 */
+.chem-guard-sketch-container p {
+  text-align: center;
+  font-family: futura-pt, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
+  margin-top: 10px;
+}
+
+/* 整体容器，居中排列两个框 */
+.chem-guard-3D-modeling {
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  gap: 30px; /* 两个框之间的间距 */
+  width: 100%;
+  padding-top: 100px;
+}
+
+/* 每个图片和文字容器的样式 */
+.chem-guard-3D-modeling-container {
+  display: flex;
+  flex-direction: column; /* 文字在图片下方 */
+  justify-content: center; /* 文字和图片垂直居中对齐 */
+  align-items: center; /* 图片和文字水平方向居中 */
+  width: 45%; /* 每个容器宽度为 45% */
+}
+
+/* 图片样式 */
+.chem-guard-3D-modeling-container img {
+  width: 80%; /* 设置图片宽度为容器的 80% */
+  height: auto; /* 保持图片的比例 */
+  object-fit: contain; /* 确保图片不被拉伸 */
+}
+
+/* 自定义图片1的大小，设置为比右边图片小 */
+.chem-guard-img-01 {
+  width: 80%; /* 设置左边图片宽度为容器的 80% */
+  max-width: 250px; /* 限制最大宽度为 250px */
+}
+
+/* 自定义图片2的大小 */
+.chem-guard-img-02 {
+  width: 80%; /* 设置右边图片宽度为容器的 80% */
+  max-width: 300px; /* 限制最大宽度为 250px */
+}
+
+/* 文字样式 */
+.chem-guard-3D-modeling-container p {
+  font-family: futura-pt, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  text-align: left;
+  padding-top: 50px; /* 文字与图片的间距 */
+  width: 90%; /* 设置文字容器的宽度 */
+  max-width: 500px; /* 限制最大宽度 */
+}
+
+.chem-guard-explosion-diagram img {
+  height: auto; /* 保持图片比例 */
+  display: block; /* 防止默认内联图片间隙 */
+  padding-top: 100px;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+/* 容器样式 */
+.chem-guard-mockup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 17%;
+  padding-right: 17%;
+  padding-top: 100px;
+}
+
+/* 每一行的样式 */
+.chem-guard-mockup-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 70px; /* 行与行之间的间隔 */
+  width: 100%;
+  gap: 20px; /* 图片与文字之间的间隔 */
+}
+
+/* 每一列图片样式 */
+.chem-guard-mockup-image {
+  flex: 0 1 40%;  /* 图片占据容器的 45% */
+  display: flex;
+  justify-content: center;
+}
+
+/* 每一列文字样式 */
+.chem-guard-mockup-text {
+  flex: 0 1 40%;  /* 文字占据容器的 45% */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 10px;  /* 文字部分左右内边距 */
+  text-align: left;
+}
+
+/* 图片样式 */
+.chem-guard-mockup-image img {
+  max-width: 100%;  /* 确保图片不超出容器 */
+  height: auto;  /* 保持图片的比例 */
+}
+
+/* 标题样式 */
+.chem-guard-mockup-title {
+  color: rgba(85, 178, 122, 0.784);
+  text-decoration: none;
+  font-family: futura-pt, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 16px;
+}
+
+/* 文字描述样式 */
+.chem-guard-mockup-text p {
+  color: #333;
+  margin-top: 10px;
+  font-family: futura-pt, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* 鼠标跟随 */
 #follow-text {
   position: absolute;
