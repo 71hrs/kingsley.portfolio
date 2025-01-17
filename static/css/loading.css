@@ -1859,8 +1859,8 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-left: 17%;
-  padding-right: 17%;
+  padding-left: 20%;
+  padding-right: 20%;
   padding-top: 100px;
   padding-bottom: 100px;
 }
@@ -1888,7 +1888,7 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 20px;  /* 文字部分左右内边距 */
+  padding: 0 10px;  /* 文字部分左右内边距 */
   text-align: left;
 }
 
@@ -1923,8 +1923,8 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-left: 17%;
-  padding-right: 17%;
+  padding-left: 20%;
+  padding-right: 20%;
   padding-top: 100px;
 }
 
@@ -1951,7 +1951,7 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 20px;  /* 文字部分左右内边距 */
+  padding: 0 2\10px;  /* 文字部分左右内边距 */
   text-align: left;
 }
 
