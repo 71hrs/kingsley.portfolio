@@ -1628,50 +1628,6 @@ html {
   display: block; /* 防止默认内联图片间隙 */
 }
 
-/* 容器样式 */
-.douller-ui {
-  width: 90%; /* 容器宽度 */
-  max-width: 1200px; /* 最大宽度 */
-  margin: 20px auto; /* 容器上下留空并水平居中 */
-  padding: 0 10%; /* 添加内边距，确保容器内有适当的空隙 */
-}
-
-/* 每行样式 */
-.douller-ui-row {
-  display: flex; /* Flexbox 布局 */
-  justify-content: space-between; /* 每个 item 平分左右空间，且之间有间距 */
-  margin-bottom: 50px; /* 行之间的间距 */
-}
-
-/* 单个项目样式 */
-.douller-ui-item {
-  display: flex; /* Flexbox 布局，确保图片和文字横向排列 */
-  align-items: center; /* 子元素垂直居中 */
-  justify-content: flex-start; /* 图片和文字从左对齐 */
-  width: 48%; /* 每个项目宽度，保证两列布局 */
-  text-align: left; /* 文字居左对齐 */
-  margin-top: 50px;
-}
-
-/* 图片样式 */
-.douller-ui-item img {
-  width: 50%; /* 图片宽度 */
-  height: auto; /* 保持图片比例 */
-  display: block; /* 避免底部空白间隙 */
-  margin: 0 auto; /* 使图片在容器中水平居中 */
-  margin-right: 20px; /* 图片和文字之间的间距 */
-}
-
-/* 文字样式 */
-.douller-ui-item .douller-ui-text {
-  font-size: 14px;
-  line-height: 1.6; /* 行高调整 */
-  color: #333;
-  max-width: 200px; /* 设置文字部分的最大宽度 */
-  word-wrap: break-word; /* 确保长单词不会超出边界 */
-  flex-shrink: 1; /* 允许文字部分在空间不足时收缩 */
-}
-
 /* 图片容器样式 */
 .douller-development {
   display: flex; /* 使用 flexbox */
@@ -1741,6 +1697,73 @@ html {
   padding-top: 50px;
   padding-bottom: 50px;
 }
+
+/* 容器样式 */
+.douller-ui-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 17%;
+  padding-right: 17%;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+/* 每一行的样式 */
+.douller-ui-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 70px; /* 行与行之间的间隔 */
+  width: 100%;
+  gap: 20px; /* 图片与文字之间的间隔 */
+}
+
+/* 每一列图片样式 */
+.douller-ui-image {
+  flex: 0 1 40%;  /* 图片占据容器的 40% */
+  display: flex;
+  justify-content: center;
+}
+
+/* 每一列文字样式 */
+.douller-ui-text {
+  flex: 0 1 40%;  /* 文字占据容器的 40% */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 10px;  /* 文字部分左右内边距 */
+  text-align: left;
+}
+
+/* 图片样式 */
+.douller-ui-image img {
+  max-width: 100%;  /* 确保图片不超出容器 */
+  height: auto;  /* 保持图片的比例 */
+}
+
+/* 标题样式 */
+.douller-ui-title {
+  color: #6927ef;
+  text-decoration: none;
+  font-family: futura-pt, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 16px;
+}
+
+/* 文字描述样式 */
+.douller-ui-text p {
+  color: #333;
+  margin-top: 10px;
+  font-family: futura-pt, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 16px;
+}
+
+
+
 
 
 
