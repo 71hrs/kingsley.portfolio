@@ -2436,24 +2436,62 @@ html {
   display: flex; /* 使用 flex 布局 */
   flex-wrap: wrap; /* 允许换行 */
   justify-content: space-between; /* 每行视频之间保持间隔 */
-  gap: 20px; /* 设置视频之间的间隔 */
+  gap: 10px; /* 设置视频之间的间隔 */
   width: 100%; /* 容器宽度占满整个父容器 */
-  padding: 20px; /* 内边距，确保内容不紧贴边缘 */
+  padding-top: 100px;
 }
 
 /* 每个视频的包裹容器 */
 .valentino-beauty-wechat iframe {
-  width: 100%; /* 容器宽度占满父容器 */
+  width: 45%; /* 设置视频框宽度，宽度是容器的45% */
   height: auto; /* 自动调整高度，保持原始比例 */
   aspect-ratio: 16/9; /* 保持视频的宽高比 */
-  max-width: 100%; /* 保证视频宽度不会超过父容器 */
+  max-width: 100%; /* 最大宽度为父容器的100% */
   display: block; /* 使其为块级元素，居中 */
   margin: 0 auto; /* 垂直和水平居中 */
+  transform: scale(0.9); /* 按比例缩小视频框，缩小到90% */
+  transform-origin: center; /* 确保缩小是从中心点开始 */
 }
 
+/* 图片容器 */
+.valentino-beauty-red {
+  display: flex; /* 使用 flex 布局 */
+  justify-content: space-between; /* 图片之间留有间隔 */
+  gap: 20px; /* 设置图片之间的间隔 */
+  width: 100%; /* 容器宽度占满整个父容器 */
+  padding: 20px; /* 内边距，确保内容不紧贴边缘 */
+}
 
+/* 每张图片 */
+.valentino-beauty-red img {
+  width: 45%; /* 图片宽度是容器的 45% */
+  height: auto; /* 保持图片的比例 */
+  max-width: 100%; /* 最大宽度为父容器的 100% */
+  display: block; /* 使其为块级元素 */
+  margin: 0 auto; /* 垂直和水平居中 */
+  transform: scale(0.9); /* 按比例缩小图片框，缩小到90% */
+  transform-origin: center; /* 确保缩小是从中心点开始 */
+}
 
+/* 图片容器 */
+.valentino-beauty-tiktok {
+  display: flex; /* 使用 flex 布局 */
+  justify-content: space-between; /* 图片之间留有间隔 */
+  gap: 20px; /* 设置图片之间的间隔 */
+  width: 100%; /* 容器宽度占满整个父容器 */
+  padding: 20px; /* 内边距，确保内容不紧贴边缘 */
+}
 
+/* 每张图片 */
+.valentino-beauty-tiktok img {
+  width: 45%; /* 图片宽度是容器的 45% */
+  height: auto; /* 保持图片的比例 */
+  max-width: 100%; /* 最大宽度为父容器的 100% */
+  display: block; /* 使其为块级元素 */
+  margin: 0 auto; /* 垂直和水平居中 */
+  transform: scale(0.9); /* 按比例缩小图片框，缩小到90% */
+  transform-origin: center; /* 确保缩小是从中心点开始 */
+}
 
 
 
