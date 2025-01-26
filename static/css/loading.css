@@ -503,6 +503,16 @@ html {
   .work-dropdown:hover {
     opacity: 1;
   }
+
+  .work-dropdown.w--current {
+    padding-top: 7px;
+    padding-bottom: 7px;
+  }
+  
+  .work-drop.w--open {
+    background-color: #ddd0;
+    margin-top: 40px;
+  }
   
   .main-shapes-wrapper {
     filter: blur(120px);
@@ -1132,6 +1142,13 @@ html {
       background-color: #000000e6;
       justify-content: center;
       display: flex;
+    }
+
+    .work-drop.w--open {
+      flex-flow: column;
+      margin-top: 0;
+      display: block;
+      position: relative;
     }
   
     .new-container {
