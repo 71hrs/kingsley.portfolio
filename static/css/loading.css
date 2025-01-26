@@ -178,6 +178,10 @@ html {
     display: none;
     position: absolute;
   }
+
+  .w-dropdown-list.w--open {
+    display: block;
+  }
   
   .w-dropdown-link {
     color: #222;
@@ -502,16 +506,6 @@ html {
   
   .work-dropdown:hover {
     opacity: 1;
-  }
-
-  .work-dropdown.w--current {
-    padding-top: 7px;
-    padding-bottom: 7px;
-  }
-  
-  .work-drop.w--open {
-    background-color: #ddd0;
-    margin-top: 40px;
   }
   
   .main-shapes-wrapper {
@@ -1142,13 +1136,6 @@ html {
       background-color: #000000e6;
       justify-content: center;
       display: flex;
-    }
-
-    .work-drop.w--open {
-      flex-flow: column;
-      margin-top: 0;
-      display: block;
-      position: relative;
     }
   
     .new-container {
