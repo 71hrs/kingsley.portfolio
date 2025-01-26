@@ -1459,6 +1459,22 @@ html {
   }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*DIY*/
 
 .full-content {
@@ -1534,8 +1550,32 @@ html {
 
 
 
+/* Dollar Flip */
+.gradient-background {
+  background-color: #1b1b1b;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  font-size: 1vw;
+  position: absolute;
+  inset: 0%;
+  overflow: hidden;
+  transform: rotate(0);
+}
 
+.gradient-background.dollar-flip {
+  background-color: #181818;
+}
 
+.main-shapes-wrapper {
+  filter: blur(120px);
+  margin-top: -85px;
+}
+
+.main-shapes-wrapper.dollar-flip {
+  margin-top: -220px;
+}
 
 /* 图片容器样式 */
 .douller-research {
