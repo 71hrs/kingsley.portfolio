@@ -12874,6 +12874,7 @@ figcaption {
 
 .homepage-client-container {
   margin: 0 auto; /* 整个容器水平居中 */
+  padding: 0; /* 确保容器没有内边距 */
 }
 
 .homepage-client-title {
@@ -12889,18 +12890,17 @@ figcaption {
 
 .homepage-client-grid {
   display: flex; /* 使用 Flexbox 布局 */
-  justify-content: flex-start; /* 图片靠左对齐 */
+  justify-content: space-between; /* 图片均匀分布，并让两端贴边 */
   align-items: center; /* 图片垂直居中 */
+  margin: 0; /* 移除默认的外边距 */
   gap: 20px; /* 图片之间的固定间距 */
-  flex-wrap: nowrap; /* 确保所有图片在一行 */
 }
 
 .homepage-client-element {
-  flex: 1; /* 平均分配每张图片的宽度 */
-  max-width: 16%; /* 限制图片的最大宽度，确保6张图占满容器 */
   display: flex;
   justify-content: center; /* 图片在各自容器内水平居中 */
   align-items: center;
+  margin: 0; /* 确保没有额外的外边距 */
 }
 
 .homepage-client-element img {
@@ -12909,5 +12909,13 @@ figcaption {
   object-fit: contain; /* 保证图片内容不会被裁剪且保持比例 */
   border-radius: 8px; /* 可选：圆角样式 */
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* 可选：增加阴影 */
-  padding: 7px; /* 可选：为 logo 提供一些内边距 */
+  padding: 7px; /* 为 logo 提供一些内边距 */
+}
+
+.homepage-client-element:first-child {
+  margin-left: 0; /* 最左边元素贴边 */
+}
+
+.homepage-client-element:last-child {
+  margin-right: 0; /* 最右边元素贴边 */
 }
