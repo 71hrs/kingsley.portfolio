@@ -2197,7 +2197,6 @@ li {
 }
 
 img {
-  margin-top: 39px;
   display: block;
 }
 
@@ -2980,7 +2979,7 @@ figcaption {
 .curr-prev {
   color: #fff;
   letter-spacing: 4px;
-  margin-top: 0;
+  margin-top: 100px;
   margin-bottom: 10px;
   font-family: Gooper, sans-serif;
   font-size: 16px;
@@ -12862,3 +12861,54 @@ figcaption {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+.homepage-client-container {
+  margin: 0 auto; /* 整个容器水平居中 */
+}
+
+.homepage-client-title {
+  color: #fff;
+  letter-spacing: 4px;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  font-family: Gooper, sans-serif;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.homepage-client-grid {
+  display: flex; /* 使用 Flexbox 布局 */
+  justify-content: flex-start; /* 图片靠左对齐 */
+  align-items: center; /* 图片垂直居中 */
+  gap: 20px; /* 图片之间的固定间距 */
+  flex-wrap: nowrap; /* 确保所有图片在一行 */
+}
+
+.homepage-client-element {
+  flex: 1; /* 平均分配每张图片的宽度 */
+  max-width: 16%; /* 限制图片的最大宽度，确保6张图占满容器 */
+  display: flex;
+  justify-content: center; /* 图片在各自容器内水平居中 */
+  align-items: center;
+}
+
+.homepage-client-element img {
+  width: 100px; /* 设置统一的宽度 */
+  height: 45px; /* 设置统一的高度 */
+  object-fit: contain; /* 保证图片内容不会被裁剪且保持比例 */
+  border-radius: 8px; /* 可选：圆角样式 */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* 可选：增加阴影 */
+  padding: 7px; /* 可选：为 logo 提供一些内边距 */
+}
