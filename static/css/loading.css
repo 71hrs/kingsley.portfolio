@@ -1721,7 +1721,6 @@ html {
 
 /* 图片样式 */
 .douller-user-testing img {
-  width: 55%; /* 图片宽度占容器的80% */
   height: auto; /* 保持图片比例 */
   display: block; /* 防止默认内联图片间隙 */
 }
