@@ -1624,7 +1624,6 @@ html {
 
 /* 图片样式 */
 .douller-swot img {
-  width: 45%; /* 图片宽度占容器的80% */
   height: auto; /* 保持图片比例 */
   display: block; /* 防止默认内联图片间隙 */
 }
