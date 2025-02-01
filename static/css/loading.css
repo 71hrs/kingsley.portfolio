@@ -1617,7 +1617,7 @@ html {
   display: flex;
   flex-direction: column; /* 上下排列 */
   gap: 100px; /* 设置间距 */
-  padding-top: 50px;
+  padding-top: 100px;
   padding-bottom: 100px;
 }
 
@@ -1714,14 +1714,6 @@ html {
   display: block; /* 防止默认内联图片间隙 */
   padding-top: 50px;
   padding-bottom: 50px;
-}
-
-/* 图片样式 */
-.competitive-container {
-  display: flex;
-  overflow: hidden; /* 去掉内容溢出 */
-  padding-left: 18%; /* 左侧留10%的空白 */
-  padding-right: 18%; /* 右侧留10%的空白 */
 }
 
 /* 图片样式 */
