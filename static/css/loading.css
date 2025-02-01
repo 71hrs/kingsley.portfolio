@@ -1614,7 +1614,6 @@ html {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 25px; /* 给容器设置圆角 */
 }
 
 /* 图片容器样式 */
