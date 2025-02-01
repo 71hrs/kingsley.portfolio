@@ -1631,16 +1631,15 @@ html {
 
 /* 父容器样式 */
 .douller-persona {
-  text-align: center; /* 容器内内容水平居中 */
+  display: flex;
+  flex-direction: column;
+  gap: 50px; /* Adjust the space between images */
   padding-top: 100px;
 }
 
-/* 图片容器样式 */
 .douller-persona img {
-  display: inline-block; /* 图片设置为行内块元素 */
-  width: 35%; /* 每张图片占父容器45%宽度 */
-  margin: 0 2%; /* 图片之间留出空隙 */
-  vertical-align: top; /* 保证图片顶部对齐 */
+  width: 100%; /* You can adjust the width if necessary */
+  height: auto;
 }
 
 /* 图片容器样式 */
