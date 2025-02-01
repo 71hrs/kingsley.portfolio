@@ -1616,19 +1616,27 @@ html {
   display: block;
 }
 
-/* 图片容器样式 */
-.douller-research {
-  display: flex; /* 使用 flexbox */
-  justify-content: center; /* 水平居中对齐 */
-  align-items: center; /* 垂直居中对齐（可选，根据需要） */
-}
-
-/* 图片样式 */
-.douller-research img {
-  height: auto; /* 保持图片比例 */
-  display: block; /* 防止默认内联图片间隙 */
+.douller-survey {
+  display: flex;
+  flex-direction: column; /* 上下排列 */
   padding-top: 50px;
   padding-bottom: 50px;
+}
+
+.douller-survey-item img {
+  max-width: 100%;
+  height: auto;
+}
+
+.douller-survey-image {
+  display: block;
+  margin: 0 auto;
+}
+
+.douller-survey-caption {
+  font-size: 14px;  /* Adjust the font size */
+  text-align: center;
+  margin-top: 10px;  /* Adjust the distance from the image */
 }
 
 .douller-competitor-analysis {
@@ -1645,7 +1653,7 @@ html {
   height: auto;
 }
 
-.-competitor-analysis-douller-image, .douller-image {
+.douller-competitor-analysis-image, .douller-swot-image {
   display: block;
   margin: 0 auto;
 }
