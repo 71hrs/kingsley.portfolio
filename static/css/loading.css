@@ -1616,9 +1616,9 @@ html {
 .douller-competitor-analysis {
   display: flex;
   flex-direction: column; /* 上下排列 */
-  gap: 100px; /* 设置间距 */
-  padding-top: 100px;
-  padding-bottom: 100px;
+  gap: 50px; /* 设置间距 */
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .douller-competitor-analysis-item img,
@@ -1627,17 +1627,39 @@ html {
   height: auto;
 }
 
+.-competitor-analysis-douller-image, .douller-image {
+  display: block;
+  margin: 0 auto;
+}
+
+.douller-competitor-analysis-caption, .douller-swot-caption {
+  font-size: 14px;  /* Adjust the font size */
+  text-align: center;
+  margin-top: 10px;  /* Adjust the distance from the image */
+}
+
 /* 父容器样式 */
 .douller-persona {
   display: flex;
   flex-direction: column;
   gap: 50px; /* Adjust the space between images */
-  padding-top: 100px;
+  padding-top: 50px;
 }
 
 .douller-persona img {
   width: 100%; /* You can adjust the width if necessary */
   height: auto;
+}
+
+.douller-persona-image {
+  display: block;
+  margin: 0 auto;
+}
+
+.douller-persona-caption {
+  font-size: 14px;  /* Adjust the font size */
+  text-align: center;
+  margin-top: 10px;  /* Adjust the distance from the image */
 }
 
 /* 图片容器样式 */
