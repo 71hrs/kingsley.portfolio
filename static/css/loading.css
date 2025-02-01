@@ -1613,19 +1613,18 @@ html {
   padding-bottom: 50px;
 }
 
-/* 图片容器样式 */
-.douller-swot {
-  display: flex; /* 使用 flexbox */
-  justify-content: center; /* 水平居中对齐 */
-  align-items: center; /* 垂直居中对齐（可选，根据需要） */
-  margin-top: 100px; /* 可选：与上方内容间距 */
-  margin-bottom: 100px;
+.douller-competitor-analysis {
+  display: flex;
+  flex-direction: column; /* 上下排列 */
+  gap: 100px; /* 设置间距 */
+  padding-top: 50px;
+  padding-bottom: 100px;
 }
 
-/* 图片样式 */
+.douller-competitor-analysis-item img,
 .douller-swot img {
-  height: auto; /* 保持图片比例 */
-  display: block; /* 防止默认内联图片间隙 */
+  max-width: 100%;
+  height: auto;
 }
 
 /* 父容器样式 */
