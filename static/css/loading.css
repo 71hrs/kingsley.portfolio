@@ -1795,6 +1795,14 @@ html {
   padding-bottom: 50px;
 }
 
+/* 图片容器样式 */
+.douller-hifi {
+  display: flex; /* 使用 flexbox */
+  justify-content: center; /* 水平居中对齐 */
+  align-items: center; /* 垂直居中对齐（可选，根据需要） */
+  margin-top: 50px; /* 可选：与上方内容间距 */
+}
+
 /* 容器样式 */
 .douller-ui-container {
   display: flex;
