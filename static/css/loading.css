@@ -1607,7 +1607,7 @@ html {
 .douller-overview-wrapper {
   width: 100%;
   overflow: hidden; /* 防止超出部分影响圆角 */
-  padding-top: 50px;
+  padding-top: 100px;
 }
 
 .douller-overview-image {
