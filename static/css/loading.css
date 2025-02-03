@@ -1918,7 +1918,7 @@ html {
 .douller-design-process img {
   height: auto; /* 保持图片比例 */
   display: block; /* 防止默认内联图片间隙 */
-  width: 80%;
+  width: 85%;
   padding-top: 100px;
 }
 
