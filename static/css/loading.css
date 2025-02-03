@@ -1864,7 +1864,19 @@ html {
   padding-top: 100px;
 }
 
+/* 图片容器样式 */
+.douller-usability-testing-2 {
+  display: flex; /* 使用 flexbox */
+  justify-content: center; /* 水平居中对齐 */
+  align-items: center; /* 垂直居中对齐（可选，根据需要） */
+}
 
+/* 图片样式 */
+.douller-usability-testing-2 img {
+  height: auto; /* 保持图片比例 */
+  display: block; /* 防止默认内联图片间隙 */
+  padding-top: 100px;
+}
 
 
 
