@@ -1644,7 +1644,6 @@ html {
   flex-direction: column; /* 上下排列 */
   gap: 50px; /* 设置间距 */
   padding-top: 50px;
-  padding-bottom: 50px;
 }
 
 .douller-competitor-analysis-item img,
@@ -1675,6 +1674,7 @@ html {
   flex-direction: column;
   gap: 50px; /* Adjust the space between images */
   padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .douller-persona img {
