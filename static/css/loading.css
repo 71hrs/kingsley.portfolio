@@ -1620,7 +1620,7 @@ html {
   display: flex;
   flex-direction: column; /* 上下排列 */
   padding-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 100px;
 }
 
 .douller-survey-item img {
@@ -1674,7 +1674,7 @@ html {
   flex-direction: column;
   gap: 50px; /* Adjust the space between images */
   padding-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 100px;
 }
 
 .douller-persona img {
