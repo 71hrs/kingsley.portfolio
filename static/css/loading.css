@@ -1949,7 +1949,31 @@ html {
 
 
 
+.close-to-me-survey-image-container {
+  display: flex;
+  flex-direction: column; /* 让图片上下排列 */
+  gap: 50px; /* 图片之间的间距，可以根据需要调整 */
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
 
+.close-to-me-survey-image-item img {
+  width: 100%; /* 让图片宽度适应容器 */
+  height: auto; /* 保持图片的原始比例 */
+}
+
+.close-to-me-persona-image-container {
+  display: flex;
+  flex-direction: column; /* 让图片上下排列 */
+  gap: 50px; /* 图片之间的间距，可以根据需要调整 */
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.close-to-me-persona-image-item img {
+  width: 100%; /* 让图片宽度适应容器 */
+  height: auto; /* 保持图片的原始比例 */
+}
 
 .close-to-me-target-audience {
   display: flex;
@@ -1982,18 +2006,38 @@ html {
 }
 
 /* 图片样式 */
-.close-to-me-overview-1 img {
-  height: auto; /* 保持图片比例 */
-  display: block; /* 防止默认内联图片间隙 */
-  padding-top: 50px;
-}
-
-/* 图片样式 */
 .close-to-me-overview-2 img {
   height: auto; /* 保持图片比例 */
   display: block; /* 防止默认内联图片间隙 */
   padding-top: 50px;
   padding-bottom: 50px;
+}
+
+.close-to-me-industry-trends {
+  display: flex; /* 使用 flexbox */
+  justify-content: center; /* 水平居中对齐 */
+  align-items: center; /* 垂直居中对齐（可选，根据需要） */
+}
+
+/* 图片样式 */
+.close-to-me-industry-trends img {
+  height: auto; /* 保持图片比例 */
+  display: block; /* 防止默认内联图片间隙 */
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.close-to-me-competitive-analysis {
+  display: flex; /* 使用 flexbox */
+  justify-content: center; /* 水平居中对齐 */
+  align-items: center; /* 垂直居中对齐（可选，根据需要） */
+}
+
+/* 图片样式 */
+.close-to-me-competitive-analysis img {
+  height: auto; /* 保持图片比例 */
+  display: block; /* 防止默认内联图片间隙 */
+  padding-top: 50px;
 }
 
 /* 图片样式 */
@@ -2002,18 +2046,6 @@ html {
   display: block; /* 防止默认内联图片间隙 */
   padding-top: 100px;
   padding-bottom: 100px;
-}
-
-/* 图片样式 */
-.close-to-me-persona {
-  display: flex;
-  flex-direction: column; /* 让子元素垂直排列 */
-  align-items: center; /* 水平居中 */
-}
-
-.close-to-me-persona-01,
-.close-to-me-persona-02 {
-  text-align: center; /* 让内容居中 */
 }
 
 .close-to-me-persona-01 img,
@@ -2025,10 +2057,20 @@ html {
 }
 
 .close-to-me-persona-caption {
-  font-size: 16px;
-  color: #666; /* 设定文字颜色 */
-  margin-top: 10px; /* 可调整文字与图片的间距 */
+  font-size: 14px;  /* Adjust the font size */
   text-align: center;
+  margin-top: 10px;  /* Adjust the distance from the image */
+  color: #333;
+  font-family: futura-pt, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.close-to-me-survey-caption {
+  font-size: 14px;  /* Adjust the font size */
+  text-align: center;
+  margin-top: 10px;  /* Adjust the distance from the image */
+  color: #333;
   font-family: futura-pt, sans-serif;
   font-weight: 600;
   font-style: normal;
