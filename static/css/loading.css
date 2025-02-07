@@ -1954,7 +1954,7 @@ html {
   flex-direction: column; /* 让图片上下排列 */
   gap: 50px; /* 图片之间的间距，可以根据需要调整 */
   padding-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 100px;
 }
 
 .close-to-me-survey-image-item img {
@@ -1967,7 +1967,7 @@ html {
   flex-direction: column; /* 让图片上下排列 */
   gap: 50px; /* 图片之间的间距，可以根据需要调整 */
   padding-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 100px;
 }
 
 .close-to-me-persona-image-item img {
@@ -2024,7 +2024,7 @@ html {
   height: auto; /* 保持图片比例 */
   display: block; /* 防止默认内联图片间隙 */
   padding-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 100px;
 }
 
 .close-to-me-competitive-analysis {
@@ -2037,7 +2037,7 @@ html {
 .close-to-me-competitive-analysis img {
   height: auto; /* 保持图片比例 */
   display: block; /* 防止默认内联图片间隙 */
-  padding-top: 50px;
+  padding-top: 70px;
 }
 
 .close-to-me-persona-caption {
