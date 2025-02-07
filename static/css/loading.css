@@ -2040,22 +2040,6 @@ html {
   padding-top: 50px;
 }
 
-/* 图片样式 */
-.close-to-me-pain-point img {
-  height: auto; /* 保持图片比例 */
-  display: block; /* 防止默认内联图片间隙 */
-  padding-top: 100px;
-  padding-bottom: 100px;
-}
-
-.close-to-me-persona-01 img,
-.close-to-me-persona-02 img {
-  height: auto; /* 保持图片比例 */
-  display: block; /* 避免 inline-block 布局导致的额外间隙 */
-  margin: 0 auto; /* 让图片在 div 内水平居中 */
-  padding-top: 100px;
-}
-
 .close-to-me-persona-caption {
   font-size: 14px;  /* Adjust the font size */
   text-align: center;
