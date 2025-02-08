@@ -1947,14 +1947,25 @@ html {
 
 
 
+.close-to-me-challenge {
+  display: flex; /* 使用 flexbox */
+  justify-content: center; /* 水平居中对齐 */
+  align-items: center; /* 垂直居中对齐（可选，根据需要） */
+}
 
+/* 图片样式 */
+.close-to-me-challenge img {
+  height: auto; /* 保持图片比例 */
+  display: block; /* 防止默认内联图片间隙 */
+  margin-top: 50px;
+}
 
 .close-to-me-survey-image-container {
   display: flex;
   flex-direction: column; /* 让图片上下排列 */
   gap: 50px; /* 图片之间的间距，可以根据需要调整 */
-  padding-top: 50px;
-  padding-bottom: 100px;
+  margin-top: 50px;
+  margin-bottom: 100px;
 }
 
 .close-to-me-survey-image-item img {
@@ -1966,8 +1977,8 @@ html {
   display: flex;
   flex-direction: column; /* 让图片上下排列 */
   gap: 50px; /* 图片之间的间距，可以根据需要调整 */
-  padding-top: 50px;
-  padding-bottom: 100px;
+  margin-top: 50px;
+  margin-bottom: 100px;
 }
 
 .close-to-me-persona-image-item img {
@@ -1980,8 +1991,8 @@ html {
   justify-content: center; /* 让所有元素水平居中 */
   align-items: center; /* 让元素在垂直方向上对齐 */
   gap: 120px; /* 控制每组元素之间的间距 */
-  padding-top: 100px;
-  padding-bottom: 100px;
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
 
 .close-to-me-audience-group {
@@ -2005,12 +2016,19 @@ html {
   font-size: 16px;
 }
 
-.close-to-me-overview {
+.close-to-me-overview-1 {
   width: fit-content; /* 让 div 适应 GIF 图片大小 */
   overflow: hidden;
   border-radius: 15px;
   margin-top: 50px;  /* 用 margin 代替 padding */
   margin-bottom: 50px;
+}
+
+.close-to-me-overview-2 {
+  width: fit-content; /* 让 div 适应 GIF 图片大小 */
+  overflow: hidden;
+  border-radius: 15px;
+  margin-top: 50px;  /* 用 margin 代替 padding */
 }
 
 .close-to-me-overview img {
@@ -2029,8 +2047,8 @@ html {
 .close-to-me-industry-trends img {
   height: auto; /* 保持图片比例 */
   display: block; /* 防止默认内联图片间隙 */
-  padding-top: 50px;
-  padding-bottom: 100px;
+  margin-top: 50px;
+  margin-bottom: 100px;
 }
 
 .close-to-me-competitive-analysis {
@@ -2043,7 +2061,7 @@ html {
 .close-to-me-competitive-analysis img {
   height: auto; /* 保持图片比例 */
   display: block; /* 防止默认内联图片间隙 */
-  padding-top: 70px;
+  margin-top: 70px;
 }
 
 .close-to-me-persona-caption {
@@ -2070,14 +2088,14 @@ html {
 .close-to-me-prototype img {
   height: auto; /* 保持图片比例 */
   display: block; /* 防止默认内联图片间隙 */
-  padding-top: 100px;
+  margin-top: 100px;
 }
 
 .close-to-me-promotion img {
   height: auto; /* 保持图片比例 */
   display: block; /* 防止默认内联图片间隙 */
-  padding-top: 100px;
-  padding-bottom: 100px;
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
 
 /* 容器样式 */
@@ -2212,8 +2230,8 @@ html {
   justify-content: center;  /* 让整个容器居中 */
   align-items: center;
   gap: 50px;  /* 控制图片之间的间隔 */
-  padding-top: 100px;
-  padding-bottom: 100px;
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
 
 .close-to-me-effect-image {
