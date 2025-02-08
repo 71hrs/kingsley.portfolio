@@ -1960,6 +1960,19 @@ html {
   margin-top: 100px;
 }
 
+.close-to-me-why-metaverse {
+  display: flex; /* 使用 flexbox */
+  justify-content: center; /* 水平居中对齐 */
+  align-items: center; /* 垂直居中对齐（可选，根据需要） */
+}
+
+/* 图片样式 */
+.close-to-me-why-metaverse img {
+  height: auto; /* 保持图片比例 */
+  display: block; /* 防止默认内联图片间隙 */
+  margin-top: 100px;
+}
+
 .close-to-me-survey-image-container {
   display: flex;
   flex-direction: column; /* 让图片上下排列 */
