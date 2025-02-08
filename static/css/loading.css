@@ -1957,7 +1957,7 @@ html {
 .close-to-me-challenge img {
   height: auto; /* 保持图片比例 */
   display: block; /* 防止默认内联图片间隙 */
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
 .close-to-me-survey-image-container {
