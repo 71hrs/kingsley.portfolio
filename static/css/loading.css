@@ -2005,12 +2005,18 @@ html {
   font-size: 16px;
 }
 
-/* 图片样式 */
+.close-to-me-overview {
+  width: fit-content; /* 让 div 适应 GIF 图片大小 */
+  overflow: hidden;
+  border-radius: 15px;
+  margin-top: 50px;  /* 用 margin 代替 padding */
+  margin-bottom: 50px;
+}
+
 .close-to-me-overview img {
-  height: auto; /* 保持图片比例 */
-  display: block; /* 防止默认内联图片间隙 */
-  padding-top: 50px;
-  padding-bottom: 50px;
+  display: block;
+  width: 100%; /* 让图片填充 div */
+  height: auto;
 }
 
 .close-to-me-industry-trends {
