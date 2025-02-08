@@ -2006,7 +2006,7 @@ html {
 }
 
 /* 图片样式 */
-.close-to-me-overview-2 img {
+.close-to-me-overview img {
   height: auto; /* 保持图片比例 */
   display: block; /* 防止默认内联图片间隙 */
   padding-top: 50px;
