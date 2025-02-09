@@ -1986,6 +1986,22 @@ html {
   height: auto; /* 保持图片的原始比例 */
 }
 
+.close-to-me-user-flow {
+  display: flex;
+  justify-content: space-between; /* 保证图片之间有间隔 */
+  align-items: center; /* 保证图片垂直居中对齐 */
+  width: 100%; /* 确保容器宽度适应父元素 */
+  box-sizing: border-box; /* 确保宽度计算包含边距 */
+  margin-top: 100px;
+}
+
+.close-to-me-user-flow img {
+  width: calc(50% - 70px); /* 每张图片宽度占50%减去间隔（间隔改为30px） */
+  height: auto; /* 保持图片比例 */
+  margin: 0 35px; /* 增加图片之间的间隔，调整为15px */
+  box-sizing: border-box; /* 确保margin不影响图片宽度 */
+}
+
 .close-to-me-persona-image-container {
   display: flex;
   flex-direction: column; /* 让图片上下排列 */
