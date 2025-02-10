@@ -2124,7 +2124,7 @@ html {
   height: auto; /* 保持图片比例 */
   display: block; /* 防止默认内联图片间隙 */
   margin-top: 100px;
-  margin-bottom: 100px;
+  border-radius: 25px;
 }
 
 /* 容器样式 */
@@ -2274,6 +2274,23 @@ html {
   max-width: 100%; /* 控制图片大小，可根据需要调整 */
   height: auto;
 }
+
+/* 图片容器样式 */
+.close-to-me-motion-capture {
+  display: flex; /* 使用 flexbox */
+  justify-content: center; /* 水平居中对齐 */
+  align-items: center; /* 垂直居中对齐（可选，根据需要） */
+}
+
+/* 图片样式 */
+.close-to-me-motion-capture img {
+  height: auto; /* 保持图片比例 */
+  display: block; /* 防止默认内联图片间隙 */
+  margin-top: 100px;
+  border-radius: 25px;
+}
+
+
 
 
 
