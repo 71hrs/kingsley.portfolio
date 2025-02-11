@@ -2045,15 +2045,15 @@ html {
   font-size: 16px;
 }
 
-.close-to-me-overview-1 {
+.close-to-me-overview-gif {
   width: fit-content; /* 让 div 适应 GIF 图片大小 */
   overflow: hidden;
   border-radius: 15px;
   margin-top: 50px;  /* 用 margin 代替 padding */
-  margin-bottom: 50px;
+  margin-bottom: 100px;
 }
 
-.close-to-me-overview-2 {
+.close-to-me-overview {
   width: fit-content; /* 让 div 适应 GIF 图片大小 */
   overflow: hidden;
   border-radius: 15px;
@@ -2135,7 +2135,7 @@ html {
   padding-left: 17%;
   padding-right: 17%;
   padding-top: 100px;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
 }
 
 /* 每一行的样式 */
@@ -2302,7 +2302,7 @@ html {
   height: auto; /* 保持图片比例 */
   display: block; /* 防止默认内联图片间隙 */
   padding-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 100px;
 }
 
 /* 图片容器样式 */
