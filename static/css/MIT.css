@@ -1,0 +1,246 @@
+html, body, div, h2, h4, a, header, nav {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+html {
+  background-color: #797979; /* 也可以在 html 上设置，确保整个页面都能有灰色背景 */
+}
+
+header, nav {
+  display: block;
+}
+
+body {
+  font: 1.2em/1.3 "CB", Helvetica, sans-serif;
+  line-height: 1;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+@font-face {
+  font-family: "CB";
+  font-weight: 600;
+  src: url("https://www.greg-wolff.com/fonts/CB.otf");
+}
+@font-face {
+  font-family: "CB";
+  font-weight: 700;
+  src: url("https://www.greg-wolff.com/fonts/CBB.otf");
+}
+@font-face {
+  font-family: "CB";
+  font-weight: 500;
+  src: url("https://www.greg-wolff.com/fonts/CM.otf");
+}
+
+/* Layout and Content Styles */
+html {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+body {
+  font-size: 1.2em;
+}
+
+h2, h4 {
+  margin: 0;
+  font-family: "CB", Helvetica, sans-serif;
+  color: #4D4D4D;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 2em;
+}
+
+h4 {
+  font-weight: bold;
+  font-style: italic;
+  font-size: 1em;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+/* Content Section */
+.content {
+  display: flex;
+  align-items: center;
+  z-index: 1; /* Ensure content is below navbar */
+  position: absolute;
+  width: 420px;
+  padding-left: 200px;
+  height: 100vh;
+}
+
+.content h2, .content h4 {
+  color: white;
+}
+
+.content h4 {
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Header and Navigation */
+header {
+  position: fixed; /* Fix navbar at the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #fff; /* Set a background color if needed */
+  z-index: 1000; /* Ensure navbar is on top of all other elements */
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex; /* Use flex layout */
+  justify-content: space-between; /* Evenly distribute the links */
+  position: absolute;
+  top: 0;
+  left: 4%; /* 5% space from the left */
+  right: 4%; /* 5% space from the right */
+  width: 92%; /* Navbar width occupies 90% of the window */
+  font-size: 13px; /* Font size */
+  color: white; /* Text color */
+  text-transform: uppercase; /* Transform text to uppercase */
+  font-family: Arial, sans-serif; /* Font family */
+  font-weight: bold; /* 设置加粗 */
+}
+
+.navbar a {
+  margin: 0; /* Remove margin */
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit color from parent (white) */
+}
+
+nav {
+  margin: 3vh 0;
+}
+
+nav > a:last-child {
+  padding-right: 0;
+}
+
+/* Footer Styles */
+footer {
+  position: fixed;        /* Use fixed positioning to keep footer at the bottom */
+  bottom: 0;              /* Align at the bottom */
+  left: 4%;               /* Same 4% left space as navbar */
+  right: 4%;              /* Same 4% right space as navbar */
+  width: 92%;             /* Ensure it spans 92% of the window width */
+  z-index: 999;           /* Ensure footer is above other content */
+  box-sizing: border-box; /* Make sure padding doesn't affect width calculation */
+}
+
+/* Footer navbar styles */
+footer .footer-navbar {
+  display: flex;                /* Use flex layout */
+  justify-content: space-between; /* Evenly distribute the links */
+  position: relative;           /* Relative positioning within footer */
+  padding: 10px 0;              /* Top and bottom padding */
+  font-size: 13px;              /* Font size */
+  color: white;                 /* Text color */
+  text-transform: uppercase;    /* Uppercase text */
+  font-family: Arial, sans-serif; /* Font family */
+  font-weight: bold;            /* Bold text */
+}
+
+footer .footer-navbar a {
+  margin: 0; /* Remove margin */
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit color from parent */
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+  html {
+    height: 100%;
+  }
+  
+  .content {
+    width: initial;
+    padding: 20px 30px;
+    height: calc(100% - 40px);
+    align-items: flex-end;
+    margin-top: -30px; /* 向上移动 .content */
+  }
+}
+
+@media (max-width: 640px) {
+  html, body {
+    overflow-x: hidden;
+  }
+
+  .content {
+    margin-top: -30px; /* 在更小屏幕上向上移动 .content */
+  }
+}
+
+
+
+
+
+
+
+/* service page */
+
+/* 主容器样式 */
+.frosted-glass {
+  display: flex;
+  gap: 20px; /* 左右内容之间的间距 */
+  position: absolute;
+  top: 8%;
+  bottom: 10%;
+  left: 3.8%;
+  right: 3.8%;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.2); /* 半透明白色背景 */
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px); 
+  color: #333;
+  align-items: center; /* 上下居中对齐 */
+}
+
+/* 左右分区样式 */
+.left-section, .right-section {
+  flex: 1; /* 左右内容各占一半宽度 */
+  padding-left: 10px; /* 左边距 */
+  padding-right: 10px; /* 右边距 */
+}
+
+.left-section h2 {
+  color: #fff; /* 白色标题 */
+}
+
+.right-section h3 {
+  margin-bottom: 12px; /* 标题与段落之间的间距 */
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff; /* 白色标题 */
+}
+
+.right-section p {
+  margin-bottom: 24px; /* 段落之间的间距 */
+  line-height: 1.6;
+  font-size: 16px;
+  color: #ddd; /* 浅灰色文本，避免纯白造成过于刺眼 */
+}
+
+.right-section h3 + p {
+  margin-top: 6px;
+}
