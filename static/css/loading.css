@@ -2412,6 +2412,7 @@ html {
   width: 100%; /* 使图片占满容器 */
   max-width: 1200px; /* 限制容器最大宽度 */
   padding-top: 100px;
+  padding-bottom: 100px;
 }
 
 /* 每个图片容器 */
@@ -2445,6 +2446,7 @@ html {
   gap: 30px; /* 两个框之间的间距 */
   width: 100%;
   padding-top: 100px;
+  padding-bottom: 100px;
 }
 
 /* 每个图片和文字容器的样式 */
