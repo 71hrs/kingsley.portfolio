@@ -205,28 +205,23 @@ footer .footer-navbar a {
 
 /* About */
 .about-content {
-  min-height: 100vh;          /* 占满视口高度 */
-  display: flex;
-  align-items: center;         /* 垂直居中 */
-  padding: 0 15%;              /* 左右各 20% 留白 */
+  display: grid;
+  grid-template-columns: 10% 1fr 5% 1fr 10%; /* 五列：空白20% | 图片 | 空白20% | 文字 | 空白20% */
+  align-items: center;   /* 垂直居中 */
+  justify-content: center; /* 水平居中 */
+  height: 100vh;         /* 整个屏幕高度 */
 }
 
-.about-content .inner {
-  display: flex;
-  align-items: center;
-  gap: 32px;                   /* 可选：左右内容间距 */
-  width: 100%;                 /* 中间内容区即 60% 宽 */
+.about-content .left {
+  grid-column: 2;        /* 图片放在第2列 */
 }
 
-.about-content .left,
 .about-content .right {
-  flex: 1;                     /* 左右各 50% */
-  padding: 0;                  /* 需要再加内边距可在此设置 */
+  grid-column: 4;        /* 文字放在第4列 */
 }
 
 .about-content img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
   display: block;
-  border-radius: 8px;
 }
