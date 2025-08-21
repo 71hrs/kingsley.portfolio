@@ -211,7 +211,7 @@ footer .footer-navbar a {
 /* About page */
 
 /* 主容器样式 */
-.frosted-glass {
+.about-container {
   display: flex;
   gap: 20px; /* 左右内容之间的间距 */
   position: absolute;
@@ -229,30 +229,21 @@ footer .footer-navbar a {
 }
 
 /* 左右分区样式 */
-.left-section, .right-section {
+.left, .right {
   flex: 1; /* 左右内容各占一半宽度 */
   padding-left: 10px; /* 左边距 */
   padding-right: 10px; /* 右边距 */
 }
 
-.left-section h2 {
-  color: #fff; /* 白色标题 */
+.left img {
+  max-width: 55%;
+  height: auto;
+  display: block;              /* 保证不出现额外空隙 */
 }
 
-.right-section h3 {
-  margin-bottom: 12px; /* 标题与段落之间的间距 */
-  font-size: 24px;
-  font-weight: bold;
-  color: #fff; /* 白色标题 */
-}
-
-.right-section p {
+.right p {
   margin-bottom: 24px; /* 段落之间的间距 */
   line-height: 1.6;
   font-size: 16px;
   color: #ddd; /* 浅灰色文本，避免纯白造成过于刺眼 */
-}
-
-.right-section h3 + p {
-  margin-top: 6px;
 }
