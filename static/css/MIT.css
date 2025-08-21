@@ -227,3 +227,8 @@ footer .footer-navbar a {
   padding-right: 10px; /* 右边距 */
 }
 
+.left img {
+  max-width: 55%;
+  height: auto;
+  display: block;              /* 保证不出现额外空隙 */
+}
