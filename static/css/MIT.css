@@ -204,7 +204,13 @@ footer .footer-navbar a {
 
 
 /* About */
-
+.about-content {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;              /* 不让外层出现滚动条 */
+}
 
 .about-content .right h2 {
   color: #fff;
