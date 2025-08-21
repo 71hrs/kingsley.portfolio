@@ -71,7 +71,7 @@ a {
   color: #000;
 }
 
-/* Homepage Content Section */
+/* Homepage */
 .homepage-content {
   display: flex;
   align-items: center;
@@ -193,3 +193,23 @@ footer .footer-navbar a {
 
 
 
+
+
+
+
+
+
+
+
+
+
+/* About */
+.about-content {
+  display: flex;
+  align-items: center;
+  z-index: 1; /* Ensure content is below navbar */
+  position: absolute;
+  width: 500px;
+  padding-left: 200px;
+  height: 100vh;
+}
