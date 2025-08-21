@@ -280,26 +280,26 @@ footer .footer-navbar a {
 .social-links {
   margin-top: 12px;
   display: flex;
-  justify-content: space-between; /* ← 自动把左右撑满 */
-  flex-wrap: wrap;              /* ← 换行 */
-  gap: 10px;
-  width: 100%;                    /* ← 确保占满父容器宽度 */
+  justify-content: flex-start; /* ← 改成左对齐 */
+  flex-wrap: wrap;             /* ← 允许换行 */
+  gap: 10px;                   /* ← 固定间距 */
+  width: 100%;
 }
 
 /* 圆形按钮：固定尺寸，保证正圆，不随屏幕缩小 */
 .social-links .icon{
   width:36px;
-  height:36px;               /* ← 宽高一致 */
-  flex: 0 0 36px;            /* ← 每个占固定宽度，避免被压缩 */
+  height:36px;
+  flex: 0 0 36px;
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  border-radius:50%;         /* ← 正圆 */
+  border-radius:50%;
   background:rgba(255,255,255,.12);
   color:#fff;
   text-decoration:none;
   transition:transform .18s ease, background .18s ease, color .18s ease;
-  box-sizing: border-box;    /* 防止内边距影响圆形 */
+  box-sizing: border-box;
 }
 
 .social-links .icon:hover{
@@ -311,4 +311,3 @@ footer .footer-navbar a {
   font-size:18px;
   line-height:1;
 }
-
