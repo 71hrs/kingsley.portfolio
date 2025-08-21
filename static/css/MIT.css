@@ -210,8 +210,6 @@ footer .footer-navbar a {
   align-items: center;
   justify-content: center;
   overflow: hidden;              /* 不让外层出现滚动条 */
-  background: rgba(255, 255, 255, 0.2); /* 半透明白色背景 */
-  backdrop-filter: blur(10px); 
 }
 
 .about-content .right h2 {
