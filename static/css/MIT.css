@@ -71,8 +71,8 @@ a {
   color: #000;
 }
 
-/* Content Section */
-.content {
+/* Homepage Content Section */
+.homepage-content {
   display: flex;
   align-items: center;
   z-index: 1; /* Ensure content is below navbar */
@@ -82,11 +82,11 @@ a {
   height: 100vh;
 }
 
-.content h2, .content h4 {
+.homepage-content h2, .homepage-content h4 {
   color: white;
 }
 
-.content h4 {
+.homepage-content h4 {
   font-weight: 600;
   margin-bottom: 20px;
   margin-top: 20px;
