@@ -276,26 +276,51 @@ footer .footer-navbar a {
   line-height: 20px;
 }
 
+/* 一行排布 + 自动缩小，无滚动 */
+.social-links{
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: nowrap;              /* 不换行 */
+}
+
 /* 社交链接栏（通用样式） */
 .social-links{
   margin-top:12px;
   display:flex;
   justify-content:center;
   gap:14px;
-  flex-wrap:nowrap;
+  flex-wrap: wrap;            /* ← 从 nowrap 改为 wrap：不足就换行 */
 }
+
+/* 圆形按钮：固定尺寸，保证正圆，不随屏幕缩小 */
 .social-links .icon{
-  width:36px;height:36px;
+  width:36px;
+  height:36px;               /* ← 宽高一致 */
+  flex: 0 0 36px;            /* ← 每个占固定宽度，避免被压缩 */
   display:inline-flex;
-  align-items:center;justify-content:center;
-  border-radius:9999px;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;         /* ← 正圆 */
   background:rgba(255,255,255,.12);
   color:#fff;
   text-decoration:none;
   transition:transform .18s ease, background .18s ease, color .18s ease;
+  box-sizing: border-box;    /* 防止内边距影响圆形 */
 }
+
 .social-links .icon:hover{
   transform:translateY(-1px) scale(1.06);
   background:rgba(255,255,255,.22);
 }
-.social-links i{ font-size:18px; line-height:1; }
+
+.social-links i{
+  font-size:18px;
+  line-height:1;
+}
+
+/* 小屏时稍微收紧间距，排两行更匀称（可选） */
+@media (max-width: 420px){
+  .social-links{ gap:12px 16px; }
+}
