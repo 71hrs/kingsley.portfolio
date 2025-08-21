@@ -276,36 +276,26 @@ footer .footer-navbar a {
   line-height: 20px;
 }
 
-/* 社交链接栏 */
-.social-links {
-  margin-top: 12px;
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  flex-wrap: wrap;            /* 图标多时自动换行 */
+/* 社交链接栏（通用样式） */
+.social-links{
+  margin-top:12px;
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:nowrap;
 }
-
-.social-links a {
-  width: 32px;
-  height: 32px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 9999px;
-  background: rgba(255,255,255,0.12);   /* 圆形微底，适配暗背景 */
-  transition: transform .18s ease, background .18s ease, filter .18s ease;
-  outline: none;
+.social-links .icon{
+  width:36px;height:36px;
+  display:inline-flex;
+  align-items:center;justify-content:center;
+  border-radius:9999px;
+  background:rgba(255,255,255,.12);
+  color:#fff;
+  text-decoration:none;
+  transition:transform .18s ease, background .18s ease, color .18s ease;
 }
-.social-links a:hover { 
-  transform: translateY(-1px) scale(1.06); 
-  background: rgba(255,255,255,0.22);
+.social-links .icon:hover{
+  transform:translateY(-1px) scale(1.06);
+  background:rgba(255,255,255,.22);
 }
-.social-links a:focus-visible {
-  box-shadow: 0 0 0 2px rgba(255,255,255,.35);
-}
-
-.social-links img {
-  width: 18px;
-  height: 18px;
-  display: block;
-}
+.social-links i{ font-size:18px; line-height:1; }
