@@ -230,7 +230,7 @@ footer .footer-navbar a {
 
 /* 左右分区样式 */
 .left, .right {
-  flex: 1; /* 左右内容各占一半宽度 */
+  flex: 0.7, 1; /* 左右内容各占一半宽度 */
   padding-left: 10px; /* 左边距 */
   padding-right: 10px; /* 右边距 */
 }
