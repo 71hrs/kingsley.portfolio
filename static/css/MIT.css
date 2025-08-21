@@ -213,41 +213,54 @@ footer .footer-navbar a {
 /* 主容器样式 */
 .about-container {
   display: flex;
-  gap: 20px; /* 左右内容之间的间距 */
+  gap: 20px;
   position: absolute;
-  top: 8%;
-  bottom: 10%;
+  top: 65px;
+  bottom: 75px;
   left: 3.8%;
   right: 3.8%;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.2); /* 半透明白色背景 */
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(10px); 
+  backdrop-filter: blur(10px);
   color: #333;
-  align-items: center; /* 上下居中对齐 */
+  align-items: center;
+
+  /* 关键：让内容“在容器内滚动”，不越界 */
+  overflow: auto;             /* ← 超出时在容器内出现滚动条 */
 }
 
-/* 左右分区样式 */
+/* 左右分区样式（修正 flex 语法 + 防止文字溢出） */
 .left, .right {
-  flex: 0.7, 1; /* 左右内容各占一半宽度 */
-  padding-left: 10px; /* 左边距 */
-  padding-right: 10px; /* 右边距 */
+  /* flex: 0.7, 1;  ← 这是无效写法，删除 */
+  flex: 1 1 0;                /* 两列各占 50%（可改为 2 1 0 / 1 2 0 做不等分） */
+  padding-left: 10px;
+  padding-right: 10px;
+
+  /* 关键：允许内容在列内收缩换行，不挤出容器 */
+  min-width: 0;               /* ← 防止长行/长词把列撑爆 */
+  overflow: hidden;           /* ← 防止内部元素外溢（配合下面的文字换行） */
 }
 
+/* 图片：限制在列内，居中显示 */
 .left img {
-  max-width: 55%;
+  max-width: 100%;            /* 保证不超过列宽（你原来 55% 会很小，这里给满列；若仍想 55%，改回 55%） */
   height: auto;
-  display: block;              /* 保证不出现额外空隙 */
+  display: block;
+  margin: 0 auto;             /* 水平居中 */
+  object-fit: contain;
 }
 
-.right h2 {
-  color: white; /* 浅灰色文本，避免纯白造成过于刺眼 */
-}
+/* 文字：在列内换行，避免溢出 */
+.right h2 { color: white; }
 
 .right p {
-  margin-bottom: 24px; /* 段落之间的间距 */
+  margin-bottom: 24px;
   line-height: 1.6;
   font-size: 16px;
-  color: white; /* 浅灰色文本，避免纯白造成过于刺眼 */
+  color: white;
+
+  overflow-wrap: anywhere;     /* 允许任意位置断行（最强兜底） */
+  word-break: break-word;      /* 长单词/URL 断行，避免挤出 */
 }
