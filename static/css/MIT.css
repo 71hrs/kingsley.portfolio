@@ -241,9 +241,13 @@ footer .footer-navbar a {
   display: block;              /* 保证不出现额外空隙 */
 }
 
+.right h2 {
+  color: white; /* 浅灰色文本，避免纯白造成过于刺眼 */
+}
+
 .right p {
   margin-bottom: 24px; /* 段落之间的间距 */
   line-height: 1.6;
   font-size: 16px;
-  color: #ddd; /* 浅灰色文本，避免纯白造成过于刺眼 */
+  color: white; /* 浅灰色文本，避免纯白造成过于刺眼 */
 }
