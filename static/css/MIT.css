@@ -203,52 +203,12 @@ footer .footer-navbar a {
 
 
 
-.about-container {
-  display: flex;
-  gap: 20px; /* 左右内容之间的间距 */
-  position: absolute;
-  top: 8%;
-  bottom: 10%;
-  left: 3.8%;
-  right: 3.8%;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.2); /* 半透明白色背景 */
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(10px); 
-  color: #333;
-  align-items: center; /* 上下居中对齐 */
-}
-
-/* 左右分区样式 */
-.left, .right {
-  flex: 1; /* 左右内容各占一半宽度 */
-  padding-left: 10px; /* 左边距 */
-  padding-right: 10px; /* 右边距 */
-}
-
-.left img {
-  max-width: 55%;
-  height: auto;
-  display: block;              /* 保证不出现额外空隙 */
-}
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-/* service page */
+/* About page */
 
 /* 主容器样式 */
 .frosted-glass {
