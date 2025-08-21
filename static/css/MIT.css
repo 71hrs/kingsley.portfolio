@@ -205,11 +205,28 @@ footer .footer-navbar a {
 
 /* About */
 .about-content {
+  min-height: 100vh;          /* 占满视口高度 */
+  display: flex;
+  align-items: center;         /* 垂直居中 */
+  padding: 0 15%;              /* 左右各 20% 留白 */
+}
+
+.about-content .inner {
   display: flex;
   align-items: center;
-  z-index: 1; /* Ensure content is below navbar */
-  position: absolute;
-  width: 500px;
-  padding-left: 200px;
-  height: 100vh;
+  gap: 32px;                   /* 可选：左右内容间距 */
+  width: 100%;                 /* 中间内容区即 60% 宽 */
+}
+
+.about-content .left,
+.about-content .right {
+  flex: 1;                     /* 左右各 50% */
+  padding: 0;                  /* 需要再加内边距可在此设置 */
+}
+
+.about-content img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
 }
