@@ -268,10 +268,43 @@ footer .footer-navbar a {
   object-fit: contain;
 }
 
-.right .contact {
+.right .quote {
   margin-top: 20px;        /* 图片和文字之间的间距 */
   font-size: 14px;         /* 字体大小 */
   color: white;            /* 文字颜色 */
   line-height: 20px;
 }
 
+/* 社交链接栏 */
+.social-links {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;            /* 图标多时自动换行 */
+}
+
+.social-links a {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: rgba(255,255,255,0.12);   /* 圆形微底，适配暗背景 */
+  transition: transform .18s ease, background .18s ease, filter .18s ease;
+  outline: none;
+}
+.social-links a:hover { 
+  transform: translateY(-1px) scale(1.06); 
+  background: rgba(255,255,255,0.22);
+}
+.social-links a:focus-visible {
+  box-shadow: 0 0 0 2px rgba(255,255,255,.35);
+}
+
+.social-links img {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
