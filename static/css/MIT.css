@@ -215,7 +215,7 @@ footer .footer-navbar a {
 /* 内层：真正滚动的区域（只中间滚） */
 .about-content .inner {
   width: 100%;
-  max-height: calc(100vh - 40vh);/* 去掉上下留白后的可用高度 */
+  max-height: calc(100vh - 100px);/* 去掉上下留白后的可用高度 */
   overflow: auto;                /* 内容超出时这里出现滚动条 */
   overscroll-behavior: contain;
 
