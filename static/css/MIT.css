@@ -205,20 +205,29 @@ footer .footer-navbar a {
 
 /* About */
 .about-content {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;              /* 不让外层出现滚动条 */
+}
+
+/* 内层：真正滚动的区域（只中间滚） */
+.about-content .inner {
+  width: 100%;
+  max-height: calc(100vh - 40vh);/* 去掉上下留白后的可用高度 */
+  overflow: auto;                /* 内容超出时这里出现滚动条 */
+  overscroll-behavior: contain;
+
+  /* 你的左右/中间留白布局 */
   display: grid;
-  grid-template-columns: 10% 1fr 5% 1fr 10%; /* 五列：空白20% | 图片 | 空白20% | 文字 | 空白20% */
-  align-items: center;   /* 垂直居中 */
-  justify-content: center; /* 水平居中 */
-  height: 100vh;         /* 整个屏幕高度 */
+  grid-template-columns: 10% 1fr 5% 1fr 10%;
+  align-items: center;
 }
 
-.about-content .left {
-  grid-column: 2;        /* 图片放在第2列 */
-}
-
-.about-content .right {
-  grid-column: 4;        /* 文字放在第4列 */
-}
+/* 放置图片与文字到中间两列 */
+.about-content .left  { grid-column: 2; }
+.about-content .right { grid-column: 4; }
 
 .about-content img {
   max-width: 100%;
