@@ -226,11 +226,21 @@ footer .footer-navbar a {
 }
 
 /* 放置图片与文字到中间两列 */
-.about-content .left  { grid-column: 2; }
-.about-content .right { grid-column: 4; }
+.about-content .left {
+  grid-column: 2;
+  display: flex;               /* 开启 flex 布局 */
+  justify-content: center;     /* 水平居中内容 */
+  align-items: flex-start;     /* 顶部对齐（保持和文字对齐） */
+}
 
 .about-content img {
-  max-width: 100%;
+  max-width: 55%;
   height: auto;
-  display: block;
+  display: block;              /* 保证不出现额外空隙 */
+}
+
+.about-content .right {
+  grid-column: 4;
+  justify-self: center;   /* 在 grid 单元格里水平居中 */
+  text-align: left;       /* 保持文字内容左对齐 */
 }
