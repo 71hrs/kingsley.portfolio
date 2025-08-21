@@ -7,9 +7,7 @@ html, body, div, h2, h4, a, header, nav {
   vertical-align: baseline;
 }
 
-html {
-  background-color: #797979; /* 也可以在 html 上设置，确保整个页面都能有灰色背景 */
-}
+html { background: transparent; }
 
 header, nav {
   display: block;
@@ -209,7 +207,6 @@ footer .footer-navbar a {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;              /* 不让外层出现滚动条 */
 }
 
 .about-content .right h2 {
