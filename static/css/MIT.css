@@ -269,7 +269,8 @@ footer .footer-navbar a {
 }
 
 .right .quote {
-  margin-top: 20px;        /* 图片和文字之间的间距 */
+  margin-top: 25px;        /* 图片和文字之间的间距 */
+  margin-bottom: 25px;        /* 图片和文字之间的间距 */
   font-size: 14px;         /* 字体大小 */
   color: white;            /* 文字颜色 */
   line-height: 20px;
