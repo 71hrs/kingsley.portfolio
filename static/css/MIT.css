@@ -204,57 +204,5 @@ footer .footer-navbar a {
 
 
 /* About */
-.about-content {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.about-content .right h2 {
-  color: #fff;
-}
-
-.about-content .right p {
-  font-weight: 600;
-  line-height: auto;
-  color: #fff;
-  margin-block-start: 1.2em; 
-  margin-block-end: 0; /* 等价于 margin-bottom */
-}
-
-/* 内层：真正滚动的区域（只中间滚） */
-.about-content .inner {
-  width: 100%;
-  max-height: calc(100vh - 100px);/* 去掉上下留白后的可用高度 */
-  overflow: auto;                /* 内容超出时这里出现滚动条 */
-  overscroll-behavior: contain;
-
-  /* 你的左右/中间留白布局 */
-  display: grid;
-  grid-template-columns: 10% 1fr 5% 1fr 15%;
-  align-items: center;
-}
-
-/* 放置图片与文字到中间两列 */
-.about-content .left {
-  grid-column: 2;
-  display: flex;               /* 开启 flex 布局 */
-  justify-content: center;     /* 水平居中内容 */
-  align-items: flex-start;     /* 顶部对齐（保持和文字对齐） */
-}
-
-.about-content img {
-  max-width: 60%;
-  height: auto;
-  display: block;              /* 保证不出现额外空隙 */
-}
-
-.about-content .right {
-  grid-column: 4;
-  justify-self: center;   /* 在 grid 单元格里水平居中 */
-  text-align: left;       /* 保持文字内容左对齐 */
-}
-
 
 
