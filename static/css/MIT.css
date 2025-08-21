@@ -225,7 +225,8 @@ footer .footer-navbar a {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
   color: #333;
-  overflow: auto;             /* 关键：让内容“在容器内滚动”，不越界 */ /* ← 超出时在容器内出现滚动条 */
+  overflow: auto;          /* 滚动条 */
+  align-items: flex-start;  /* ⭐ 关键：不要拉伸子项到等高 */
 }
 
 /* 左右分区样式（关键：允许内容在列内收缩换行，不挤出容器） */
@@ -246,24 +247,31 @@ footer .footer-navbar a {
   flex: 1 1 0; 
 }
 
+/* 文字：在列内换行，避免溢出 */
+.left p {
+  margin-bottom: 24px;
+  line-height: 1.6;
+  font-size: 16px;
+  color: white;
+  overflow-wrap: anywhere;     /* 允许任意位置断行（最强兜底） */
+  word-break: break-word;      /* 长单词/URL 断行，避免挤出 */
+  margin-block-start: 0em;
+  margin-block-end: 1em;
+}
+
 /* 图片：限制在列内，居中显示 */
 .right img {
-  max-width: 100%;            /* 保证不超过列宽（你原来 55% 会很小，这里给满列；若仍想 55%，改回 55%） */
+  max-width: 100%;  
   height: auto;
   display: block;
   margin: 0 auto;             /* 水平居中 */
   object-fit: contain;
 }
 
-/* 文字：在列内换行，避免溢出 */
-.left h2 { color: white; }
-
-.left p {
-  margin-bottom: 24px;
-  line-height: 1.6;
-  font-size: 16px;
-  color: white;
-
-  overflow-wrap: anywhere;     /* 允许任意位置断行（最强兜底） */
-  word-break: break-word;      /* 长单词/URL 断行，避免挤出 */
+.right .contact {
+  margin-top: 20px;        /* 图片和文字之间的间距 */
+  font-size: 14px;         /* 字体大小 */
+  color: white;            /* 文字颜色 */
+  line-height: 20px;
 }
+
