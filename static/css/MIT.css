@@ -136,6 +136,22 @@ nav > a:last-child {
   padding-right: 0;
 }
 
+/* 让四个链接靠右、并保持固定间距；不改原有颜色与位置 */
+.navbar .nav-links{
+  display:flex;
+  gap: 28px;              /* ← 链接之间的间距，按需改 */
+  align-items:center;
+  margin-left: auto;      /* ← 关键：把整组链接推到最右 */
+}
+
+/* 左侧 Logo 尺寸（只控制大小，不影响你的透明/背景） */
+.navbar .logo{
+  height: 24px;           /* 按需改，比如 24~32px */
+  width: auto;
+  display:block;
+  align-self:center;
+}
+
 /* Footer Styles */
 footer {
   position: fixed;        /* Use fixed positioning to keep footer at the bottom */
