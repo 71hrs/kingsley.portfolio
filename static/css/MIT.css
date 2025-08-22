@@ -361,8 +361,8 @@ footer .footer-navbar a {
   /* 可调变量 */
   --railW: 10px;        /* 左侧竖排栏宽度 */
   --gapX: 24px;         /* 卡片水平间距 & 外板左右厚度 */
-  --padTop: 56px;       /* 外板在图片上方的外扩高度 */
-  --padBottom: 96px;    /* 外板在图片下方的外扩高度（更长） */
+  --padTop: 64px;       /* 外板在图片上方的外扩高度 */
+  --padBottom: 104px;    /* 外板在图片下方的外扩高度（更长） */
   --stickyTop: var(--padTop); /* 左侧标题吸顶距离（与上外扩对齐） */
 
   position: absolute;
