@@ -346,7 +346,7 @@ footer .footer-navbar a {
   top:65px; bottom:75px; left:3.8%; right:3.8%;
   padding:0;
   overflow:auto;                /* 内容可滚动 */
-  display:block;
+  display:flex;
   background:transparent;
 }
 
@@ -475,3 +475,4 @@ footer .footer-navbar a {
 /* 4) 提升被 hover 的卡片层级，确保不被遮罩变暗 */
 .ra-card{ position: relative; z-index: 0; }
 .ra-card:hover{ z-index: 200; }  /* 卡片 + 红框 + 文本都在遮罩之上 */
+
