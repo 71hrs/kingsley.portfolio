@@ -560,24 +560,3 @@ footer .footer-navbar a {
 
 
 
-
-
-/* 局部遮罩层：放在 .works-container 里，由 JS 定位大小 */
-.ra-hover-overlay {
-  position: absolute;
-  pointer-events: none;
-  z-index: 150;                    /* 高于其他卡片，低于 hover 卡片（z=200） */
-  opacity: 0;
-  transition: opacity .18s ease;
-
-  /* 半透明 + 毛玻璃：与背景融合，但不会透出邻近图片 */
-  background: rgba(255,70,70,0.45);              /* 你原来的红色半透明感，可微调 */
-  backdrop-filter: blur(12px) saturate(115%);
-  -webkit-backdrop-filter: blur(12px) saturate(115%);
-}
-
-/* 显示开关（JS 切换这个类） */
-.ra-hover-overlay.is-visible { opacity: 1; }
-
-/* 为了避免双重半透明叠加，卡片自带的 ::after 红板可以关掉 */
-.ra-card::after { opacity: 0 !important; }

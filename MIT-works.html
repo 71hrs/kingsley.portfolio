@@ -31,9 +31,6 @@
         <h2 class="quote-text">
           “Each work is an experiment — an archive of encounters between art, technology, and the living world.”
         </h2>
-        <p class="quote-author">
-          Works 2019–2025
-        </p>
       </section>
 
       <!-- 分区 1：WORKS -->
@@ -398,84 +395,5 @@
       }
     </script>
     <script src="static/js/MIT.js" type="module"></script>
-
-
-
-    <script>
-(function(){
-  // 只创建一个共享的局部遮罩层，放在 works-container 内部
-  const works = document.querySelector('.works-container');
-  if (!works) return;
-
-  let overlay = works.querySelector('.ra-hover-overlay');
-  if (!overlay){
-    overlay = document.createElement('div');
-    overlay.className = 'ra-hover-overlay';
-    works.appendChild(overlay);
-  }
-
-  // 工具：读取 CSS 变量（带 fallback）
-  function readCSSVar(el, name, fallback){
-    const v = getComputedStyle(el).getPropertyValue(name).trim();
-    if (!v) return fallback;
-    const n = parseFloat(v);
-    return isNaN(n) ? fallback : n;
-  }
-
-  function positionOverlayFor(card){
-    // 取你定义在 .works-container 上的变量
-    const gapX      = readCSSVar(works, '--gapX', 24);
-    const padTop    = readCSSVar(works, '--padTop', 64);
-    const padBottom = readCSSVar(works, '--padBottom', 104);
-
-    // 参考坐标：相对 .works-container 内容区域定位（因为它是滚动容器）
-    const cardRect  = card.getBoundingClientRect();
-    const worksRect = works.getBoundingClientRect();
-
-    // 计算 card 在 works 内的可视坐标（含滚动）
-    const topInWorks  = (cardRect.top  - worksRect.top)  + works.scrollTop;
-    const leftInWorks = (cardRect.left - worksRect.left) + works.scrollLeft;
-
-    // 扩展成“外板矩形”
-    const overlayTop    = topInWorks  - padTop;
-    const overlayLeft   = leftInWorks - gapX;
-    const overlayWidth  = cardRect.width  + gapX * 2;
-    const overlayHeight = cardRect.height + padTop + padBottom;
-
-    // 放置遮罩层
-    overlay.style.top    = overlayTop  + 'px';
-    overlay.style.left   = overlayLeft + 'px';
-    overlay.style.width  = overlayWidth  + 'px';
-    overlay.style.height = overlayHeight + 'px';
-
-    // 显示
-    overlay.classList.add('is-visible');
-  }
-
-  function hideOverlay(){
-    overlay.classList.remove('is-visible');
-  }
-
-  // 监听每一张卡片
-  const cards = works.querySelectorAll('.ra-card');
-  cards.forEach(card=>{
-    card.addEventListener('mouseenter', ()=> positionOverlayFor(card));
-    card.addEventListener('mouseleave', hideOverlay);
-  });
-
-  // 滚动 / 窗口变化时，若仍在 hover 某卡片，实时更新遮罩位置
-  let lastHoverCard = null;
-  cards.forEach(card=>{
-    card.addEventListener('mouseenter', ()=> lastHoverCard = card);
-    card.addEventListener('mouseleave', ()=> lastHoverCard = null);
-  });
-
-  const reposition = ()=>{
-    if (lastHoverCard) positionOverlayFor(lastHoverCard);
-  };
-  works.addEventListener('scroll', reposition, { passive:true });
-  window.addEventListener('resize', reposition);
-})();
-</script>
   </body>
 </html>
