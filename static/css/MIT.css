@@ -402,7 +402,7 @@ footer .footer-navbar a {
   grid-template-columns: var(--railW) 1fr;  /* 左 fixed, 右自适应 */
   column-gap: 20px;
   align-items: start;                       /* 顶端对齐 */
-  margin-bottom: -76px;                      /* 分区间距 */
+  margin-bottom: -64px;                      /* 分区间距 */
 }
 
 /* 左侧竖排标题（与右侧图片顶齐，而非外板） */
