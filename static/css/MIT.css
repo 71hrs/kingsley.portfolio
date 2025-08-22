@@ -362,7 +362,7 @@ footer .footer-navbar a {
   --railW: 12px;        /* 左侧竖排栏宽度 */
   --gapX: 24px;         /* 卡片水平间距 & 外板左右厚度 */
   --padTop: 64px;       /* 外板在图片上方的外扩高度 */
-  --padBottom: 104px;    /* 外板在图片下方的外扩高度（更长） */
+  --padBottom: 104px;   /* 外板在图片下方的外扩高度（更长） */
   --stickyTop: var(--padTop); /* 左侧标题吸顶距离（与上外扩对齐） */
 
   position: absolute;
@@ -476,10 +476,15 @@ footer .footer-navbar a {
   bottom: calc(-1 * var(--padBottom));
   left:   calc(-1 * var(--gapX));
   right:  calc(-1 * var(--gapX));
-  background: rgba(255, 255, 255, 0.5);  /* 你当前使用的浅色外板 */
+
+  /* —— 新增：毛玻璃 —— */
+  background: rgba(255, 255, 255, 0.22);   /* 轻一点的白色半透明，避免太亮 */
+  backdrop-filter: blur(12px) saturate(115%);
+  -webkit-backdrop-filter: blur(12px) saturate(115%);
+
   opacity: 0;
   transition: opacity .2s ease;
-  z-index: 0;                             /* 在图片下，不遮图 */
+  z-index: 0;                             /* 在图片下，不遮图；但整张卡片 hover 时有更高层级，会压过其它卡片 */
   pointer-events: none;
 }
 .ra-card:hover::after{ opacity: 1; }
@@ -557,6 +562,3 @@ footer .footer-navbar a {
   .rail-label{ display:none; }
   .ra-gallery{ grid-template-columns: 1fr; }
 }
-
-
-
