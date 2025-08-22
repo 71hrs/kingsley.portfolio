@@ -379,7 +379,6 @@ footer .footer-navbar a {
   max-width: 900px;            /* 控制宽度，防止太长 */
   margin: 80px auto;           /* 居中显示并和上下留白 */
   padding: 0 20px;             /* 两边留白，适配小屏 */
-  color: white;                /* 白色文字 */
 }
 
 .quote-text {
@@ -388,11 +387,12 @@ footer .footer-navbar a {
   line-height: 1.4;
   margin-bottom: 24px;
   font-family: Georgia, serif; /* 更有质感的字体 */
+  color: white;
 }
 
 .quote-author {
   font-size: 16px;             /* 作者说明 */
-  color: rgba(255,255,255,0.7);/* 半透明灰白 */
+  color: white;/* 半透明灰白 */
   margin: 0;
 }
 
