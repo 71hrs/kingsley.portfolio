@@ -382,12 +382,6 @@ footer .footer-navbar a {
   color: white;
 }
 
-.quote-author {
-  font-size: 16px;             /* 作者说明 */
-  color: white;/* 半透明灰白 */
-  margin: 0;
-}
-
 /* ========== 分区：一行两列（左标题 + 右内容），保证对齐 ========== */
 .ra-section{
   display: grid;
