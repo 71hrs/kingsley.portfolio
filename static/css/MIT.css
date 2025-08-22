@@ -356,7 +356,7 @@ footer .footer-navbar a {
 .ra-gallery{
   /* 你可以随时调整这三个变量 */
   --gapX: 28px;     /* 左右红板厚度 & 卡片间距 */
-  --padTop: 32px;   /* ↑ hover 红板在图片上方超出的像素 */
+  --padTop: 48px;   /* ↑ hover 红板在图片上方超出的像素 */
   --padBottom: 96px;/* ↓ hover 红板在图片下方超出的像素（更长） */
 
   display:grid;
