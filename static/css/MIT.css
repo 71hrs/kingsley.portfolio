@@ -366,7 +366,7 @@ footer .footer-navbar a {
   --stickyTop: var(--padTop); /* 左侧标题吸顶距离（与上外扩对齐） */
 
   position: absolute;
-  top: 65px; bottom: 75px; left: 3.8%; right: 3.8%;
+  top: 65px; bottom: 0px; left: 3.8%; right: 3.8%;
   padding-left: 64px;
   padding-right: 64px;
   overflow: auto;                 /* 本容器滚动，sticky 参考它 */
@@ -380,7 +380,7 @@ footer .footer-navbar a {
   grid-template-columns: var(--railW) 1fr;  /* 左 fixed, 右自适应 */
   column-gap: 20px;
   align-items: start;                       /* 顶端对齐 */
-  margin-bottom: 0px;                      /* 分区间距 */
+  margin-bottom: -76px;                      /* 分区间距 */
 }
 
 /* 左侧竖排标题（与右侧图片顶齐，而非外板） */
