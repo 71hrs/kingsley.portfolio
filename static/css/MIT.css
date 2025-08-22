@@ -396,7 +396,7 @@ footer .footer-navbar a {
   bottom: calc(-1 * var(--padBottom));
   left:   calc(-1 * var(--gapX));
   right:  calc(-1 * var(--gapX));
-  background: rgba(255,70,70,.95);
+  background: rgba(255, 255, 255, 0.2);
   opacity:0;
   transition:opacity .2s ease;
   z-index:0;                /* 图片下层，不遮图 */
