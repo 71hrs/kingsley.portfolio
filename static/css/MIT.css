@@ -367,7 +367,8 @@ footer .footer-navbar a {
 
   position: absolute;
   top: 65px; bottom: 75px; left: 3.8%; right: 3.8%;
-  padding: 0;
+  padding-left: 50px;
+  padding-right: 50px;
   overflow: auto;                 /* 本容器滚动，sticky 参考它 */
   display: block;
   background: transparent;
