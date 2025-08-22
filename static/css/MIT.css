@@ -477,8 +477,8 @@ footer .footer-navbar a {
 /* 顶部信息（在上条外板里） */
 .ra-meta{
   position: absolute;
-  top: 18px;
-  left: 28px; right: 28px;
+  top: 24px;
+  left: 24px; right: 24px;
   display: flex; justify-content: space-between; gap: 16px;
   color: #fff; font-size: 14px; line-height: 1.2;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
@@ -487,8 +487,8 @@ footer .footer-navbar a {
 /* 底部信息（在下条外板里） */
 .ra-bottom{
   position: absolute;
-  bottom: 22px;
-  left: 28px; right: 28px;
+  bottom: 32px;
+  left: 24px; right: 24px;
   color: #fff;
 }
 .ra-title{
