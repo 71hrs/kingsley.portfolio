@@ -340,52 +340,92 @@ footer .footer-navbar a {
 
 /* Works page */
 
-/* ========== 外层容器 ========== */
+/* ========== 外层容器（滚动容器） ========== */
 .works-container{
-  position:absolute;
-  top:65px; bottom:75px; left:3.8%; right:3.8%;
-  padding:0;
-  overflow:auto;                /* 内容可滚动 */
-  display:flex;
-  background:transparent;
+  /* 可调变量 */
+  --railW: 4px;        /* 左侧竖排栏宽度 */
+  --gapX: 24px;         /* 卡片水平间距 & 外板左右厚度 */
+  --padTop: 48px;       /* 外板在图片上方的外扩高度 */
+  --padBottom: 96px;    /* 外板在图片下方的外扩高度（更长） */
+  --stickyTop: var(--padTop); /* 左侧标题吸顶距离（与上外扩对齐） */
+
+  position: absolute;
+  top: 65px; bottom: 75px; left: 3.8%; right: 3.8%;
+  padding: 0;
+  overflow: auto;                 /* 本容器滚动，sticky 参考它 */
+  display: block;
+  background: transparent;
 }
 
-/* ========== 宫格：固定四列 + 可调间距 ========== */
-.ra-gallery{
-  /* 你可以随时调整这三个变量 */
-  --gapX: 28px;     /* 左右红板厚度 & 卡片间距 */
-  --padTop: 48px;   /* ↑ hover 红板在图片上方超出的像素 */
-  --padBottom: 96px;/* ↓ hover 红板在图片下方超出的像素（更长） */
+/* ========== 分区：一行两列（左标题 + 右内容），保证对齐 ========== */
+.ra-section{
+  display: grid;
+  grid-template-columns: var(--railW) 1fr;  /* 左 fixed, 右自适应 */
+  column-gap: 20px;
+  align-items: start;                       /* 顶端对齐 */
+  margin-bottom: 80px;                      /* 分区间距 */
+}
 
-  display:grid;
+/* 左侧竖排标题（与右侧图片顶齐，而非外板） */
+.rail-label{
+  grid-column: 1;
+  align-self: start;
+
+  /* sticky 依旧生效，但初始位置也要下沉同样的距离 */
+  position: sticky;
+  top: var(--padTop);          /* 吸顶时离容器顶部 var(--padTop) */
+  margin-top: var(--padTop);   /* 初始也下沉 var(--padTop) 才能与图片顶齐 */
+
+  color:#fff;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);   /* 自下而上；要自上而下就删掉这一行 */
+  letter-spacing:.12em;
+  font-weight:700;
+  font-size:15px;
+  line-height:1;
+  opacity:.9;
+}
+
+/* 右侧分区内容列（包含本分区的 gallery） */
+.section-body{
+  grid-column: 2;
+  margin: 0;
+  padding: 0;
+}
+
+/* ========== 宫格：固定四列 + 预留 hover 外扩缓冲 ========== */
+.ra-gallery{
+  display: grid;
   grid-template-columns: repeat(4, minmax(0,1fr)); /* 一行四个 */
   gap: var(--gapX);
 
-  /* 预留缓冲，避免最左/右、最上/下的红板被裁掉 */
+  /* 预留缓冲，避免最边缘卡片 hover 时外板被裁掉 */
   padding: var(--padTop) var(--gapX) var(--padBottom);
 }
 
 /* ========== 卡片本体：图片保持 1:1 正方形 ========== */
 .ra-card{
-  position:relative;
-  aspect-ratio:1 / 1;      /* 图片区域是正方形 */
-  overflow:visible;        /* 允许红板外扩 */
-  background:transparent;
-  isolation:isolate;
-  text-decoration:none;
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: visible;          /* 允许外板外扩 */
+  background: transparent;
+  isolation: isolate;
+  text-decoration: none;
+  z-index: 0;                 /* 基础层级 */
 }
 
 .ra-clip{
-  position:relative;
-  height:100%;
-  overflow:hidden;
-  z-index:1;
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
 }
 .ra-clip img{
-  width:100%;
-  height:100%;
-  object-fit:cover;        /* 要不裁切可改为 contain（会留空边） */
-  display:block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* 要完整不裁切可改为 contain（会留空边） */
+  display: block;
 }
 
 /* ========== hover 外板（上下独立、左右跟 gapX） ========== */
@@ -396,83 +436,84 @@ footer .footer-navbar a {
   bottom: calc(-1 * var(--padBottom));
   left:   calc(-1 * var(--gapX));
   right:  calc(-1 * var(--gapX));
-  background: rgba(255, 255, 255, 0.5);
-  opacity:0;
-  transition:opacity .2s ease;
-  z-index:0;                /* 图片下层，不遮图 */
-  pointer-events:none;
+  background: rgba(255, 255, 255, 0.5);  /* 你当前使用的浅色外板 */
+  opacity: 0;
+  transition: opacity .2s ease;
+  z-index: 0;                             /* 在图片下，不遮图 */
+  pointer-events: none;
 }
+.ra-card:hover::after{ opacity: 1; }
 
-.ra-card:hover::after{ 
-  opacity:1; 
-}
-
-/* ========== Hover 文本层（覆盖整个红板区域） ========== */
+/* ========== Hover 文本层（覆盖整个外板区域） ========== */
 .ra-panel{
-  position:absolute;
+  position: absolute;
   top:    calc(-1 * var(--padTop));
   bottom: calc(-1 * var(--padBottom));
   left:   calc(-1 * var(--gapX));
   right:  calc(-1 * var(--gapX));
-  z-index:2;                /* 在图片与红板之上 */
-  pointer-events:none;
-  opacity:0;
-  transition:opacity .25s ease;
+  z-index: 2;                 /* 在图片与外板之上 */
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .25s ease;
 }
-.ra-card:hover .ra-panel{ opacity:1; }
+.ra-card:hover .ra-panel{ opacity: 1; }
 
-/* 顶部信息（在上条红板里） */
+/* 顶部信息（在上条外板里） */
 .ra-meta{
-  position:absolute;
-  top:18px;
-  left:28px; right:28px;
-  display:flex; justify-content:space-between; gap:16px;
-  color:#fff; font-size:14px; line-height:1.2;
-  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  position: absolute;
+  top: 18px;
+  left: 28px; right: 28px;
+  display: flex; justify-content: space-between; gap: 16px;
+  color: #fff; font-size: 14px; line-height: 1.2;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 
-/* 底部信息（在下条红板里） */
+/* 底部信息（在下条外板里） */
 .ra-bottom{
-  position:absolute;
-  bottom:22px;
-  left:28px; right:28px;
-  color:#fff;
+  position: absolute;
+  bottom: 22px;
+  left: 28px; right: 28px;
+  color: #fff;
 }
 .ra-title{
-  margin:0 0 8px 0;
-  font-size:20px; line-height:1.25; font-weight:700;
-  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  margin: 0 0 8px 0;
+  font-size: 20px; line-height: 1.25; font-weight: 700;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .ra-tags{
-  margin:0; padding:0; list-style:none;
-  display:flex; gap:12px; font-size:14px; flex-wrap:wrap;
+  margin: 0; padding: 0; list-style: none;
+  display: flex; gap: 12px; font-size: 14px; flex-wrap: wrap;
 }
 
-/* ========== 响应式减列 ========== */
-@media (max-width:1200px){ .ra-gallery{ grid-template-columns:repeat(3,1fr); } }
-@media (max-width:900px){  .ra-gallery{ grid-template-columns:repeat(2,1fr); } }
-@media (max-width:560px){  .ra-gallery{ grid-template-columns:1fr; } }
-
-
-/* 1) 让容器能放遮罩 */
-.works-container { position: absolute; /* 你已是 absolute，这里只是确保 */ }
-
-/* 2) 全屏遮罩（默认隐藏） */
+/* ========== 全屏遮罩：卡片 hover 时让其它区域变暗 ========== */
 .works-container::before{
-  content:"";
-  position: fixed;          /* 覆盖整个屏幕 */
+  content: "";
+  position: fixed;           /* 覆盖整个屏幕 */
   inset: 0;
   background: rgba(0,0,0,.35);  /* 半透明变暗 */
   opacity: 0;
   transition: opacity .2s ease;
-  pointer-events: none;     /* 不挡点击/滚动 */
-  z-index: 100;             /* 盖住其它元素，但让被 hover 的卡片再更高 */
+  pointer-events: none;      /* 不挡点击/滚动 */
+  z-index: 100;              /* 在普通内容之上 */
 }
-
-/* 3) 有任意卡片被 hover 时显示遮罩（支持 :has 的现代浏览器） */
+/* 支持 :has 的浏览器下，任意卡片 hover 时显示遮罩 */
 .works-container:has(.ra-card:hover)::before{ opacity: 1; }
 
-/* 4) 提升被 hover 的卡片层级，确保不被遮罩变暗 */
-.ra-card{ position: relative; z-index: 0; }
-.ra-card:hover{ z-index: 200; }  /* 卡片 + 红框 + 文本都在遮罩之上 */
+/* 提升被 hover 的卡片层级，确保不被遮罩变暗 */
+.ra-card:hover{ z-index: 200; }
 
+/* ========== 响应式 ========== */
+@media (max-width:1200px){
+  .ra-gallery{ grid-template-columns: repeat(3,1fr); }
+}
+@media (max-width:900px){
+  .ra-gallery{ grid-template-columns: repeat(2,1fr); }
+}
+@media (max-width:560px){
+  /* 小屏单列展示，左侧标题隐藏 */
+  .ra-section{
+    grid-template-columns: 1fr;
+  }
+  .rail-label{ display:none; }
+  .ra-gallery{ grid-template-columns: 1fr; }
+}
