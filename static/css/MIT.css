@@ -347,8 +347,6 @@ footer .footer-navbar a {
   padding:0;
   overflow:auto;                /* 内容可滚动 */
   display:block;
-  outline:2px solid rgba(255,255,255,.18);
-  outline-offset:8px;
   background:transparent;
 }
 
