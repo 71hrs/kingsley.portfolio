@@ -345,7 +345,7 @@ footer .footer-navbar a {
   /* 可调变量 */
   --railW: 10px;        /* 左侧竖排栏宽度 */
   --gapX: 24px;         /* 卡片水平间距 & 外板左右厚度 */
-  --padTop: 48px;       /* 外板在图片上方的外扩高度 */
+  --padTop: 56px;       /* 外板在图片上方的外扩高度 */
   --padBottom: 96px;    /* 外板在图片下方的外扩高度（更长） */
   --stickyTop: var(--padTop); /* 左侧标题吸顶距离（与上外扩对齐） */
 
@@ -363,7 +363,7 @@ footer .footer-navbar a {
   grid-template-columns: var(--railW) 1fr;  /* 左 fixed, 右自适应 */
   column-gap: 20px;
   align-items: start;                       /* 顶端对齐 */
-  margin-bottom: 80px;                      /* 分区间距 */
+  margin-bottom: 0px;                      /* 分区间距 */
 }
 
 /* 左侧竖排标题（与右侧图片顶齐，而非外板） */
