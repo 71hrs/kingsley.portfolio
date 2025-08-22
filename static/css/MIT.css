@@ -311,3 +311,141 @@ footer .footer-navbar a {
   font-size:18px;
   line-height:1;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Works page */
+
+/* ========== 外层容器：边框+滚动区域 ========== */
+.works-container {
+  position: absolute;
+  top: 65px; bottom: 75px; left: 3.8%; right: 3.8%;
+  padding: 20px;
+  overflow: auto;                /* 内容可滚动 */
+  display: block;                /* 不要用 flex，避免挤压内部 grid */
+  border-radius: 18px;
+  outline: 2px solid rgba(255,255,255,.18); /* 外框（可按需调整/去掉） */
+  background: transparent;
+}
+
+/* ========== 宫格布局（这里才是你页面里实际用的容器） ========== */
+.ra-gallery{
+  --gap: 28px;                                   /* 网格间距，同时用作红框厚度 */
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr)); /* 一行四个 */
+  gap: var(--gap);
+  padding: 0;                                    /* 让红框与相邻卡片间距一致 */
+}
+
+/* ========== 卡片：正方形，不裁切文字区域，允许红框向外扩 ========== */
+.ra-card{
+  position: relative;
+  aspect-ratio: 1 / 1;        /* 1:1 */
+  overflow: visible;          /* 允许伪元素画到外面形成红框 */
+  border-radius: 16px;
+  background: transparent;    /* 默认无背景、不出现黑边 */
+  isolation: isolate;
+  text-decoration: none;
+}
+
+/* 图片裁切容器：图片铺满方形（参考站风格）；若要完整不裁切改成 contain */
+.ra-clip{
+  position: relative;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  z-index: 1;                 /* 高于红框，确保不被遮 */
+}
+.ra-clip img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* 想不裁切改为：contain（会留空边） */
+  display: block;
+}
+
+/* 悬停时出现的“外圈红框”：厚度 = 宫格 gap */
+.ra-card::after{
+  content: "";
+  position: absolute;
+  inset: calc(-1 * var(--gap, 28px));             /* 外扩等于间距 */
+  border-radius: calc(16px + var(--gap, 28px));   /* 圆角同步放大 */
+  background: rgba(255,70,70,.95);
+  opacity: 0;
+  transition: opacity .2s ease;
+  z-index: 0;                                     /* 在图片下方 */
+  pointer-events: none;
+}
+.ra-card:hover::after{ opacity: 1; }
+
+/* ========== 上下信息条：放在红框里、不覆盖图片 ========== */
+.ra-panel{ position: relative; z-index: 2; pointer-events: none; }
+
+/* 顶部条：地点 / 日期 */
+.ra-meta{
+  position: absolute;
+  left: 18px; right: 18px;
+  top: calc(-1 * var(--gap, 28px) + 14px);        /* 放进“上边条”内 */
+  display: flex; justify-content: space-between; gap: 16px;
+  color: #fff; font-size: 14px;
+  opacity: 0; transform: translateY(-6px);
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+/* 底部块：标题 / 类型 */
+.ra-bottom{
+  position: absolute;
+  left: 18px; right: 18px;
+  bottom: calc(-1 * var(--gap, 28px) + 14px);     /* 放进“下边条”内 */
+  color: #fff;
+  opacity: 0; transform: translateY(6px);
+  transition: opacity .2s ease, transform .2s ease;
+}
+.ra-title{
+  margin: 0 0 10px 0;
+  font-size: 22px; line-height: 1.25; font-weight: 700;
+}
+.ra-tags{
+  margin:0; padding:0; list-style:none;
+  display:flex; gap:10px; font-size:14px;
+}
+
+/* 悬停：只让文字淡入；图片不缩放不变色（保持参考站风格） */
+.ra-card:hover .ra-meta,
+.ra-card:hover .ra-bottom{
+  opacity: 1; transform: none;
+}
+
+/* ========== 响应式列数（按需改断点） ========== */
+@media (max-width: 1200px){
+  .ra-gallery{ grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 900px){
+  .ra-gallery{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px){
+  .ra-gallery{ grid-template-columns: 1fr; }
+}
