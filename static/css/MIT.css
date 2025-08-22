@@ -451,3 +451,26 @@ footer .footer-navbar a {
 @media (max-width:1200px){ .ra-gallery{ grid-template-columns:repeat(3,1fr); } }
 @media (max-width:900px){  .ra-gallery{ grid-template-columns:repeat(2,1fr); } }
 @media (max-width:560px){  .ra-gallery{ grid-template-columns:1fr; } }
+
+
+/* 1) 让容器能放遮罩 */
+.works-container { position: absolute; /* 你已是 absolute，这里只是确保 */ }
+
+/* 2) 全屏遮罩（默认隐藏） */
+.works-container::before{
+  content:"";
+  position: fixed;          /* 覆盖整个屏幕 */
+  inset: 0;
+  background: rgba(0,0,0,.35);  /* 半透明变暗 */
+  opacity: 0;
+  transition: opacity .2s ease;
+  pointer-events: none;     /* 不挡点击/滚动 */
+  z-index: 100;             /* 盖住其它元素，但让被 hover 的卡片再更高 */
+}
+
+/* 3) 有任意卡片被 hover 时显示遮罩（支持 :has 的现代浏览器） */
+.works-container:has(.ra-card:hover)::before{ opacity: 1; }
+
+/* 4) 提升被 hover 的卡片层级，确保不被遮罩变暗 */
+.ra-card{ position: relative; z-index: 0; }
+.ra-card:hover{ z-index: 200; }  /* 卡片 + 红框 + 文本都在遮罩之上 */
