@@ -215,141 +215,85 @@ footer .footer-navbar a {
 
 
 
-/* =========================
-   About page（左列可滚、竖排标签常显）
-   ========================= */
+/* ================== About page（最终版） ================== */
 
-.about-container{
-  display:flex;
-  gap:20px;
-  position:absolute;
-  top:65px; bottom:75px; left:3.8%; right:3.8%;
-  padding:20px;
-  background:rgba(255,255,255,0.2);
-  border-radius:15px;
-  box-shadow:0 4px 10px rgba(0,0,0,.2);
+/* 主容器：保留你的磨砂/圆角/阴影等 */
+.about-container {
+  display: flex;
+  gap: 20px;
+  position: absolute;
+  top: 65px;
+  bottom: 75px;
+  left: 3.8%;
+  right: 3.8%;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
-  color:#333;
-  /* 外层不滚动；只让左列滚动，避免裁切 */
-  overflow:hidden;
-  align-items:flex-start;
+  color: #333;
+  overflow: hidden;            /* 让左右两列各自管理滚动 */
+  align-items: flex-start;
+
+  /* 统一变量 */
+  --railW: 12px;       /* 竖排文字自身列宽 */
+  --colGap: 20px;      /* 左右两列间距 */
+  --topAlign: 0px;     /* 顶线统一下沉（一般 0） */
+  --railOut: 64px;     /* 左侧“导轨”预留宽度（解决被裁剪） */
 }
 
-/* 左右两列 */
-.left,.right{
-  min-width:0;
-  padding:50px;
+/* 左右列 */
+.left, .right {
+  min-width: 0;
+  overflow: hidden;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-right: 50px;
 }
 
-/* 左列：仅纵向滚动，隐藏滚动条 */
-.left{
-  flex:3 1 0;
-  height:100%;
-  overflow-y:auto;
-  overflow-x:hidden;
-  scrollbar-width:none;          /* Firefox */
-  -ms-overflow-style:none;       /* IE/旧Edge */
-}
-.left::-webkit-scrollbar{ display:none; }  /* WebKit */
+/* 左列：自身滚动 + 预留导轨空间 */
+.left {
+  flex: 3 1 0;
+  overflow: auto;
+  position: relative;
 
-/* 右列保持原样 */
-.right{ flex:1 1 0; }
-.right img{
-  max-width:100%;
-  height:auto;
-  display:block;
-  margin:0 auto;
-  object-fit:contain;
-}
-.right .quote{
-  margin:25px 0;
-  font-size:14px;
-  color:#fff;
-  line-height:20px;
-}
+  /* 关键：给左侧预留一条导轨，让 label 可以“往左伸”且不被裁剪 */
+  padding-left: calc(50px + var(--railOut));
 
-/* ========= 左列分区（竖排标签 + 正文） ========= */
-.about-section{
-  /* 竖排导轨的合理宽度，确保文字完全在容器内可见 */
-  --about-railW: 64px;
-  --about-nudgeY: 2px;        /* 顶部细微对齐；觉得略低可改 3~4px */
+  scroll-padding-top: var(--topAlign);
 
-  display:grid;
-  grid-template-columns: var(--about-railW) 1fr;
-  column-gap:20px;
-  align-items:start;
-  margin:0 0 36px 0;
+  /* 隐藏滚动条 */
+  scrollbar-width: none;
+}
+.left::-webkit-scrollbar { display: none; }
+
+/* 右列保持不变 */
+.right {
+  flex: 1 1 0;
+  padding-left: 50px;
+}
+.right img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+}
+.right .quote {
+  margin: 25px 0;
+  font-size: 14px;
+  color: white;
+  line-height: 20px;
 }
 
-/* 竖排标签列：自身 sticky（随左列滚动吸顶） */
-.about-rail-col{
-  grid-column:1;
-  position:sticky;
-  top:0;                       /* 贴左列滚动容器顶部 */
-  padding-top:var(--about-nudgeY);
-  z-index:5;                   /* 不被正文覆盖 */
-}
-
-/* 竖排标签本体：不再用 translate，完整放在导轨列里 */
-.about-rail-label{
-  display:flex;
-  align-items:flex-start;      /* 顶对齐，便于与正文第一行靠齐 */
-  justify-content:center;
-  height:100%;
-  color:#fff;
-  writing-mode:vertical-rl;
-  text-orientation:mixed;
-  transform:rotate(180deg);    /* 竖排自下而上 */
-  letter-spacing:.12em;
-  font-weight:700;
-  font-size:15px;
-  line-height:1;
-  opacity:.9;
-  user-select:none;
-}
-
-/* 正文列：细微上移，与竖排顶端对齐 */
-.about-section-body{
-  grid-column:2;
-  margin:0;
-  padding:0;
-  transform: translateY(calc(-1 * var(--about-nudgeY)));
-}
-
-/* 正文文字（保持你之前的白色与排版） */
-.about-paragraph{
-  margin:0 0 16px 0;
-  line-height:1.6;
-  font-size:16px;
-  color:#fff;
-  overflow-wrap:anywhere;
-  word-break:break-word;
-}
-
-/* 教育/经历条目 */
-.about-item{ margin:0 0 18px 0; }
-.about-item-title{
-  color:#fff;
-  font-weight:700;
-  line-height:1.6;
-  font-size:16px;
-}
-.about-item-sub{
-  color:#fff;
-  opacity:.9;
-  line-height:1.6;
-  font-size:16px;
-  margin-top:2px;
-}
-
-/* 社交按钮：保持原样 */
-.social-links{
-  margin-top:12px;
-  display:flex;
-  justify-content:flex-start;
-  flex-wrap:wrap;
-  gap:10px;
-  width:100%;
+/* 社交链接保持你的样式 */
+.social-links {
+  margin-top: 12px;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
 }
 .social-links .icon{
   width:36px; height:36px; flex:0 0 36px;
@@ -358,7 +302,7 @@ footer .footer-navbar a {
   background:rgba(255,255,255,.12);
   color:#fff; text-decoration:none;
   transition:transform .18s ease, background .18s ease, color .18s ease;
-  box-sizing:border-box;
+  box-sizing: border-box;
 }
 .social-links .icon:hover{
   transform:translateY(-1px) scale(1.06);
@@ -366,10 +310,90 @@ footer .footer-navbar a {
 }
 .social-links i{ font-size:18px; line-height:1; }
 
-/* 小屏优化：导轨稍窄一点 */
-@media (max-width: 640px){
-  .left,.right{ padding:28px; }
-  .about-section{ --about-railW: 48px; margin-bottom:28px; }
+/* -------- 左列内容布局 -------- */
+
+/* 每个 section：左 label 列 + 右正文列；天然顶线对齐 */
+.about-section{
+  display: grid;
+  grid-template-columns: var(--railW) 1fr;
+  column-gap: var(--colGap);
+  align-items: start;
+  padding-top: var(--topAlign);
+  margin: 0 0 16px 0;    /* 区块间距，较紧凑 */
+}
+
+/* 左侧“竖排标签”列：sticky 跟随左列滚动吸顶 */
+.about-rail-col{
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: var(--topAlign);
+  align-self: start;
+  z-index: 1;
+
+  /* 放入刚才预留的导轨里：向左移动导轨宽度，而不会被裁剪 */
+  transform: translateX(calc(-1 * var(--railOut)));
+}
+
+/* 竖排标签样式 */
+.about-rail-label{
+  color:#fff;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  letter-spacing:.12em;
+  font-weight:700;
+  font-size:15px;
+  line-height:1;
+  opacity:.9;
+  margin: 0; padding: 0;
+}
+
+/* 右正文列 */
+.about-section-body{
+  margin: 0;
+  padding: 0;
+}
+
+/* 正文段落：保留你原先的文本风格（白色、行距） */
+.about-paragraph{
+  margin: 0 0 12px 0;
+  line-height: 1.6;
+  font-size: 16px;
+  color: white;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* 列表条目 */
+.about-item{
+  margin: 0 0 12px 0;
+}
+.about-item-title{
+  margin: 0 0 4px 0;
+  font-weight: 700;
+  color: white;
+  line-height: 1.4;
+  font-size: 16px;
+}
+.about-item-sub{
+  margin: 0;
+  color: white;
+  opacity: .85;
+  line-height: 1.4;
+  font-size: 14px;
+}
+
+/* 各 section 正文首元素不额外下推，避免“看起来更低” */
+.about-section-body > *:first-child{ margin-top: 0; }
+
+/* 小屏：隐藏竖排标签列，单列展示 */
+@media (max-width: 560px){
+  .about-section{
+    grid-template-columns: 1fr;
+    margin-bottom: 14px;
+  }
+  .about-rail-col{ display: none; }
+  .left{ padding-left: 50px; } /* 去掉导轨预留 */
 }
 
 
