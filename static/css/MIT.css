@@ -215,10 +215,14 @@ footer .footer-navbar a {
 
 
 
-/* About page */
+/* ========== About page ========== */
 
-/* 主容器样式 */
+/* 容器：不滚动，由左列内部滚动承担 */
 .about-container {
+  --railW: 12px;       /* 左侧竖排栏宽度 */
+  --padTop: 32px;      /* 左列内容与顶部的对齐缓冲 */
+  --railStopGap: 24px; /* 被下一节顶走前的下方缓冲 */
+
   display: flex;
   gap: 20px;
   position: absolute;
@@ -227,96 +231,150 @@ footer .footer-navbar a {
   left: 3.8%;
   right: 3.8%;
   padding: 20px;
+
   background: rgba(255, 255, 255, 0.2);
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
+
   color: #333;
-  overflow: auto;          /* 滚动条 */
-  align-items: flex-start;  /* ⭐ 关键：不要拉伸子项到等高 */
+  overflow: hidden;          /* 关键：容器本身不滚动 */
+  align-items: flex-start;
 }
 
-/* 左右分区样式（关键：允许内容在列内收缩换行，不挤出容器） */
+/* 左右分区 */
 .left, .right {
-  min-width: 0;               /* ← 防止长行/长词把列撑爆 */
-  overflow: hidden;           /* ← 防止内部元素外溢（配合下面的文字换行） */
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  min-width: 0;
+  overflow: hidden;
+  padding: 50px; /* 四向内边距 */
 }
 
 .left  { 
-  flex: 3 1 0; 
+  flex: 3 1 0;
+  overflow: auto;        /* 关键：仅左列滚动 */
+  position: relative;    /* 让 sticky 参照左列滚动 */
+  scroll-behavior: smooth;
 }
 
 .right { 
   flex: 1 1 0; 
 }
 
-/* 文字：在列内换行，避免溢出 */
-.left p {
-  margin-bottom: 24px;
-  line-height: 1.6;
-  font-size: 16px;
-  color: white;
-  overflow-wrap: anywhere;     /* 允许任意位置断行（最强兜底） */
-  word-break: break-word;      /* 长单词/URL 断行，避免挤出 */
-  margin-block-start: 0em;
-  margin-block-end: 1em;
-}
-
-/* 图片：限制在列内，居中显示 */
+/* 右列内容 */
 .right img {
-  max-width: 100%;  
+  max-width: 100%;
   height: auto;
   display: block;
-  margin: 0 auto;             /* 水平居中 */
+  margin: 0 auto;
   object-fit: contain;
 }
 
 .right .quote {
-  margin-top: 25px;        /* 图片和文字之间的间距 */
-  margin-bottom: 25px;        /* 图片和文字之间的间距 */
-  font-size: 14px;         /* 字体大小 */
-  color: white;            /* 文字颜色 */
+  margin: 25px 0;
+  font-size: 14px;
+  color: white;
   line-height: 20px;
 }
 
-/* 社交链接栏（通用样式） */
+/* 社交链接 */
 .social-links {
   margin-top: 12px;
   display: flex;
-  justify-content: flex-start; /* ← 改成左对齐 */
-  flex-wrap: wrap;             /* ← 允许换行 */
-  gap: 10px;                   /* ← 固定间距 */
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
   width: 100%;
 }
-
-/* 圆形按钮：固定尺寸，保证正圆，不随屏幕缩小 */
 .social-links .icon{
-  width:36px;
-  height:36px;
-  flex: 0 0 36px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
+  width:36px; height:36px; flex:0 0 36px;
+  display:inline-flex; align-items:center; justify-content:center;
   border-radius:50%;
   background:rgba(255,255,255,.12);
-  color:#fff;
-  text-decoration:none;
+  color:#fff; text-decoration:none;
   transition:transform .18s ease, background .18s ease, color .18s ease;
-  box-sizing: border-box;
+  box-sizing:border-box;
 }
-
 .social-links .icon:hover{
   transform:translateY(-1px) scale(1.06);
   background:rgba(255,255,255,.22);
 }
+.social-links i{ font-size:18px; line-height:1; }
 
-.social-links i{
-  font-size:18px;
+/* ========== 左列分节：竖排标签 + 正文 ========== */
+.about-section{
+  display: grid;
+  grid-template-columns: var(--railW) 1fr; /* 左固定、右自适应 */
+  column-gap: 20px;
+  align-items: start;
+  margin-bottom: 40px; /* 各分节间距 */
+}
+
+/* 让“整条左列”吸顶（跟随左列滚动） */
+.about-rail-col{
+  grid-column: 1;
+  padding-top: var(--padTop);
+  padding-bottom: var(--railStopGap);
+  position: -webkit-sticky;
+  position: sticky;
+  top: var(--padTop);
+  align-self: start;
+  z-index: 1;
+}
+
+/* 竖排文字样式 */
+.about-rail-label{
+  translate: -32px;                 /* 左移，做出导轨的感觉 */
+  color:#fff;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  letter-spacing:.12em;
+  font-weight:700;
+  font-size:15px;
   line-height:1;
+  opacity:.9;
+}
+
+/* 右侧正文列（左列每一节对应的正文） */
+.about-section-body{
+  grid-column: 2;
+  padding-top: var(--padTop); /* 与竖排标签顶齐 */
+}
+
+/* 正文段落（BIO） */
+.about-paragraph{
+  margin: 0 0 16px 0;
+  line-height: 1.7;
+  font-size: 16px;
+  color: white;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* 条目（Education / Experience） */
+.about-item{
+  margin: 0 0 18px 0;
+}
+.about-item-title{
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.about-item-sub{
+  color: rgba(255,255,255,.85);
+  font-size: 14px;
+  line-height: 1.5;
+  margin-top: 4px;
+}
+
+/* 小屏优化：隐藏竖排栏，单列阅读 */
+@media (max-width: 640px){
+  .about-section{
+    grid-template-columns: 1fr;
+  }
+  .about-rail-col{ display:none; }
+  .about-section-body{ padding-top: 0; }
 }
 
 
