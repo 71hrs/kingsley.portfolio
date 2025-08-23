@@ -127,20 +127,25 @@ nav > a:last-child {
   padding-right: 0;
 }
 
-/* 让四个链接靠右、并保持固定间距；不改原有颜色与位置 */
+/* 右边导航不变 */
 .navbar .nav-links{
   display:flex;
-  gap: 28px;              /* ← 链接之间的间距，按需改 */
+  gap: 28px;              /* 链接间距 */
   align-items:center;
-  margin-left: auto;      /* ← 关键：把整组链接推到最右 */
+  margin-left: auto;      /* 把整组链接推到最右 */
 }
 
-/* 左侧 Logo 尺寸（只控制大小，不影响你的透明/背景） */
+/* 左侧 Logo 容器 */
 .navbar .logo{
-  height: 24px;           /* 按需改，比如 24~32px */
-  width: auto;
-  display:block;
-  align-self:center;
+  display:flex;
+  align-items:center;     /* 垂直居中 */
+}
+
+/* Logo 图片大小控制 */
+.navbar .logo img{
+  height: 28px;           /* ← 控制 Logo 高度，建议 24–40px */
+  width: auto;            /* 保持比例缩放 */
+  display: block;
 }
 
 /* Footer Styles */
