@@ -215,68 +215,128 @@ footer .footer-navbar a {
 
 
 
-/* ========== About page ========== */
+/* ===================== About page ===================== */
 
-/* 容器：不滚动，由左列内部滚动承担 */
-.about-container {
-  --railW: 12px;       /* 左侧竖排栏宽度 */
-  --padTop: 32px;      /* 左列内容与顶部的对齐缓冲 */
-  --railStopGap: 24px; /* 被下一节顶走前的下方缓冲 */
+/* 外层容器 */
+.about-container{
+  --paneRadius: 15px;
+  --paneBg: rgba(255,255,255,0.2);
+  --paneShadow: 0 4px 10px rgba(0,0,0,.2);
 
-  display: flex;
-  gap: 20px;
   position: absolute;
   top: 65px;
   bottom: 75px;
   left: 3.8%;
   right: 3.8%;
+  display: flex;
+  gap: 20px;
   padding: 20px;
 
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background: var(--paneBg);
+  border-radius: var(--paneRadius);
+  box-shadow: var(--paneShadow);
   backdrop-filter: blur(10px);
-
   color: #333;
-  overflow: hidden;          /* 关键：容器本身不滚动 */
-  align-items: flex-start;
 }
 
-/* 左右分区 */
-.left, .right {
-  min-width: 0;
-  overflow: hidden;
-  padding: 50px; /* 四向内边距 */
+/* 右列：恢复较小比例，避免过大 */
+.right{
+  flex: 0 0 280px;       /* ← 固定 320px 宽，跟之前更接近 */
+  max-width: 360px;
+  min-width: 280px;
+  padding: 40px;
+  min-height: 0;
+}
+.right img{ 
+  max-width:100%; 
+  height:auto; 
+  display:block; 
+  margin:0 auto; 
+  object-fit:contain; 
+}
+.right .quote{ 
+  margin:25px 0; 
+  font-size:14px; 
+  color:#fff; 
+  line-height:20px; 
 }
 
-.left  { 
-  flex: 3 1 0;
-  overflow: auto;        /* 关键：仅左列滚动 */
-  position: relative;    /* 让 sticky 参照左列滚动 */
-  scroll-behavior: smooth;
+/* 左列：可滚动，隐藏滚动条 */
+.left{
+  --railW: 14px;        
+  --railGap: 20px;      
+  --labelNudge: 2px;    
+
+  flex: 1 1 auto;           
+  min-width: 0;             
+  overflow: auto;           
+  padding: 40px;            
+
+  scrollbar-width: none;    
+  -ms-overflow-style: none; 
+}
+.left::-webkit-scrollbar{ width:0; height:0; }
+
+/* 分区布局 */
+.about-section{
+  display: grid;
+  grid-template-columns: var(--railW) 1fr;
+  column-gap: var(--railGap);
+  align-items: start;
+  margin-bottom: 24px;      /* 缩小分区间距 */
 }
 
-.right { 
-  flex: 1 1 0; 
+/* 竖排列 sticky */
+.about-rail-col{
+  position: sticky;
+  top: calc(0px + var(--labelNudge));
+  align-self: start;
+  padding-top: 0;
+  z-index: 1;
 }
 
-/* 右列内容 */
-.right img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  object-fit: contain;
+/* 竖排文字 */
+.about-rail-label{
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  color:#fff;
+  letter-spacing:.12em;
+  font-weight:700;
+  font-size:15px;
+  line-height:1;
+  opacity:.9;
+  margin: 0;
 }
 
-.right .quote {
-  margin: 25px 0;
+/* 正文列 */
+.about-section-body{
+  margin-bottom: 50px;
+  padding: 0;
+}
+.about-paragraph{
+  margin: 0 0 14px 0;
+  line-height: 1.6;
+  font-size: 16px;
+  color: #fff;
+}
+.about-item{ margin: 0 0 10px 0; }
+.about-item-title{
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.4;
+  font-size: 16px;
+  margin: 0 0 4px 0;
+}
+.about-item-sub{
+  color: #fff;
+  opacity: .9;
   font-size: 14px;
-  color: white;
-  line-height: 20px;
+  line-height: 1.5;
+  margin: 0;
 }
 
-/* 社交链接 */
+/* ==== 社交 icon 样式（恢复圆形按钮模式） ==== */
 .social-links {
   margin-top: 12px;
   display: flex;
@@ -286,95 +346,39 @@ footer .footer-navbar a {
   width: 100%;
 }
 .social-links .icon{
-  width:36px; height:36px; flex:0 0 36px;
-  display:inline-flex; align-items:center; justify-content:center;
+  width:36px;
+  height:36px;
+  flex: 0 0 36px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
   border-radius:50%;
   background:rgba(255,255,255,.12);
-  color:#fff; text-decoration:none;
+  color:#fff;
+  text-decoration:none;
   transition:transform .18s ease, background .18s ease, color .18s ease;
-  box-sizing:border-box;
+  box-sizing: border-box;
 }
 .social-links .icon:hover{
   transform:translateY(-1px) scale(1.06);
   background:rgba(255,255,255,.22);
 }
-.social-links i{ font-size:18px; line-height:1; }
-
-/* ========== 左列分节：竖排标签 + 正文 ========== */
-.about-section{
-  display: grid;
-  grid-template-columns: var(--railW) 1fr; /* 左固定、右自适应 */
-  column-gap: 20px;
-  align-items: start;
-  margin-bottom: 40px; /* 各分节间距 */
-}
-
-/* 让“整条左列”吸顶（跟随左列滚动） */
-.about-rail-col{
-  grid-column: 1;
-  padding-top: var(--padTop);
-  padding-bottom: var(--railStopGap);
-  position: -webkit-sticky;
-  position: sticky;
-  top: var(--padTop);
-  align-self: start;
-  z-index: 1;
-}
-
-/* 竖排文字样式 */
-.about-rail-label{
-  translate: -32px;                 /* 左移，做出导轨的感觉 */
-  color:#fff;
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  transform: rotate(180deg);
-  letter-spacing:.12em;
-  font-weight:700;
-  font-size:15px;
+.social-links i{
+  font-size:18px;
   line-height:1;
-  opacity:.9;
 }
 
-/* 右侧正文列（左列每一节对应的正文） */
-.about-section-body{
-  grid-column: 2;
-  padding-top: var(--padTop); /* 与竖排标签顶齐 */
+/* ===== 小屏优化 ===== */
+@media (max-width: 720px){
+  .about-container{ left:4%; right:4%; gap: 16px; }
+  .right{ flex: 0 0 280px; padding: 28px; }
+  .left{ padding: 28px; }
 }
-
-/* 正文段落（BIO） */
-.about-paragraph{
-  margin: 0 0 16px 0;
-  line-height: 1.7;
-  font-size: 16px;
-  color: white;
-  overflow-wrap: anywhere;
-  word-break: break-word;
-}
-
-/* 条目（Education / Experience） */
-.about-item{
-  margin: 0 0 18px 0;
-}
-.about-item-title{
-  color: #fff;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1.4;
-}
-.about-item-sub{
-  color: rgba(255,255,255,.85);
-  font-size: 14px;
-  line-height: 1.5;
-  margin-top: 4px;
-}
-
-/* 小屏优化：隐藏竖排栏，单列阅读 */
-@media (max-width: 640px){
-  .about-section{
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 560px){
+  .about-container{ flex-direction: column; }
+  .right{ flex: none; max-width: 100%; width: 100%; }
+  .about-section{ grid-template-columns: 1fr; }
   .about-rail-col{ display:none; }
-  .about-section-body{ padding-top: 0; }
 }
 
 
