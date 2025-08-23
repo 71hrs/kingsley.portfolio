@@ -276,7 +276,7 @@ footer .footer-navbar a {
 /* 左列：可滚动，隐藏滚动条 */
 .left{
   --railW: 14px;        
-  --railGap: 36px;      
+  --railGap: 44px;      
   --labelNudge: 2px;    
 
   flex: 1 1 auto;           
