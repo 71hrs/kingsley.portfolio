@@ -237,22 +237,34 @@ footer .footer-navbar a {
   box-shadow: var(--paneShadow);
   backdrop-filter: blur(10px);
   color: #333;
+
+  /* 关键：边界裁剪，右栏不会溢出到容器外 */
+  overflow: hidden;
 }
 
-/* 右列：恢复较小比例，避免过大 */
+/* 右列：尺寸“雷打不动”，高度不够时右栏内部滚动 */
 .right{
-  flex: 0 0 280px;       /* ← 固定 320px 宽，跟之前更接近 */
+  flex: 0 0 280px;     /* 固定宽度区间（如需改比例只调这行和下两行） */
   max-width: 360px;
   min-width: 280px;
+
   padding: 40px;
-  min-height: 0;
+  min-height: 0;       /* 允许在 flex 容器内收缩以启用内部滚动 */
+  overflow: auto;      /* 高度不足时在右栏内部滚动 */
+
+  /* 隐藏滚动条（可留可去） */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
+.right::-webkit-scrollbar{ width:0; height:0; }
+
 .right img{ 
   max-width:100%; 
   height:auto; 
   display:block; 
   margin:0 auto; 
-  object-fit:contain; 
+  object-fit:contain;
+  /* 不限制 max-height —— 保持原有比例与尺寸，不随视口高度变化 */
 }
 .right .quote{ 
   margin:25px 0; 
@@ -283,7 +295,7 @@ footer .footer-navbar a {
   grid-template-columns: var(--railW) 1fr;
   column-gap: var(--railGap);
   align-items: start;
-  margin-bottom: 24px;      /* 缩小分区间距 */
+  margin-bottom: 24px;      /* 控制区块间距（右侧“正文太散”可调这里） */
 }
 
 /* 竖排列 sticky */
@@ -336,7 +348,7 @@ footer .footer-navbar a {
   margin: 0;
 }
 
-/* ==== 社交 icon 样式（恢复圆形按钮模式） ==== */
+/* ==== 社交 icon 样式（圆形按钮模式） ==== */
 .social-links {
   margin-top: 12px;
   display: flex;
@@ -368,7 +380,7 @@ footer .footer-navbar a {
   line-height:1;
 }
 
-/* ===== 小屏优化 ===== */
+/* ===== 小屏宽度优化（与高度无关，不会改变右栏比例） ===== */
 @media (max-width: 720px){
   .about-container{ left:4%; right:4%; gap: 16px; }
   .right{ flex: 0 0 280px; padding: 28px; }
@@ -380,7 +392,6 @@ footer .footer-navbar a {
   .about-section{ grid-template-columns: 1fr; }
   .about-rail-col{ display:none; }
 }
-
 
 
 
