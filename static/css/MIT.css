@@ -401,6 +401,7 @@ footer .footer-navbar a {
   position: sticky;
   top: var(--padTop);          /* 吸顶时离容器顶部 var(--padTop) */
   margin-top: var(--padTop);   /* 初始也下沉 var(--padTop) 才能与图片顶齐 */
+  margin-bottom: 104px;
   translate: -64px;
 
   color:#fff;
