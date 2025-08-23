@@ -215,10 +215,14 @@ footer .footer-navbar a {
 
 
 
-/* ================== About page（最终版） ================== */
+/* ========== About page ========== */
 
-/* 主容器：保留你的磨砂/圆角/阴影等 */
+/* 容器：不滚动，由左列内部滚动承担 */
 .about-container {
+  --railW: 12px;       /* 左侧竖排栏宽度 */
+  --padTop: 32px;      /* 左列内容与顶部的对齐缓冲 */
+  --railStopGap: 24px; /* 被下一节顶走前的下方缓冲 */
+
   display: flex;
   gap: 20px;
   position: absolute;
@@ -227,51 +231,36 @@ footer .footer-navbar a {
   left: 3.8%;
   right: 3.8%;
   padding: 20px;
+
   background: rgba(255, 255, 255, 0.2);
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
-  color: #333;
-  overflow: hidden;            /* 让左右两列各自管理滚动 */
-  align-items: flex-start;
 
-  /* 统一变量 */
-  --railW: 12px;       /* 竖排文字自身列宽 */
-  --colGap: 20px;      /* 左右两列间距 */
-  --topAlign: 0px;     /* 顶线统一下沉（一般 0） */
-  --railOut: 64px;     /* 左侧“导轨”预留宽度（解决被裁剪） */
+  color: #333;
+  overflow: hidden;          /* 关键：容器本身不滚动 */
+  align-items: flex-start;
 }
 
-/* 左右列 */
+/* 左右分区 */
 .left, .right {
   min-width: 0;
   overflow: hidden;
-  padding-top: 50px;
-  padding-bottom: 50px;
-  padding-right: 50px;
+  padding: 50px; /* 四向内边距 */
 }
 
-/* 左列：自身滚动 + 预留导轨空间 */
-.left {
+.left  { 
   flex: 3 1 0;
-  overflow: auto;
-  position: relative;
-
-  /* 关键：给左侧预留一条导轨，让 label 可以“往左伸”且不被裁剪 */
-  padding-left: calc(50px + var(--railOut));
-
-  scroll-padding-top: var(--topAlign);
-
-  /* 隐藏滚动条 */
-  scrollbar-width: none;
+  overflow: auto;        /* 关键：仅左列滚动 */
+  position: relative;    /* 让 sticky 参照左列滚动 */
+  scroll-behavior: smooth;
 }
-.left::-webkit-scrollbar { display: none; }
 
-/* 右列保持不变 */
-.right {
-  flex: 1 1 0;
-  padding-left: 50px;
+.right { 
+  flex: 1 1 0; 
 }
+
+/* 右列内容 */
 .right img {
   max-width: 100%;
   height: auto;
@@ -279,6 +268,7 @@ footer .footer-navbar a {
   margin: 0 auto;
   object-fit: contain;
 }
+
 .right .quote {
   margin: 25px 0;
   font-size: 14px;
@@ -286,7 +276,7 @@ footer .footer-navbar a {
   line-height: 20px;
 }
 
-/* 社交链接保持你的样式 */
+/* 社交链接 */
 .social-links {
   margin-top: 12px;
   display: flex;
@@ -302,7 +292,7 @@ footer .footer-navbar a {
   background:rgba(255,255,255,.12);
   color:#fff; text-decoration:none;
   transition:transform .18s ease, background .18s ease, color .18s ease;
-  box-sizing: border-box;
+  box-sizing:border-box;
 }
 .social-links .icon:hover{
   transform:translateY(-1px) scale(1.06);
@@ -310,32 +300,30 @@ footer .footer-navbar a {
 }
 .social-links i{ font-size:18px; line-height:1; }
 
-/* -------- 左列内容布局 -------- */
-
-/* 每个 section：左 label 列 + 右正文列；天然顶线对齐 */
+/* ========== 左列分节：竖排标签 + 正文 ========== */
 .about-section{
   display: grid;
-  grid-template-columns: var(--railW) 1fr;
-  column-gap: var(--colGap);
+  grid-template-columns: var(--railW) 1fr; /* 左固定、右自适应 */
+  column-gap: 20px;
   align-items: start;
-  padding-top: var(--topAlign);
-  margin: 0 0 16px 0;    /* 区块间距，较紧凑 */
+  margin-bottom: 40px; /* 各分节间距 */
 }
 
-/* 左侧“竖排标签”列：sticky 跟随左列滚动吸顶 */
+/* 让“整条左列”吸顶（跟随左列滚动） */
 .about-rail-col{
-  position: -webkit-sticky; /* Safari */
+  grid-column: 1;
+  padding-top: var(--padTop);
+  padding-bottom: var(--railStopGap);
+  position: -webkit-sticky;
   position: sticky;
-  top: var(--topAlign);
+  top: var(--padTop);
   align-self: start;
   z-index: 1;
-
-  /* 放入刚才预留的导轨里：向左移动导轨宽度，而不会被裁剪 */
-  transform: translateX(calc(-1 * var(--railOut)));
 }
 
-/* 竖排标签样式 */
+/* 竖排文字样式 */
 .about-rail-label{
+  translate: -32px;                 /* 左移，做出导轨的感觉 */
   color:#fff;
   writing-mode: vertical-rl;
   text-orientation: mixed;
@@ -345,55 +333,48 @@ footer .footer-navbar a {
   font-size:15px;
   line-height:1;
   opacity:.9;
-  margin: 0; padding: 0;
 }
 
-/* 右正文列 */
+/* 右侧正文列（左列每一节对应的正文） */
 .about-section-body{
-  margin: 0;
-  padding: 0;
+  grid-column: 2;
+  padding-top: var(--padTop); /* 与竖排标签顶齐 */
 }
 
-/* 正文段落：保留你原先的文本风格（白色、行距） */
+/* 正文段落（BIO） */
 .about-paragraph{
-  margin: 0 0 12px 0;
-  line-height: 1.6;
+  margin: 0 0 16px 0;
+  line-height: 1.7;
   font-size: 16px;
   color: white;
   overflow-wrap: anywhere;
   word-break: break-word;
 }
 
-/* 列表条目 */
+/* 条目（Education / Experience） */
 .about-item{
-  margin: 0 0 12px 0;
+  margin: 0 0 18px 0;
 }
 .about-item-title{
-  margin: 0 0 4px 0;
-  font-weight: 700;
-  color: white;
-  line-height: 1.4;
+  color: #fff;
   font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
 }
 .about-item-sub{
-  margin: 0;
-  color: white;
-  opacity: .85;
-  line-height: 1.4;
+  color: rgba(255,255,255,.85);
   font-size: 14px;
+  line-height: 1.5;
+  margin-top: 4px;
 }
 
-/* 各 section 正文首元素不额外下推，避免“看起来更低” */
-.about-section-body > *:first-child{ margin-top: 0; }
-
-/* 小屏：隐藏竖排标签列，单列展示 */
-@media (max-width: 560px){
+/* 小屏优化：隐藏竖排栏，单列阅读 */
+@media (max-width: 640px){
   .about-section{
     grid-template-columns: 1fr;
-    margin-bottom: 14px;
   }
-  .about-rail-col{ display: none; }
-  .left{ padding-left: 50px; } /* 去掉导轨预留 */
+  .about-rail-col{ display:none; }
+  .about-section-body{ padding-top: 0; }
 }
 
 
