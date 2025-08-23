@@ -600,11 +600,11 @@ footer .footer-navbar a {
   /* 可调变量 */
   --railW: 12px;        /* 左侧竖排栏宽度 */
   --gapX: 24px;         /* 行内水平间距 */
-  --padTop: 64px;       /* 与右侧顶边对齐的“下沉”距离 */
+  --padTop: 64px;       /* 与右侧顶边对齐的“下沉”距离（和 Works 对齐） */
   --padBottom: 104px;   /* 末尾留白 */
   --stickyTop: var(--padTop); /* 竖排标签吸顶距离 */
-  --railStopGap: 24px;  /* ← 竖排标签在被下一节顶走前保留下方空隙 */
-  --nudgeY: 2px;        /* ← 右侧整体微上移的校正量 */
+  --railStopGap: 24px;  /* 竖排标签在被下一节顶走前保留下方空隙 */
+  --nudgeY: 6px;        /* ← 右侧整体微上移的校正量（3–8px 之间调） */
 
   position: absolute;
   top: 65px; bottom: 0; left: 3.8%; right: 0;
@@ -615,6 +615,7 @@ footer .footer-navbar a {
   display: block;
   background: transparent;
 
+  /* 让每节滚到容器顶部时，顶部会保留与 padTop 同样的内间距，避免被盖住 */
   scroll-padding-top: var(--stickyTop);
 }
 
@@ -627,11 +628,11 @@ footer .footer-navbar a {
   margin: 0 56px 56px 0;         /* 右边距 + 区块间距 */
 }
 
-/* 让整条“左列”吸顶（最稳妥的 sticky 写法） */
+/* 左列作为整体 sticky，最稳妥的写法 */
 .highlights-rail-col{
   grid-column: 1;
-  padding-top: var(--padTop);          /* 与右侧顶边统一下沉 */
-  padding-bottom: var(--railStopGap);  /* 提前停的缓冲 */
+  padding-top: var(--padTop);          /* 与右侧顶边统一“下沉” */
+  padding-bottom: var(--railStopGap);  /* 提前停的缓冲距离 */
   position: -webkit-sticky;
   position: sticky;
   top: var(--stickyTop);
@@ -639,9 +640,9 @@ footer .footer-navbar a {
   z-index: 2;                          /* 不被正文覆盖 */
 }
 
-/* 竖排文字本身不 sticky，只负责样式 */
+/* 竖排文字本身仅负责样式，不 sticky */
 .highlights-rail-label{
-  translate: -64px;                    /* 靠左挪出一条导轨 */
+  translate: -64px;                    /* 靠左挪出一条导轨（与 Works 一致） */
   color:#fff;
   writing-mode: vertical-rl;
   text-orientation: mixed;
@@ -658,27 +659,33 @@ footer .footer-navbar a {
   grid-column: 2;
   margin: 0;
   padding: 0;
-  padding-top: calc(var(--padTop) - var(--nudgeY));
+
+  /* 与左列同等“下沉”后，再整体上移 nudgeY 做精确对齐 */
+  padding-top: calc(var(--padTop));
   transform: translateY(calc(-1 * var(--nudgeY)));
 }
 
 /* ====== 文本列表（纯条目，无年份） ====== */
-.highlights-list {
+.highlights-list{
   display: block;
-  padding-left: 64px;   /* ← 整块右边文字整体右移 */
+
+  /* 如果你想让右侧正文离左边再远一点，调这里（例如 64->72/80） */
+  padding-left: 64px;
+
+  /* 有些字体顶部会有额外 leading，少量负值可再微调；不需要就注释掉 */
+  /* margin-top: -1px; */
 }
 
 .highlights-item{
-  margin: 12px 0 12px 0;
+  margin: 12px 0;
   font-size: 16px;
   line-height: 1.6;
   color: #fff;
   opacity: .9;
 }
 
-.highlights-list > .highlights-item:first-child{
-  margin-top: 0;   /* 首条紧贴顶部 */
-}
+/* 第一条紧贴顶部（避免意外的额外间隙） */
+.highlights-list > .highlights-item:first-child{ margin-top: 0; }
 
 /* ========== 小屏优化 ========== */
 @media (max-width: 560px){
@@ -688,7 +695,8 @@ footer .footer-navbar a {
   }
   .highlights-rail-col{ display:none; }   /* 小屏隐藏竖排标签列 */
   .highlights-section-body{
-    padding-top: 32px;
-    transform: none;
+    padding-top: 32px;         /* 给正文一个舒适的上边距 */
+    transform: none;           /* 取消上移校正 */
   }
+  .highlights-list{ padding-left: 0; }    /* 小屏不再右移 */
 }
