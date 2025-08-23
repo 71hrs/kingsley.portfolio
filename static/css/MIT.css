@@ -577,23 +577,7 @@ footer .footer-navbar a {
 
 
 
-.highlights-container{
-  /* 可调变量 */
-  --railW: 12px;        /* 左侧竖排栏宽度 */
-  --gapX: 24px;         /* 卡片水平间距 & 外板左右厚度 */
-  --padTop: 64px;       /* 外板在图片上方的外扩高度 */
-  --padBottom: 104px;   /* 外板在图片下方的外扩高度（更长） */
-  --stickyTop: var(--padTop); /* 左侧标题吸顶距离（与上外扩对齐） */
 
-  position: absolute;
-  top: 65px; bottom: 0px; left: 3.8%; right: 0%;
-  padding-left: 64px;
-  padding-right: 64px;
-  padding-bottom: 200px;
-  overflow: auto;                 /* 本容器滚动，sticky 参考它 */
-  display: block;
-  background: transparent;
-}
 
 .highlights-quote-section {
   text-align: center;          /* 居中 */
@@ -611,25 +595,100 @@ footer .footer-navbar a {
   color: white;
 }
 
-/* ===== Highlights 文本列表（无 bulletpoint） ===== */
-.hl-list {
+/* ========== Highlights 外层容器（滚动容器） ========== */
+.highlights-container{
+  /* 可调变量 */
+  --railW: 12px;        /* 左侧竖排栏宽度 */
+  --gapX: 24px;         /* 行内水平间距 */
+  --padTop: 64px;       /* 与右侧顶边对齐的“下沉”距离 */
+  --padBottom: 104px;   /* 末尾留白 */
+  --stickyTop: var(--padTop); /* 竖排标签吸顶距离 */
+  --railStopGap: 24px;  /* ← 竖排标签在被下一节顶走前保留下方空隙 */
+  --nudgeY: 2px;        /* ← 右侧整体微上移的校正量 */
+
+  position: absolute;
+  top: 65px; bottom: 0; left: 3.8%; right: 0;
+  padding-left: 64px;
+  padding-right: 64px;
+  padding-bottom: 200px;
+  overflow: auto;                 /* 作为 sticky 的滚动参照 */
   display: block;
+  background: transparent;
+
+  scroll-padding-top: var(--stickyTop);
 }
 
-.hl-year {
-  margin-top: 28px;
-  margin-bottom: 8px;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 1.2;
-  color: #fff;
-  opacity: .9;
+/* ====== 分区布局：左竖排标题 + 右内容 ====== */
+.highlights-section{
+  display: grid;
+  grid-template-columns: var(--railW) 1fr;
+  column-gap: 20px;
+  align-items: start;
+  margin: 0 56px 56px 0;         /* 右边距 + 区块间距 */
 }
 
-.hl-item {
-  margin: 6px 0 12px 0;   /* 上下间距 */
+/* 让整条“左列”吸顶（最稳妥的 sticky 写法） */
+.highlights-rail-col{
+  grid-column: 1;
+  padding-top: var(--padTop);          /* 与右侧顶边统一下沉 */
+  padding-bottom: var(--railStopGap);  /* 提前停的缓冲 */
+  position: -webkit-sticky;
+  position: sticky;
+  top: var(--stickyTop);
+  align-self: start;
+  z-index: 2;                          /* 不被正文覆盖 */
+}
+
+/* 竖排文字本身不 sticky，只负责样式 */
+.highlights-rail-label{
+  translate: -64px;                    /* 靠左挪出一条导轨 */
+  color:#fff;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);           /* 竖排自下而上 */
+  letter-spacing:.12em;
+  font-weight:700;
+  font-size:15px;
+  line-height:1;
+  opacity:.9;
+}
+
+/* 右侧正文列：与左侧统一“下沉”，再做极小的上移校正 */
+.highlights-section-body{
+  grid-column: 2;
+  margin: 0;
+  padding: 0;
+  padding-top: calc(var(--padTop) - var(--nudgeY));
+  transform: translateY(calc(-1 * var(--nudgeY)));
+}
+
+/* ====== 文本列表（纯条目，无年份） ====== */
+.highlights-list {
+  display: block;
+  padding-left: 64px;   /* ← 整块右边文字整体右移 */
+}
+
+.highlights-item{
+  margin: 12px 0 12px 0;
   font-size: 16px;
   line-height: 1.6;
   color: #fff;
   opacity: .9;
+}
+
+.highlights-list > .highlights-item:first-child{
+  margin-top: 0;   /* 首条紧贴顶部 */
+}
+
+/* ========== 小屏优化 ========== */
+@media (max-width: 560px){
+  .highlights-section{
+    grid-template-columns: 1fr;
+    margin-right: 0;
+  }
+  .highlights-rail-col{ display:none; }   /* 小屏隐藏竖排标签列 */
+  .highlights-section-body{
+    padding-top: 32px;
+    transform: none;
+  }
 }
