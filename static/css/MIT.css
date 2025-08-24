@@ -964,14 +964,14 @@ footer .footer-navbar a {
 }
 
 .project-left-column{
-  flex:0 0 36%;
-  max-width:36%;
+  flex:0 0 44%;
+  max-width:44%;
   box-sizing:border-box;
 }
 
 .project-right-column{
-  flex:1 1 64%;
-  max-width:64%;
+  flex:1 1 56%;
+  max-width:56%;
   box-sizing:border-box;
 }
 
