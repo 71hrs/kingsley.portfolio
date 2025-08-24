@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Your Project — Case Study</title>
+<style>
+/* ====== Design Tokens ====== */
+:root{
+  --bg-1:#16191d;
+  --bg-2:#0f2625;
+  --ink:#e9ecef;
+  --ink-dim:#b8c0c7;
+  --accent:#7ee7d8;
+  --maxw:1200px;
+  --navH:72px;
+  --radius:20px;
+  --gap:28px;
+}
+
+/* ====== Base ====== */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,PingFang SC,Microsoft Yahei,sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(1200px 800px at 90% -10%, rgba(126,231,216,.12), transparent 60%),
+    radial-gradient(900px 600px at 10% 120%, rgba(126,231,216,.12), transparent 60%),
+    linear-gradient(180deg,var(--bg-1),var(--bg-2));
+}
+
+/* ====== Nav ====== */
+.header{
+  position:sticky; top:0; z-index:1000;
+  backdrop-filter:saturate(120%) blur(8px);
+  background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.10) 60%, transparent);
+}
+.nav{
+  height:var(--navH);
+  max-width:var(--maxw);
+  margin:0 auto; padding:0 var(--gap);
+  display:flex; align-items:center; gap:16px;
+}
+.brand{
+  display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--ink);
+  font-weight:700; letter-spacing:.06em;
+}
+.brand .logo{
+  width:28px; height:28px; border-radius:8px;
+  background: conic-gradient(from 220deg,#7ee7d8,#a1ffe7,#7ee7d8);
+  box-shadow:0 0 0 2px rgba(126,231,216,.25) inset, 0 6px 18px rgba(0,0,0,.35);
+}
+.nav .links{margin-left:auto; display:flex; gap:24px}
+.nav .links a{
+  color:var(--ink-dim); text-decoration:none; text-transform:uppercase; letter-spacing:.12em; font-size:12px;
+}
+.nav .links a:hover{color:var(--ink)}
+
+/* ====== Hero ====== */
+.hero{
+  max-width:var(--maxw); margin:0 auto; padding: 56px var(--gap) 24px;
+  display:grid; grid-template-columns: 1.3fr .9fr; gap: clamp(24px,4vw,56px);
+  align-items:end;
+}
+.kicker{color:var(--accent); letter-spacing:.2em; font-size:12px; text-transform:uppercase}
+.title{
+  margin:.2em 0 0 0; font-size: clamp(36px,7vw,84px); line-height: .95; letter-spacing:-.02em;
+}
+.subtitle{color:var(--ink-dim); margin:14px 0 0 0; max-width:60ch}
+.hero-media{
+  border-radius:var(--radius);
+  aspect-ratio: 16/10;
+  background: linear-gradient(180deg,#263238,#0f1a1a);
+  overflow:hidden; position:relative;
+  box-shadow: 0 20px 60px rgba(0,0,0,.45);
+}
+.hero-media img{width:100%; height:100%; object-fit:cover; opacity:.9; transform:scale(1.02)}
+
+/* ====== Sticky Intro Section ====== */
+.section{max-width:var(--maxw); margin:0 auto; padding: 80px var(--gap)}
+.split{
+  display:grid; grid-template-columns: .9fr 1.1fr; gap: clamp(20px,5vw,64px);
+  align-items:start;
+}
+.sticky-col{position:sticky; top:calc(var(--navH) + 24px)}
+.sticky-col h3{margin:0; font-size:12px; letter-spacing:.2em; color:var(--ink-dim)}
+.sticky-col .big{font-size: clamp(20px,2.8vw,30px); margin:.6em 0 0 0; color:var(--ink)}
+.content p{margin:.9em 0; color:var(--ink-dim)}
+.content .pill{
+  display:inline-block; border:1px solid rgba(126,231,216,.35); color:var(--accent);
+  padding:.35em .7em; border-radius:999px; font-size:12px; margin-right:.4em
+}
+
+/* ====== Gallery / Case Blocks ====== */
+.blocks{
+  display:grid; grid-template-columns: repeat(12,1fr); gap: var(--gap);
+}
+.block{
+  grid-column: span 6; /* 2-up */
+  background:#0f1a1a; border-radius: var(--radius); overflow:hidden;
+  position:relative; isolation:isolate;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.block:hover{ transform: translateY(-4px); box-shadow: 0 18px 50px rgba(0,0,0,.45)}
+.block .media{aspect-ratio: 16/10; overflow:hidden}
+.block img{width:100%; height:100%; object-fit:cover; display:block}
+.block .meta{
+  padding:18px 18px 22px; display:flex; align-items:center; justify-content:space-between; gap:16px;
+}
+.block .meta h4{margin:0; font-size:18px}
+.block .meta span{font-size:12px; color:var(--ink-dim); letter-spacing:.18em; text-transform:uppercase}
+.block.wide{grid-column: span 12}      /* full width */
+.block.tall .media{aspect-ratio: 16/14} /* taller */
+
+/* ====== Quote band ====== */
+.band{
+  margin: 80px 0; padding: 60px var(--gap);
+  background: linear-gradient(180deg, rgba(126,231,216,.08), transparent);
+  border-block: 1px solid rgba(126,231,216,.18);
+}
+.band .inner{max-width:var(--maxw); margin:0 auto; text-align:center}
+.band h3{margin:0; font-size: clamp(22px,3.5vw,40px); letter-spacing:-.01em}
+
+/* ====== Footer ====== */
+.footer{max-width:var(--maxw); margin:0 auto; padding: 36px var(--gap) 80px; color:var(--ink-dim); display:flex; gap:20px}
+.footer .left{margin-right:auto}
+.footer a{color:var(--ink); text-decoration:none}
+.footer a:hover{color:var(--accent)}
+
+/* ====== Responsive ====== */
+@media (max-width: 980px){
+  .hero{grid-template-columns: 1fr}
+  .split{grid-template-columns: 1fr}
+  .sticky-col{position:static}
+}
+@media (max-width: 740px){
+  .blocks{grid-template-columns: repeat(6,1fr)}
+  .block{grid-column: span 6}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <nav class="nav">
+    <a class="brand" href="#">
+      <span class="logo" aria-hidden="true"></span>
+      <span>YOUR&nbsp;NAME</span>
+    </a>
+    <div class="links">
+      <a href="#">Work</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div>
+    <div class="kicker">Case Study</div>
+    <h1 class="title">Project Title That Sets the Tone</h1>
+    <p class="subtitle">Short positioning sentence. What it is, who it’s for, and why it matters — in one crisp line.</p>
+  </div>
+  <div class="hero-media">
+    <!-- 替换成你的封面图 -->
+    <img src="https://images.unsplash.com/photo-1527443154391-507e9dc6c5cc?q=80&w=1200&auto=format&fit=crop" alt="">
+  </div>
+</section>
+
+<section class="section split">
+  <aside class="sticky-col">
+    <h3>Overview</h3>
+    <div class="big">Designing an immersive brand experience for a next-gen product launch.</div>
+  </aside>
+  <div class="content">
+    <p><span class="pill">Role —</span> Creative Direction, Interaction, 3D Look Dev</p>
+    <p><span class="pill">Timeline —</span> 10 weeks</p>
+    <p><span class="pill">Toolkit —</span> Figma, Blender, Three.js</p>
+    <p>Use this paragraph to frame the challenge, constraints and goals. Keep it human and specific; call out what made this project different.</p>
+    <p>Then explain the outcome at a glance — what shipped, who used it, and any measurable impact.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="blocks">
+    <article class="block wide">
+      <div class="media">
+        <img src="https://images.unsplash.com/photo-1495567720989-cebdbdd97913?q=80&w=1600&auto=format&fit=crop" alt="">
+      </div>
+      <div class="meta">
+        <h4>Full-bleed moment</h4><span>Hero</span>
+      </div>
+    </article>
+
+    <article class="block">
+      <div class="media">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop" alt="">
+      </div>
+      <div class="meta">
+        <h4>Interaction concept</h4><span>Prototype</span>
+      </div>
+    </article>
+
+    <article class="block tall">
+      <div class="media">
+        <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=1200&auto=format&fit=crop" alt="">
+      </div>
+      <div class="meta">
+        <h4>Environment look dev</h4><span>R&amp;D</span>
+      </div>
+    </article>
+
+    <article class="block">
+      <div class="media">
+        <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1200&auto=format&fit=crop" alt="">
+      </div>
+      <div class="meta">
+        <h4>UI motion study</h4><span>Motion</span>
+      </div>
+    </article>
+
+    <article class="block">
+      <div class="media">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop" alt="">
+      </div>
+      <div class="meta">
+        <h4>Shader exploration</h4><span>3D</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="band">
+  <div class="inner">
+    <h3>“Add one strong takeaway quote or a metric: +38% engagement, 2.1M impressions, 4.8★ reviews.”</h3>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="left">© 2025 Your Name</div>
+  <div class="right"><a href="#">Next project →</a></div>
+</footer>
+
+<!-- 可选：极轻的入场动画（不依赖外部库） -->
+<script>
+document.querySelectorAll(".block,.hero-media").forEach(el=>{
+  el.style.opacity=0; el.style.transform="translateY(14px)";
+});
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.style.transition="opacity .6s ease, transform .6s ease";
+      e.target.style.opacity=1; e.target.style.transform="none";
+      io.unobserve(e.target);
+    }
+  });
+},{threshold:.2});
+document.querySelectorAll(".block,.hero-media").forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
