@@ -840,29 +840,64 @@ footer .footer-navbar a {
   margin-top: var(--navH);   /* 避免被固定导航压住 */
 }
 
+
+/* Title */
+.project-title-section{
+  display:flex;
+  align-items:flex-start;         /* 顶对齐 */
+  padding-left:16%;
+  padding-right:16%;
+  box-sizing:border-box;
+  transform: translateY(-32px);
+}
+
+/* 左侧占位：保证右栏与现有右栏对齐（36% / 64%） */
+.project-title-left-spacer{
+  flex:0 0 44%;
+  max-width:44%;
+  box-sizing:border-box;
+}
+
+/* 右栏容器 */
+.project-title-right{
+  flex:1 1 56%;
+  max-width:56%;
+  box-sizing:border-box;
+}
+
+/* 标题文本：字号、行高与你之前 header 匹配 */
+.project-title-text{
+  font-size:13px;
+  line-height:1.8;
+  color:#fff;
+  opacity:.92;
+  font-weight:700;
+  text-transform: uppercase;
+}
+
 /* Header */
 .project-header-block{
   display:flex;
   align-items:flex-start;    /* 顶对齐，不居中 */
   padding-left:16%;
   padding-right:16%;
-  margin:64px 0;             /* 分区上下间距 */
+  margin:0px 0;             /* 分区上下间距 */
   box-sizing:border-box;
 }
 
 .project-header-left-column{
-  flex:0 0 36%;
-  max-width:36%;
+  flex:0 0 44%;
+  max-width:44%;
   box-sizing:border-box;
 }
 .project-header-right-column{
-  flex:1 1 64%;
-  max-width:64%;
+  flex:1 1 56%;
+  max-width:56%;
   box-sizing:border-box;
 }
 
 .project-header-content{
-  margin:112px 0 0px 0;
+  margin:56px 0 0px 0;
   font-size:24px;
   line-height:1.8;
   color:#fff;
@@ -874,7 +909,7 @@ footer .footer-navbar a {
 .project-caption-section{
   position: relative;                /* 作为绝对定位参照 */
   display: grid;
-  grid-template-columns: 36% 1fr;    /* 左 36% | 右自适应 */
+  grid-template-columns: 44% 1fr;    /* 左 36% | 右自适应 */
   align-items: start;                /* 顶对齐 */
   padding-left:16%;
   padding-right:16%;
