@@ -332,6 +332,7 @@ footer .footer-navbar a {
 .about-section-body{
   margin-bottom: 50px;
   padding: 0;
+  transform: translateY(-3px);
 }
 .about-paragraph{
   margin: 0 0 14px 0;
