@@ -840,57 +840,42 @@ footer .footer-navbar a {
   margin-top: var(--navH);   /* 避免被固定导航压住 */
 }
 
+/* Caption */
 .project-caption-section{
-  /* 作为浮动年份的定位参照 */
-  position: relative;
-
   display: flex;
-  align-items: flex-start;   /* 两栏顶对齐，避免被拉到中线 */
+  align-items: center;     /* ⭐ 改为 center，让三栏自然同一行 */
   padding-left: 16%;
   padding-right: 16%;
   margin: 64px 0;
   box-sizing: border-box;
-
-  /* 年份微调变量（基于字体大小），需要更贴就改这里 */
-  --year-nudge: 0.18em;
 }
 
-/* 左右两栏：保持 36% / 64% */
+/* 三列：左 / 中 / 右 */
 .project-left-caption{
   flex: 0 0 36%;
   max-width: 36%;
   box-sizing: border-box;
-  margin-top: 0;
-  padding-top: 0;
 }
 .project-right-caption{
-  flex: 1 1 64%;
-  max-width: 64%;
+  flex: 1 1 auto;          /* 占中间剩余空间 */
+  text-align: left;
   box-sizing: border-box;
-  margin-top: 0;
-  padding-top: 0;
+}
+.project-floating-caption{
+  flex: 0 0 auto;          /* 靠最右，不参与伸缩 */
+  text-align: right;
+  box-sizing: border-box;
 }
 
 /* 公共文字样式 */
 .project-caption{
-  display: inline-block;
   font-weight: 700;
   font-size: 12px;
   line-height: 1.4;
   color: #fff;
   opacity: .9;
-  margin: 0;               /* 避免任何默认外边距影响对齐 */
-  padding: 0;
 }
 
-/* 浮动年份：不占用 flex 空间，和右列首行对齐 */
-.project-caption-floating{
-  position: absolute;
-  top: var(--year-nudge);  /* 微调到与右列第一行平行 */
-  right: 16%;              /* 和整体 padding-right 对齐 */
-  white-space: nowrap;
-  line-height: 1.4;        /* 与 .project-caption 一致，保证 em 计算一致 */
-}
 /* 每个分区左右各 5% 留白，内容顶对齐 */
 .project-section{
   display:flex;
