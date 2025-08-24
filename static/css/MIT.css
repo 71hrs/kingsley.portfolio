@@ -30,14 +30,21 @@ body {
 }
 
 /* Layout and Content Styles */
-html {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+html{
+  height:auto;                 /* 覆盖 100vh */
+  overflow-y:auto;             /* 允许纵向滚动 */
+  overflow-x:hidden;           /* 防横向抖动 */
 }
 
-body {
-  font-size: 1.2em;
+body{
+  min-height:100%;             /* 正常文档流 */
+}
+
+header{
+  position:fixed;
+  top:0; left:0; right:0;
+  z-index:1000;
+  /* 如果需要背景，自己加：background:transparent; */
 }
 
 h2, h4 {
@@ -822,4 +829,106 @@ footer .footer-navbar a {
 
 
 
-/* ===================== Chem Guard ===================== */
+/* ====== Project 页面布局（整页随 body 滚动） ====== */
+
+/* 顶部给导航留出空间：--navH 按你的导航高度调，默认 65px */
+:root{ --navH: 65px; }
+
+.project-content{
+  width:100%;
+  box-sizing:border-box;
+  margin-top: var(--navH);   /* 避免被固定导航压住 */
+}
+
+/* 每个分区左右各 5% 留白，内容顶对齐 */
+.project-section{
+  display:flex;
+  align-items:flex-start;    /* 顶对齐，不居中 */
+  gap:48px;
+  padding-left:16%;
+  padding-right:16%;
+  margin:64px 0;             /* 分区上下间距 */
+  box-sizing:border-box;
+}
+
+/* ====== Project Cover 整宽横幅 ====== */
+.project-cover {
+  width: 100%;            /* 占满容器宽度 */
+  margin: 0;              /* 去掉外边距 */
+  padding: 0;             /* 去掉内边距 */
+  box-sizing: border-box;
+}
+
+.project-cover img {
+  display: block;         /* 去掉底部多余空隙 */
+  width: 100%;            /* 图片横向拉满 */
+  height: auto;           /* 保持比例 */
+  object-fit: cover;      /* 避免变形，必要时裁切 */
+}
+
+/* 两栏：左 30% / 右 70% */
+.project-left-column{
+  flex:0 0 36%;
+  max-width:36%;
+  box-sizing:border-box;
+}
+.project-right-column{
+  flex:1 1 64%;
+  max-width:64%;
+  box-sizing:border-box;
+}
+
+/* 文本样式（可按需微调） */
+.project-header{
+  margin:112px 0 0px 0;
+  font-size:24px;
+  line-height:1.8;
+  color:#fff;
+  opacity:.92;
+}
+
+.project-title{
+  display:inline-block;
+  margin:0 0 18px 0;
+  font-weight:700;
+  font-size:16px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#fff;
+  opacity:.9;
+}
+
+.project-paragraph{
+  margin:0 0 16px 0;
+  font-size:16px;
+  line-height:1.5;
+  color:#fff;
+  opacity:.92;
+}
+
+/* 只放图片/视频的分区：占满该分区宽度 */
+.project-media{ width:100%; }
+.project-media img,
+.project-media video{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:0;
+}
+
+/* ====== 响应式 ====== */
+@media (max-width: 960px){
+  .project-section{ gap:36px; margin:56px 0; }
+  .project-left-column{ flex-basis:34%; max-width:34%; }
+  .project-right-column{ flex-basis:66%; max-width:66%; }
+}
+@media (max-width: 720px){
+  .project-section{
+    flex-direction:column; gap:16px;
+  }
+  .project-left-column,
+  .project-right-column{
+    flex:0 0 auto; max-width:100%;
+  }
+  .project-title{ margin-bottom:10px; }
+}
