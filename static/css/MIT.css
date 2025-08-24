@@ -840,41 +840,79 @@ footer .footer-navbar a {
   margin-top: var(--navH);   /* 避免被固定导航压住 */
 }
 
-/* Caption */
-.project-caption-section{
-  display: flex;
-  align-items: center;     /* ⭐ 改为 center，让三栏自然同一行 */
-  padding-left: 16%;
-  padding-right: 16%;
-  margin: 64px 0;
-  box-sizing: border-box;
+/* Header */
+.project-header-block{
+  display:flex;
+  align-items:flex-start;    /* 顶对齐，不居中 */
+  padding-left:16%;
+  padding-right:16%;
+  margin:64px 0;             /* 分区上下间距 */
+  box-sizing:border-box;
 }
 
-/* 三列：左 / 中 / 右 */
+.project-header-left-column{
+  flex:0 0 36%;
+  max-width:36%;
+  box-sizing:border-box;
+}
+.project-header-right-column{
+  flex:1 1 64%;
+  max-width:64%;
+  box-sizing:border-box;
+}
+
+.project-header-content{
+  margin:112px 0 0px 0;
+  font-size:24px;
+  line-height:1.8;
+  color:#fff;
+  opacity:.92;
+}
+
+/* Caption */
+/* 整行容器：两列在中间，左右各 16% 页边留白 */
+.project-caption-section{
+  position: relative;                /* 作为绝对定位参照 */
+  display: grid;
+  grid-template-columns: 36% 1fr;    /* 左 36% | 右自适应 */
+  align-items: start;                /* 顶对齐 */
+  padding-left:16%;
+  padding-right:16%;
+  margin:64px 0;
+  box-sizing:border-box;
+}
+
+/* 左/右两列仍在“内容区”内 */
 .project-left-caption{
-  flex: 0 0 36%;
-  max-width: 36%;
+  grid-column: 1;
   box-sizing: border-box;
 }
 .project-right-caption{
-  flex: 1 1 auto;          /* 占中间剩余空间 */
+  grid-column: 2;
+  box-sizing: border-box;
   text-align: left;
-  box-sizing: border-box;
-}
-.project-floating-caption{
-  flex: 0 0 auto;          /* 靠最右，不参与伸缩 */
-  text-align: right;
-  box-sizing: border-box;
 }
 
-/* 公共文字样式 */
-.project-caption{
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 1.4;
-  color: #fff;
-  opacity: .9;
+/* “2023”从文流中拿出，放到两列之外的右侧留白（gutter）里 */
+.project-floating-caption{
+  position: absolute;
+  top: 0;                             /* 与本行顶部对齐（同一行） */
+  right: 4%;                          /* 放在右侧 16% 留白的中线上，可按需改成 12%、16% 等 */
+  white-space: nowrap;
+  z-index: 1;
+  pointer-events: none;               /* 不挡文字选择/点击（可删） */
 }
+
+/* 统一文字样式，保证行高一致就自然对齐 */
+.project-caption{
+  font-weight:700;
+  font-size:12px;
+  line-height:1.4;
+  color:#fff;
+  opacity:.9;
+}
+
+
 
 /* 每个分区左右各 5% 留白，内容顶对齐 */
 .project-section{
@@ -911,15 +949,6 @@ footer .footer-navbar a {
   flex:1 1 64%;
   max-width:64%;
   box-sizing:border-box;
-}
-
-/* 文本样式（可按需微调） */
-.project-header{
-  margin:112px 0 0px 0;
-  font-size:24px;
-  line-height:1.8;
-  color:#fff;
-  opacity:.92;
 }
 
 .project-title{
