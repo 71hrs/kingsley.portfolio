@@ -829,17 +829,15 @@ footer .footer-navbar a {
 
 
 
-/* ====== Project 页面布局（整页随 body 滚动） ====== */
+/* ====== Project ====== */
 
-/* 顶部给导航留出空间：--navH 按你的导航高度调，默认 65px */
-:root{ --navH: 65px; }
+:root{ --navH: 65px; }       /* 顶部给导航留出空间：--navH 按你的导航高度调，默认 65px */
 
 .project-content{
   width:100%;
   box-sizing:border-box;
   margin-top: var(--navH);   /* 避免被固定导航压住 */
 }
-
 
 /* Title */
 .project-title-section{
@@ -851,21 +849,18 @@ footer .footer-navbar a {
   transform: translateY(-32px);
 }
 
-/* 左侧占位：保证右栏与现有右栏对齐（36% / 64%） */
 .project-title-left-spacer{
   flex:0 0 44%;
   max-width:44%;
   box-sizing:border-box;
 }
 
-/* 右栏容器 */
 .project-title-right{
   flex:1 1 56%;
   max-width:56%;
   box-sizing:border-box;
 }
 
-/* 标题文本：字号、行高与你之前 header 匹配 */
 .project-title-text{
   font-size:13px;
   line-height:1.8;
@@ -876,7 +871,7 @@ footer .footer-navbar a {
 }
 
 /* Header */
-.project-header-block{
+.project-header-section{
   display:flex;
   align-items:flex-start;    /* 顶对齐，不居中 */
   padding-left:16%;
@@ -885,18 +880,18 @@ footer .footer-navbar a {
   box-sizing:border-box;
 }
 
-.project-header-left-column{
+.project-header-left{
   flex:0 0 44%;
   max-width:44%;
   box-sizing:border-box;
 }
-.project-header-right-column{
+.project-header-right{
   flex:1 1 56%;
   max-width:56%;
   box-sizing:border-box;
 }
 
-.project-header-content{
+.project-header-text{
   margin:56px 0 0px 0;
   font-size:24px;
   line-height:1.8;
@@ -905,7 +900,6 @@ footer .footer-navbar a {
 }
 
 /* Caption */
-/* 整行容器：两列在中间，左右各 16% 页边留白 */
 .project-caption-section{
   position: relative;                /* 作为绝对定位参照 */
   display: grid;
@@ -917,19 +911,17 @@ footer .footer-navbar a {
   box-sizing:border-box;
 }
 
-/* 左/右两列仍在“内容区”内 */
-.project-left-caption{
+.project-caption-left{
   grid-column: 1;
   box-sizing: border-box;
 }
-.project-right-caption{
+.project-caption-right{
   grid-column: 2;
   box-sizing: border-box;
   text-align: left;
 }
 
-/* “2023”从文流中拿出，放到两列之外的右侧留白（gutter）里 */
-.project-floating-caption{
+.project-caption-floating{
   position: absolute;
   top: 0;                             /* 与本行顶部对齐（同一行） */
   right: 4%;                          /* 放在右侧 16% 留白的中线上，可按需改成 12%、16% 等 */
@@ -938,7 +930,6 @@ footer .footer-navbar a {
   pointer-events: none;               /* 不挡文字选择/点击（可删） */
 }
 
-/* 统一文字样式，保证行高一致就自然对齐 */
 .project-caption{
   font-weight:700;
   font-size:12px;
@@ -947,19 +938,7 @@ footer .footer-navbar a {
   opacity:.9;
 }
 
-
-
-/* 每个分区左右各 5% 留白，内容顶对齐 */
-.project-section{
-  display:flex;
-  align-items:flex-start;    /* 顶对齐，不居中 */
-  padding-left:16%;
-  padding-right:16%;
-  margin:64px 0;             /* 分区上下间距 */
-  box-sizing:border-box;
-}
-
-/* ====== Project Cover 整宽横幅 ====== */
+/* ====== Project Cover ====== */
 .project-cover {
   width: 100%;            /* 占满容器宽度 */
   margin: 0;              /* 去掉外边距 */
@@ -974,12 +953,22 @@ footer .footer-navbar a {
   object-fit: cover;      /* 避免变形，必要时裁切 */
 }
 
-/* 两栏：左 30% / 右 70% */
+/* Body */
+.project-section{
+  display:flex;
+  align-items:flex-start;    /* 顶对齐，不居中 */
+  padding-left:16%;
+  padding-right:16%;
+  margin:64px 0;             /* 分区上下间距 */
+  box-sizing:border-box;
+}
+
 .project-left-column{
   flex:0 0 36%;
   max-width:36%;
   box-sizing:border-box;
 }
+
 .project-right-column{
   flex:1 1 64%;
   max-width:64%;
