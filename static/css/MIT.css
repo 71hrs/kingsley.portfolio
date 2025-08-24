@@ -222,195 +222,6 @@ footer .footer-navbar a {
 
 
 
-/* ===================== About page ===================== */
-
-/* 外层容器 */
-.about-container{
-  --paneRadius: 15px;
-  --paneBg: rgba(255,255,255,0.2);
-  --paneShadow: 0 4px 10px rgba(0,0,0,.2);
-
-  position: absolute;
-  top: 85px;
-  bottom: 90px;
-  left: 3.8%;
-  right: 3.8%;
-  display: flex;
-  gap: 20px;
-  padding: 20px;
-
-  background: var(--paneBg);
-  border-radius: var(--paneRadius);
-  box-shadow: var(--paneShadow);
-  backdrop-filter: blur(10px);
-  color: #333;
-
-  /* 关键：边界裁剪，右栏不会溢出到容器外 */
-  overflow: hidden;
-}
-
-/* 右列：尺寸“雷打不动”，高度不够时右栏内部滚动 */
-.right{
-  flex: 0 0 280px;     /* 固定宽度区间（如需改比例只调这行和下两行） */
-  max-width: 360px;
-  min-width: 280px;
-
-  padding: 40px;
-  min-height: 0;       /* 允许在 flex 容器内收缩以启用内部滚动 */
-  overflow: auto;      /* 高度不足时在右栏内部滚动 */
-
-  /* 隐藏滚动条（可留可去） */
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-.right::-webkit-scrollbar{ width:0; height:0; }
-
-.right img{ 
-  max-width:100%; 
-  height:auto; 
-  display:block; 
-  margin:0 auto; 
-  object-fit:contain;
-  /* 不限制 max-height —— 保持原有比例与尺寸，不随视口高度变化 */
-}
-.right .quote{ 
-  margin:25px 0; 
-  font-size:14px; 
-  color:#fff; 
-  line-height:20px; 
-}
-
-/* 左列：可滚动，隐藏滚动条 */
-.left{
-  --railW: 14px;        
-  --railGap: 36px;      
-  --labelNudge: 2px;    
-
-  flex: 1 1 auto;           
-  min-width: 0;             
-  overflow: auto;           
-  padding: 40px;            
-
-  scrollbar-width: none;    
-  -ms-overflow-style: none; 
-}
-.left::-webkit-scrollbar{ width:0; height:0; }
-
-/* 分区布局 */
-.about-section{
-  display: grid;
-  grid-template-columns: var(--railW) 1fr;
-  column-gap: var(--railGap);
-  align-items: start;
-  margin-bottom: 24px;      /* 控制区块间距（右侧“正文太散”可调这里） */
-}
-
-/* 竖排列 sticky */
-.about-rail-col{
-  position: sticky;
-  top: calc(0px + var(--labelNudge));
-  align-self: start;
-  padding-top: 0;
-  z-index: 1;
-}
-
-/* 竖排文字 */
-.about-rail-label{
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  transform: rotate(180deg);
-  color:#fff;
-  letter-spacing:.12em;
-  font-weight:700;
-  font-size:15px;
-  line-height:1;
-  opacity:.9;
-  margin: 0;
-  margin-bottom: 72px;
-}
-
-/* 正文列 */
-.about-section-body{
-  margin-bottom: 50px;
-  padding: 0;
-  transform: translateY(-3px);
-}
-.about-paragraph{
-  margin: 0 0 14px 0;
-  line-height: 1.6;
-  font-size: 16px;
-  color: #fff;
-}
-.about-item{ margin: 0 0 10px 0; }
-.about-item-title{
-  font-weight: 700;
-  color: #fff;
-  line-height: 1.4;
-  font-size: 16px;
-  margin: 0 0 4px 0;
-}
-.about-item-sub{
-  color: #fff;
-  opacity: .9;
-  font-size: 14px;
-  line-height: 1.5;
-  margin: 0;
-}
-
-/* ==== 社交 icon 样式（圆形按钮模式） ==== */
-.social-links {
-  margin-top: 12px;
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  gap: 10px;
-  width: 100%;
-}
-.social-links .icon{
-  width:36px;
-  height:36px;
-  flex: 0 0 36px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:50%;
-  background:rgba(255,255,255,.12);
-  color:#fff;
-  text-decoration:none;
-  transition:transform .18s ease, background .18s ease, color .18s ease;
-  box-sizing: border-box;
-}
-.social-links .icon:hover{
-  transform:translateY(-1px) scale(1.06);
-  background:rgba(255,255,255,.22);
-}
-.social-links i{
-  font-size:18px;
-  line-height:1;
-}
-
-/* ===== 小屏宽度优化（与高度无关，不会改变右栏比例） ===== */
-@media (max-width: 720px){
-  .about-container{ left:4%; right:4%; gap: 16px; }
-  .right{ flex: 0 0 280px; padding: 28px; }
-  .left{ padding: 28px; }
-}
-@media (max-width: 560px){
-  .about-container{ flex-direction: column; }
-  .right{ flex: none; max-width: 100%; width: 100%; }
-  .about-section{ grid-template-columns: 1fr; }
-  .about-rail-col{ display:none; }
-}
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -781,4 +592,210 @@ footer .footer-navbar a {
     transform: none;           /* 取消上移校正 */
   }
   .highlights-list{ padding-left: 0; }    /* 小屏不再右移 */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===================== About page ===================== */
+
+/* 外层容器 */
+.about-container{
+  --paneRadius: 15px;
+  --paneBg: rgba(255,255,255,0.2);
+  --paneShadow: 0 4px 10px rgba(0,0,0,.2);
+
+  position: absolute;
+  top: 85px;
+  bottom: 90px;
+  left: 3.8%;
+  right: 3.8%;
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+
+  background: var(--paneBg);
+  border-radius: var(--paneRadius);
+  box-shadow: var(--paneShadow);
+  backdrop-filter: blur(10px);
+  color: #333;
+
+  /* 关键：边界裁剪，右栏不会溢出到容器外 */
+  overflow: hidden;
+}
+
+/* 右列：尺寸“雷打不动”，高度不够时右栏内部滚动 */
+.right{
+  flex: 0 0 280px;     /* 固定宽度区间（如需改比例只调这行和下两行） */
+  max-width: 360px;
+  min-width: 280px;
+
+  padding: 40px;
+  min-height: 0;       /* 允许在 flex 容器内收缩以启用内部滚动 */
+  overflow: auto;      /* 高度不足时在右栏内部滚动 */
+
+  /* 隐藏滚动条（可留可去） */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.right::-webkit-scrollbar{ width:0; height:0; }
+
+.right img{ 
+  max-width:100%; 
+  height:auto; 
+  display:block; 
+  margin:0 auto; 
+  object-fit:contain;
+  /* 不限制 max-height —— 保持原有比例与尺寸，不随视口高度变化 */
+}
+.right .quote{ 
+  margin:25px 0; 
+  font-size:14px; 
+  color:#fff; 
+  line-height:20px; 
+}
+
+/* 左列：可滚动，隐藏滚动条 */
+.left{
+  --railW: 14px;        
+  --railGap: 36px;      
+  --labelNudge: 2px;    
+
+  flex: 1 1 auto;           
+  min-width: 0;             
+  overflow: auto;           
+  padding: 40px;            
+
+  scrollbar-width: none;    
+  -ms-overflow-style: none; 
+}
+.left::-webkit-scrollbar{ width:0; height:0; }
+
+/* 分区布局 */
+.about-section{
+  display: grid;
+  grid-template-columns: var(--railW) 1fr;
+  column-gap: var(--railGap);
+  align-items: start;
+  margin-bottom: 24px;      /* 控制区块间距（右侧“正文太散”可调这里） */
+}
+
+/* 竖排列 sticky */
+.about-rail-col{
+  position: sticky;
+  top: calc(0px + var(--labelNudge));
+  align-self: start;
+  padding-top: 0;
+  z-index: 1;
+}
+
+/* 竖排文字 */
+.about-rail-label{
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  color:#fff;
+  letter-spacing:.12em;
+  font-weight:700;
+  font-size:15px;
+  line-height:1;
+  opacity:.9;
+  margin: 0;
+  margin-bottom: 72px;
+}
+
+/* 正文列 */
+.about-section-body{
+  margin-bottom: 50px;
+  padding: 0;
+  transform: translateY(-3px);
+}
+.about-paragraph{
+  margin: 0 0 14px 0;
+  line-height: 1.6;
+  font-size: 16px;
+  color: #fff;
+}
+.about-item{ margin: 0 0 10px 0; }
+.about-item-title{
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.4;
+  font-size: 16px;
+  margin: 0 0 4px 0;
+}
+.about-item-sub{
+  color: #fff;
+  opacity: .9;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ==== 社交 icon 样式（圆形按钮模式） ==== */
+.social-links {
+  margin-top: 12px;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+}
+.social-links .icon{
+  width:36px;
+  height:36px;
+  flex: 0 0 36px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:rgba(255,255,255,.12);
+  color:#fff;
+  text-decoration:none;
+  transition:transform .18s ease, background .18s ease, color .18s ease;
+  box-sizing: border-box;
+}
+.social-links .icon:hover{
+  transform:translateY(-1px) scale(1.06);
+  background:rgba(255,255,255,.22);
+}
+.social-links i{
+  font-size:18px;
+  line-height:1;
+}
+
+/* ===== 小屏宽度优化（与高度无关，不会改变右栏比例） ===== */
+@media (max-width: 720px){
+  .about-container{ left:4%; right:4%; gap: 16px; }
+  .right{ flex: 0 0 280px; padding: 28px; }
+  .left{ padding: 28px; }
+}
+@media (max-width: 560px){
+  .about-container{ flex-direction: column; }
+  .right{ flex: none; max-width: 100%; width: 100%; }
+  .about-section{ grid-template-columns: 1fr; }
+  .about-rail-col{ display:none; }
 }
