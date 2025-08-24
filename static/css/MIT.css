@@ -139,7 +139,7 @@ nav > a:last-child {
 .navbar .logo{
   display:flex;
   align-items:center;     /* 垂直居中 */
-  transform: translateY(2px);
+  transform: translateY(0px);
 }
 
 /* Logo 图片大小控制 */
