@@ -31,6 +31,28 @@ header{
   /* 如果需要背景，自己加：background:transparent; */
 }
 
+h2, h4 {
+  margin: 0;
+  font-family: "CB", Helvetica, sans-serif;
+  color: #4D4D4D;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 2em;
+}
+
+h4 {
+  font-weight: bold;
+  font-size: 1em;
+  line-height: 25px;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
 /* Homepage */
 .homepage-content {
   display: flex;
