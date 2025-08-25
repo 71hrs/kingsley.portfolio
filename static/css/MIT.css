@@ -25,27 +25,6 @@ header{
   /* 如果需要背景，自己加：background:transparent; */
 }
 
-/* Homepage */
-.homepage-content {
-  display: flex;
-  align-items: center;
-  z-index: 1; /* Ensure content is below navbar */
-  position: absolute;
-  width: 500px;
-  padding-left: 200px;
-  height: 100vh;
-}
-
-.homepage-content h2, .homepage-content h4 {
-  color: white;
-}
-
-.homepage-content h4 {
-  font-weight: 600;
-  margin-bottom: 20px;
-  margin-top: 20px;
-}
-
 /* Header and Navigation */
 header {
   position: fixed; /* Fix navbar at the top */
@@ -167,6 +146,51 @@ footer .footer-navbar a {
     margin-top: -30px; /* 在更小屏幕上向上移动 .content */
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Homepage */
+.homepage-content {
+  display: flex;
+  align-items: center;
+  z-index: 1; /* Ensure content is below navbar */
+  position: absolute;
+  width: 500px;
+  padding-left: 200px;
+  height: 100vh;
+}
+
+.homepage-content h2, .homepage-content h4 {
+  color: white;
+}
+
+.homepage-content h4 {
+  font-weight: 600;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+
 
 
 
