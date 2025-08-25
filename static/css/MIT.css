@@ -979,8 +979,10 @@ footer .footer-navbar a {
 }
 
 .project-caption{
+  font-family: 'Heebo', Helvetica, Arial, sans-serif;
   font-weight:700;
   font-size:12px;
+  letter-spacing: 0.04em;
   line-height:1.4;
   color:#fff;
   opacity:.9;
