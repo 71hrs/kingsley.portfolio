@@ -953,8 +953,13 @@ footer .footer-navbar a {
   object-fit: cover;      /* 避免变形，必要时裁切 */
 }
 
-/* Body */
-.project-unit{
+/* Content */
+.project-content-chapter{
+  margin-top:144px;             /* 分区上下间距 */
+  margin-bottom:144px;             /* 分区上下间距 */
+}
+
+.project-content-unit{
   display:flex;
   align-items:flex-start;    /* 顶对齐，不居中 */
   padding-left:15%;
@@ -1005,12 +1010,12 @@ footer .footer-navbar a {
 
 /* ====== 响应式 ====== */
 @media (max-width: 960px){
-  .project-unit{ gap:36px; margin:56px 0; }
+  .project-content-unit{ gap:36px; margin:56px 0; }
   .project-left-column{ flex-basis:34%; max-width:34%; }
   .project-right-column{ flex-basis:66%; max-width:66%; }
 }
 @media (max-width: 720px){
-  .project-unit{
+  .project-content-unit{
     flex-direction:column; gap:16px;
   }
   .project-left-column,
