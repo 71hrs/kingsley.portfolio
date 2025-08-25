@@ -6,6 +6,9 @@ header, nav {
   display: block;
 }
 
+html { overflow-y: clip; height: 100%; }  /* clip 比 hidden 更干脆，而且必须锁在 html 上 */
+body { margin: 0; height: 100%; }         /* 防 body 默认 margin 造成 1px 溢出 */
+
 body {
   font: 1.2em/1.3 "CB", Helvetica, sans-serif;
   line-height: 1;
