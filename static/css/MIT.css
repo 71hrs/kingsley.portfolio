@@ -331,9 +331,10 @@ footer .footer-navbar a {
   writing-mode: vertical-rl;
   text-orientation: mixed;
   transform: rotate(180deg);   /* 自下而上；要自上而下就删掉这一行 */
-  letter-spacing:.12em;
-  font-weight:700;
-  font-size:15px;
+  font-family: 'Heebo', Helvetica, Arial, sans-serif;
+  letter-spacing:0.02em;
+  font-weight:400;
+  font-size:14px;
   line-height:1;
   opacity:.9;
 }
@@ -570,9 +571,9 @@ footer .footer-navbar a {
   writing-mode: vertical-rl;
   text-orientation: mixed;
   transform: rotate(180deg);           /* 竖排自下而上 */
-  letter-spacing:.12em;
-  font-weight:700;
-  font-size:15px;
+  letter-spacing:0.02em;
+  font-weight:400;
+  font-size:14px;
   line-height:1;
   opacity:.9;
 }
