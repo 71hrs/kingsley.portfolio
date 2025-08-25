@@ -876,7 +876,7 @@ footer .footer-navbar a {
 
 /* ====== Project ====== */
 
-:root{ --navH: 65px; }       /* 顶部给导航留出空间：--navH 按你的导航高度调，默认 65px */
+:root{ --navH: 64px; }       /* 顶部给导航留出空间：--navH 按你的导航高度调，默认 65px */
 
 .project-container{
   width:100%;
@@ -912,7 +912,7 @@ footer .footer-navbar a {
   line-height:1.8;
   color:#fff;
   opacity:.92;
-  font-weight:700;
+  font-weight:600;
   text-transform: uppercase;
 }
 
@@ -980,9 +980,9 @@ footer .footer-navbar a {
 
 .project-caption{
   font-family: 'Heebo', Helvetica, Arial, sans-serif;
-  font-weight:700;
-  font-size:12px;
-  letter-spacing: 0.04em;
+  font-weight:600;
+  font-size:13px;
+  letter-spacing: 0.03em;
   line-height:1.4;
   color:#fff;
   opacity:.9;
