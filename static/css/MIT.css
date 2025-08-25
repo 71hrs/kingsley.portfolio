@@ -775,13 +775,16 @@ footer .footer-navbar a {
 }
 .about-item{ margin: 0 0 10px 0; }
 .about-item-title{
-  font-weight: 700;
+  font-family: 'Heebo', Helvetica, Arial, sans-serif;
+  font-weight: 500;
   color: #fff;
-  line-height: 1.4;
+  line-height: 1.6;
   font-size: 16px;
   margin: 0 0 4px 0;
 }
 .about-item-sub{
+  font-family: 'Heebo', Helvetica, Arial, sans-serif;
+  font-weight: 300;    /* 100–900 都可以 */
   color: #fff;
   opacity: .9;
   font-size: 14px;
