@@ -48,23 +48,6 @@ header{
   /* 如果需要背景，自己加：background:transparent; */
 }
 
-h2, h4 {
-  margin: 0;
-  font-family: "CB", Helvetica, sans-serif;
-  color: #4D4D4D;
-}
-
-h2 {
-  font-weight: bold;
-  font-size: 2em;
-}
-
-h4 {
-  font-weight: bold;
-  font-size: 1em;
-  line-height: 25px;
-}
-
 a {
   text-decoration: none;
   color: #000;
@@ -79,16 +62,6 @@ a {
   width: 500px;
   padding-left: 200px;
   height: 100vh;
-}
-
-.homepage-content h2, .homepage-content h4 {
-  color: white;
-}
-
-.homepage-content h4 {
-  font-weight: 600;
-  margin-bottom: 20px;
-  margin-top: 20px;
 }
 
 /* Header and Navigation */
@@ -215,9 +188,23 @@ footer .footer-navbar a {
 
 
 
+.homepage-content h2 {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 2em;
+  font-weight: 700;  /* 或 400~800 之间 有斜体*/
+  margin: 0;
+  color: white;
+}
 
-
-
+.homepage-content h4 {
+  font-family: 'Heebo', Helvetica, Arial, sans-serif;
+  font-weight: 200;    /* 100–900 都可以 */
+  font-size: 1em;
+  line-height: 25px;
+  color: white;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
 
 
 
