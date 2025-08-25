@@ -214,7 +214,15 @@ footer .footer-navbar a {
 }
 
 
+/* ==== MIT.html 补丁 ==== */
 
+/* 2. 首页内容块固定定位，避免 absolute + 100vh 叠加产生溢出 */
+.homepage-content {
+  position: fixed !important;   /* 从 absolute 改为 fixed */
+  top: 0;
+  left: 0;
+  height: 100%;                 /* 保证铺满视口，不需要 100vh */
+}
 
 
 
