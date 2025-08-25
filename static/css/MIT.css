@@ -14,7 +14,6 @@ body {
   min-height: 100%;
 }
 
-/* 某些页面禁止滚动 */
 body.no-scroll {
   overflow: hidden;   /* 禁止滚动 */
 }
