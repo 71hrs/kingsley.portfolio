@@ -1034,19 +1034,19 @@ footer .footer-navbar a {
 .project-title{
   display:inline-block;
   margin:0 0 12px 0;
-  font-weight:700;
+  font-family: 'Heebo', Helvetica, Arial, sans-serif;
+  font-weight:500;
   font-size:16px;
   text-transform:uppercase;
   color:#fff;
-  opacity:.9;
 }
 
 .project-paragraph{
   margin:0 0 16px 0;
+  font-family: 'Heebo', Helvetica, Arial, sans-serif;
   font-size:16px;
   line-height:1.5;
   color:#fff;
-  opacity:.92;
 }
 
 .project-overview{ width:100%; }
