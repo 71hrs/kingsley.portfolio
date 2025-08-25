@@ -7,6 +7,24 @@
     <title>Yuhui Qi</title>
     <link rel="shortcut icon" href="static/MIT-picture/favicon.png">
     <link href="static/css/MIT.css" rel="stylesheet">
+    <style>
+  /* 只针对这一页，把 three.js 生成的画布固定在视口，不参与布局 */
+  body > canvas {
+    position: fixed !important;
+    inset: 0 !important;        /* top/right/bottom/left = 0 */
+    width: 100vw !important;
+    height: 100dvh !important;  /* 用 dvh 防 100vh 地址栏误差 */
+    display: block !important;  /* 去掉行内基线空隙 */
+    pointer-events: none;       /* 画布不挡点击；需要交互就删掉这行 */
+  }
+
+  /* 这页若仍有 1px 弹动，用 clip 彻底关掉纵向滚动 */
+  html, body {
+    height: 100%;
+    overflow-y: clip;   /* 比 hidden 更干脆 */
+    overflow-x: hidden;
+  }
+</style>
   </head>
   <body>
     <header>
