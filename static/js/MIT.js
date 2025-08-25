@@ -10,7 +10,7 @@ function rgb(r, g, b) {
 document.addEventListener("DOMContentLoaded", function(e) {
    
     const renderer = new THREE.WebGLRenderer();
-    renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.setSize(window.innerWidth, window.innerHeight, false); //修改
     document.body.appendChild( renderer.domElement )
     
     const scene = new THREE.Scene();
