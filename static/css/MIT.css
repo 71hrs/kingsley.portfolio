@@ -73,8 +73,8 @@ header {
   font-size: 13px; /* Font size */
   color: white; /* Text color */
   text-transform: uppercase; /* Transform text to uppercase */
-  font-family: Arial, sans-serif; /* Font family */
-  font-weight: bold; /* 设置加粗 */
+  font-family: 'Heebo', Helvetica, Arial, sans-serif;
+  font-weight: 400; /* 设置加粗 */
 }
 
 .navbar a {
@@ -134,8 +134,8 @@ footer .footer-navbar {
   font-size: 13px;              /* Font size */
   color: white;                 /* Text color */
   text-transform: uppercase;    /* Uppercase text */
-  font-family: Arial, sans-serif; /* Font family */
-  font-weight: bold;            /* Bold text */
+  font-family: 'Heebo', Helvetica, Arial, sans-serif;
+  font-weight: 400; /* 设置加粗 */
 }
 
 footer .footer-navbar a {
