@@ -75,6 +75,7 @@ header {
   text-transform: uppercase; /* Transform text to uppercase */
   font-family: 'Heebo', Helvetica, Arial, sans-serif;
   font-weight: 400; /* 设置加粗 */
+  letter-spacing: 0.04em;
 }
 
 .navbar a {
@@ -136,6 +137,7 @@ footer .footer-navbar {
   text-transform: uppercase;    /* Uppercase text */
   font-family: 'Heebo', Helvetica, Arial, sans-serif;
   font-weight: 400; /* 设置加粗 */
+  letter-spacing: 0.04em;
 }
 
 footer .footer-navbar a {
