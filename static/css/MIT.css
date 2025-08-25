@@ -13,23 +13,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-@font-face {
-  font-family: "CB";
-  font-weight: 600;
-  src: url("https://www.greg-wolff.com/fonts/CB.otf");
-}
-
-@font-face {
-  font-family: "CB";
-  font-weight: 700;
-  src: url("https://www.greg-wolff.com/fonts/CBB.otf");
-}
-@font-face {
-  font-family: "CB";
-  font-weight: 500;
-  src: url("https://www.greg-wolff.com/fonts/CM.otf");
-}
-
 /* Layout and Content Styles */
 html{
   height:auto;                 /* 覆盖 100vh */
@@ -188,6 +171,42 @@ footer .footer-navbar a {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .homepage-content h2 {
   font-family: 'EB Garamond', Georgia, serif;
   font-size: 2em;
@@ -205,6 +224,21 @@ footer .footer-navbar a {
   margin-bottom: 20px;
   margin-top: 20px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
