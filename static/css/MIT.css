@@ -1019,3 +1019,72 @@ footer .footer-navbar a {
   }
   .project-title{ margin-bottom:10px; }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====== Chem Guard ====== */
+
+/* 2×2 宫格：图片之间有间距，外边贴满容器 */
+.chem-guard-scenarios {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;              /* 图片之间的间距 */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 图片铺满格子 */
+.chem-guard-scenarios img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* 保持比例裁切填满 */
+}
+
+/* 容器样式 */
+.chem-guard-research-image {
+  display: flex;
+  justify-content: space-between;  /* 保证图片之间有相等的间隔 */
+  align-items: center;  /* 垂直居中对齐 */
+  gap: 100px;  /* 设置图片之间的间距 */
+  width: 100%;  /* 保证容器占满整个宽度 */
+}
+
+/* 每个图片容器的样式 */
+.chem-guard-research-image-container {
+  flex: 1;  /* 每个图片容器占据相同的空间 */
+  display: flex;
+  justify-content: center;  /* 图片居中 */
+}
+
+/* 图片样式 */
+.chem-guard-research-image-container img {
+  width: 100%;  /* 图片宽度填充容器 */
+  height: auto;  /* 保持图片比例 */
+  object-fit: contain;  /* 保证图片适应容器 */
+}
