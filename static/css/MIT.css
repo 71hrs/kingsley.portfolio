@@ -602,7 +602,9 @@ footer .footer-navbar a {
 
 .highlights-item{
   margin: 12px 0;
+  font-family: 'Heebo', Helvetica, Arial, sans-serif;
   font-size: 16px;
+  font-weight: 300;    /* 100–900 都可以 */
   line-height: 1.6;
   color: #fff;
   opacity: .9;
