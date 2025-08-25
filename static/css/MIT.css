@@ -1025,8 +1025,9 @@ footer .footer-navbar a {
 
 /* ====== Chem Guard ====== */
 
-body {
-  background-color: #333;
+body.chem-guard {
+  background: #1a1a1a !important;
+  min-height: 100vh;            /* 撑满一屏，避免底部露底色 */
 }
 
 /* 2×2 宫格：图片之间有间距，外边贴满容器 */
