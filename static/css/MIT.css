@@ -959,7 +959,7 @@ footer .footer-navbar a {
   align-items:flex-start;    /* 顶对齐，不居中 */
   padding-left:15%;
   padding-right:15%;
-  margin:64px 0;             /* 分区上下间距 */
+  margin:0px 0;             /* 分区上下间距 */
   box-sizing:border-box;
 }
 
@@ -977,7 +977,7 @@ footer .footer-navbar a {
 
 .project-title{
   display:inline-block;
-  margin:0 0 18px 0;
+  margin:0 0 0px 0;
   font-weight:700;
   font-size:16px;
   text-transform:uppercase;
@@ -986,7 +986,7 @@ footer .footer-navbar a {
 }
 
 .project-paragraph{
-  margin:0 0 16px 0;
+  margin:0 0 0px 0;
   font-size:16px;
   line-height:1.5;
   color:#fff;
