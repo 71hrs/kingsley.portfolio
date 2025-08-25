@@ -333,7 +333,7 @@ footer .footer-navbar a {
   transform: rotate(180deg);   /* 自下而上；要自上而下就删掉这一行 */
   font-family: 'Heebo', Helvetica, Arial, sans-serif;
   letter-spacing:0.02em;
-  font-weight:400;
+  font-weight:500;
   font-size:14px;
   line-height:1;
   opacity:.9;
@@ -572,7 +572,7 @@ footer .footer-navbar a {
   text-orientation: mixed;
   transform: rotate(180deg);           /* 竖排自下而上 */
   letter-spacing:0.02em;
-  font-weight:400;
+  font-weight:500;
   font-size:14px;
   line-height:1;
   opacity:.9;
@@ -755,7 +755,7 @@ footer .footer-navbar a {
   margin-bottom: 72px;
   font-family: 'Heebo', Helvetica, Arial, sans-serif;
   letter-spacing:0.02em;
-  font-weight:400;
+  font-weight:500;
   font-size:14px;
 }
 
@@ -768,7 +768,7 @@ footer .footer-navbar a {
 .about-paragraph{
   margin: 0 0 14px 0;
   font-family: 'Heebo', Helvetica, Arial, sans-serif;
-  font-weight: 200;    /* 100–900 都可以 */
+  font-weight: 300;    /* 100–900 都可以 */
   line-height: 1.6;
   font-size: 16px;
   color: #fff;
