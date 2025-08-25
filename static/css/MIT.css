@@ -1,7 +1,7 @@
 /* ====================== Base ====================== */
 html {
   background-color: #797979;   /* 页面灰底 */
-  height: auto;                /* 覆盖 100dvh */
+  height: auto;                /* 覆盖 100vh */
   overflow-x: hidden;          /* 防横向抖动 */
   overflow-y: auto;          /* （保持你原设定） */
 }
@@ -59,7 +59,7 @@ header {
 }
 
 nav {
-  margin: 3dvh 0;
+  margin: 3vh 0;
 }
 
 nav > a:last-child {
@@ -171,7 +171,7 @@ footer .footer-navbar a {
   position: absolute;
   width: 500px;
   padding-left: 200px;
-  height: 100dvh;
+  height: 100vh;
 }
 
 .homepage-content h2, .homepage-content h4 {
