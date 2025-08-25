@@ -175,45 +175,7 @@ footer .footer-navbar a {
 }
 
 
-/* ===== 修复 About 页“轻微滚动” ===== */
 
-/* 1) 彻底取消 nav 的全局垂直外边距（它会制造溢出，导致能滚动一点点） */
-header nav,
-.navbar,
-nav {
-  margin: 0 !important;
-}
-
-/* 2) 锁住页面滚动，让滚动只发生在你内部的可滚容器里（如 .left/.right） */
-html, body {
-  height: 100%;
-  overflow: hidden;                /* 禁止 body 滚动 */
-  overscroll-behavior: none;       /* 关掉回弹/联动滚动 */
-}
-
-/* 3) 你的 about 页面用绝对/固定定位的内容区，确保它自己管理滚动 */
-.about-container {
-  position: fixed;                 /* 用 fixed 最稳定，不参与文档流 */
-  top: 85px;                       /* 按你现有值 */
-  bottom: 90px;                    /* 按你现有值 */
-  left: 3.8%;
-  right: 3.8%;
-  overflow: hidden;                /* 外层不滚动 */
-}
-
-/* 4) 仍由左右两栏分别滚动（你之前就是这样做的） */
-.about-container .left,
-.about-container .right {
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;  /* 移动端顺滑 */
-  scrollbar-gutter: stable;           /* 避免滚动条出现/消失抖动 */
-}
-
-/* 5) 如果顶部仍然有一条色带，确保导航透明（避免视觉误判是“灰条”） */
-header, .navbar {
-  background: transparent !important;
-  box-shadow: none !important;
-}
 
 
 
