@@ -749,13 +749,14 @@ footer .footer-navbar a {
   text-orientation: mixed;
   transform: rotate(180deg);
   color:#fff;
-  letter-spacing:.12em;
-  font-weight:700;
-  font-size:15px;
   line-height:1;
   opacity:.9;
   margin: 0;
   margin-bottom: 72px;
+  font-family: 'Heebo', Helvetica, Arial, sans-serif;
+  letter-spacing:0.02em;
+  font-weight:400;
+  font-size:14px;
 }
 
 /* 正文列 */
