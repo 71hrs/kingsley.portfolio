@@ -843,8 +843,8 @@ footer .footer-navbar a {
 .project-title-section{
   display:flex;
   align-items:flex-start;         /* 顶对齐 */
-  padding-left:16%;
-  padding-right:16%;
+  padding-left:15%;
+  padding-right:15%;
   box-sizing:border-box;
   transform: translateY(-32px);
 }
@@ -874,8 +874,8 @@ footer .footer-navbar a {
 .project-header-section{
   display:flex;
   align-items:flex-start;    /* 顶对齐，不居中 */
-  padding-left:16%;
-  padding-right:16%;
+  padding-left:15%;
+  padding-right:15%;
   margin:0px 0;             /* 分区上下间距 */
   box-sizing:border-box;
 }
@@ -905,8 +905,8 @@ footer .footer-navbar a {
   display: grid;
   grid-template-columns: 44% 1fr;    /* 左 36% | 右自适应 */
   align-items: start;                /* 顶对齐 */
-  padding-left:16%;
-  padding-right:16%;
+  padding-left:15%;
+  padding-right:15%;
   margin:64px 0;
   box-sizing:border-box;
 }
@@ -957,8 +957,8 @@ footer .footer-navbar a {
 .project-section{
   display:flex;
   align-items:flex-start;    /* 顶对齐，不居中 */
-  padding-left:16%;
-  padding-right:16%;
+  padding-left:15%;
+  padding-right:15%;
   margin:64px 0;             /* 分区上下间距 */
   box-sizing:border-box;
 }
