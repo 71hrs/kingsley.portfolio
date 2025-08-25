@@ -833,7 +833,7 @@ footer .footer-navbar a {
 
 :root{ --navH: 65px; }       /* 顶部给导航留出空间：--navH 按你的导航高度调，默认 65px */
 
-.project-content{
+.project-container{
   width:100%;
   box-sizing:border-box;
   margin-top: var(--navH);   /* 避免被固定导航压住 */
@@ -954,7 +954,7 @@ footer .footer-navbar a {
 }
 
 /* Body */
-.project-section{
+.project-unit{
   display:flex;
   align-items:flex-start;    /* 顶对齐，不居中 */
   padding-left:15%;
@@ -1005,12 +1005,12 @@ footer .footer-navbar a {
 
 /* ====== 响应式 ====== */
 @media (max-width: 960px){
-  .project-section{ gap:36px; margin:56px 0; }
+  .project-unit{ gap:36px; margin:56px 0; }
   .project-left-column{ flex-basis:34%; max-width:34%; }
   .project-right-column{ flex-basis:66%; max-width:66%; }
 }
 @media (max-width: 720px){
-  .project-section{
+  .project-unit{
     flex-direction:column; gap:16px;
   }
   .project-left-column,
