@@ -1088,3 +1088,60 @@ footer .footer-navbar a {
   height: auto;  /* 保持图片比例 */
   object-fit: contain;  /* 保证图片适应容器 */
 }
+
+/* sketch容器 */
+.chem-guard-sketch {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 三列布局 */
+  gap: 40px; /* 每个图片之间的间距 */
+  width: 100%; /* 使图片占满容器 */
+  max-width: 1200px; /* 限制容器最大宽度 */
+}
+
+/* 每个图片容器 */
+.chem-guard-sketch-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 图片样式 */
+.chem-guard-sketch-container img {
+  max-width: 75%;  /* 确保图片不会超出容器 */
+  height: auto;  /* 保持图片比例 */
+}
+
+/* 文字样式 */
+.chem-guard-sketch-container p {
+  text-align: center;
+  font-family: futura-pt, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
+  margin-top: 10px;
+}
+
+/* 整体容器，居中排列两个框 */
+.chem-guard-3D-modeling {
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  gap: 30px; /* 两个框之间的间距 */
+  width: 100%;
+}
+
+/* 每个图片和文字容器的样式 */
+.chem-guard-3D-modeling-container {
+  display: flex;
+  flex-direction: column; /* 文字在图片下方 */
+  justify-content: center; /* 文字和图片垂直居中对齐 */
+  align-items: center; /* 图片和文字水平方向居中 */
+  width: 45%; /* 每个容器宽度为 45% */
+}
+
+/* 图片样式 */
+.chem-guard-3D-modeling-container img {
+  width: 80%; /* 设置图片宽度为容器的 80% */
+  height: auto; /* 保持图片的比例 */
+  object-fit: contain; /* 确保图片不被拉伸 */
+}
