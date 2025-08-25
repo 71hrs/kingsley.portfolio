@@ -1145,3 +1145,39 @@ footer .footer-navbar a {
   height: auto; /* 保持图片的比例 */
   object-fit: contain; /* 确保图片不被拉伸 */
 }
+
+/* 自定义图片1的大小，设置为比右边图片小 */
+.chem-guard-img-01 {
+  width: 80%; /* 设置左边图片宽度为容器的 80% */
+  max-width: 250px; /* 限制最大宽度为 250px */
+}
+
+/* 自定义图片2的大小 */
+.chem-guard-img-02 {
+  width: 80%; /* 设置右边图片宽度为容器的 80% */
+  max-width: 300px; /* 限制最大宽度为 250px */
+}
+
+/* 文字样式 */
+.chem-guard-3D-modeling-container p {
+  font-family: futura-pt, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  text-align: left;
+  padding-top: 50px; /* 文字与图片的间距 */
+  width: 90%; /* 设置文字容器的宽度 */
+  max-width: 500px; /* 限制最大宽度 */
+}
+
+.chem-guard-explosion-diagram {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.chem-guard-explosion-diagram img {
+  display: block;
+  width: 100%;     /* 横向占满容器 */
+  height: auto;    /* 高度按比例缩放 */
+  object-fit: cover; /* 如果以后需要强制填满，可以改成 cover */
+}
