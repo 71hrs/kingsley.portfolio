@@ -891,7 +891,7 @@ footer .footer-navbar a {
   padding-left:15%;
   padding-right:15%;
   box-sizing:border-box;
-  transform: translateY(-32px);
+  transform: translateY(-36px);
 }
 
 .project-title-left-spacer{
@@ -907,6 +907,7 @@ footer .footer-navbar a {
 }
 
 .project-title-text{
+  font-family: 'EB Garamond', Georgia, serif;
   font-size:13px;
   line-height:1.8;
   color:#fff;
@@ -938,8 +939,10 @@ footer .footer-navbar a {
 
 .project-header-text{
   margin:56px 0 0px 0;
-  font-size:24px;
-  line-height:1.8;
+  font-family: 'Heebo', Helvetica, Arial, sans-serif;
+  font-weight: 200;    /* 100–900 都可以 */
+  font-size: 32px;
+  line-height:1.2;
   color:#fff;
   opacity:.92;
 }
