@@ -767,6 +767,8 @@ footer .footer-navbar a {
 }
 .about-paragraph{
   margin: 0 0 14px 0;
+  font-family: 'Heebo', Helvetica, Arial, sans-serif;
+  font-weight: 200;    /* 100–900 都可以 */
   line-height: 1.6;
   font-size: 16px;
   color: #fff;
