@@ -829,6 +829,11 @@ footer .footer-navbar a {
 
 
 
+
+
+
+
+
 /* ====== Project ====== */
 
 :root{ --navH: 65px; }       /* 顶部给导航留出空间：--navH 按你的导航高度调，默认 65px */
@@ -998,16 +1003,6 @@ footer .footer-navbar a {
   opacity:.92;
 }
 
-/* 只放图片/视频的分区：占满该分区宽度 */
-.project-media{ width:100%; }
-.project-media img,
-.project-media video{
-  display:block;
-  width:100%;
-  height:auto;
-  border-radius:0;
-}
-
 /* ====== 响应式 ====== */
 @media (max-width: 960px){
   .project-content-unit{ gap:36px; margin:56px 0; }
@@ -1050,7 +1045,24 @@ footer .footer-navbar a {
 
 
 
+
+
+
+
+
+
+
+
 /* ====== Chem Guard ====== */
+
+.project-overview{ width:100%; }
+.project-overview img,
+.project-overview video{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:0;
+}
 
 /* 2×2 宫格：图片之间有间距，外边贴满容器 */
 .chem-guard-scenarios {
