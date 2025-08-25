@@ -1182,76 +1182,67 @@ footer .footer-navbar a {
   object-fit: cover;
 }
 
-/* ===== 手机场景图 ===== */
-.chem-guard-mobile-scene {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-.chem-guard-mobile-scene img {
-  display: block;
-  width: 100%;     /* 横向占满容器 */
-  height: auto;    /* 高度按比例缩放 */
-  object-fit: cover;
+/* ===== 手机场景图（保持不变） ===== */
+.chem-guard-mobile-scene{width:100%;margin:0;padding:0;}
+.chem-guard-mobile-scene img{display:block;width:100%;height:auto;object-fit:cover;}
+
+/* 容器：两行，行与行之间留白 */
+.chem-guard-mockup-container{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:64px;           /* 两个 row 的间距 */
+  width:100%;
 }
 
-/* 容器样式 */
-.chem-guard-mockup-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 48px; /* 每个 row 之间的间距 */
+/* 每一行：让左右两块在“纵向”居中对齐 */
+.chem-guard-mockup-row{
+  display:flex;
+  align-items:center; /* ⭐ 关键：让同一行里的块彼此垂直居中 */
+  justify-content:flex-start;
+  width:100%;
+  gap:48px;           /* 图文之间间距 */
+  box-sizing:border-box;
 }
 
-/* 每一行的样式 */
-.chem-guard-mockup-row {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;   /* 顶对齐，避免图片和文字垂直居中 */
-  width: 100%;
-  gap: 32px; /* 图片与文字之间的间隔 */
+/* 左侧图片块 */
+.chem-guard-mockup-image{
+  flex:0 1 40%;
+  display:flex;
+  justify-content:center;
+  align-items:center; /* 图片本身也在块内居中 */
+}
+.chem-guard-mockup-image img{
+  max-width:100%;
+  height:auto;
+  display:block;
 }
 
-/* 每一列图片样式 */
-.chem-guard-mockup-image {
-  flex: 0 1 40%;  /* 图片占据容器的 40% */
-  display: flex;
-  justify-content: center;
+/* 右侧文字块：块内再居中，使文字和图片中线对齐 */
+.chem-guard-mockup-text{
+  flex:0 1 40%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;  /* ⭐ 关键：让文字在自己这块里垂直居中 */
+  align-items:flex-start;
+  text-align:left;
+  padding:0;
 }
 
-/* 每一列文字样式 */
-.chem-guard-mockup-text {
-  flex: 0 1 40%;  /* 文字占据容器的 40% */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;  /* ⭐ 顶部对齐文字 */
-  padding: 0 10px;
-  text-align: left;
+/* 标题与正文 */
+.chem-guard-mockup-title{
+  color:rgba(85,178,122,.9);
+  text-decoration:none;
+  font-family:futura-pt, sans-serif;
+  font-weight:600;
+  font-size:16px;
+  margin:0 0 10px;
 }
-
-/* 图片样式 */
-.chem-guard-mockup-image img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* 标题样式 */
-.chem-guard-mockup-title {
-  color: rgba(85, 178, 122, 0.784);
-  text-decoration: none;
-  font-family: futura-pt, sans-serif;
-  font-weight: 600;
-  font-style: normal;
-  font-size: 16px;
-}
-
-/* 文字描述样式 */
-.chem-guard-mockup-text p {
-  color: #333;
-  margin-top: 10px;
-  font-family: futura-pt, sans-serif;
-  font-weight: 600;
-  font-style: normal;
-  font-size: 16px;
+.chem-guard-mockup-text p{
+  color:#333;
+  margin:0;
+  font-family:futura-pt, sans-serif;
+  font-weight:500;
+  font-size:16px;
+  line-height:1.6;
 }
