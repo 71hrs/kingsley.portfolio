@@ -1065,9 +1065,6 @@ footer .footer-navbar a {
 
 /* ====== Chem Guard ====== */
 
-html.chem-guard { background: #6aa48a; }  /* 你要的颜色 */
-body.chem-guard { background: #6aa48a; }  /* 你要的颜色 */
-
 html.chem-guard,
 body.chem-guard {
   background: #6aa48a; /* 你的页面色，替换成实际值 */
