@@ -3,7 +3,7 @@ html {
   background-color: #797979;   /* 页面灰底 */
   height: auto;                /* 覆盖 100vh */
   overflow-x: hidden;          /* 防横向抖动 */
-  overflow-y: hidden;          /* （保持你原设定） */
+  overflow-y: auto;          /* （保持你原设定） */
 }
 
 body {
