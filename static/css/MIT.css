@@ -14,13 +14,34 @@ body {
   min-height: 100%;
 }
 
-body.no-scroll {
-  overflow: hidden;   /* 禁止滚动 */
-}
+html, body { height: 100%; margin: 0; padding: 0; }
 
 header,
 nav {
   display: block;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+h2,
+h4 {
+  color: #4D4D4D;
+  font-family: "CB", Helvetica, sans-serif;
+  margin: 0;
+}
+
+h2 {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 25px;
 }
 
 /* ====================== Header & Navbar ====================== */
