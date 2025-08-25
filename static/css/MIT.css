@@ -833,3 +833,438 @@ footer .footer-navbar a {
 
 
 
+
+/* ====== Project ====== */
+
+:root{ --navH: 65px; }       /* 顶部给导航留出空间：--navH 按你的导航高度调，默认 65px */
+
+.project-container{
+  width:100%;
+  box-sizing:border-box;
+  margin-top: var(--navH);   /* 避免被固定导航压住 */
+}
+
+/* Title */
+.project-title-section{
+  display:flex;
+  align-items:flex-start;         /* 顶对齐 */
+  padding-left:15%;
+  padding-right:15%;
+  box-sizing:border-box;
+  transform: translateY(-32px);
+}
+
+.project-title-left-spacer{
+  flex:0 0 44%;
+  max-width:44%;
+  box-sizing:border-box;
+}
+
+.project-title-right{
+  flex:1 1 56%;
+  max-width:56%;
+  box-sizing:border-box;
+}
+
+.project-title-text{
+  font-size:13px;
+  line-height:1.8;
+  color:#fff;
+  opacity:.92;
+  font-weight:700;
+  text-transform: uppercase;
+}
+
+/* Header */
+.project-header-section{
+  display:flex;
+  align-items:flex-start;    /* 顶对齐，不居中 */
+  padding-left:15%;
+  padding-right:15%;
+  margin:0px 0;             /* 分区上下间距 */
+  box-sizing:border-box;
+}
+
+.project-header-left{
+  flex:0 0 44%;
+  max-width:44%;
+  box-sizing:border-box;
+}
+.project-header-right{
+  flex:1 1 56%;
+  max-width:56%;
+  box-sizing:border-box;
+}
+
+.project-header-text{
+  margin:56px 0 0px 0;
+  font-size:24px;
+  line-height:1.8;
+  color:#fff;
+  opacity:.92;
+}
+
+/* Caption */
+.project-caption-section{
+  position: relative;                /* 作为绝对定位参照 */
+  display: grid;
+  grid-template-columns: 44% 1fr;    /* 左 36% | 右自适应 */
+  align-items: start;                /* 顶对齐 */
+  padding-left:15%;
+  padding-right:15%;
+  margin:64px 0;
+  box-sizing:border-box;
+}
+
+.project-caption-left{
+  grid-column: 1;
+  box-sizing: border-box;
+}
+.project-caption-right{
+  grid-column: 2;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.project-caption-floating{
+  position: absolute;
+  top: 0;                             /* 与本行顶部对齐（同一行） */
+  right: 4%;                          /* 放在右侧 16% 留白的中线上，可按需改成 12%、16% 等 */
+  white-space: nowrap;
+  z-index: 1;
+  pointer-events: none;               /* 不挡文字选择/点击（可删） */
+}
+
+.project-caption{
+  font-weight:700;
+  font-size:12px;
+  line-height:1.4;
+  color:#fff;
+  opacity:.9;
+}
+
+/* ====== Project Cover ====== */
+.project-cover {
+  width: 100%;            /* 占满容器宽度 */
+  margin: 0;              /* 去掉外边距 */
+  padding: 0;             /* 去掉内边距 */
+  box-sizing: border-box;
+}
+
+.project-cover img {
+  display: block;         /* 去掉底部多余空隙 */
+  width: 100%;            /* 图片横向拉满 */
+  height: auto;           /* 保持比例 */
+  object-fit: cover;      /* 避免变形，必要时裁切 */
+}
+
+/* Content */
+.project-content-chapter{
+  margin-top:144px;             /* 分区上下间距 */
+  margin-bottom:144px;             /* 分区上下间距 */
+}
+
+.project-content-unit{
+  display:flex;
+  align-items:flex-start;    /* 顶对齐，不居中 */
+  padding-left:15%;
+  padding-right:15%;
+  margin-top:56px;             /* 分区上下间距 */
+  margin-bottom:56px;             /* 分区上下间距 */
+  box-sizing:border-box;
+}
+
+.project-left-column{
+  flex:0 0 44%;
+  max-width:44%;
+  box-sizing:border-box;
+}
+
+.project-right-column{
+  flex:1 1 56%;
+  max-width:56%;
+  box-sizing:border-box;
+}
+
+.project-title{
+  display:inline-block;
+  margin:0 0 12px 0;
+  font-weight:700;
+  font-size:16px;
+  text-transform:uppercase;
+  color:#fff;
+  opacity:.9;
+}
+
+.project-paragraph{
+  margin:0 0 16px 0;
+  font-size:16px;
+  line-height:1.5;
+  color:#fff;
+  opacity:.92;
+}
+
+.project-overview{ width:100%; }
+.project-overview img,
+.project-overview video{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:0;
+}
+
+/* ====== 响应式 ====== */
+@media (max-width: 960px){
+  .project-content-unit{ gap:36px; margin:56px 0; }
+  .project-left-column{ flex-basis:34%; max-width:34%; }
+  .project-right-column{ flex-basis:66%; max-width:66%; }
+}
+@media (max-width: 720px){
+  .project-content-unit{
+    flex-direction:column; gap:16px;
+  }
+  .project-left-column,
+  .project-right-column{
+    flex:0 0 auto; max-width:100%;
+  }
+  .project-title{ margin-bottom:10px; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====== Chem Guard ====== */
+
+/* 2×2 宫格：图片之间有间距，外边贴满容器 */
+.chem-guard-scenarios {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;              /* 图片之间的间距 */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 图片铺满格子 */
+.chem-guard-scenarios img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* 保持比例裁切填满 */
+}
+
+/* 容器样式 */
+.chem-guard-research-image {
+  display: flex;
+  justify-content: space-between;  /* 保证图片之间有相等的间隔 */
+  align-items: center;  /* 垂直居中对齐 */
+  gap: 100px;  /* 设置图片之间的间距 */
+  width: 100%;  /* 保证容器占满整个宽度 */
+}
+
+/* 每个图片容器的样式 */
+.chem-guard-research-image-container {
+  flex: 1;  /* 每个图片容器占据相同的空间 */
+  display: flex;
+  justify-content: center;  /* 图片居中 */
+}
+
+/* 图片样式 */
+.chem-guard-research-image-container img {
+  width: 100%;  /* 图片宽度填充容器 */
+  height: auto;  /* 保持图片比例 */
+  object-fit: contain;  /* 保证图片适应容器 */
+}
+
+/* sketch容器 */
+.chem-guard-sketch {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 三列布局 */
+  gap: 40px; /* 每个图片之间的间距 */
+  width: 100%; /* 使图片占满容器 */
+  max-width: 1200px; /* 限制容器最大宽度 */
+}
+
+/* 每个图片容器 */
+.chem-guard-sketch-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 图片样式 */
+.chem-guard-sketch-container img {
+  max-width: 75%;  /* 确保图片不会超出容器 */
+  height: auto;  /* 保持图片比例 */
+}
+
+/* 文字样式 */
+.chem-guard-sketch-container p {
+  text-align: center;
+  font-family: futura-pt, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
+  margin-top: 10px;
+}
+
+/* 整体容器，居中排列两个框 */
+.chem-guard-3D-modeling {
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  gap: 30px; /* 两个框之间的间距 */
+  width: 100%;
+}
+
+/* 每个图片和文字容器的样式 */
+.chem-guard-3D-modeling-container {
+  display: flex;
+  flex-direction: column; /* 文字在图片下方 */
+  justify-content: center; /* 文字和图片垂直居中对齐 */
+  align-items: center; /* 图片和文字水平方向居中 */
+  width: 45%; /* 每个容器宽度为 45% */
+}
+
+/* 图片样式 */
+.chem-guard-3D-modeling-container img {
+  width: 80%; /* 设置图片宽度为容器的 80% */
+  height: auto; /* 保持图片的比例 */
+  object-fit: contain; /* 确保图片不被拉伸 */
+}
+
+/* 自定义图片1的大小，设置为比右边图片小 */
+.chem-guard-img-01 {
+  width: 80%; /* 设置左边图片宽度为容器的 80% */
+  max-width: 250px; /* 限制最大宽度为 250px */
+}
+
+/* 自定义图片2的大小 */
+.chem-guard-img-02 {
+  width: 80%; /* 设置右边图片宽度为容器的 80% */
+  max-width: 300px; /* 限制最大宽度为 250px */
+}
+
+/* 文字样式 */
+.chem-guard-3D-modeling-container p {
+  font-family: futura-pt, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  text-align: left;
+  padding-top: 50px; /* 文字与图片的间距 */
+  width: 90%; /* 设置文字容器的宽度 */
+  max-width: 500px; /* 限制最大宽度 */
+}
+
+/* ===== 爆炸图 ===== */
+.chem-guard-explosion-diagram {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.chem-guard-explosion-diagram img {
+  display: block;
+  width: 100%;     /* 横向占满容器 */
+  height: auto;    /* 高度按比例缩放 */
+  object-fit: cover;
+}
+
+/* ===== 手机场景图（保持不变） ===== */
+.chem-guard-mobile-scene{width:100%;margin:0;padding:0;}
+.chem-guard-mobile-scene img{display:block;width:100%;height:auto;object-fit:cover;}
+
+/* 容器：两行，行与行之间留白 */
+.chem-guard-mockup-container{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:64px;           /* 两个 row 的间距 */
+  width:100%;
+}
+
+/* 每一行：让左右两块在“纵向”居中对齐 */
+.chem-guard-mockup-row{
+  display:flex;
+  align-items:center; /* ⭐ 关键：让同一行里的块彼此垂直居中 */
+  justify-content:flex-start;
+  width:100%;
+  gap:48px;           /* 图文之间间距 */
+  box-sizing:border-box;
+}
+
+/* 左侧图片块 */
+.chem-guard-mockup-image{
+  flex:0 1 40%;
+  display:flex;
+  justify-content:center;
+  align-items:center; /* 图片本身也在块内居中 */
+}
+.chem-guard-mockup-image img{
+  max-width:100%;
+  height:auto;
+  display:block;
+}
+
+/* 右侧文字块：块内再居中，使文字和图片中线对齐 */
+.chem-guard-mockup-text{
+  flex:0 1 40%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;  /* ⭐ 关键：让文字在自己这块里垂直居中 */
+  align-items:flex-start;
+  text-align:left;
+  padding:0;
+}
+
+/* 标题与正文 */
+.chem-guard-mockup-title{
+  color:rgba(85,178,122,.9);
+  text-decoration:none;
+  font-family:futura-pt, sans-serif;
+  font-weight:600;
+  font-size:16px;
+  margin:0 0 10px;
+}
+.chem-guard-mockup-text p{
+  color:#333;
+  margin:0;
+  font-family:futura-pt, sans-serif;
+  font-weight:500;
+  font-size:16px;
+  line-height:1.6;
+}
+
+
+
+
