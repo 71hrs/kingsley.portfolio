@@ -424,6 +424,7 @@ footer .footer-navbar a {
   display: flex; justify-content: space-between; gap: 16px;
   color: #fff; font-size: 14px; line-height: 1.2;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  font-weight: 300; 
 }
 
 /* 底部信息（在下条外板里） */
@@ -438,11 +439,13 @@ footer .footer-navbar a {
   font-family: 'Heebo', Helvetica, Arial, sans-serif;
   font-size: 20px; line-height: 1.25; font-weight: 700;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  font-weight: 700; 
 }
 .ra-tags{
   margin: 0; padding: 0; list-style: none;
   font-family: 'Heebo', Helvetica, Arial, sans-serif;
   display: flex; gap: 12px; font-size: 14px; flex-wrap: wrap;
+  font-weight: 300; 
 }
 
 /* ========== 全屏遮罩：卡片 hover 时让其它区域变暗 ========== */
