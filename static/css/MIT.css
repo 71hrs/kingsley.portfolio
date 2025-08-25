@@ -1027,6 +1027,10 @@ footer .footer-navbar a {
 
 /* ====== Chem Guard ====== */
 
+body {
+  background-color: #333;
+}
+
 /* 2×2 宫格：图片之间有间距，外边贴满容器 */
 .chem-guard-scenarios {
   display: grid;
