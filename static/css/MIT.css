@@ -1,5 +1,5 @@
 html {
-  background-color: #797979; /* 背景灰色 */
+  background-color: #797979; /* 也可以在 html 上设置，确保整个页面都能有灰色背景 */
 }
 
 header, nav {
@@ -18,6 +18,7 @@ body {
   font-weight: 600;
   src: url("https://www.greg-wolff.com/fonts/CB.otf");
 }
+
 @font-face {
   font-family: "CB";
   font-weight: 700;
@@ -31,19 +32,20 @@ body {
 
 /* Layout and Content Styles */
 html{
-  height:auto;                 
-  overflow-y:auto;             
-  overflow-x:hidden;           
+  height:auto;                 /* 覆盖 100vh */
+  overflow-y:auto;             /* 允许纵向滚动 */
+  overflow-x:hidden;           /* 防横向抖动 */
 }
 
 body{
-  min-height:100%;             
+  min-height:100%;             /* 正常文档流 */
 }
 
 header{
   position:fixed;
   top:0; left:0; right:0;
   z-index:1000;
+  /* 如果需要背景，自己加：background:transparent; */
 }
 
 h2, h4 {
@@ -72,11 +74,11 @@ a {
 .homepage-content {
   display: flex;
   align-items: center;
-  z-index: 1;
+  z-index: 1; /* Ensure content is below navbar */
   position: absolute;
   width: 500px;
   padding-left: 200px;
-  height: 100svh;   /* ✅ 改成动态视口高度，避免 100vh 误差 */
+  height: 100vh;
 }
 
 .homepage-content h2, .homepage-content h4 {
@@ -91,7 +93,7 @@ a {
 
 /* Header and Navigation */
 header {
-  position: fixed;
+  position: fixed; /* Fix navbar at the top */
   top: 0;
   left: 0;
   width: 100%;
@@ -99,93 +101,91 @@ header {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  background-color: #fff;
-  z-index: 1000;
+  background-color: #fff; /* Set a background color if needed */
+  z-index: 1000; /* Ensure navbar is on top of all other elements */
 }
 
 /* Navbar Styles */
 .navbar {
-  display: flex;
-  justify-content: space-between;
+  display: flex; /* Use flex layout */
+  justify-content: space-between; /* Evenly distribute the links */
   position: absolute;
   top: 0;
-  left: 4%;
-  right: 4%;
-  width: 92%;
-  font-size: 13px;
-  color: white;
-  text-transform: uppercase;
-  font-family: Arial, sans-serif;
-  font-weight: bold;
+  left: 4%; /* 5% space from the left */
+  right: 4%; /* 5% space from the right */
+  width: 92%; /* Navbar width occupies 90% of the window */
+  font-size: 13px; /* Font size */
+  color: white; /* Text color */
+  text-transform: uppercase; /* Transform text to uppercase */
+  font-family: Arial, sans-serif; /* Font family */
+  font-weight: bold; /* 设置加粗 */
 }
 
 .navbar a {
-  margin: 0;
-  text-decoration: none;
-  color: inherit;
+  margin: 0; /* Remove margin */
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit color from parent (white) */
 }
 
-/* ❌ 原本这里有 nav { margin: 3vh 0; }，删除掉，避免撑出页面高度 */
-
-/* 覆盖：固定的 header/footer 内的 nav 绝对不要外边距 */
-header nav,
-footer nav {
-  margin: 0 !important;
+nav {
+  margin: 3vh 0;
 }
 
 nav > a:last-child {
   padding-right: 0;
 }
 
-/* 右边导航 */
+/* 右边导航不变 */
 .navbar .nav-links{
   display:flex;
-  gap: 28px;
+  gap: 28px;              /* 链接间距 */
   align-items:center;
-  margin-left: auto;
+  margin-left: auto;      /* 把整组链接推到最右 */
 }
 
 /* 左侧 Logo 容器 */
 .navbar .logo{
   display:flex;
-  align-items:center;
-  transform: scale(1.2);  
+  align-items:center;     /* 垂直居中 */
+  transform: translateY(0px);
+  transform: scale(1.2);   /* 放大 1.5 倍 */
 }
 
 /* Logo 图片大小控制 */
 .navbar .logo img{
-  height: 28px;
-  width: auto;
+  height: 28px;           /* ← 控制 Logo 高度，建议 24–40px */
+  width: auto;            /* 保持比例缩放 */
   display: block;
 }
 
 /* Footer Styles */
 footer {
-  position: fixed;
-  bottom: 0;
-  left: 4%;
-  right: 4%;
-  width: 92%;
-  z-index: 999;
-  box-sizing: border-box;
+  position: fixed;        /* Use fixed positioning to keep footer at the bottom */
+  bottom: 0;              /* Align at the bottom */
+  left: 4%;               /* Same 4% left space as navbar */
+  right: 4%;              /* Same 4% right space as navbar */
+  width: 92%;             /* Ensure it spans 92% of the window width */
+  z-index: 999;           /* Ensure footer is above other content */
+  box-sizing: border-box; /* Make sure padding doesn't affect width calculation */
 }
 
+/* Footer navbar styles */
 footer .footer-navbar {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  padding: 10px 0;
-  font-size: 13px;
-  color: white;
-  text-transform: uppercase;
-  font-family: Arial, sans-serif;
-  font-weight: bold;
+  display: flex;                /* Use flex layout */
+  justify-content: space-between; /* Evenly distribute the links */
+  position: relative;           /* Relative positioning within footer */
+  padding: 10px 0;              /* Top and bottom padding */
+  font-size: 13px;              /* Font size */
+  color: white;                 /* Text color */
+  text-transform: uppercase;    /* Uppercase text */
+  font-family: Arial, sans-serif; /* Font family */
+  font-weight: bold;            /* Bold text */
 }
 
 footer .footer-navbar a {
-  margin: 0;
-  text-decoration: none;
-  color: inherit;
+  margin: 0; /* Remove margin */
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit color from parent */
 }
 
 /* Responsive Styles */
@@ -199,7 +199,7 @@ footer .footer-navbar a {
     padding: 20px 30px;
     height: calc(100% - 40px);
     align-items: flex-end;
-    margin-top: -30px;
+    margin-top: -30px; /* 向上移动 .content */
   }
 }
 
@@ -209,7 +209,7 @@ footer .footer-navbar a {
   }
 
   .content {
-    margin-top: -30px;
+    margin-top: -30px; /* 在更小屏幕上向上移动 .content */
   }
 }
 
