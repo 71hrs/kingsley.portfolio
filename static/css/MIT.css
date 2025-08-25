@@ -420,6 +420,7 @@ footer .footer-navbar a {
   position: absolute;
   top: 24px;
   left: 24px; right: 24px;
+  font-family: 'Heebo', Helvetica, Arial, sans-serif;
   display: flex; justify-content: space-between; gap: 16px;
   color: #fff; font-size: 14px; line-height: 1.2;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
@@ -434,11 +435,13 @@ footer .footer-navbar a {
 }
 .ra-title{
   margin: 0 0 8px 0;
+  font-family: 'Heebo', Helvetica, Arial, sans-serif;
   font-size: 20px; line-height: 1.25; font-weight: 700;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .ra-tags{
   margin: 0; padding: 0; list-style: none;
+  font-family: 'Heebo', Helvetica, Arial, sans-serif;
   display: flex; gap: 12px; font-size: 14px; flex-wrap: wrap;
 }
 
@@ -706,6 +709,8 @@ footer .footer-navbar a {
 }
 .right .quote{ 
   margin:25px 0; 
+  font-family: 'Heebo', Helvetica, Arial, sans-serif;
+  font-weight: 300;    /* 100–900 都可以 */
   font-size:14px; 
   color:#fff; 
   line-height:20px; 
