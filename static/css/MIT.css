@@ -1486,6 +1486,7 @@ body.close-to-me {
   margin: 0;
   padding: 0;
 }
+
 .close-to-me-problem-and-solution img {
   display: block;
   width: 100%;     /* 横向占满容器 */
@@ -1572,4 +1573,218 @@ close-to-me-competitive-analysis {
   height: auto; /* 保持图片比例 */
   margin: 0 35px; /* 增加图片之间的间隔，调整为15px */
   box-sizing: border-box; /* 确保margin不影响图片宽度 */
+}
+
+close-to-me-why-metaverse {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.close-to-me-why-metaverse img {
+  display: block;
+  width: 100%;     /* 横向占满容器 */
+  height: auto;    /* 高度按比例缩放 */
+  object-fit: cover;
+}
+
+.close-to-me-promotion {
+  width: 100%;       /* 让容器本身充满父级 */
+}
+
+.close-to-me-promotion img {
+  width: 100%;       /* 横向撑满容器 */
+  height: auto;      /* 保持纵横比 */
+  display: block;    /* 去掉底部空隙 */
+  border-radius: 25px; /* 保留圆角 */
+}
+
+close-to-me-ui {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.close-to-me-ui img {
+  display: block;
+  width: 100%;     /* 横向占满容器 */
+  height: auto;    /* 高度按比例缩放 */
+  object-fit: cover;
+}
+
+.close-to-me-motion-capture {
+  width: 100%;       /* 让容器本身充满父级 */
+}
+
+.close-to-me-motion-capture img {
+  width: 100%;       /* 横向撑满容器 */
+  height: auto;      /* 保持纵横比 */
+  display: block;    /* 去掉底部空隙 */
+  border-radius: 25px; /* 保留圆角 */
+}
+
+.close-to-me-usability-testing-audience,
+.close-to-me-usability-testing-contestant {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.close-to-me-usability-testing-audience img,
+.close-to-me-usability-testing-contestant img {
+  display: block;
+  width: 100%;     /* 横向撑满容器 */
+  height: auto;    /* 保持比例 */
+  object-fit: cover;
+}
+
+close-to-me-iteration {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.close-to-me-iteration img {
+  display: block;
+  width: 100%;     /* 横向占满容器 */
+  height: auto;    /* 高度按比例缩放 */
+  object-fit: cover;
+}
+
+/* 容器样式 */
+.close-to-me-contestant-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 每一行的样式 */
+.close-to-me-contestant-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 70px; /* 行与行之间的间隔 */
+  width: 100%;
+  gap: 20px; /* 图片与文字之间的间隔 */
+}
+
+/* 每一列图片样式 */
+.close-to-me-contestant-image {
+  flex: 0 1 40%;  /* 图片占据容器的 45% */
+  display: flex;
+  justify-content: center;
+}
+
+/* 每一列文字样式 */
+.close-to-me-contestant-text {
+  flex: 0 1 40%;  /* 文字占据容器的 45% */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 20px;  /* 文字部分左右内边距 */
+  text-align: left;
+}
+
+/* 图片样式 */
+.close-to-me-contestant-image img {
+  max-width: 100%;  /* 确保图片不超出容器 */
+  height: auto;  /* 保持图片的比例 */
+}
+
+/* 标题样式 */
+.close-to-me-contestant-title {
+  color: #9146FF;
+  text-decoration: none;
+  font-family: futura-pt, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 16px;
+}
+
+/* 文字描述样式 */
+.close-to-me-contestant-text p {
+  color: #333;
+  margin-top: 10px;
+  font-family: futura-pt, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 16px;
+}
+
+/* 容器样式 */
+.close-to-me-audience-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 每一行的样式 */
+.close-to-me-audience-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 70px; /* 行与行之间的间隔 */
+  width: 100%;
+  gap: 20px; /* 图片与文字之间的间隔 */
+}
+
+/* 每一列图片样式 */
+.close-to-me-audience-image {
+  flex: 0 1 40%;  /* 图片占据容器的 45% */
+  display: flex;
+  justify-content: center;
+}
+
+/* 每一列文字样式 */
+.close-to-me-audience-text {
+  flex: 0 1 40%;  /* 文字占据容器的 45% */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 20px;  /* 文字部分左右内边距 */
+  text-align: left;
+}
+
+/* 图片样式 */
+.close-to-me-audience-image img {
+  max-width: 100%;  /* 确保图片不超出容器 */
+  height: auto;  /* 保持图片的比例 */
+}
+
+/* 标题样式 */
+.close-to-me-audience-title {
+  color: #9146FF;
+  text-decoration: none;
+  font-family: futura-pt, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 16px;
+}
+
+/* 文字描述样式 */
+.close-to-me-audience-text p {
+  color: #333;
+  margin-top: 10px;
+  font-family: futura-pt, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 16px;
+}
+
+.close-to-me-effect-container {
+  display: flex;
+  justify-content: center;  /* 让整个容器居中 */
+  align-items: center;
+  gap: 50px;  /* 控制图片之间的间隔 */
+}
+
+.close-to-me-effect-image {
+  flex: 1;  /* 让每个图片区域均分可用空间 */
+  display: flex;
+  justify-content: center; /* 让图片在各自的容器内居中 */
+  align-items: center;
+}
+
+.close-to-me-effect-image img {
+  max-width: 100%; /* 控制图片大小，可根据需要调整 */
+  height: auto;
 }
