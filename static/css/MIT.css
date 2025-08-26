@@ -1480,3 +1480,96 @@ body.close-to-me {
   background: 
     linear-gradient(#b39df0 0 1870px, #f8f9ff 300px 100%);
 }
+
+.close-to-me-problem-and-solution {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.close-to-me-problem-and-solution img {
+  display: block;
+  width: 100%;     /* 横向占满容器 */
+  height: auto;    /* 高度按比例缩放 */
+  object-fit: cover;
+}
+
+.close-to-me-survey-image-container {
+  display: flex;
+  flex-direction: column; /* 让图片上下排列 */
+  gap: 50px; /* 图片之间的间距，可以根据需要调整 */
+}
+
+.close-to-me-survey-image-item img {
+  width: 100%; /* 让图片宽度适应容器 */
+  height: auto; /* 保持图片的原始比例 */
+}
+
+.close-to-me-survey-caption {
+  font-size: 14px;  /* Adjust the font size */
+  text-align: center;
+  margin-top: 10px;  /* Adjust the distance from the image */
+  color: #333;
+  font-family: futura-pt, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.close-to-me-persona-image-container {
+  display: flex;
+  flex-direction: column; /* 让图片上下排列 */
+  gap: 50px; /* 图片之间的间距，可以根据需要调整 */
+}
+
+.close-to-me-persona-image-item img {
+  width: 100%; /* 让图片宽度适应容器 */
+  height: auto; /* 保持图片的原始比例 */
+}
+
+.close-to-me-persona-caption {
+  font-size: 14px;  /* Adjust the font size */
+  text-align: center;
+  margin-top: 10px;  /* Adjust the distance from the image */
+  color: #333;
+  font-family: futura-pt, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.close-to-me-industry-trends {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.close-to-me-industry-trends img {
+  display: block;
+  width: 100%;     /* 横向占满容器 */
+  height: auto;    /* 高度按比例缩放 */
+  object-fit: cover;
+}
+
+close-to-me-competitive-analysis {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.close-to-me-competitive-analysis img {
+  display: block;
+  width: 100%;     /* 横向占满容器 */
+  height: auto;    /* 高度按比例缩放 */
+  object-fit: cover;
+}
+
+.close-to-me-user-flow {
+  display: flex;
+  justify-content: space-between; /* 保证图片之间有间隔 */
+  align-items: center; /* 保证图片垂直居中对齐 */
+  width: 100%; /* 确保容器宽度适应父元素 */
+  box-sizing: border-box; /* 确保宽度计算包含边距 */
+}
+
+.close-to-me-user-flow img {
+  width: calc(50% - 70px); /* 每张图片宽度占50%减去间隔（间隔改为30px） */
+  height: auto; /* 保持图片比例 */
+  margin: 0 35px; /* 增加图片之间的间隔，调整为15px */
+  box-sizing: border-box; /* 确保margin不影响图片宽度 */
+}
