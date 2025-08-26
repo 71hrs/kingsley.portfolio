@@ -1235,12 +1235,13 @@ body.chem-guard {
 
 /* 文字样式 */
 .chem-guard-3D-modeling-container p {
-  font-family: futura-pt, sans-serif;
-  font-weight: 600;
-  font-size: 16px;
+  font-family: 'Heebo', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.4em;
   text-align: left;
   padding-top: 50px; /* 文字与图片的间距 */
-  width: 90%; /* 设置文字容器的宽度 */
+  width: 95%; /* 设置文字容器的宽度 */
   max-width: 500px; /* 限制最大宽度 */
 }
 
