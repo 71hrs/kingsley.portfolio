@@ -1014,8 +1014,8 @@ footer .footer-navbar a {
   align-items:flex-start;    /* 顶对齐，不居中 */
   padding-left:15%;
   padding-right:15%;
-  margin-top:72px;             /* 分区上下间距 */
-  margin-bottom:72px;             /* 分区上下间距 */
+  margin-top:96px;             /* 分区上下间距 */
+  margin-bottom:96px;             /* 分区上下间距 */
   box-sizing:border-box;
 }
 
