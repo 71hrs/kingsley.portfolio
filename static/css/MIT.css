@@ -1788,3 +1788,31 @@ close-to-me-iteration {
   max-width: 100%; /* 控制图片大小，可根据需要调整 */
   height: auto;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====== Dollar Flip ====== */
+
+html.dollar-flip,
+body.dollar-flip {
+  background: 
+    linear-gradient(#2d2b62 0 1590px, #f8f9ff 300px 100%);
+}
