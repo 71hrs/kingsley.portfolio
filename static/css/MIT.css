@@ -1019,10 +1019,14 @@ footer .footer-navbar a {
   box-sizing:border-box;
 }
 
-.project-left-column{
-  flex:0 0 44%;
-  max-width:44%;
-  box-sizing:border-box;
+.project-left-column {
+  flex: 0 0 44%;
+  max-width: 44%;
+  box-sizing: border-box;
+
+  display: flex;           /* 让它变成 flex 容器 */
+  flex-direction: column;  /* 垂直排列子元素 */
+  gap: 4px;               /* 可选：子元素之间加点间距 */
 }
 
 .project-right-column{
@@ -1037,7 +1041,7 @@ footer .footer-navbar a {
   font-family: futura-pt, sans-serif; 
   font-size:14px;
   text-transform:uppercase;
-  color:#fff;
+  color:#000000;
 }
 
 .project-paragraph{
@@ -1046,7 +1050,7 @@ footer .footer-navbar a {
   font-size:16px;
   font-weight: 300;
   line-height:1.8;
-  color:#fff;
+  color:#000000;
 }
 
 .project-overview{ width:100%; }
@@ -1113,7 +1117,7 @@ footer .footer-navbar a {
 html.chem-guard,
 body.chem-guard {
   background: 
-    linear-gradient(#1C3A2D 0 1900px, #797979 300px 100%);
+    linear-gradient(#1C3A2D 0 1900px, #f1f5f3 300px 100%);
 }
 
 /* 2×2 宫格：图片之间有间距，外边贴满容器 */
