@@ -1816,3 +1816,25 @@ body.dollar-flip {
   background: 
     linear-gradient(#2d2b62 0 1590px, #f8f9ff 300px 100%);
 }
+
+.dollar-flip-design-process {
+  width: 100%;       /* 容器占满父级 */
+}
+
+.dollar-flip-design-process img {
+  width: 80%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+}
+
+.dollar-flip-survey {
+  width: 100%;       /* 容器占满父级 */
+}
+
+.dollar-flip-survey img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+}
