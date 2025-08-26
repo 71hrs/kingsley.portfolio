@@ -1053,6 +1053,15 @@ footer .footer-navbar a {
   color:#000000;
 }
 
+.project-paragraph-highlight{
+  margin:0 0 16px 0;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size:28px;
+  font-weight: 600;
+  line-height:1.8;
+  color:#000000;
+}
+
 .project-overview{ width:100%; }
 .project-overview img,
 .project-overview video{
