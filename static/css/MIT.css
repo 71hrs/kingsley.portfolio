@@ -2020,3 +2020,63 @@ body.dollar-flip {
   display: block;
   margin: 0 auto;    /* 居中对齐 */
 }
+
+/* 容器样式 */
+.dollar-flip-ui-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 每一行的样式 */
+.dollar-flip-ui-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 70px; /* 行与行之间的间隔 */
+  width: 100%;
+  gap: 20px; /* 图片与文字之间的间隔 */
+}
+
+/* 每一列图片样式 */
+.dollar-flip-ui-image {
+  flex: 0 1 40%;  /* 图片占据容器的 40% */
+  display: flex;
+  justify-content: center;
+}
+
+/* 每一列文字样式 */
+.dollar-flip-ui-text {
+  flex: 0 1 40%;  /* 文字占据容器的 40% */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 10px;  /* 文字部分左右内边距 */
+  text-align: left;
+}
+
+/* 图片样式 */
+.dollar-flip-ui-image img {
+  max-width: 100%;  /* 确保图片不超出容器 */
+  height: auto;  /* 保持图片的比例 */
+}
+
+/* 标题样式 */
+.dollar-flip-ui-title {
+  color: #6927ef;
+  text-decoration: none;
+  font-family: futura-pt, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 16px;
+}
+
+/* 文字描述样式 */
+.dollar-flip-ui-text p {
+  color: #333;
+  margin-top: 10px;
+  font-family: futura-pt, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 16px;
+}
