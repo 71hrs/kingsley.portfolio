@@ -1838,3 +1838,56 @@ body.dollar-flip {
   display: block;
   margin: 0 auto;    /* 居中对齐 */
 }
+
+.dollar-flip-persona-container {
+  display: flex;
+  flex-direction: column; /* 让图片上下排列 */
+  gap: 50px; /* 图片之间的间距，可以根据需要调整 */
+}
+
+.dollar-flip-persona-image img {
+  width: 100%; /* 让图片宽度适应容器 */
+  height: auto; /* 保持图片的原始比例 */
+}
+
+.dollar-flip-persona-caption {
+  font-size: 14px;  /* Adjust the font size */
+  text-align: center;
+  margin-top: 10px;  /* Adjust the distance from the image */
+  color: #333;
+  font-family: futura-pt, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.dollar-flip-competitor-analysis-container {
+  display: flex;
+  flex-direction: column; /* 让图片上下排列 */
+  gap: 50px; /* 图片之间的间距，可以根据需要调整 */
+}
+
+.dollar-flip-competitor-analysis img {
+  width: 100%; /* 让图片宽度适应容器 */
+  height: auto; /* 保持图片的原始比例 */
+}
+
+.dollar-flip-competitor-analysis-caption {
+  font-size: 14px;  /* Adjust the font size */
+  text-align: center;
+  margin-top: 10px;  /* Adjust the distance from the image */
+  color: #333;
+  font-family: futura-pt, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.dollar-flip-ideation {
+  width: 100%;       /* 容器占满父级 */
+}
+
+.dollar-flip-ideation img {
+  width: 80%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+}
