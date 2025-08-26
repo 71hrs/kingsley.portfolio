@@ -1187,10 +1187,10 @@ body.chem-guard {
 /* 文字样式 */
 .chem-guard-sketch-container p {
   text-align: center;
-  font-family: futura-pt, sans-serif;
+  font-family: 'Heebo', Helvetica, Arial, sans-serif;
   font-weight: 600;
   font-size: 16px;
-  color: #ffffff;
+  color: #000000;
   margin-top: 10px;
 }
 
@@ -1304,17 +1304,17 @@ body.chem-guard {
 
 /* 标题与正文 */
 .chem-guard-mockup-title{
-  color:rgba(255, 255, 255, 0.9);
+  color:rgba(0, 0, 0, 0.9);
   text-decoration:none;
-  font-family:futura-pt, sans-serif;
+  font-family: 'Heebo', Helvetica, Arial, sans-serif;
   font-weight:600;
   font-size:16px;
   margin:0 0 10px;
 }
 .chem-guard-mockup-text p{
-  color:#ffffff;
+  color:#000000;
   margin:0;
-  font-family:futura-pt, sans-serif;
+  font-family: 'Heebo', Helvetica, Arial, sans-serif;
   font-weight:500;
   font-size:16px;
   line-height:1.6;
