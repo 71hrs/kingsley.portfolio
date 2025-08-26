@@ -1891,3 +1891,132 @@ body.dollar-flip {
   display: block;
   margin: 0 auto;    /* 居中对齐 */
 }
+
+.dollar-flip-initial-design {
+  width: 100%;       /* 容器占满父级 */
+}
+
+.dollar-flip-initial-design img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+}
+
+.dollar-flip-user-testing {
+  width: 100%;       /* 容器占满父级 */
+}
+
+.dollar-flip-user-testing img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+}
+
+.dollar-flip-color-scheme {
+  width: 100%;       /* 容器占满父级 */
+}
+
+.dollar-flip-color-scheme img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.dollar-flip-logo {
+  width: 100%;       /* 容器占满父级 */
+}
+
+.dollar-flip-logo img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.dollar-flip-icon {
+  width: 100%;       /* 容器占满父级 */
+}
+
+.dollar-flip-icon img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.dollar-flip-typography {
+  width: 100%;       /* 容器占满父级 */
+}
+
+.dollar-flip-typography img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.dollar-flip-hifi {
+  width: 100%;       /* 容器占满父级 */
+}
+
+.dollar-flip-hifi img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+}
+
+.dollar-flip-development {
+  width: 100%;       /* 容器占满父级 */
+}
+
+.dollar-flip-development img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+}
+
+.dollar-flip-usability-testing-1 {
+  width: 100%;       /* 容器占满父级 */
+}
+
+.dollar-flip-usability-testing-1 img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+}
+
+.dollar-flip-usability-testing-2 {
+  width: 100%;       /* 容器占满父级 */
+}
+
+.dollar-flip-usability-testing-2 img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+}
+
+.dollar-flip-ai-implemented {
+  width: 100%;       /* 容器占满父级 */
+}
+
+.dollar-flip-ai-implemented img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+}
