@@ -1368,3 +1368,15 @@ body.organisms-utopia {
   background: 
     linear-gradient(#1A1E3A 0 2260px, #f8f9ff 300px 100%);
 }
+
+.organisms-utopia-initial-sketch {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.organisms-utopia-initial-sketch img {
+  display: block;
+  width: 100%;     /* 横向占满容器 */
+  height: auto;    /* 高度按比例缩放 */
+  object-fit: cover;
+}
