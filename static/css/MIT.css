@@ -1188,9 +1188,11 @@ body.chem-guard {
 .chem-guard-sketch-container p {
   text-align: center;
   font-family: 'Heebo', Helvetica, Arial, sans-serif;
-  font-weight: 600;
-  font-size: 16px;
+  font-weight: 300;
+  font-size: 14px;
   color: #000000;
+  max-width: 90%;
+  line-height: 1.4em;
   margin-top: 10px;
 }
 
