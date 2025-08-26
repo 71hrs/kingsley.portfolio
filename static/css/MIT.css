@@ -2080,3 +2080,206 @@ body.dollar-flip {
   font-style: normal;
   font-size: 16px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====== Glamhub ====== */
+
+html.glamhub,
+body.glamhub {
+  background: 
+    linear-gradient(#e79baf 0 1650px, #f8f9ff 300px 100%);
+}
+
+.glamhub-research {
+  display: flex; /* 使用flexbox */
+  flex-direction: column; /* 让图片从上到下排列 */
+  align-items: center; /* 图片居中对齐 */
+  padding-left: 10%; /* 左边保留10%的空间 */
+  gap: 50px; /* 每张图片之间的间隔 */
+}
+
+.glamhub-research img {
+  width: 90%; /* 图片宽度可以调整，80%留给图片 */
+  height: auto; /* 保持图片的比例 */
+}
+
+/* 整体容器 */
+.glamhub-storyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* 每行之间的间距 */
+  align-items: center;
+}
+
+/* 每一行 */
+.glamhub-storyboard-row {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* 图片之间的间距 */
+}
+
+/* 每个图片项 */
+.glamhub-storyboard-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 45%; /* 每个图片项占据容器宽度的 45% */
+  text-align: center;
+}
+
+/* 图片样式 */
+.glamhub-storyboard-item img {
+  width: 100%; /* 图片宽度根据容器调整 */
+  height: auto; /* 保持图片比例 */
+  max-width: 300px; /* 最大宽度 */
+  transition: all 0.3s ease; /* 图片大小过渡效果 */
+}
+
+/* 文字样式 */
+.glamhub-storyboard-item p {
+  font-family: futura-pt, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  margin-top: 30px; /* 文字与图片之间的间距 */
+  width: 75%;
+  color: #333;
+}
+
+.glamhub-sharing-economy {
+  width: 100%;       /* 容器占满父级 */
+  padding-top: 24px;
+}
+
+.glamhub-sharing-economy img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+}
+
+/* 图片容器 */
+.glamhub-brand-positioning {
+  display: flex; /* 使用flex布局 */
+  justify-content: center; /* 水平居中图片 */
+  align-items: center; /* 垂直居中图片 */
+}
+
+/* 左侧图片 */
+.glamhub-brand-positioning .left-img {
+  width: 55%; /* 左侧图片占40%，可以调整此百分比 */
+  height: auto; /* 保持图片比例 */
+  margin-right: 40px; /* 右边图片与左边图片之间的间隔，可以调整 */
+}
+
+/* 右侧图片 */
+.glamhub-brand-positioning .right-img {
+  width: 40%; /* 右侧图片占60%，可以调整此百分比 */
+  height: auto; /* 保持图片比例 */
+  margin-right: 40px; /* 右边图片与左边图片之间的间隔，可以调整 */
+}
+
+/* 图片容器 */
+.glamhub-location {
+  display: flex; /* 使用flex布局 */
+  justify-content: space-between; /* 图片之间均匀分布，并保持间距 */
+  align-items: center; /* 垂直居中 */
+  gap: 20px; /* 图片之间的间隔，可以根据需求调整 */
+  flex-wrap: nowrap; /* 禁止换行，确保图片都在同一行 */
+  overflow-x: auto; /* 允许水平滚动，防止图片挤出屏幕 */
+}
+
+/* 图片样式 */
+.glamhub-location img {
+  width: calc(15% - 20px); /* 每张图片占据容器的16.66%，减去间隔 */
+  height: auto; /* 保持图片比例 */
+}
+
+.glamhub-navigation {
+  width: 100%;       /* 容器占满父级 */
+  margin-top: 44px;
+  margin-bottom: 44px;
+}
+
+.glamhub-navigation img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+}
+
+.glamhub-workflow {
+  width: 100%;       /* 容器占满父级 */
+  margin-top: 44px;
+  margin-bottom: 44px;
+}
+
+.glamhub-workflow img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+}
+
+.glamhub-product-design {
+  width: 100%;       /* 容器占满父级 */
+}
+
+.glamhub-product-design img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+}
+
+.glamhub-prototype {
+  width: 100%;       /* 容器占满父级 */
+}
+
+.glamhub-prototype img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+}
+
+/* 外层容器：竖直排列、占满整行、两图之间留间距 */
+.glamhub-outcome{
+  display: flex;
+  flex-direction: column; /* 竖排 */
+  gap: 48px;              /* 两张图之间的间距 */
+  width: 100%;
+  box-sizing: border-box;
+
+  /* 防止被父级 flex 行内并排，强制自己占满一整行 */
+  flex: 0 0 100%;
+  align-self: stretch;
+}
+
+/* 每张图占满容器宽度，保持比例 */
+.glamhub-outcome img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
