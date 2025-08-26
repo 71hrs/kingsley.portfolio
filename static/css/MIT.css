@@ -1366,7 +1366,7 @@ body.chem-guard {
 html.organisms-utopia,
 body.organisms-utopia {
   background: 
-    linear-gradient(#1A1E3A 0 2260px, #f8f9ff 300px 100%);
+    linear-gradient(#85b8f8 0 2260px, #f8f9ff 300px 100%);
 }
 
 .organisms-utopia-initial-sketch {
@@ -1473,3 +1473,10 @@ body.organisms-utopia {
 
 
 
+/* ====== Close To Me ====== */
+
+html.close-to-me,
+body.close-to-me {
+  background: 
+    linear-gradient(#b39df0 0 2260px, #f8f9ff 300px 100%);
+}
