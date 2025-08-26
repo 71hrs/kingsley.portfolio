@@ -1410,3 +1410,40 @@ body.organisms-utopia {
   display: block;          /* 避免底部有空隙 */
   object-fit: cover;       /* 图片裁切时保持铺满 */
 }
+
+.organisms-utopia-habitat {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.organisms-utopia-habitat img {
+  display: block;
+  width: 100%;     /* 横向占满容器 */
+  height: auto;    /* 高度按比例缩放 */
+  object-fit: cover;
+}
+
+.organisms-utopia-sustainability {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.organisms-utopia-sustainability img {
+  display: block;
+  width: 100%;     /* 横向占满容器 */
+  height: auto;    /* 高度按比例缩放 */
+  object-fit: cover;
+}
+
+.organisms-utopia-video {
+  width: 100%;
+  max-width: 1200px;   /* 自己控制宽度 */
+  margin: 0 auto;      /* 居中 */
+}
+
+.organisms-utopia-video iframe {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9; /* 自动保持比例，不会上下空隙 */
+  display: block;
+}
