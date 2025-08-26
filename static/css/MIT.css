@@ -2283,3 +2283,32 @@ body.glamhub {
   width: 100%;
   height: auto;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====== Glamhub ====== */
+
+html.valentino-beauty,
+body.valentino-beauty {
+  background: 
+    linear-gradient(#0A0A0A 0 2050px, #f8f9ff 300px 100%);
+}
