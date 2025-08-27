@@ -1333,6 +1333,35 @@ body.chem-guard {
   line-height:1.4em;
 }
 
+.chem-guard-speculative-proposal {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center; /* 让子元素居中 */
+}
+
+.chem-guard-speculative-proposal img {
+  display: block;
+  width: 100%;     
+  height: auto;    
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.chem-guard-speculative-proposal .caption {
+  color: #000000;
+  font-family: 'Heebo', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.4em;
+  margin: 24px auto 0;  /* 上间距12px，水平自动居中 */
+  width: 50%;
+  text-align: center;   /* 文字在自身盒子里也居中 */
+}
+
+
+
+
 
 
 
