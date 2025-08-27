@@ -1348,16 +1348,6 @@ body.chem-guard {
   margin: 0 auto;
 }
 
-.chem-guard-speculative-proposal .caption {
-  color: #000000;
-  font-family: 'Heebo', Helvetica, Arial, sans-serif;
-  font-weight: 300;
-  font-size: 14px;
-  line-height: 1.4em;
-  margin: 24px auto 0;  /* 上间距12px，水平自动居中 */
-  width: 55%;
-  text-align: center;   /* 文字在自身盒子里也居中 */
-}
 
 
 
