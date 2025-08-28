@@ -1369,15 +1369,23 @@ body.chem-guard {
   height: auto;
 }
 
-/* caption（类名与图片块对应） */
-.chem-guard-exploration-01-caption,
-.chem-guard-exploration-02-caption{
-  font: 300 14px/1.4 'Heebo', Helvetica, Arial, sans-serif;
+/* caption 标题行 */
+.chem-guard-caption-title{
+  font: 500 14px 'Heebo', Helvetica, Arial, sans-serif;
   color: #000;
   text-align: center;
-  margin-top: 8px;
+  margin-top: 24px;
 }
 
+/* caption 描述行 */
+.chem-guard-caption-desc{
+  font: 300 14px 'Heebo', Helvetica, Arial, sans-serif;
+  color: #444;
+  text-align: center;
+  max-width: 80%;       /* 让文字行宽不要太长 */
+  margin-left: auto;
+  margin-right: auto;
+}
 
 
 
