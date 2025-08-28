@@ -1352,7 +1352,7 @@ body.chem-guard {
 .chem-guard-exploration{
   display: grid;
   grid-template-columns: 1fr;
-  row-gap: 20px;              /* 图片块之间的间隔 */
+  row-gap: 36px;              /* 图片块之间的间隔 */
   width: 100%;
 }
 
