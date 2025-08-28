@@ -1348,6 +1348,35 @@ body.chem-guard {
   margin: 0 auto;
 }
 
+/* 包裹层：单列竖排 + 行间距 */
+.chem-guard-exploration{
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 20px;              /* 图片块之间的间隔 */
+  width: 100%;
+}
+
+/* 每块与图片：占满容器宽度 */
+.chem-guard-exploration-01,
+.chem-guard-exploration-02{
+  width: 100%;
+}
+
+.chem-guard-exploration-01 img,
+.chem-guard-exploration-02 img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* caption（类名与图片块对应） */
+.chem-guard-exploration-01-caption,
+.chem-guard-exploration-02-caption{
+  font: 300 14px/1.4 'Heebo', Helvetica, Arial, sans-serif;
+  color: #000;
+  text-align: center;
+  margin-top: 8px;
+}
 
 
 
