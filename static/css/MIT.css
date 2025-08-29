@@ -1126,7 +1126,7 @@ footer .footer-navbar a {
 html.chem-guard,
 body.chem-guard {
   background: 
-    linear-gradient(#1E2A32 0 2540px, #f5f7f9 300px 100%);
+    linear-gradient(#1E2A32 0 2740px, #f5f7f9 300px 100%);
 }
 
 /* 2×2 宫格：图片之间有间距，外边贴满容器 */
@@ -1430,7 +1430,7 @@ body.chem-guard {
 .chem-guard-header-desc {
   max-width: 40%;
   margin: 0 auto;
-  font-size: clamp(14px, 1.6vw, 16px);
+  font: 300 16px 'Heebo', Helvetica, Arial, sans-serif;
   line-height: 1.5;
   color: #d8dde4;  /* 比 headline 更浅的灰色 */
 }
