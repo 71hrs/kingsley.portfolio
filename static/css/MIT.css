@@ -1547,7 +1547,6 @@ body.organisms-utopia {
   display: block;
 }
 
-/* 三图并排，铺满外层容器宽度 */
 .organisms-utopia-sustainability {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr)); /* 三等分，防止溢出 */
@@ -1562,7 +1561,19 @@ body.organisms-utopia {
   display: block;/* 去掉 img 默认行内空隙 */
 }
 
+.organisms-utopia-outcome {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr)); /* 三等分，防止溢出 */
+  gap: 16px;                                        /* 三图之间的间隔，按需改 */
+  width: 100%;
+  box-sizing: border-box;
+}
 
+.organisms-utopia-outcome img {
+  width: 100%;   /* 每张图占满自己的栅格 */
+  height: auto;  /* 等比缩放 */
+  display: block;/* 去掉 img 默认行内空隙 */
+}
 
 
 
