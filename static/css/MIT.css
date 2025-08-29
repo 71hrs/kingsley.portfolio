@@ -2536,7 +2536,7 @@ body.valentino-beauty {
 html.the-underground-palace,
 body.the-underground-palace {
   background: 
-    linear-gradient(#2C2C2E 0 2000px, #f6f6f6 300px 100%);
+    linear-gradient(#2C2C2E 0 2070px, #f6f6f6 300px 100%);
 }
 
 /* 让视频在任何宽度下都可见、且占满外层容器宽度 */
@@ -2559,14 +2559,27 @@ body.the-underground-palace {
 
 .the-underground-palace-expriment {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 三列，每列相等的比例 */
-  gap: 20px; /* 间距大小 */
-  align-items: center;
+  grid-template-columns: repeat(2, 1fr); /* 两列并排 */
+  gap: 20px; /* 图片之间的间距 */
+  align-items: start;
+}
+
+.the-underground-palace-expriment-item {
+  text-align: center; /* 图片和文字居中 */
 }
 
 .the-underground-palace-expriment img {
   max-width: 100%;
   height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.the-underground-palace-expriment-caption {
+  margin-top: 8px; 
+  font-size: 14px;
+  color: #555; /* 浅灰色文字 */
+  line-height: 1.4;
 }
 
 .the-underground-palace-narrative {
