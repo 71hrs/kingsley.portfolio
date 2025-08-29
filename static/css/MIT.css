@@ -1126,7 +1126,7 @@ footer .footer-navbar a {
 html.chem-guard,
 body.chem-guard {
   background: 
-    linear-gradient(#1E2A32 0 2040px, #f5f7f9 300px 100%);
+    linear-gradient(#1E2A32 0 2540px, #f5f7f9 300px 100%);
 }
 
 /* 2×2 宫格：图片之间有间距，外边贴满容器 */
@@ -1387,8 +1387,61 @@ body.chem-guard {
   margin-right: auto;
 }
 
+/* ===== ChemGuard Header Styles (adjusted) ===== */
+.chem-guard-headers {
+  --fg: #0f172a;           
+  --muted: #64748b;        
+  --accent: #0ea5e9;       
+  --bg: #ffffff;           
+  --maxw: 960px;
 
+  background: var(--bg);
+  color: var(--fg);
+  padding: clamp(32px, 6vw, 72px) 20px;
+  display: grid;
+  place-items: center;
+}
 
+@media (prefers-color-scheme: dark) {
+  .chem-guard-headers {
+    --bg: #0b1220;
+    --fg: #e5e7eb;
+    --muted: #9aa6b2;
+    --accent: #38bdf8;
+  }
+}
+
+.chem-guard-header-container {
+  width: 100%;
+  max-width: var(--maxw);
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+  text-align: center;
+}
+
+.chem-guard-header-block {
+  display: grid;
+  gap: 32px;   /* ✅ 增加间距 */
+}
+
+.chem-guard-header-eyebrow {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--muted);
+  font-size: clamp(14px, 1.8vw, 16px);  /* ✅ 字体调大 */
+}
+
+.chem-guard-header-headline {
+  font-weight: 700;
+  line-height: 1.15;
+  font-size: clamp(24px, 4.6vw, 40px);
+}
+
+.chem-guard-header-headline span {
+  box-shadow: inset 0 -0.12em 0 0 color-mix(in oklab, var(--accent) 22%, transparent);
+}
 
 
 
