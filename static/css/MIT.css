@@ -1411,17 +1411,19 @@ body.chem-guard {
 }
 
 .chem-guard-header-eyebrow {
-  letter-spacing: 0.12em;
+  font-family: futura-pt, sans-serif;
+  font-weight:700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  font-weight: 600;
   color: #9baac0;   /* 次级文字颜色（灰色） */
-  font-size: clamp(14px, 1.8vw, 16px);  /* ✅ 比之前大一号 */
+  font-size: 16px;
 }
 
 .chem-guard-header-headline {
-  font-weight: 700;
-  line-height: 1.15;
-  font-size: clamp(24px, 4.6vw, 40px);
+  font-family: futura-pt, sans-serif;
+  font-weight: 500;
+  line-height: 1.2;
+  font-size: 32px;
 }
 
 
