@@ -1427,6 +1427,14 @@ body.chem-guard {
   font-size: 32px;
 }
 
+.chem-guard-header-desc {
+  max-width: 40%;
+  margin: 0 auto;
+  font-size: clamp(14px, 1.6vw, 16px);
+  line-height: 1.5;
+  color: #d8dde4;  /* 比 headline 更浅的灰色 */
+}
+
 
 
 
