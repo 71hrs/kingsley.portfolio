@@ -1389,31 +1389,16 @@ body.chem-guard {
 
 /* ===== ChemGuard Header Styles (adjusted) ===== */
 .chem-guard-headers {
-  --fg: #0f172a;           
-  --muted: #64748b;        
-  --accent: #0ea5e9;       
-  --bg: #ffffff;           
-  --maxw: 960px;
-
-  background: var(--bg);
-  color: var(--fg);
-  padding: clamp(32px, 6vw, 72px) 20px;
+  background: rgb(68, 81, 90);           /* 固定背景色，可以改成浅灰 #f9fafb 或米色 #fdf6ec */
+  color: #ffffff;                /* 主文字颜色 */
+  padding: 120px 90px;   /* 上下 60px, 左右 20px */
   display: grid;
   place-items: center;
 }
 
-@media (prefers-color-scheme: dark) {
-  .chem-guard-headers {
-    --bg: #0b1220;
-    --fg: #e5e7eb;
-    --muted: #9aa6b2;
-    --accent: #38bdf8;
-  }
-}
-
 .chem-guard-header-container {
   width: 100%;
-  max-width: var(--maxw);
+  max-width: 960px;
   display: grid;
   gap: 12px;
   justify-items: center;
@@ -1422,15 +1407,15 @@ body.chem-guard {
 
 .chem-guard-header-block {
   display: grid;
-  gap: 32px;   /* ✅ 增加间距 */
+  gap: 24px;   /* ✅ Part I/II 和下面主标题的间距更大 */
 }
 
 .chem-guard-header-eyebrow {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   font-weight: 600;
-  color: var(--muted);
-  font-size: clamp(14px, 1.8vw, 16px);  /* ✅ 字体调大 */
+  color: #9baac0;   /* 次级文字颜色（灰色） */
+  font-size: clamp(14px, 1.8vw, 16px);  /* ✅ 比之前大一号 */
 }
 
 .chem-guard-header-headline {
@@ -1438,12 +1423,6 @@ body.chem-guard {
   line-height: 1.15;
   font-size: clamp(24px, 4.6vw, 40px);
 }
-
-.chem-guard-header-headline span {
-  box-shadow: inset 0 -0.12em 0 0 color-mix(in oklab, var(--accent) 22%, transparent);
-}
-
-
 
 
 
