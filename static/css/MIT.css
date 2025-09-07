@@ -1349,10 +1349,31 @@ body.chem-guard {
 }
 
 /* 包裹层：单列竖排 + 行间距 */
+.chem-guard-3D-modeling-rhino {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 72px;              /* 图片块之间的间隔 */
+  width: 100%;
+}
+
+/* 每块与图片：占满容器宽度 */
+.chem-guard-3D-modeling-rhino-01,
+.chem-guard-3D-modeling-rhino-02{
+  width: 100%;
+}
+
+.chem-guard-3D-modeling-rhino-01 img,
+.chem-guard-3D-modeling-rhino-02 img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* 包裹层：单列竖排 + 行间距 */
 .chem-guard-exploration{
   display: grid;
   grid-template-columns: 1fr;
-  row-gap: 36px;              /* 图片块之间的间隔 */
+  row-gap: 72px;              /* 图片块之间的间隔 */
   width: 100%;
 }
 
