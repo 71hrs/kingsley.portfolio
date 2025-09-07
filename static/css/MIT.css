@@ -1352,7 +1352,7 @@ body.chem-guard {
 .chem-guard-3D-modeling-rhino {
   display: grid;
   grid-template-columns: 1fr;
-  row-gap: 72px;              /* 图片块之间的间隔 */
+  row-gap: 88px;              /* 图片块之间的间隔 */
   width: 100%;
 }
 
