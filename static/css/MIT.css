@@ -1516,6 +1516,21 @@ body.organisms-utopia {
   object-fit: cover;       /* 图片裁切时保持铺满 */
 }
 
+.organisms-utopia-C4D {
+  display: flex;
+  flex-direction: column;  /* 竖排 */
+  gap: 20px;               /* 图片之间的间隔，可以改成 10px/30px */
+  width: 100%;             /* 撑满父容器 */
+  box-sizing: border-box;
+}
+
+.organisms-utopia-C4D img {
+  width: 100%;             /* 撑满容器宽度 */
+  height: auto;            /* 保持比例 */
+  display: block;          /* 避免底部有空隙 */
+  object-fit: cover;       /* 图片裁切时保持铺满 */
+}
+
 .organisms-utopia-3D-modeling {
   display: flex;
   flex-direction: column;  /* 竖排 */
