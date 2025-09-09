@@ -1559,16 +1559,31 @@ body.organisms-utopia {
   object-fit: cover;
 }
 
-.organisms-utopia-sustainability {
+.organisms-utopia-prototyping {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 三列等分 */
+  gap: 12px;                              /* 中间间隔 */
   width: 100%;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
-.organisms-utopia-sustainability img {
+
+/* 网格里的每张图各占一列，宽度自适应 */
+.organisms-utopia-prototyping img {
+  width: 100%;
+  height: auto;            /* 自然比例 */
   display: block;
-  width: 100%;     /* 横向占满容器 */
-  height: auto;    /* 高度按比例缩放 */
   object-fit: cover;
+}
+
+/* 让说明文字占满整行并居中 */
+.organisms-utopia-prototyping figcaption {
+  grid-column: 1 / -1;     /* 跨越所有列 */
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  margin-top: 16px;
 }
 
 .organisms-utopia-video {
