@@ -1504,7 +1504,7 @@ body.organisms-utopia {
 .organisms-utopia-detailed-sketch {
   display: flex;
   flex-direction: column;  /* 竖排 */
-  gap: 20px;               /* 图片之间的间隔，可以改成 10px/30px */
+  gap: 44px;               /* 图片之间的间隔，可以改成 10px/30px */
   width: 100%;             /* 撑满父容器 */
   box-sizing: border-box;
 }
@@ -1535,7 +1535,7 @@ body.organisms-utopia {
 .organisms-utopia-3D-modeling {
   display: flex;
   flex-direction: column;  /* 竖排 */
-  gap: 20px;               /* 图片之间的间隔，可以改成 10px/30px */
+  gap: 44px;               /* 图片之间的间隔，可以改成 10px/30px */
   width: 100%;             /* 撑满父容器 */
   box-sizing: border-box;
 }
