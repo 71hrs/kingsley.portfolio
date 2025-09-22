@@ -1484,7 +1484,25 @@ body.chem-guard {
   margin-top: 12px;          /* 距离图片稍微缩小点 */
 }
 
+.chem-guard-eeg-system-diagram {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
 
+.chem-guard-eeg-system-diagram img {
+  display: block;
+  width: 100%;      /* 横向占满容器 */
+  height: auto;     /* 高度按比例缩放 */
+  object-fit: cover;
+}
+
+.chem-guard-eeg-system-diagram-caption {
+  margin-top: 24px;
+  font: 500 14px 'Heebo', Helvetica, Arial, sans-serif;
+  color: #555;
+  text-align: center;
+}
 
 
 
