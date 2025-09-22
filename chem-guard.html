@@ -558,7 +558,42 @@
 
       <section class="project-content-unit">
         <div class="project-left-column">
-          <span class="project-title">/ 05 Reflection & Conclusion</span>
+          <span class="project-title">/ 05 Prototype Demonstration</span>
+          <span class="project-title" style="padding-left: 34px;">Attention Alarm with EEG</span>
+        </div>
+        <div class="project-right-column">
+          <p class="project-paragraph">
+            This prototype extends my speculative agenda of cognitive resilience in Chem Guard into a tangible demonstration. It does not claim medical validity, but instead uses lightweight EEG signals to approximate attention and fatigue, simulating how Chem Guard might adapt its interface: simplifying instructions, providing subtle cues, or escalating alerts to teammates when resilience drops.
+          </p>
+          <p class="project-paragraph-highlight">
+            System Overview
+          </p>
+          <p class="project-paragraph">
+            To materialize the speculative proposal, I built a minimal prototype translating attention signals into multimodal feedback. Using an OpenBCI headset, real-time EEG data were processed into an “attention index” and transmitted to Arduino. Instead of replicating the gas-detection alarm, this probe explores how cognitive states might reshape Chem Guard’s interface, aligning with the vision of adaptive HUDs and subtle cues.
+          </p>
+          <p class="project-paragraph-highlight">
+            Core Interaction
+          </p>
+          <p class="project-paragraph">
+            The prototype stages three levels of cognitive resilience:
+	          <br>
+            1.	Focused / Stable – RGB LED glows blue, system remains silent.
+	          <br>
+            2.	Mild Overload – LED shifts to yellow and the sound module plays a short cue, prompting re-orientation.
+	          <br>
+            3.	Fatigue / Drop – LED turns red and the sound escalates into an alarm, simulating how Chem Guard might signal critical decline.
+          </p>
+          <p class="project-paragraph-highlight">
+            Process Documentation
+          </p>
+          <p class="project-paragraph">
+            The setup combined Arduino Uno, RGB LED, and a sound module with OpenBCI. Calibration included eyes-open and eyes-closed baselines, followed by real-time monitoring of attention shifts. Documentation includes photographs of the wiring and headset, live EEG readouts, and staged user scenes showing the LED and sound responses. These materials evidence the making process and ground the speculative vision in tangible experimentation.
+          </p>
+      </section>
+
+      <section class="project-content-unit">
+        <div class="project-left-column">
+          <span class="project-title">/ 06 Reflection & Conclusion</span>
         </div>
         <div class="project-right-column">
           <p class="project-paragraph">
