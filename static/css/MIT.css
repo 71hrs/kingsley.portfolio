@@ -1504,6 +1504,38 @@ body.chem-guard {
   text-align: center;
 }
 
+.chemg-guard-eeg-prototyping {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 两列 */
+  gap: 12px;                             /* 间距 */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.chemg-guard-eeg-prototyping figure {
+  margin: 0;               /* 去掉默认 margin */
+}
+
+.chemg-guard-eeg-prototyping img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.chemg-guard-eeg-prototyping figcaption {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  margin-top: 12px;          /* 距离图片稍微缩小点 */
+}
+
+
+
+
+
 
 
 
