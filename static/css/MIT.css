@@ -1703,7 +1703,33 @@ body.organisms-utopia {
   display: block;/* 去掉 img 默认行内空隙 */
 }
 
+.organisms-utopia-collab {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 两列 */
+  gap: 12px;                             /* 间距 */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+.organisms-utopia-collab figure {
+  margin: 0;               /* 去掉默认 margin */
+}
+
+.organisms-utopia-collab img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.organisms-utopia-collab figcaption {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  margin-top: 12px;          /* 距离图片稍微缩小点 */
+}
 
 
 
