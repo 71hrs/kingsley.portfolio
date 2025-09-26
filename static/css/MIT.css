@@ -1706,7 +1706,7 @@ body.organisms-utopia {
 .organisms-utopia-collab {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 两列 */
-  gap: 12px;                             /* 间距 */
+  gap: 12px;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -1714,7 +1714,7 @@ body.organisms-utopia {
 }
 
 .organisms-utopia-collab figure {
-  margin: 0;               /* 去掉默认 margin */
+  margin: 0;
 }
 
 .organisms-utopia-collab img {
@@ -1728,7 +1728,18 @@ body.organisms-utopia {
   text-align: center;
   font-size: 14px;
   color: #666;
-  margin-top: 12px;          /* 距离图片稍微缩小点 */
+  margin-top: 16px;
+  line-height: 0.75;
+}
+
+.organisms-utopia-caption-title {
+  font-weight: 600;   /* 粗一点 */
+  display: block;
+  margin-bottom: 2px;
+}
+
+.organisms-utopia-caption-text {
+  font-weight: 400;   /* 正常 */
 }
 
 
