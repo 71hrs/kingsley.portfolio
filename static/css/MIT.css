@@ -3005,3 +3005,17 @@ body.polyverse-backup {
   text-align: center;
   margin-top: 24px;
 }
+
+.polyverse-information-architecture {
+  width: 100%;
+  text-align: center; /* 让 figcaption 居中 */
+  margin: 0;
+  padding: 0;
+}
+
+.polyverse-information-architecture img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
