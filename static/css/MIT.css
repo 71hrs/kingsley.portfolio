@@ -2955,3 +2955,53 @@ body.polyverse-backup {
   background: 
     linear-gradient(#FFE885 0 1870px, #f7fafd 300px 100%);
 }
+
+.polyverse-ecosystem-mapping {
+  width: 100%;
+  text-align: center; /* 让 figcaption 居中 */
+  margin: 0;
+  padding: 0;
+}
+
+.polyverse-ecosystem-mapping img {
+  width: 95%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.polyverse-ecosystem-mapping figure {
+  margin: 0;               /* 去掉默认 margin */
+}
+
+.polyverse-ecosystem-mapping figcaption {
+  font: 500 14px 'Heebo', Helvetica, Arial, sans-serif;
+  color: #000;
+  text-align: center;
+  margin-top: 24px;
+}
+
+.polyverse-competitive-analysis {
+  width: 100%;
+  text-align: center; /* 让 figcaption 居中 */
+  margin: 0;
+  padding: 0;
+}
+
+.polyverse-competitive-analysis img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.polyverse-competitive-analysis figure {
+  margin: 0;               /* 去掉默认 margin */
+}
+
+.polyverse-competitive-analysis figcaption {
+  font: 500 14px 'Heebo', Helvetica, Arial, sans-serif;
+  color: #000;
+  text-align: center;
+  margin-top: 24px;
+}
