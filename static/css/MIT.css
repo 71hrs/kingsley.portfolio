@@ -2934,3 +2934,24 @@ body.wave {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====== Polyverse ====== */
+
+html.polyverse-backup,
+body.polyverse-backup {
+  background: 
+    linear-gradient(#FFE885 0 1870px, #f7fafd 300px 100%);
+}
