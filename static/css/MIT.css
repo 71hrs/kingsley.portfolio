@@ -1742,7 +1742,26 @@ body.organisms-utopia {
   font-weight: 400;   /* 正常 */
 }
 
+.organisms-utopia-prototyping-arduino {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+.organisms-utopia-prototyping-arduino img {
+  width: 100%;
+  height: auto;     /* 保持比例 */
+  display: block;
+  object-fit: cover;
+}
+
+.organisms-utopia-prototyping-arduino figcaption {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  margin-top: 12px;
+}
 
 
 
