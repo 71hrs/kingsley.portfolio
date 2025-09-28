@@ -3033,3 +3033,19 @@ body.polyverse-backup {
   display: block;
   margin: 0 auto;
 }
+
+.polyverse-wireframing {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.polyverse-wireframing img {
+  width: 108%;
+  height: auto;
+  display: block;
+  margin: 0 auto;       /* 居中关键 */
+  object-fit: contain;
+  transform: translateX(-4%); /* 偏移一半的溢出量，让左右对称 */
+}
