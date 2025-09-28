@@ -3105,3 +3105,28 @@ body.polyverse-backup {
   display: block;
   margin: 0 auto;
 }
+
+.polyverse-color {
+  width: 100%;
+  text-align: center; /* 让 figcaption 居中 */
+  margin: 0;
+  padding: 0;
+}
+
+.polyverse-color img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.polyverse-color figure {
+  margin: 0;               /* 去掉默认 margin */
+}
+
+.polyverse-color figcaption {
+  font: 500 14px 'Heebo', Helvetica, Arial, sans-serif;
+  color: #000;
+  text-align: center;
+  margin-top: 24px;
+}
