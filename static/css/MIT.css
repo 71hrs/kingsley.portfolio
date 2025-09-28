@@ -3049,3 +3049,31 @@ body.polyverse-backup {
   object-fit: contain;
   transform: translateX(-4%); /* 偏移一半的溢出量，让左右对称 */
 }
+
+.polyverse-survey {
+  width: 100%;
+  text-align: center; /* 让 figcaption 居中 */
+  margin: 0;
+  padding: 0;
+}
+
+.polyverse-survey img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.polyverse-persona {
+  width: 100%;
+  text-align: center; /* 让 figcaption 居中 */
+  margin: 0;
+  padding: 0;
+}
+
+.polyverse-persona img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
