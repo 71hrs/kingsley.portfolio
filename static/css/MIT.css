@@ -3130,3 +3130,25 @@ body.polyverse-backup {
   text-align: center;
   margin-top: 24px;
 }
+
+/* 让视频块在任何布局里都能撑满一行 */
+.project-content-unit .polyverse-video-embed{
+  width: 100%;
+  margin: 0 auto;
+  /* 如果外层是 CSS Grid：跨所有列 */
+  grid-column: 1 / -1;
+  /* 如果外层是 Flex：占满整行 */
+  flex: 0 0 100%;
+}
+
+.polyverse-video-embed__ratio{
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+}
+
+.polyverse-video-embed__ratio iframe{
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  display: block; border: 0;
+}
