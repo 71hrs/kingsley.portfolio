@@ -3091,3 +3091,17 @@ body.polyverse-backup {
   display: block;
   margin: 0 auto;
 }
+
+.polyverse-ip {
+  width: 100%;
+  text-align: center; /* 让 figcaption 居中 */
+  margin: 0;
+  padding: 0;
+}
+
+.polyverse-ip img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
