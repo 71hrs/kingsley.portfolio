@@ -43,7 +43,9 @@
         </div>
         <!-- 右边导航 -->
         <div class="nav-links">
-          <a id="Works" href="works.html" style="color: black;">Back to Gallery</a>
+          <a href="#" onclick="if(document.referrer !== '') { history.back(); } else { window.location.href='works.html'; } return false;">
+            Back to Gallery
+          </a>
         </div>
       </nav>
     </header>
