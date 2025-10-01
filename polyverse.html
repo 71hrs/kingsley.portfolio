@@ -43,7 +43,13 @@
         </div>
         <!-- 右边导航 -->
         <div class="nav-links">
-          <a href="#" onclick="if(document.referrer !== '') { history.back(); } else { window.location.href='works.html'; } return false;">
+          <a href="works.html"
+            onclick="
+              const timer = setTimeout(function(){ location.href = 'works.html'; }, 200);
+              window.addEventListener('pagehide', function(){ clearTimeout(timer); }, { once: true });
+              history.back();
+              return false;
+            ">
             Back to Gallery
           </a>
         </div>
