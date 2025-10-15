@@ -3226,3 +3226,31 @@ body.polyverse-backup {
   font-style: normal;
   font-size: 16px;
 }
+
+.polyverse-handoff {
+  width: 100%;
+  text-align: center; /* 让 figcaption 居中 */
+  margin: 0;
+  padding: 0;
+}
+
+.polyverse-handoff img {
+  width: 108%;
+  height: auto;
+  display: block;
+  margin: 0 auto;       /* 居中关键 */
+  object-fit: contain;
+  transform: translateX(-4%); /* 偏移一半的溢出量，让左右对称 */
+}
+
+.polyverse-handoff figure {
+  margin: 0;               /* 去掉默认 margin */
+}
+
+.polyverse-handoff figcaption {
+  font: 500 14px 'Heebo', Helvetica, Arial, sans-serif;
+  color: #000;
+  text-align: center;
+  margin-top: 0px;
+}
+
