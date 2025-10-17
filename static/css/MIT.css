@@ -3254,3 +3254,28 @@ body.polyverse-backup {
   margin-top: 0px;
 }
 
+.polyverse-state {
+  width: 100%;
+  text-align: center; /* 让 figcaption 居中 */
+  margin: 0;
+  padding: 0;
+}
+
+.polyverse-state img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;       /* 居中关键 */
+  object-fit: contain;
+}
+
+.polyverse-state figure {
+  margin: 0;               /* 去掉默认 margin */
+}
+
+.polyverse-state figcaption {
+  font: 500 14px 'Heebo', Helvetica, Arial, sans-serif;
+  color: #000;
+  text-align: center;
+  margin-top: 36px;
+}
