@@ -3320,3 +3320,15 @@ body.UIRCS {
   width: 100%;     /* 横向占满容器 */
   height: auto;    /* 高度按比例缩放 */
 }
+
+.UIRCS-AS-IS-workflow {
+  width: 70%;
+  padding: 0;
+  margin: 0 auto;   /* 关键 */
+}
+
+.UIRCS-AS-IS-workflow img {
+  display: block;
+  width: 100%;     /* 横向占满容器 */
+  height: auto;    /* 高度按比例缩放 */
+}
