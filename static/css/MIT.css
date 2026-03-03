@@ -3279,3 +3279,44 @@ body.polyverse-backup {
   text-align: center;
   margin-top: 24px;
 }
+
+
+
+
+
+
+
+
+
+
+/* ====== UIRCS ====== */
+
+html.UIRCS,
+body.UIRCS {
+  background: 
+    linear-gradient(#1F2124 0 1700px, #f4f4f4 300px 100%);
+}
+
+.UIRCS-structural-fragmentation-diagram {
+  width: 80%;
+  padding: 0;
+  margin: 0 auto;   /* 关键 */
+}
+
+.UIRCS-structural-fragmentation-diagram img {
+  display: block;
+  width: 100%;     /* 横向占满容器 */
+  height: auto;    /* 高度按比例缩放 */
+}
+
+.UIRCS-stakeholder-power-map {
+  width: 90%;
+  padding: 0;
+  margin: 0 auto;   /* 关键 */
+}
+
+.UIRCS-stakeholder-power-map img {
+  display: block;
+  width: 100%;     /* 横向占满容器 */
+  height: auto;    /* 高度按比例缩放 */
+}
