@@ -3332,3 +3332,15 @@ body.UIRCS {
   width: 100%;     /* 横向占满容器 */
   height: auto;    /* 高度按比例缩放 */
 }
+
+.UIRCS-structural-shift-diagram {
+  width: 100%;
+  padding: 0;
+  margin: 0 auto;   /* 关键 */
+}
+
+.UIRCS-structural-shift-diagram img {
+  display: block;
+  width: 100%;     /* 横向占满容器 */
+  height: auto;    /* 高度按比例缩放 */
+}
