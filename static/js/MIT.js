@@ -1,4 +1,4 @@
-import * as THREE from 'https://cdn.skypack.dev/three@v0.122.0';
+import * as THREE from 'https://unpkg.com/three@0.122.0/build/three.module.js';
 
 function randomInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -7,6 +7,7 @@ function randomInteger(min, max) {
 function rgb(r, g, b) {
     return new THREE.Vector3(r, g, b);
 }
+
 document.addEventListener("DOMContentLoaded", function(e) {
    
     const renderer = new THREE.WebGLRenderer();
@@ -33,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     var B = function(x, y, t) {
         return( Math.floor(192 + 64*Math.sin( 5*Math.sin(t/9) + ((x-100)*(x-100)+(y-100)*(y-100))/1100) ));
     }
+
     let sNoise = document.querySelector('#snoise-function').textContent
     let geometry = new THREE.PlaneGeometry(window.innerWidth / 2, 400, 100, 100);
     let material = new THREE.ShaderMaterial({
@@ -51,9 +53,12 @@ document.addEventListener("DOMContentLoaded", function(e) {
     let mesh = new THREE.Mesh(geometry, material);
     mesh.position.set(-20, 0, -280);
     mesh.scale.multiplyScalar(2);
+
+    // 这一段如果你原来有效果，就先别动
     mesh.rotationX = -1.0;
     mesh.rotationY = 0.0;
     mesh.rotationZ = 0.1;
+
     scene.add(mesh);
 
     renderer.render( scene, camera );
@@ -61,14 +66,20 @@ document.addEventListener("DOMContentLoaded", function(e) {
     let j = 0;
     let x = randomInteger(0, 32);
     let y = randomInteger(0, 32);
+
     const animate = function () {
         requestAnimationFrame( animate );
         renderer.render( scene, camera );
         mesh.material.uniforms.u_randomisePosition.value = new THREE.Vector2(j, j);
         
-        mesh.material.uniforms.u_color1.value = new THREE.Vector3(R(x,y,t/2), G(x,y,t/2), B(x,y,t/2));
+        mesh.material.uniforms.u_color1.value = new THREE.Vector3(
+            R(x,y,t/2),
+            G(x,y,t/2),
+            B(x,y,t/2)
+        );
 
         mesh.material.uniforms.u_time.value = t;
+
         if(t % 0.1 == 0) {         
             if(vCheck == false) {
                 x -= 1;
@@ -80,14 +91,12 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 if(x >= 32) {
                     vCheck = false;
                 }
-
             }
         }
 
-        // Increase t by a certain value every frame
         j = j + 0.01;
         t = t + 0.05;
     };
+
     animate();
-  
 });
