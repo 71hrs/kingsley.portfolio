@@ -1,4 +1,4 @@
-import * as THREE from 'https://cdn.skypack.dev/three@v0.122.0';
+import * as THREE from 'https://unpkg.com/three@0.122.0/build/three.module.js';
 
 function randomInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -84,7 +84,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
             }
         }
 
-        // Increase t by a certain value every frame
         j = j + 0.01;
         t = t + 0.05;
     };
