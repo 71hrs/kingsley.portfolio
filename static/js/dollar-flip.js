@@ -17,7 +17,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const rect = backToTop.getBoundingClientRect();
     const y = Math.min(window.innerHeight - 1, Math.max(0, rect.top + rect.height / 2));
     const documentY = window.scrollY + y;
-    const lightStart = document.querySelector(".dfr-overview-details")?.offsetTop ?? 0;
+    const introTransition = document.querySelector(".dfr-intro-media-transition");
+    const lightStart = introTransition
+      ? introTransition.offsetTop + introTransition.offsetHeight / 2
+      : document.querySelector(".dfr-overview-details")?.offsetTop ?? 0;
     const impactTransition = document.querySelector(".dfr-impact-media-transition");
     const lightEnd = impactTransition
       ? impactTransition.offsetTop + impactTransition.offsetHeight / 2
