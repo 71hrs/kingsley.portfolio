@@ -1,0 +1,587 @@
+﻿/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.01); /* Start transparent */
+    backdrop-filter: blur(0px); /* Start no blur */
+    -webkit-backdrop-filter: blur(0px);
+    z-index: 1000;
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.6s ease, backdrop-filter 0.6s ease, background 0.6s ease;
+}
+
+.modal-overlay.active {
+    display: flex;
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.modal-card {
+    position: relative;
+    width: 795px;
+    height: 565px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+    border-radius: 20px;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: white;
+    overflow: hidden;
+    transform: scale(0.9) translateY(20px); /* Start smaller and lower */
+    opacity: 0;
+    transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.6s ease; /* Slower bouncy spring effect */
+}
+
+.modal-overlay.active .modal-card {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+/* Staggered Content Animation */
+.modal-content > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.modal-overlay.active .modal-content > *:nth-child(1) { /* Header */
+    transition-delay: 0.15s;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.modal-overlay.active .modal-content > *:nth-child(2) { /* Details */
+    transition-delay: 0.3s;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.modal-overlay.active .modal-content > *:nth-child(3) { /* Actions */
+    transition-delay: 0.45s;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Toolbar */
+.modal-toolbar {
+    display: flex;
+    justify-content: flex-end; /* Close button on right */
+    padding: 16px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.modal-close-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(120, 120, 128, 0.4); /* Fallback */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s;
+}
+
+.modal-close-btn:hover {
+    background: rgba(120, 120, 128, 0.6);
+}
+
+.modal-close-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Content */
+.modal-content {
+    padding: 64px 32px 32px; /* Top padding to clear header */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.modal-header {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.modal-title-row {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.modal-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.modal-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-title-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.modal-title-text h2 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.modal-subtitle {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+}
+
+.modal-description {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.4;
+    color: white;
+}
+
+.modal-details {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.detail-label {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.33);
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.detail-text {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.4;
+    color: white;
+}
+
+/* Actions */
+.modal-actions {
+    display: flex;
+    gap: 16px;
+    margin-top: auto; /* Push to bottom if space permits */
+    padding-bottom: 20px;
+}
+
+.modal-btn {
+    padding: 14px 20px;
+    border-radius: 100px;
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.modal-btn:hover {
+    opacity: 0.9;
+}
+
+.btn-primary {
+    background-color: #0088ff;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: rgba(35, 35, 42, 0.12);
+    color: #0088ff;
+    border: 1px solid rgba(0, 136, 255, 0.2); /* Added slight border for visibility on dark */
+}
+
+/* Responsive Modal */
+@media (max-width: 850px) {
+    .modal-card {
+        width: 90%;
+        height: auto;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    
+    .modal-content {
+        padding: 60px 24px 32px;
+    }
+}
+
+@media (max-width: 600px) {
+    .modal-card {
+        width: 90vw;
+        height: 75vh; /* Smaller fixed height */
+        max-height: 75vh;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden; /* Card fixed, content scrolls */
+    }
+
+    .modal-content {
+        height: 100%;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        padding: 80px 24px 32px; /* Ensure space for fixed toolbar */
+    }
+
+    .modal-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .modal-btn {
+        text-align: center;
+        width: 100%;
+    }
+}
+
+/* Specific styles for Quick Connect Modal (ProjectQC_1) */
+
+/* Override modal width for Quick Connect */
+.modal-overlay.quick-connect-mode .modal-card {
+    width: 1173px;
+    max-width: 95vw;
+    height: 683px; /* Fixed height from design */
+    max-height: 90vh;
+    padding: 0;
+    
+    /* Inherit standardized glass styles */
+    border-radius: 32px; 
+    
+    background: rgba(40, 45, 40, 0.4); 
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 
+        0 4px 24px -1px rgba(0, 0, 0, 0.2),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+
+    overflow: hidden;
+}
+
+/* IMPORTANT: Reset default modal-content padding for QC mode */
+.modal-overlay.quick-connect-mode .modal-content {
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+/* Glass backgrounds - No longer needed as separate layers since we use .modal-card directly */
+.qc-glass-layer {
+    display: none;
+}
+
+/* Layout */
+.qc-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 40px; 
+    box-sizing: border-box;
+}
+
+/* Toolbar (Custom for this modal) */
+.qc-toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px;
+    z-index: 20; 
+    pointer-events: none;
+}
+
+.qc-toolbar button {
+    pointer-events: auto;
+}
+
+/* Content Layout */
+.qc-content-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    gap: 32px;
+    align-items: center;
+    justify-content: center;
+}
+
+.qc-left-col {
+    width: 763px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    justify-content: center;
+    color: white;
+    text-align: left;
+}
+
+.qc-right-col {
+    width: 250px;
+    height: 521px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.qc-setup-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 42px; /* Desktop default */
+    object-fit: cover; /* Ensure it fills the rounded container */
+    background-color: transparent; 
+    display: block; /* Remove inline-block spacing */
+}
+
+/* Typography & Details */
+.qc-header-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.qc-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.qc-icon-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.qc-title-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.qc-title {
+    font-family: 'Optimistic Display', 'Inter', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+    color: white;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.qc-subtitle {
+    font-family: 'Optimistic Display', 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+}
+
+.qc-description {
+    font-family: 'Optimistic Display', 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+}
+
+.qc-section {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.qc-label {
+    font-family: 'Optimistic Display', 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.33);
+    margin: 0;
+}
+
+.qc-text {
+    font-family: 'Optimistic Display', 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: white;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Buttons */
+.qc-actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 10px;
+}
+
+.qc-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 20px;
+    border-radius: 100px;
+    font-family: 'Optimistic Display', 'Inter', sans-serif;
+    font-size: 16px;
+    text-decoration: none;
+    transition: transform 0.2s, opacity 0.2s;
+    cursor: pointer;
+}
+
+.qc-btn:hover {
+    transform: scale(1.05);
+}
+
+.qc-btn-primary {
+    background-color: #0088ff;
+    color: white;
+}
+
+.qc-btn-secondary {
+    background-color: rgba(35, 35, 42, 0.12);
+    color: #0088ff;
+    border: 1px solid rgba(0, 136, 255, 0.2);
+}
+
+/* Tablet / Medium Screens */
+@media (max-width: 1024px) {
+    .modal-overlay.quick-connect-mode .modal-card {
+        width: 90vw;
+        height: auto;
+        max-height: 90vh;
+        overflow-y: auto;
+        display: block; 
+    }
+
+    .qc-container {
+        display: flex;
+        flex-direction: column;
+        padding: 60px 32px 32px;
+        height: auto;
+        min-height: 100%;
+    }
+
+    .qc-content-wrapper {
+        flex-direction: column-reverse; /* Image on top */
+        gap: 32px;
+        height: auto;
+    }
+
+    .qc-left-col {
+        width: 100%;
+        gap: 24px;
+    }
+
+    .qc-right-col {
+        width: 100%;
+        height: auto;
+        min-height: 300px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .qc-setup-img {
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        max-height: 400px;
+        object-fit: cover; /* Use cover to ensure edges are filled */
+        border-radius: 36px; /* Scaled radius for tablet */
+    }
+}
+
+/* Mobile Screens */
+@media (max-width: 600px) {
+    .modal-overlay.quick-connect-mode .modal-card {
+        width: 90vw;
+        height: 75vh; /* Smaller view box for better reachability */
+        max-height: 75vh;
+        border-radius: 24px;
+        overflow: hidden; /* Container fixed, inner content scrolls */
+    }
+
+    .qc-container {
+        padding: 0; /* Reset padding */
+        height: 100%;
+        position: relative;
+    }
+    
+    .qc-content-wrapper {
+        height: 100%;
+        overflow-y: auto; /* Enable inner scrolling */
+        -webkit-overflow-scrolling: touch;
+        padding: 80px 24px 32px; /* Top padding to clear fixed toolbar */
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .qc-right-col {
+        display: none;
+    }
+
+    .qc-title {
+        font-size: 20px;
+    }
+    
+    .qc-subtitle {
+        font-size: 15px;
+    }
+    
+    .qc-description, .qc-text {
+        font-size: 15px;
+    }
+
+    .qc-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .qc-btn {
+        width: 100%;
+    }
+    
+    .qc-toolbar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        z-index: 50;
+        /* Add a subtle gradient behind close button for readability */
+        background: linear-gradient(to bottom, rgba(30, 30, 30, 0.8) 0%, rgba(30, 30, 30, 0) 100%);
+    }
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" class="polyverse-redesign-case">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Polyverse AI city exploration product design case study by Yuhui Qi.">
+    <title>Polyverse — Redesign</title>
+    <link rel="shortcut icon" href="static/picture/polyverse-redesign/polyverse-favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Heebo:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="static/css/polyverse-redesign.css" rel="stylesheet">
+    <script src="static/js/polyverse-redesign.js" defer></script>
+  </head>
+  <body>
+    <header class="pvr-header">
+      <a class="pvr-brand" href="index.html" aria-label="Yuhui Qi home"><img src="static/picture/polyverse-redesign/polyverse-favicon.png" alt=""></a>
+      <div class="pvr-header__title-grid"><h1 id="pvr-title">Polyverse</h1></div>
+      <a class="pvr-back" href="works.html"><span>Back to gallery</span></a>
+    </header>
+
+    <main>
+      <section class="pvr-hero" aria-labelledby="pvr-title">
+        <div class="pvr-hero__copy"><p class="pvr-hero__statement">Designing an AI city exploration platform that turns vague intent into confident real-world action</p></div>
+        <div class="pvr-hero__meta"><span>New York City</span><span>2025</span></div>
+        <div class="pvr-hero-image pvr-hero-placeholder" role="img" aria-label="Polyverse hero image placeholder"><span>Hero image placeholder</span><small>1960 × 700 · final product story image</small></div>
+      </section>
+
+      <div class="pvr-case-study">
+        <section class="pvr-chapter" id="overview">
+          <header class="pvr-chapter__header"><span>/ 01</span><h2>Overview</h2></header>
+          <div class="pvr-chapter__body">
+            <article class="pvr-subsection pvr-overview-intro"><p class="pvr-body-copy">Polyverse is an AI-powered city exploration platform designed for moments when people want to go out but do not yet know what they want to do. It translates context such as time, location, mood, and company into possibilities users can evaluate and act on.</p><p class="pvr-body-copy">As the only product designer, I led the product from strategy and research through interaction design, AI experience design, prototyping, validation, and the design-system foundation. The product is currently in early beta, with the core experience validated through user feedback and early usage patterns.</p></article>
+          </div>
+        </section>
+
+        <div class="pvr-intro-media-transition"><figure class="pvr-intro-media"><img src="static/picture/polyverse-redesign/polyverse-overview.png" alt="Polyverse product overview with the Figo exploration companion and map experience"></figure></div>
+
+        <section class="pvr-overview-details" aria-label="Project details">
+          <article><h3>Role</h3><strong>Lead Product Designer</strong><p>Owned product strategy and stayed hands-on across research, AI interaction, prototyping, testing, and visual execution.</p></article>
+          <article><h3>Scope</h3><strong>0→1 AI Exploration Experience</strong><p>Defined the core journey, recommendation model, refinement behavior, scalable system, and beta product direction.</p></article>
+          <article><h3>Team</h3><strong>Cross-functional Product Team</strong><p>Partnered closely with one founder, three engineers, marketing, and community contributors.</p></article>
+        </section>
+
+        <section class="pvr-chapter" id="opportunity">
+          <header class="pvr-chapter__header"><span>/ 02</span><h2>Opportunity</h2></header>
+          <div class="pvr-chapter__body">
+            <article class="pvr-subsection"><h3>Urban Exploration Gap</h3><p class="pvr-body-copy">People often begin city exploration with a feeling rather than a destination: a free hour, a desire for somewhere quiet, or simply the urge to get out. Most tools assume that users already know what they want and optimize for search, reviews, planning, or booking.</p><p class="pvr-body-copy">Market mapping revealed a gap between inspiration and action. Existing platforms helped people collect ideas, but few supported lightweight, context-aware decisions in the moment.</p><figure class="pvr-case-media"><img src="static/picture/polyverse-redesign/polyverse-ecosystem-mapping.png" alt="Polyverse ecosystem map showing the gap in spontaneous urban exploration"></figure></article>
+            <article class="pvr-subsection"><h3>Product Opportunity</h3><p class="pvr-body-copy">The opportunity was not another destination directory. Polyverse could connect discovery, evaluation, and action in one continuous journey—helping people understand what was realistically possible now instead of forcing them to assemble an answer across maps, reviews, social feeds, and messages.</p><figure class="pvr-case-media"><img src="static/picture/polyverse-redesign/polyverse-competitive-analysis.png" alt="Competitive analysis of urban exploration and travel products"></figure></article>
+          </div>
+        </section>
+
+        <section class="pvr-chapter" id="research">
+          <header class="pvr-chapter__header"><span>/ 03</span><h2>Research</h2></header>
+          <div class="pvr-chapter__body">
+            <article class="pvr-subsection"><h3>Research Approach</h3><p class="pvr-body-copy">I combined interviews, a survey of 50 urban Gen Z participants, competitive research, usability testing, and observation. Rather than treating individual feature requests as requirements, I looked for recurring behavior patterns across the end-to-end journey.</p><p class="pvr-body-copy">The research showed that exploration frequently began with loose situational intent, while planning required people to compare fragmented information across several products.</p><div class="pvr-research-evidence"><figure><img src="static/picture/polyverse-redesign/polyverse-survey.png" alt="Polyverse survey findings"></figure><figure><img src="static/picture/polyverse-redesign/polyverse-persona.png" alt="Polyverse research persona"></figure><figure><img src="static/picture/polyverse-redesign/polyverse-user-journey.png" alt="Polyverse end-to-end user journey"></figure></div></article>
+            <article class="pvr-subsection"><h3>Key Insights</h3><p class="pvr-body-copy">Two patterns changed the direction of the product. First, exploration starts with a situation—time, mood, location, or company—not a predefined destination. Second, users were not missing options; they were missing a coherent way to decide which option fit the moment.</p><figure class="pvr-case-media"><div class="pvr-research-model"><article><span>How exploration begins</span><strong>A situation, not a destination</strong><div class="pvr-signal-list"><i>One free hour</i><i>Somewhere nearby</i><i>Quiet, with a friend</i><i>Low effort</i></div><p>People begin with partial context and discover what they want through the process.</p></article><article><span>Where decisions break</span><strong>Planning fragments across tools</strong><div class="pvr-tool-path"><i>Maps</i><b></b><i>Reviews</i><b></b><i>Social</i><b></b><i>Messages</i></div><p>Each handoff adds comparison work without clarifying which option fits the moment.</p></article><footer>Open-ended intent needs a continuous decision journey—not another destination search.</footer></div></figure></article>
+          </div>
+        </section>
+
+        <section class="pvr-chapter" id="strategy">
+          <header class="pvr-chapter__header"><span>/ 04</span><h2>Design Approach</h2></header>
+          <div class="pvr-chapter__body">
+            <article class="pvr-subsection"><h3>Product Vision</h3><p class="pvr-body-copy">Polyverse would turn open-ended exploration into real-world action. Instead of requiring users to formulate the perfect search, the product would accept loose intent, assemble relevant context, and help people progressively recognize what felt right.</p></article>
+            <article class="pvr-subsection"><h3>Two Principles</h3><p class="pvr-body-copy">The research translated into two principles that guided the sequence of the work. The first addressed how exploration begins; the second addressed how planning breaks apart.</p><figure class="pvr-case-media"><div class="pvr-approach-principles"><article><span>Principle 01</span><strong>Turn vague intent into contextual actionability</strong><p>Help people discover possibilities without requiring them to know exactly what they want first.</p></article><article><span>Principle 02</span><strong>Connect fragmented planning into one continuous journey</strong><p>Bring discovery, evaluation, and action into the same experience instead of distributing them across apps.</p></article></div></figure></article>
+            <article class="pvr-subsection"><h3>AI Principles</h3><p class="pvr-body-copy">AI should reduce the work of forming and refining a decision, not claim authority over the final choice. Recommendations needed to explain why they fit, preserve multiple possibilities, and make feedback part of the same conversation.</p><figure class="pvr-case-media"><div class="pvr-principles-visual"><article><strong>01</strong><span>Interpret context</span><p>Translate time, place, mood, and company into useful constraints.</p></article><article><strong>02</strong><span>Explain the fit</span><p>Make each recommendation understandable and actionable.</p></article><article><strong>03</strong><span>Preserve control</span><p>Support progressive refinement instead of choosing for the user.</p></article></div></figure></article>
+          </div>
+        </section>
+
+        <section class="pvr-chapter" id="design-opportunities">
+          <header class="pvr-chapter__header"><span>/ 05</span><h2>Core Journey</h2></header>
+          <div class="pvr-chapter__body">
+            <article class="pvr-subsection"><h3>Connecting the Planning Journey</h3><p class="pvr-body-copy">I first addressed the more direct research problem: planning was fragmented across maps, reviews, social media, and messages. I organized the core experience around three connected moments—discovery, evaluation, and action—so users could move from an initial idea to saving, sharing, or navigation without rebuilding context elsewhere.</p><div class="pvr-case-media pvr-annotated-placeholder"><strong>Use the journey visual from deck slide 8</strong><span>Show Discovery → Evaluation → Action as one continuous product flow.</span></div></article>
+            <article class="pvr-subsection"><h3>The Remaining Confidence Gap</h3><p class="pvr-body-copy">Testing showed that the integrated journey largely solved the switching problem. But it exposed a deeper issue: even when recommendations looked relevant, users still hesitated because they could not tell whether an option actually fit their current situation.</p><figure class="pvr-case-media"><div class="pvr-decision-bridge"><div><span>What improved</span><strong>Planning stayed in one place.</strong><p>Users could discover, evaluate, and act without moving between products.</p></div><span class="pvr-code-arrow" aria-hidden="true"></span><div><span>What remained</span><strong>Relevance did not create confidence.</strong><p>Users still needed help recognizing what was realistically doable now.</p></div></div></figure></article>
+          </div>
+        </section>
+
+        <section class="pvr-chapter" id="exploration-validation">
+          <header class="pvr-chapter__header"><span>/ 06</span><h2>Exploration &amp; Validation</h2></header>
+          <div class="pvr-chapter__body">
+            <article class="pvr-subsection"><h3>Reframing Relevance as Actionability</h3><div class="pvr-process-block"><p class="pvr-body-copy"><strong>First hypothesis:</strong> I believed hesitation came from results that were not specific enough, so the team expanded categories, contextual signals, and filter combinations.</p></div><div class="pvr-case-media pvr-annotated-placeholder"><strong>Use the advanced filtering exploration from deck slide 9</strong><span>Show the first hypothesis and the additional filter combinations tested with users.</span></div><div class="pvr-process-block"><p class="pvr-body-copy"><strong>What testing revealed:</strong> The filters narrowed results as intended, but users still could not tell which activity fit their real situation. We had improved precision without improving decision confidence.</p></div><div class="pvr-case-media pvr-annotated-placeholder"><strong>Use the usability-testing evidence from deck slide 10</strong><span>Include the participant insight about not knowing what to filter for.</span></div><div class="pvr-process-block"><p class="pvr-body-copy"><strong>Reframe:</strong> I shifted the product question from “Is this relevant?” to “Is this something the user can realistically do right now?” Contextual actionability became the recommendation principle behind the next iteration.</p></div><figure class="pvr-case-media"><div class="pvr-actionability-model"><article><span>01 · Static relevance</span><strong>It matches</strong><p>Category, popularity, and proximity suggest a potentially relevant place.</p></article><b class="pvr-model-arrow" aria-hidden="true"></b><article><span>02 · Context check</span><strong>It fits now</strong><ul><li>Time</li><li>Location</li><li>Mood</li><li>Company</li><li>Effort</li></ul></article><b class="pvr-model-arrow" aria-hidden="true"></b><article><span>03 · Actionable option</span><strong>I can do this</strong><p>The recommendation explains why it works and what the user can do next.</p></article></div></figure><div class="pvr-process-block"><p class="pvr-body-copy"><strong>Iteration:</strong> I replaced filter configuration with conversational context. Users could describe their situation naturally while the system surfaced a focused set of activities and explained why each was actionable.</p></div><figure class="pvr-case-media pvr-final-showcase"><div><img src="static/picture/polyverse-redesign/polyverse-ui-01.gif" alt="Polyverse contextual recommendation experience"><span><small>Iteration</small><strong>Recommendations grounded in the current moment</strong><p>The experience reduces verification work by bringing forward options that already fit the user’s situation.</p></span></div></figure></article>
+
+            <article class="pvr-subsection"><h3>Designing for Progressive Refinement</h3><div class="pvr-process-block"><p class="pvr-body-copy"><strong>New behavior:</strong> After the recommendation experience improved, some users closed the first result, rewrote their description, and generated a new set. The recommendations were not necessarily bad; expressing a personal situation perfectly in one prompt was difficult.</p></div><figure class="pvr-case-media"><div class="pvr-comparison-board"><div class="pvr-comparison-board__stage"><div class="pvr-comparison-board__insight"><small>Product perspective</small><strong>Improve the one-shot answer</strong><p>Make the model smart enough to generate the perfect recommendation upfront.</p></div><span class="pvr-comparison-board__arrow pvr-code-arrow" aria-hidden="true"></span><div class="pvr-comparison-board__insight"><small>Design perspective</small><strong>Support refinement over time</strong><p>Give users a natural way to improve a close answer without restarting.</p></div></div></div></figure><div class="pvr-process-block"><p class="pvr-body-copy"><strong>Trade-off:</strong> Optimizing only for the first answer placed more responsibility on the model and still made imperfect results costly. I proposed a refinable interaction that preserved context, kept what worked, and let the user progressively clarify the rest.</p></div><div class="pvr-case-media pvr-annotated-placeholder"><strong>Use the interaction-model comparison from deck slides 14–15</strong><span>Contrast restarting after a one-shot answer with refining the current recommendation in place.</span></div><div class="pvr-process-block"><p class="pvr-body-copy"><strong>Validation:</strong> Users stayed in the same conversation, reacted to current results, added context, and refined decisions step by step. The evidence supported changing the interaction model rather than pursuing a perfect first answer.</p></div><figure class="pvr-case-media pvr-final-showcase"><div><img src="static/picture/polyverse-redesign/polyverse-ui-02.gif" alt="Polyverse refinable exploration experience"><span><small>Iteration</small><strong>An exploration flow that develops with the user</strong><p>Users can keep what works, clarify what does not, and update recommendations in place.</p></span></div></figure></article>
+          </div>
+        </section>
+
+        <section class="pvr-chapter" id="final-design">
+          <header class="pvr-chapter__header"><span>/ 07</span><h2>Final Design</h2></header>
+          <div class="pvr-chapter__body">
+            <article class="pvr-subsection"><h3>Core Exploration Experience</h3><p class="pvr-body-copy">The final journey connects discovery, evaluation, refinement, and action. Users begin with loose intent, review a focused set of possibilities, understand why each fits, refine the recommendation, and move directly into saving, sharing, or navigation.</p><figure class="pvr-case-media pvr-experience-board"><div><section><span>Product experience</span><img src="static/picture/polyverse-redesign/polyverse-ui-03.gif" alt="Polyverse core exploration experience"></section><section class="pvr-experience-workflow"><span>End-to-end experience</span><strong>From an open-ended feeling to real-world action</strong><ol><li><b>Share the moment</b><small>Describe time, location, mood, and company.</small></li><li><b>Review actionable options</b><small>See activities that already fit the current context.</small></li><li><b>Understand the fit</b><small>Review why each recommendation makes sense now.</small></li><li><b>Refine in place</b><small>Keep useful context and adjust the remaining variables.</small></li><li><b>Take action</b><small>Save, share, navigate, or begin the activity.</small></li></ol></section></div></figure></article>
+            <article class="pvr-subsection"><h3>Figo: AI Exploration Companion</h3><p class="pvr-body-copy">I designed Figo as the personality layer for the AI experience. Inspired by New York pigeons, Figo behaves like a local insider rather than a generic chatbot—introducing possibilities, guiding refinement, and making the intelligence feel approachable and memorable.</p><figure class="pvr-case-media"><img src="static/picture/polyverse-redesign/polyverse-overview-2.png" alt="Figo, the Polyverse AI exploration companion, in a New York City setting"></figure></article>
+            <article class="pvr-subsection"><h3>Design System</h3><p class="pvr-body-copy">I built the foundations and reusable UI layer from scratch using Figma Variables, component variants, and Auto Layout. Color, typography, spacing, iconography, states, and component behavior were documented as a shared language between design and engineering.</p><p class="pvr-body-copy">The system helped the team implement new experiences faster, reduce repeated UI decisions, and preserve consistency as the beta product continued to evolve.</p><figure class="pvr-case-media"><img src="static/picture/polyverse-redesign/polyverse-components.png" alt="Polyverse reusable component system"></figure><figure class="pvr-case-media"><img src="static/picture/polyverse-redesign/polyverse-iconography.png" alt="Polyverse iconography system"></figure></article>
+          </div>
+        </section>
+
+        <section class="pvr-chapter pvr-impact-chapter" id="impact">
+          <header class="pvr-chapter__header"><span>/ 08</span><h2>Impact</h2></header>
+          <div class="pvr-chapter__body"><p class="pvr-body-copy">Because Polyverse is still in early beta, I measured progress through behavioral product signals and qualitative feedback rather than overstating launch-scale outcomes.</p></div>
+        </section>
+      </div>
+
+      <div class="pvr-impact-media-transition"><div class="pvr-impact-evidence pvr-impact-placeholder" role="img" aria-label="Polyverse impact image placeholder"><span>Impact image placeholder</span><small>Behavioral evidence · exploration depth · decision effort · journey completion</small></div></div>
+
+      <section class="pvr-reflection" id="reflection">
+        <div class="pvr-reflection__inner"><header class="pvr-reflection__label"><span>/ 09</span><h2>Reflection</h2></header><article class="pvr-reflection__copy"><p>Polyverse reinforced that the most valuable product decisions often come from challenging a reasonable assumption rather than polishing its first solution.</p><div class="pvr-learning-points"><p><strong>Design the right problem:</strong><br>Better filters could narrow results, but reframing the problem around actionability created the meaningful shift.</p><p><strong>Use AI to support judgment:</strong><br>The strongest experience did not deliver one perfect answer; it helped people refine their own decision.</p><p><strong>Build systems for continued learning:</strong><br>A shared interaction and component foundation allowed product evidence to translate into faster, more coherent iteration.</p></div></article></div>
+      </section>
+    </main>
+
+    <button class="pvr-back-to-top" type="button" aria-label="Back to top"><span>Back to top</span></button>
+
+    <footer class="pvr-footer"><div class="pvr-footer__inner"><p>Next case study</p><a href="dollar-flip.html">Dollar Flip <span aria-hidden="true">↗</span></a><aside class="pvr-footer__meta"><span>From Dollar Flip</span><strong>Confidence grows when AI clarifies the decision without taking it away.</strong></aside></div></footer>
+    <footer class="pvr-site-footer"><div class="pvr-site-footer__inner"><a href="mailto:yuhui.qi@outlook.com">Contact Yuhui</a><span>Copyright © Yuhui Qi 2026</span></div></footer>
+  </body>
+</html>
