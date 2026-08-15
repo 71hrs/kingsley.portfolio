@@ -1,0 +1,78 @@
+:root {
+  --hpr-white: #fff;
+  --hpr-muted: rgba(255, 255, 255, 0.66);
+  --hpr-line: rgba(255, 255, 255, 0.24);
+  --hpr-glass: rgba(20, 22, 28, 0.2);
+}
+
+html.homepage-redesign-page,
+body.homepage-redesign-body { min-height: 100%; background: #797979; }
+
+body.homepage-redesign-body { min-width: 320px; overflow-x: hidden; color: var(--hpr-white); font-family: "Heebo", Helvetica, Arial, sans-serif; }
+body.homepage-redesign-body > canvas { position: fixed; inset: 0; z-index: 0; width: 100% !important; height: 100% !important; }
+
+.hpr-header { position: fixed; inset: 0 0 auto; z-index: 20; display: block; width: 100%; background: transparent; }
+.hpr-nav { display: flex; align-items: center; justify-content: space-between; width: min(calc(100% - 8vw), 1280px); margin: 0 auto; padding: 28px 0; color: #fff; font-size: 12px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.hpr-nav > div { display: flex; gap: 28px; }
+.hpr-nav a { color: inherit; }
+.hpr-nav > div a { position: relative; }
+.hpr-nav > div a::after { position: absolute; right: 0; bottom: -7px; left: 0; height: 1px; background: currentColor; content: ""; transform: scaleX(0); transform-origin: right; transition: transform 240ms ease; }
+.hpr-nav > div a:hover::after { transform: scaleX(1); transform-origin: left; }
+.hpr-logo { display: flex; transform: scale(1.15); }
+.hpr-logo img { width: auto; height: 27px; }
+
+.hpr-shell { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr); gap: clamp(60px, 8vw, 130px); align-items: center; width: min(calc(100% - 12vw), 1280px); min-height: 100vh; margin: 0 auto; padding: 118px 0 96px; box-sizing: border-box; }
+.hpr-intro { max-width: 560px; }
+.hpr-eyebrow { margin: 0 0 24px; color: var(--hpr-muted); font-size: 11px; font-weight: 500; letter-spacing: 0.11em; text-transform: uppercase; }
+.hpr-intro h1 { margin: 0; font-family: "EB Garamond", Georgia, serif; font-size: clamp(58px, 7vw, 96px); font-weight: 500; line-height: 0.94; letter-spacing: -0.045em; }
+.hpr-intro h2 { max-width: 19em; margin: 38px 0 0; font-size: clamp(22px, 2.5vw, 32px); font-weight: 500; line-height: 1.25; }
+.hpr-intro > p:not(.hpr-eyebrow) { max-width: 32em; margin: 28px 0 0; color: var(--hpr-muted); font-size: 15px; font-weight: 300; line-height: 27px; }
+
+.hpr-projects { align-self: center; }
+.hpr-section-heading { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 22px; }
+.hpr-section-heading h2 { margin: 0; font-family: "EB Garamond", Georgia, serif; font-size: clamp(28px, 3vw, 38px); font-weight: 500; }
+.hpr-section-heading span { color: var(--hpr-muted); font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; }
+.hpr-project-list { display: grid; gap: 16px; }
+.hpr-project-card { display: grid; grid-template-columns: 94px minmax(0, 1fr); gap: 22px; min-height: 150px; padding: 18px; border: 1px solid var(--hpr-line); border-radius: 28px; color: #fff; background: linear-gradient(135deg, rgba(255,255,255,0.16), rgba(18,20,26,0.2)); box-shadow: inset 0 1px 0 rgba(255,255,255,0.16), 0 18px 48px rgba(12,14,20,0.08); backdrop-filter: blur(18px) saturate(130%); -webkit-backdrop-filter: blur(18px) saturate(130%); transition: transform 340ms cubic-bezier(0.22,1,0.36,1), border-color 220ms ease, background 220ms ease, box-shadow 340ms ease; }
+.hpr-project-card:hover { border-color: rgba(255,255,255,0.5); background: linear-gradient(135deg, rgba(255,255,255,0.24), rgba(42,44,54,0.25)); box-shadow: inset 0 1px 0 rgba(255,255,255,0.28), 0 24px 58px rgba(8,10,18,0.18); transform: translateX(-8px) scale(1.012); }
+.hpr-project-card > img { width: 94px; height: 114px; border-radius: 18px; object-fit: cover; transition: transform 420ms cubic-bezier(0.22,1,0.36,1); }
+.hpr-project-card:hover > img { transform: scale(1.045); }
+.hpr-project-copy { display: grid; align-content: center; min-width: 0; }
+.hpr-project-copy > div { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; }
+.hpr-project-copy h3 { margin: 0; font-family: "EB Garamond", Georgia, serif; font-size: 26px; font-weight: 500; line-height: 1; }
+.hpr-project-copy > div span { color: var(--hpr-muted); font-size: 11px; }
+.hpr-project-copy p { margin: 14px 0 0; color: rgba(255,255,255,0.82); font-size: 13px; line-height: 20px; }
+.hpr-project-copy small { margin-top: 13px; color: var(--hpr-muted); font-size: 11px; }
+.hpr-project-copy small b { display: inline-block; margin-left: 3px; font-weight: 400; transition: transform 220ms ease; }
+.hpr-project-card:hover small b { transform: translate(3px,-3px); }
+
+.hpr-social { position: fixed; bottom: 28px; left: 50%; z-index: 30; display: flex; gap: 6px; margin: 0; padding: 7px; border: 1px solid rgba(255,255,255,0.28); border-radius: 999px; background: rgba(20,22,28,0.22); box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 18px 42px rgba(10,12,18,0.18); transform: translateX(-50%); backdrop-filter: blur(20px) saturate(145%); -webkit-backdrop-filter: blur(20px) saturate(145%); }
+.hpr-social a { padding: 10px 14px; border-radius: 999px; color: rgba(255,255,255,0.76); font-size: 11px; transition: color 180ms ease, background 180ms ease; }
+.hpr-social a:hover { color: #fff; background: rgba(255,255,255,0.14); }
+
+@media (max-width: 980px) {
+  .hpr-shell { grid-template-columns: 1fr; gap: 64px; align-items: start; min-height: auto; padding: 150px 0 130px; }
+  .hpr-intro { max-width: 700px; }
+  .hpr-projects { width: 100%; }
+}
+
+@media (max-width: 620px) {
+  .hpr-nav { width: calc(100% - 36px); padding-top: 20px; }
+  .hpr-nav > div { gap: 14px; font-size: 10px; }
+  .hpr-logo img { height: 23px; }
+  .hpr-shell { width: calc(100% - 36px); padding-top: 118px; }
+  .hpr-intro h1 { font-size: clamp(50px, 16vw, 72px); }
+  .hpr-project-card { grid-template-columns: 72px minmax(0, 1fr); gap: 15px; min-height: 132px; padding: 14px; border-radius: 22px; }
+  .hpr-project-card > img { width: 72px; height: 96px; border-radius: 14px; }
+  .hpr-project-copy h3 { font-size: 22px; }
+  .hpr-project-copy p { margin-top: 10px; font-size: 12px; line-height: 18px; }
+  .hpr-project-copy small { margin-top: 9px; }
+  .hpr-social { bottom: 18px; }
+  .hpr-social a { padding: 9px 10px; font-size: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hpr-project-card,
+  .hpr-project-card > img,
+  .hpr-project-copy small b { transition: none; }
+}
