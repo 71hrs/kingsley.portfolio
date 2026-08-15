@@ -11,6 +11,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
   observer.observe(header);
 
+  let contrastFrame = 0;
+  const updateBackToTopContrast = () => {
+    contrastFrame = 0;
+    const rect = backToTop.getBoundingClientRect();
+    const y = Math.min(window.innerHeight - 1, Math.max(0, rect.top + rect.height / 2));
+    const documentY = window.scrollY + y;
+    const lightStart = document.querySelector(".dfr-overview-details")?.offsetTop ?? 0;
+    const impactTransition = document.querySelector(".dfr-impact-media-transition");
+    const lightEnd = impactTransition
+      ? impactTransition.offsetTop + impactTransition.offsetHeight / 2
+      : document.body.scrollHeight;
+    const lightSection = documentY >= lightStart && documentY < lightEnd;
+
+    backToTop.classList.toggle("is-on-light", lightSection);
+  };
+
+  const requestContrastUpdate = () => {
+    if (contrastFrame) return;
+    contrastFrame = window.requestAnimationFrame(updateBackToTopContrast);
+  };
+
+  window.addEventListener("scroll", requestContrastUpdate, { passive: true });
+  window.addEventListener("resize", requestContrastUpdate);
+  updateBackToTopContrast();
+
   backToTop.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
