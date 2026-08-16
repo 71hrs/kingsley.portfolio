@@ -1,34 +1,35 @@
-import "./MIT.js";
-
 const projects = {
   polyverse: {
     title: "Polyverse",
-    meta: "Lead Product Designer · 2025",
-    icon: "static/MIT-picture/gallery-polyverse.png",
+    year: "2025",
+    icon: "static/picture/homepage-polyverse-logo.svg",
     media: "static/picture/polyverse-redesign/polyverse-ui-03.gif",
-    description: "An AI-powered city exploration platform for moments when people want to go out but do not yet know what they want to do.",
-    focus: "Open-ended exploration, contextual recommendations, and progressive refinement.",
-    contribution: "Led product strategy, research, AI interaction design, prototyping, validation, and the design-system foundation.",
-    link: "polyverse-redesign.html"
+    description: "Polyverse is an AI-powered city exploration platform for moments when people want to go out but do not yet know what they want to do. It translates context such as time, location, mood, and company into possibilities users can confidently evaluate and act on.",
+    contribution: "Lead Product Designer",
+    scope: "0→1 AI Exploration Experience",
+    team: "Product design, engineering, and early beta users",
+    link: "polyverse.html"
   },
   "dollar-flip": {
     title: "Dollar Flip",
-    meta: "Founding Product Designer · 2024",
-    icon: "static/MIT-picture/gallery-dollar-flip.png",
-    media: "static/picture/dollar-flip/dollar-flip-buyer-experience.gif",
-    description: "A second-hand marketplace designed to reduce uncertainty at critical buying and selling decisions.",
-    focus: "AI-assisted pricing, guided buying, marketplace trust, and decision confidence.",
-    contribution: "Led 0→1 product strategy and hands-on design from research and experimentation through scalable product foundations.",
+    year: "2024",
+    icon: "static/picture/homepage-dollar-flip-logo.svg",
+    media: "static/picture/dollar-flip/dollar-flip-seller-experience.gif",
+    description: "Dollar Flip is a secondhand marketplace designed to reduce uncertainty at the moments that most affect a transaction. AI-assisted pricing helps sellers make informed decisions, while guided buying helps buyers identify the information that matters before purchasing.",
+    contribution: "Founding Product Designer",
+    scope: "0→1 AI Marketplace Experience",
+    team: "Product, engineering, AI, and business",
     link: "dollar-flip.html"
   },
   uircs: {
     title: "UIRCS",
-    meta: "Product & Systems Design · 2025",
-    icon: "static/MIT-picture/gallery-UIRCS.png",
+    year: "2025",
+    icon: "static/picture/homepage-uircs-logo.svg",
     media: "static/MIT-picture/UIRCS-UI-overview-dashboard.png",
-    description: "A unified operational system for coordinating infrastructure risk across fragmented teams and information layers.",
-    focus: "Systems thinking, operational workflows, information architecture, and cross-functional coordination.",
-    contribution: "Mapped the structural problem and translated it into a coherent architecture, workflow, and interface system.",
+    description: "UIRCS is an enterprise operations platform that brings fragmented infrastructure risk, ownership, and response workflows into one coordinated system. It gives teams a shared view of priorities, accountability, and the actions required to resolve emerging issues.",
+    contribution: "Product & Systems Designer",
+    scope: "Enterprise Risk Coordination System",
+    team: "Domain experts, engineering, and operational users",
     link: "UIRCS.html"
   }
 };
@@ -36,10 +37,11 @@ const projects = {
 const modal = document.querySelector("#project-preview");
 const closeButton = modal.querySelector(".hpr-modal__close");
 const fields = {
-  title: document.querySelector("#preview-title"), meta: document.querySelector("#preview-meta"),
+  title: document.querySelector("#preview-title"), year: document.querySelector("#preview-year"),
   icon: document.querySelector("#preview-icon"), media: document.querySelector("#preview-media"),
-  description: document.querySelector("#preview-description"), focus: document.querySelector("#preview-focus"),
-  contribution: document.querySelector("#preview-contribution"), link: document.querySelector("#preview-link")
+  description: document.querySelector("#preview-description"),
+  contribution: document.querySelector("#preview-contribution"), scope: document.querySelector("#preview-scope"),
+  team: document.querySelector("#preview-team"), link: document.querySelector("#preview-link")
 };
 
 function closePreview() {
@@ -66,3 +68,33 @@ document.querySelectorAll("[data-project]").forEach((card) => card.addEventListe
 closeButton.addEventListener("click", closePreview);
 modal.addEventListener("click", (event) => { if (event.target === modal) closePreview(); });
 document.addEventListener("keydown", (event) => { if (event.key === "Escape") closePreview(); });
+
+const menuToggle = document.querySelector(".hpr-menu-toggle");
+const navLinks = document.querySelector(".hpr-nav-links");
+
+function closeMenu() {
+  menuToggle?.setAttribute("aria-expanded", "false");
+  navLinks?.classList.remove("is-open");
+}
+
+menuToggle?.addEventListener("click", () => {
+  const opening = menuToggle.getAttribute("aria-expanded") !== "true";
+  menuToggle.setAttribute("aria-expanded", String(opening));
+  navLinks.classList.toggle("is-open", opening);
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") closeMenu();
+});
+
+document.querySelectorAll(".hpr-page-link").forEach((link) => {
+  link.addEventListener("click", (event) => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const destination = link.href;
+    if (!destination) return;
+    event.preventDefault();
+    closeMenu();
+    document.body.classList.add("hpr-is-leaving");
+    window.setTimeout(() => { window.location.href = destination; }, 420);
+  });
+});

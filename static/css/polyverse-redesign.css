@@ -1,14 +1,14 @@
 :root {
-  --pvr-night: #24304f;
-  --pvr-paper: #f7f6f1;
-  --pvr-ink: #26304d;
-  --pvr-muted: rgba(38, 48, 77, 0.62);
+  --pvr-night: #24211d;
+  --pvr-paper: #faf6ea;
+  --pvr-ink: #211d18;
+  --pvr-muted: rgba(33, 29, 24, 0.64);
   --pvr-light-muted: rgba(255, 255, 255, 0.58);
-  --pvr-accent: #f1c66a;
-  --pvr-purple: #e4952f;
-  --pvr-placeholder: #31587a;
-  --pvr-yellow: #dfbd67;
-  --pvr-orange: #d78335;
+  --pvr-accent: #d87522;
+  --pvr-purple: #efc95e;
+  --pvr-placeholder: #fff1ba;
+  --pvr-yellow: #efc95e;
+  --pvr-orange: #d87522;
   --pvr-center: 1024px;
   --pvr-gutter: clamp(22px, 4vw, 64px);
   --pvr-media-space: 105px;
@@ -36,7 +36,7 @@ body {
 #overview { color: var(--pvr-ink); background: var(--pvr-yellow); }
 .pvr-back,
 .pvr-hero__meta,
-#overview .pvr-chapter__header span { color: #31587a; }
+#overview .pvr-chapter__header span { color: #4a3d55; }
 #overview .pvr-body-copy { color: rgba(38, 48, 77, 0.76); }
 .pvr-hero-placeholder {
   display: flex;
@@ -45,7 +45,7 @@ body {
   flex-direction: column;
   gap: 9px;
   border: 0;
-  background: linear-gradient(115deg, #31587a 0%, #2b476b 62%, #dc8730 100%);
+  background: #e2ad42;
   color: rgba(255,255,255,.86);
   text-align: center;
 }
@@ -213,7 +213,7 @@ a { color: inherit; text-decoration: none; }
   margin-top: -1px;
   padding-top: 1px;
   padding-bottom: 0;
-  background: linear-gradient(to bottom, var(--pvr-night) 0 50%, var(--pvr-paper) 50% 100%);
+  background: var(--pvr-night);
 }
 
 .pvr-intro-media {
@@ -398,7 +398,7 @@ a { color: inherit; text-decoration: none; }
 .pvr-framework-visual > * { display: flex; min-height: 205px; padding: clamp(28px, 4vw, 46px); flex-direction: column; justify-content: center; }
 .pvr-framework-visual > article:first-of-type { grid-area: seller; border-right: 1px solid rgba(255, 255, 255, 0.14); }
 .pvr-framework-visual > article:last-of-type { grid-area: buyer; }
-.pvr-framework-visual > div { grid-area: promise; align-items: center; min-height: 185px; border-bottom: 1px solid rgba(159, 155, 223, 0.44); background: rgba(159, 155, 223, 0.1); text-align: center; }
+.pvr-framework-visual > div { grid-area: promise; align-items: center; min-height: 185px; border-bottom: 1px solid rgba(240, 199, 96, 0.38); background: rgba(240, 199, 96, 0.08); text-align: center; }
 .pvr-framework-visual span,
 .pvr-framework-visual small { margin-bottom: 16px; color: var(--pvr-accent); font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
 .pvr-framework-visual strong { font-family: "EB Garamond", Georgia, serif; font-size: clamp(23px, 2.5vw, 32px); font-weight: 500; line-height: 1.08; }
@@ -413,7 +413,7 @@ a { color: inherit; text-decoration: none; }
   background: var(--pvr-placeholder);
 }
 .pvr-insight-synthesis > * { display: flex; min-height: 250px; padding: clamp(24px, 4vw, 42px); flex-direction: column; justify-content: center; }
-.pvr-insight-synthesis > div { border-inline: 1px solid rgba(255, 255, 255, 0.14); background: rgba(159, 155, 223, 0.1); text-align: center; }
+.pvr-insight-synthesis > div { border-inline: 1px solid rgba(255, 255, 255, 0.14); background: rgba(240, 199, 96, 0.08); text-align: center; }
 .pvr-insight-synthesis span,
 .pvr-insight-synthesis small { margin-bottom: 16px; color: var(--pvr-accent); font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
 .pvr-insight-synthesis strong { font-family: "EB Garamond", Georgia, serif; font-size: clamp(24px, 2.7vw, 34px); font-weight: 500; line-height: 1.08; }
@@ -518,7 +518,7 @@ img.pvr-comparison-board__arrow { display: block; width: 28px; height: auto; jus
 .pvr-quote-evidence blockquote { position: relative; display: flex; margin: 0; padding: clamp(58px, 7vw, 92px); flex-direction: column; justify-content: center; color: #fff; }
 .pvr-quote-evidence blockquote span { color: var(--pvr-accent); font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
 .pvr-quote-evidence blockquote p { display: flex; align-items: flex-start; gap: 12px; margin: 54px 0 0; font-family: "EB Garamond", Georgia, serif; font-size: clamp(25px, 3vw, 36px); font-style: normal; font-weight: 500; line-height: 1.14; }
-.pvr-quote-evidence blockquote p b { flex: 0 0 auto; margin-top: -0.19em; color: rgba(159, 155, 223, 0.62); font-size: 2em; font-weight: 400; line-height: 1; }
+.pvr-quote-evidence blockquote p b { flex: 0 0 auto; margin-top: -0.19em; color: rgba(240, 199, 96, 0.72); font-size: 2em; font-weight: 400; line-height: 1; }
 .pvr-quote-evidence blockquote cite { margin-top: 32px; padding-top: 18px; border-top: 1px solid rgba(255, 255, 255, 0.14); color: rgba(255, 255, 255, 0.55); font-size: 12px; font-style: normal; line-height: 18px; text-align: right; }
 
 .pvr-comparison-board__insight { text-align: center; }
@@ -543,11 +543,11 @@ img.pvr-comparison-board__arrow { display: block; width: 28px; height: auto; jus
 .pvr-experience-board section { display: grid; align-content: center; justify-items: center; min-width: 0; padding: clamp(48px, 7vw, 88px); text-align: center; }
 .pvr-experience-board section:first-child { border-right: 1px solid rgba(255, 255, 255, 0.12); }
 .pvr-experience-board section img { width: min(100%, 270px); max-height: 540px; object-fit: contain; }
-.pvr-experience-workflow { background: rgba(159, 155, 223, 0.08); }
+.pvr-experience-workflow { background: rgba(240, 199, 96, 0.06); }
 .pvr-experience-workflow > strong { max-width: 13em; font-family: "EB Garamond", Georgia, serif; font-size: clamp(22px, 2.4vw, 30px); font-weight: 500; line-height: 1.1; }
 .pvr-experience-workflow ol { width: 100%; max-width: 330px; margin: 56px auto 0; padding: 0; list-style: none; text-align: left; transform: translateX(12px); counter-reset: experience-step; }
 .pvr-experience-workflow li { position: relative; padding: 0 0 24px 42px; counter-increment: experience-step; }
-.pvr-experience-workflow li:not(:last-child)::after { position: absolute; top: 29px; bottom: -1px; left: 12px; width: 1px; background: rgba(159, 155, 223, 0.34); content: ""; }
+.pvr-experience-workflow li:not(:last-child)::after { position: absolute; top: 29px; bottom: -1px; left: 12px; width: 1px; background: rgba(240, 199, 96, 0.28); content: ""; }
 .pvr-experience-workflow li::before { position: absolute; top: 1px; left: 0; display: grid; place-items: center; width: 25px; height: 25px; border: 1px solid rgba(159, 155, 223, 0.72); border-radius: 50%; color: var(--pvr-accent); content: counter(experience-step, decimal-leading-zero); font-size: 8px; font-weight: 600; }
 .pvr-experience-workflow li b { display: block; color: rgba(255, 255, 255, 0.9); font-size: 13px; font-weight: 500; line-height: 19px; }
 .pvr-experience-workflow li small { display: block; margin-top: 3px; color: rgba(255, 255, 255, 0.54); font-size: 11px; line-height: 17px; }
@@ -570,7 +570,7 @@ img.pvr-comparison-board__arrow { display: block; width: 28px; height: auto; jus
 
 .pvr-impact-media-transition {
   width: 100%;
-  background: linear-gradient(to bottom, var(--pvr-paper) 0 50%, var(--pvr-night) 50% 100%);
+  background: var(--pvr-paper);
 }
 
 .pvr-impact-evidence {
@@ -582,7 +582,7 @@ img.pvr-comparison-board__arrow { display: block; width: 28px; height: auto; jus
 }
 .pvr-impact-evidence > img { display: block; width: 100%; }
 
-.pvr-scene-metrics { position: absolute; top: 0; right: 0; bottom: 0; display: grid; grid-template-rows: repeat(3, minmax(0, 1fr)); width: min(36%, 368px); padding: 0 clamp(24px, 2.8vw, 38px); color: #fff; background: linear-gradient(to right, rgba(28, 26, 67, 0.7), rgba(28, 26, 67, 0.95)); backdrop-filter: blur(10px); }
+.pvr-scene-metrics { position: absolute; top: 0; right: 0; bottom: 0; display: grid; grid-template-rows: repeat(3, minmax(0, 1fr)); width: min(36%, 368px); padding: 0 clamp(24px, 2.8vw, 38px); color: #fff; background: rgba(36, 33, 29, 0.94); backdrop-filter: blur(10px); }
 .pvr-scene-metrics article { display: flex; min-width: 0; flex-direction: column; justify-content: center; padding-block: 20px; }
 .pvr-scene-metrics article + article { border-top: 1px solid rgba(255, 255, 255, 0.16); }
 .pvr-scene-metrics strong { display: block; color: var(--pvr-accent); font-family: "EB Garamond", Georgia, serif; font-size: clamp(36px, 4vw, 54px); font-weight: 400; line-height: 0.95; }
@@ -733,6 +733,29 @@ img.pvr-comparison-board__arrow { display: block; width: 28px; height: auto; jus
 .pvr-footer a { position: relative; display: inline-flex; align-items: flex-start; gap: 0.16em; width: fit-content; font-family: "EB Garamond", Georgia, serif; font-size: clamp(44px, 5.5vw, 74px); line-height: 0.92; letter-spacing: -0.04em; }
 .pvr-footer a span { font-family: "Heebo", sans-serif; font-size: 0.4em; vertical-align: top; transition: transform 360ms cubic-bezier(0.22, 1, 0.36, 1); }
 .pvr-footer a::after { position: absolute; right: 0; bottom: -14px; left: 0; height: 2px; background: var(--pvr-accent); content: ""; transform: scaleX(0); transform-origin: right; transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1); }
+
+/* Cohesive diagram surfaces */
+.pvr-framework-visual,
+.pvr-insight-synthesis,
+.pvr-principles-visual,
+.pvr-decision-bridge,
+.pvr-comparison-board__stage,
+.pvr-testing-table > div,
+.pvr-assumption-board,
+.pvr-quote-evidence > div,
+.pvr-experience-workflow,
+.pvr-validation-map,
+.pvr-impact-board {
+  border: 1px solid rgba(240, 199, 96, 0.16);
+  background: var(--pvr-placeholder);
+  box-shadow: 0 24px 60px rgba(48, 42, 61, 0.12);
+}
+.pvr-decision-bridge > div:last-of-type {
+  border-color: rgba(240, 199, 96, 0.42);
+  background: rgba(240, 199, 96, 0.08);
+}
+.pvr-decision-bridge > div:first-child > strong::before { color: rgba(240, 199, 96, 0.72); }
+.pvr-experience-workflow li::before { border-color: rgba(240, 199, 96, 0.62); }
 .pvr-footer a:hover::after { transform: scaleX(1); transform-origin: left; }
 .pvr-footer a:hover span { transform: translate(7px, -7px); }
 
@@ -824,7 +847,7 @@ img.pvr-comparison-board__arrow { display: block; width: 28px; height: auto; jus
   .pvr-framework-visual { grid-template-columns: 1fr; padding: 28px; }
   .pvr-framework-visual { grid-template-areas: "promise" "seller" "buyer"; grid-template-rows: auto; }
   .pvr-framework-visual > * { min-height: 0; padding: 38px 24px; }
-  .pvr-framework-visual > div { align-items: flex-start; border: 1px solid rgba(159, 155, 223, 0.44); text-align: left; }
+  .pvr-framework-visual > div { align-items: flex-start; border: 1px solid rgba(240, 199, 96, 0.38); text-align: left; }
   .pvr-framework-visual > article:first-of-type { border-right: 0; border-bottom: 1px solid rgba(255, 255, 255, 0.14); }
   .pvr-framework-visual > div::after { display: none; }
   .pvr-decision-bridge { grid-template-columns: 1fr; gap: 24px; padding: 40px 28px; }
@@ -914,7 +937,7 @@ img.pvr-comparison-board__arrow { display: block; width: 28px; height: auto; jus
 }
 .pvr-back,
 .pvr-hero__meta,
-#overview .pvr-chapter__header span { color: #31587a; }
+#overview .pvr-chapter__header span { color: #4a3d55; }
 #overview .pvr-body-copy { color: rgba(38,48,77,.76); }
 #overview .pvr-chapter__header h2 { color: var(--pvr-ink); }
 .pvr-hero-placeholder { display: flex; }
@@ -922,7 +945,7 @@ img.pvr-comparison-board__arrow { display: block; width: 28px; height: auto; jus
   box-shadow: 0 0 0 100vmax var(--pvr-yellow);
 }
 .pvr-intro-media-transition {
-  background: linear-gradient(to bottom, var(--pvr-yellow) 0 50%, var(--pvr-paper) 50% 100%);
+  background: var(--pvr-yellow);
 }
 .pvr-research-model {
   display: grid;
@@ -957,8 +980,8 @@ img.pvr-comparison-board__arrow { display: block; width: 28px; height: auto; jus
 .pvr-decision-bridge > .pvr-code-arrow { margin-inline: auto; }
 .pvr-comparison-board__arrow.pvr-code-arrow { width: 0; height: 0; border-radius: 0; object-fit: initial; }
 
-.pvr-impact-media-transition { background: linear-gradient(to bottom, var(--pvr-paper) 0 50%, var(--pvr-night) 50% 100%); }
-.pvr-impact-placeholder { display: flex; width: min(calc(100% - (2 * var(--pvr-gutter))), var(--pvr-center)); aspect-ratio: 16 / 8; margin-inline: auto; align-items: center; justify-content: center; flex-direction: column; gap: 10px; color: #fff; background: linear-gradient(125deg, #31587a, #293f64 65%, #d88430); text-align: center; }
+.pvr-impact-media-transition { background: var(--pvr-paper); }
+.pvr-impact-placeholder { display: flex; width: min(calc(100% - (2 * var(--pvr-gutter))), var(--pvr-center)); aspect-ratio: 16 / 8; margin-inline: auto; align-items: center; justify-content: center; flex-direction: column; gap: 10px; color: #fff; background: #e7b84e; text-align: center; }
 .pvr-approach-principles { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); color: #fff; background: var(--pvr-placeholder); }
 .pvr-approach-principles article { min-height: 340px; padding: clamp(40px, 5vw, 62px); }
 .pvr-approach-principles article + article { border-left: 1px solid rgba(255,255,255,.15); background: rgba(223,189,103,.08); }
@@ -984,3 +1007,101 @@ img.pvr-comparison-board__arrow { display: block; width: 28px; height: auto; jus
   .pvr-approach-principles article { min-height: 0; padding: 38px 25px; }
   .pvr-approach-principles article + article { border-top: 1px solid rgba(255,255,255,.15); border-left: 0; }
 }
+
+/* Unified Polyverse visual language: warm yellow assets and coded diagrams */
+.pvr-hero-placeholder,
+.pvr-impact-placeholder {
+  color: var(--pvr-ink);
+  background: #e2ad42;
+}
+.pvr-hero-placeholder small,
+.pvr-impact-placeholder small { color: rgba(33,29,24,.6); }
+
+.pvr-framework-visual,
+.pvr-insight-synthesis,
+.pvr-principles-visual,
+.pvr-decision-bridge,
+.pvr-comparison-board__stage,
+.pvr-testing-table > div,
+.pvr-assumption-board,
+.pvr-quote-evidence > div,
+.pvr-experience-workflow,
+.pvr-validation-map,
+.pvr-impact-board,
+.pvr-research-model,
+.pvr-actionability-model,
+.pvr-approach-principles {
+  color: var(--pvr-ink);
+  border-color: rgba(33,29,24,.14);
+  background: var(--pvr-placeholder);
+  box-shadow: 0 22px 54px rgba(75,54,20,.1);
+}
+:is(.pvr-framework-visual,.pvr-insight-synthesis,.pvr-principles-visual,.pvr-decision-bridge,.pvr-comparison-board__stage,.pvr-testing-table > div,.pvr-assumption-board,.pvr-quote-evidence > div,.pvr-experience-workflow,.pvr-validation-map,.pvr-impact-board,.pvr-research-model,.pvr-actionability-model,.pvr-approach-principles) p {
+  color: rgba(33,29,24,.66);
+}
+:is(.pvr-framework-visual,.pvr-insight-synthesis,.pvr-principles-visual,.pvr-decision-bridge,.pvr-comparison-board__stage,.pvr-testing-table > div,.pvr-assumption-board,.pvr-quote-evidence > div,.pvr-experience-workflow,.pvr-validation-map,.pvr-impact-board,.pvr-research-model,.pvr-actionability-model,.pvr-approach-principles) h3,
+:is(.pvr-framework-visual,.pvr-insight-synthesis,.pvr-principles-visual,.pvr-decision-bridge,.pvr-comparison-board__stage,.pvr-testing-table > div,.pvr-assumption-board,.pvr-quote-evidence > div,.pvr-experience-workflow,.pvr-validation-map,.pvr-impact-board,.pvr-research-model,.pvr-actionability-model,.pvr-approach-principles) h4,
+:is(.pvr-framework-visual,.pvr-insight-synthesis,.pvr-principles-visual,.pvr-decision-bridge,.pvr-comparison-board__stage,.pvr-testing-table > div,.pvr-assumption-board,.pvr-quote-evidence > div,.pvr-experience-workflow,.pvr-validation-map,.pvr-impact-board,.pvr-research-model,.pvr-actionability-model,.pvr-approach-principles) strong {
+  color: var(--pvr-ink);
+}
+:is(.pvr-framework-visual,.pvr-insight-synthesis,.pvr-principles-visual,.pvr-decision-bridge,.pvr-comparison-board__stage,.pvr-testing-table > div,.pvr-assumption-board,.pvr-quote-evidence > div,.pvr-experience-workflow,.pvr-validation-map,.pvr-impact-board,.pvr-research-model,.pvr-actionability-model,.pvr-approach-principles) > span,
+.pvr-research-model article > span,
+.pvr-actionability-model article > span,
+.pvr-approach-principles span { color: var(--pvr-orange); }
+.pvr-signal-list i,
+.pvr-tool-path i { color: rgba(33,29,24,.78); border-color: rgba(216,117,34,.36); }
+.pvr-tool-path b { background: rgba(216,117,34,.46); }
+.pvr-research-model footer { color: var(--pvr-ink); border-color: rgba(33,29,24,.13); background: rgba(216,117,34,.1); }
+.pvr-actionability-model article,
+.pvr-decision-bridge > div { border-color: rgba(33,29,24,.14); }
+
+.pvr-impact-media-transition { background: var(--pvr-paper); }
+.pvr-reflection,
+.pvr-footer { color: var(--pvr-ink); background: var(--pvr-yellow); }
+.pvr-reflection__inner { border-color: rgba(33,29,24,.2); }
+.pvr-reflection__label h2,
+.pvr-reflection__copy > p,
+.pvr-learning-points p,
+.pvr-footer__meta small { color: rgba(33,29,24,.68); }
+.pvr-reflection__label span,
+.pvr-learning-points p::before,
+.pvr-footer__meta span { color: #9e4f18; }
+.pvr-learning-points strong,
+.pvr-footer a,
+.pvr-footer__meta strong { color: var(--pvr-ink); }
+.pvr-learning-points p,
+.pvr-learning-points p:last-child { border-color: rgba(33,29,24,.16); }
+.pvr-footer a::after { background: var(--pvr-orange); }
+
+/* Flat-color finish: no gradients */
+.pvr-hero-placeholder { background: #e2ad42; }
+.pvr-impact-placeholder { background: #e7b84e; }
+.pvr-framework-visual,
+.pvr-insight-synthesis,
+.pvr-principles-visual,
+.pvr-decision-bridge,
+.pvr-comparison-board__stage,
+.pvr-testing-table > div,
+.pvr-assumption-board,
+.pvr-quote-evidence > div,
+.pvr-experience-workflow,
+.pvr-validation-map,
+.pvr-impact-board,
+.pvr-research-model,
+.pvr-actionability-model,
+.pvr-approach-principles { background: var(--pvr-placeholder); }
+
+.pvr-intro-media-transition,
+.pvr-impact-media-transition { position: relative; isolation: isolate; background: var(--pvr-paper); }
+.pvr-intro-media-transition::before,
+.pvr-impact-media-transition::before { position: absolute; inset: 0 0 50%; z-index: -1; content: ""; background: var(--pvr-yellow); }
+.pvr-impact-media-transition::before { inset: 50% 0 0; }
+.pvr-scene-metrics { background: rgba(36,33,29,.92); }
+
+.pvr-reflection { background: var(--pvr-yellow); }
+.pvr-footer { color: var(--pvr-ink); background: #dc8a3f; }
+.pvr-footer__meta span { color: rgba(33,29,24,.62); }
+.pvr-footer__meta small { color: rgba(33,29,24,.68); }
+.pvr-back { color: #9e4f18; }
+.pvr-back-to-top { color: rgba(255,255,255,.9); }
+.pvr-back-to-top.is-on-light { color: #9e4f18; }
