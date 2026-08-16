@@ -1294,3 +1294,53 @@ body > canvas { position: fixed; inset: 0; z-index: -2; width: 100% !important; 
   .hpr-footer { transform: none; }
   .hpr-footer-navbar { margin-top: 0; padding-top: 4px; }
 }
+
+/* Production homepage: footer is independent from the social control. */
+.hpr-footer {
+  position: fixed;
+  right: 4%;
+  bottom: 0;
+  left: 4%;
+  z-index: 30;
+  width: 92%;
+  margin: 0;
+}
+.hpr-footer-navbar {
+  justify-content: flex-end;
+  margin: 21.6px 0;
+  padding: 10px 0;
+}
+.hpr-modal__button { margin-top: 38px; }
+.hpr-header,
+.hpr-footer {
+  transition: opacity 260ms ease, transform 320ms cubic-bezier(.22,1,.36,1), visibility 0s linear 0s;
+}
+body.hpr-modal-open .hpr-header {
+  visibility: hidden;
+  opacity: 0 !important;
+  animation: none !important;
+  transform: translateY(-12px);
+  pointer-events: none;
+}
+body.hpr-modal-open .hpr-footer {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .hpr-footer {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    width: auto;
+    margin: 0 20px;
+  }
+  .hpr-footer-navbar {
+    justify-content: center;
+    margin: 0;
+    padding: 8px 0 12px;
+  }
+}
