@@ -94,14 +94,27 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") closeMenu();
 });
 
+function navigateWithTransition(event) {
+  if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  const destination = event.currentTarget.href;
+  if (!destination || document.body.classList.contains("hpr-is-leaving")) return;
+  event.preventDefault();
+  closeMenu();
+  closePreview();
+  document.body.classList.add("hpr-is-leaving");
+  window.setTimeout(() => { window.location.href = destination; }, 420);
+}
+
 document.querySelectorAll(".hpr-page-link").forEach((link) => {
-  link.addEventListener("click", (event) => {
-    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-    const destination = link.href;
-    if (!destination) return;
-    event.preventDefault();
-    closeMenu();
-    document.body.classList.add("hpr-is-leaving");
-    window.setTimeout(() => { window.location.href = destination; }, 420);
-  });
+  link.addEventListener("click", navigateWithTransition);
+});
+fields.link.addEventListener("click", navigateWithTransition);
+
+/* Browsers preserve body classes in the back-forward cache. Always restore the
+   homepage to its neutral state when history navigation brings it back. */
+window.addEventListener("pageshow", () => {
+  document.body.classList.remove("hpr-is-leaving", "hpr-modal-open");
+  modal.classList.remove("is-open");
+  modal.setAttribute("aria-hidden", "true");
+  closeMenu();
 });
