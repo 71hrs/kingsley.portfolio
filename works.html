@@ -7,17 +7,17 @@
     <title>Works</title>
     <link rel="shortcut icon" href="static/MIT-picture/favicon.png">
     <link href="static/css/MIT.css" rel="stylesheet">
+    <link href="static/css/interior-pages.css?v=20260816-6" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Heebo:wght@100..900&display=swap" rel="stylesheet">
   </head>
-  <body>
-    <header>
+  <body class="interior-page-loading works-page">
+    <header class="interior-header">
       <nav class="navbar">
-        <!-- 左边 Logo -->
-        <div class="logo">
+        <a class="logo" href="index.html" aria-label="Home">
           <img src="static/MIT-picture/favicon.png" alt="Logo">
-        </div>
-        <!-- 右边导航 -->
-        <div class="nav-links">
+        </a>
+        <button class="interior-menu-toggle" type="button" aria-expanded="false" aria-controls="interior-nav-links" aria-label="Open navigation"><span></span><span></span></button>
+        <div class="nav-links" id="interior-nav-links">
           <a id="home" href="index.html">Home</a>
           <a id="works" href="works.html">Works</a>
           <a id="press" href="highlights.html">Highlights</a>
@@ -413,6 +413,7 @@
           gl_FragColor = vec4(color, 1.0);
       }
     </script>
-    <script src="static/js/MIT.js" type="module"></script>
+    <script src="static/js/works.js?v=20260816-2"></script>
+    <script src="static/js/animated-background.js" type="module"></script>
   </body>
 </html>
