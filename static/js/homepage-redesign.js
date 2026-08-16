@@ -62,7 +62,7 @@ document.querySelectorAll("[data-project]").forEach((card) => card.addEventListe
     pill.textContent = label;
     return pill;
   }));
-  fields.focus.textContent = data.focus.split(" · ").join("\n");
+  fields.focus.textContent = data.focus;
   fields.media.alt = `${data.title} project preview`;
   fields.icon.alt = "";
   modal.dataset.project = card.dataset.project;

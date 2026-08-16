@@ -1105,3 +1105,70 @@ img.pvr-comparison-board__arrow { display: block; width: 28px; height: auto; jus
 .pvr-back { color: #9e4f18; }
 .pvr-back-to-top { color: rgba(255,255,255,.9); }
 .pvr-back-to-top.is-on-light { color: #9e4f18; }
+
+/* Final contrast pass: every yellow presentation surface uses dark ink. */
+:is(
+  .pvr-framework-visual,
+  .pvr-insight-synthesis,
+  .pvr-principles-visual,
+  .pvr-decision-bridge,
+  .pvr-comparison-board__stage,
+  .pvr-testing-table > div,
+  .pvr-assumption-board,
+  .pvr-quote-evidence > div,
+  .pvr-experience-workflow,
+  .pvr-validation-map,
+  .pvr-impact-board,
+  .pvr-research-model,
+  .pvr-actionability-model,
+  .pvr-approach-principles
+) :where(h3,h4,strong,b,span,small,em,cite,li,header) {
+  color: inherit;
+}
+:is(
+  .pvr-framework-visual,
+  .pvr-insight-synthesis,
+  .pvr-principles-visual,
+  .pvr-decision-bridge,
+  .pvr-comparison-board__stage,
+  .pvr-testing-table > div,
+  .pvr-assumption-board,
+  .pvr-quote-evidence > div,
+  .pvr-experience-workflow,
+  .pvr-validation-map,
+  .pvr-impact-board,
+  .pvr-research-model,
+  .pvr-actionability-model,
+  .pvr-approach-principles
+) :where(p,small,em,cite) {
+  color: rgba(33,29,24,.68);
+}
+.pvr-framework-visual :is(span,small),
+.pvr-insight-synthesis :is(span,small),
+.pvr-principles-visual span,
+.pvr-decision-bridge > div > span,
+.pvr-comparison-board__insight span,
+.pvr-assumption-board__copy small,
+.pvr-validation-map__head,
+.pvr-impact-board > span,
+.pvr-research-model article > span,
+.pvr-actionability-model article > span,
+.pvr-approach-principles span {
+  color: var(--pvr-orange);
+}
+.pvr-framework-visual > article:first-of-type,
+.pvr-framework-visual > div,
+.pvr-insight-synthesis > div,
+.pvr-principles-visual article + article,
+.pvr-research-model article + article,
+.pvr-approach-principles article + article {
+  border-color: rgba(33,29,24,.16);
+}
+
+/* Contact and copyright close on the same yellow field as the case header. */
+.pvr-site-footer {
+  color: var(--pvr-ink);
+  background: var(--pvr-yellow);
+}
+.pvr-site-footer a,
+.pvr-site-footer span { color: inherit; }

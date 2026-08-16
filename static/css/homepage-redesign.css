@@ -1255,3 +1255,42 @@ body > canvas { position: fixed; inset: 0; z-index: -2; width: 100% !important; 
   .hpr-footer { position: relative; right: auto; bottom: auto; left: auto; width: auto; margin: 0 20px; }
   .hpr-footer-navbar { justify-content: center; margin: 8px 0 0; padding: 4px 0 12px; font-size: 10px; }
 }
+
+/* Homepage typography and final responsive rhythm */
+.bio-text {
+  width: min(100%, 510px);
+  max-width: 510px;
+  color: #fff;
+  font-family: 'Heebo', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 200;
+  line-height: 25px;
+}
+.section-title {
+  color: rgba(255,255,255,.72);
+  font-size: clamp(16px, .95vw, 18px);
+  font-weight: 500;
+  letter-spacing: .045em;
+}
+#preview-focus { white-space: normal; line-height: 1.55; }
+
+/* Keep the original lightweight voice, but give it desktop presence. */
+@media (min-width: 601px) {
+  .bio-text { font-size: 19px; line-height: 30px; }
+  .hpr-modal[data-project="polyverse"] .hpr-modal__card,
+  .hpr-modal[data-project="dollar-flip"] .hpr-modal__card {
+    grid-template-columns: minmax(0, 1.34fr) minmax(250px, .72fr);
+    gap: 38px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .bio-text { font-size: 21px; line-height: 33px; }
+}
+
+@media (max-width: 600px) {
+  .bio-text { width: 100%; max-width: 100%; font-size: 16px; font-weight: 200; line-height: 25px; }
+  .section-title { font-size: 15px; }
+  .hpr-footer { transform: none; }
+  .hpr-footer-navbar { margin-top: 0; padding-top: 4px; }
+}
