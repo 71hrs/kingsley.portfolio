@@ -5,7 +5,7 @@ const projects = {
     year: "2025",
     icon: "static/picture/homepage/polyverse-logo.svg",
     media: "static/picture/homepage/polyverse-preview.gif",
-    description: "Defining an AI-powered exploration platform that reimagines how people discover meaningful city experiences through contextual interactions.",
+    description: "Polyverse explores a new way of discovering cities through contextual AI, transforming personal signals such as time, location, and intent into meaningful experiences.",
     contribution: "Lead Product Designer",
     focus: "AI Product Strategy · Experience Design · Interaction Systems",
     link: "polyverse.html"
@@ -16,7 +16,7 @@ const projects = {
     year: "2024",
     icon: "static/picture/homepage/dollar-flip-logo.svg",
     media: "static/picture/homepage/dollar-flip-preview.gif",
-    description: "Defining an AI-powered marketplace experience that reduces transaction uncertainty through intelligent pricing and decision support.",
+    description: "Dollar Flip explores how AI can reduce uncertainty in secondhand transactions by helping sellers price confidently and buyers make informed decisions.",
     contribution: "Founding Product Designer",
     focus: "Marketplace Design · AI Decision Support · Product Strategy",
     link: "dollar-flip.html"
@@ -27,7 +27,7 @@ const projects = {
     year: "2025",
     icon: "static/picture/homepage/uircs-logo.svg",
     media: "static/picture/homepage/uircs-preview.png",
-    description: "Designing an enterprise AI system that transforms fragmented infrastructure data into coordinated risk management decisions.",
+    description: "UIRCS explores how AI can transform fragmented infrastructure data into coordinated operational decisions across complex organizations.",
     contribution: "Product & Systems Designer",
     focus: "Enterprise Systems · AI Operations · Complex Workflows",
     link: "UIRCS.html"
