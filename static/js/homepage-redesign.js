@@ -1,35 +1,35 @@
 const projects = {
   polyverse: {
     title: "Polyverse",
+    pills: ["AI Consumer Product", "0→1 Product", "Contextual AI"],
     year: "2025",
     icon: "static/picture/homepage-polyverse-logo.svg",
     media: "static/picture/polyverse-redesign/polyverse-ui-03.gif",
-    description: "Polyverse is an AI-powered city exploration platform for moments when people want to go out but do not yet know what they want to do. It translates context such as time, location, mood, and company into possibilities users can confidently evaluate and act on.",
+    description: "Defining an AI-powered exploration platform that reimagines how people discover meaningful city experiences through contextual interactions.",
     contribution: "Lead Product Designer",
-    scope: "0→1 AI Exploration Experience",
-    team: "Product design, engineering, and early beta users",
+    focus: "AI Product Strategy · Experience Design · Interaction Systems",
     link: "polyverse.html"
   },
   "dollar-flip": {
     title: "Dollar Flip",
+    pills: ["AI Marketplace", "Decision Support", "0→1 Product"],
     year: "2024",
     icon: "static/picture/homepage-dollar-flip-logo.svg",
     media: "static/picture/dollar-flip/dollar-flip-seller-experience.gif",
-    description: "Dollar Flip is a secondhand marketplace designed to reduce uncertainty at the moments that most affect a transaction. AI-assisted pricing helps sellers make informed decisions, while guided buying helps buyers identify the information that matters before purchasing.",
+    description: "Defining an AI-powered marketplace experience that reduces transaction uncertainty through intelligent pricing and decision support.",
     contribution: "Founding Product Designer",
-    scope: "0→1 AI Marketplace Experience",
-    team: "Product, engineering, AI, and business",
+    focus: "Marketplace Design · AI Decision Support · Product Strategy",
     link: "dollar-flip.html"
   },
   uircs: {
     title: "UIRCS",
+    pills: ["Enterprise AI System", "Systems Design", "Complex Workflows"],
     year: "2025",
     icon: "static/picture/homepage-uircs-logo.svg",
     media: "static/MIT-picture/UIRCS-UI-overview-dashboard.png",
-    description: "UIRCS is an enterprise operations platform that brings fragmented infrastructure risk, ownership, and response workflows into one coordinated system. It gives teams a shared view of priorities, accountability, and the actions required to resolve emerging issues.",
+    description: "Designing an enterprise AI system that transforms fragmented infrastructure data into coordinated risk management decisions.",
     contribution: "Product & Systems Designer",
-    scope: "Enterprise Risk Coordination System",
-    team: "Domain experts, engineering, and operational users",
+    focus: "Enterprise Systems · AI Operations · Complex Workflows",
     link: "UIRCS.html"
   }
 };
@@ -37,11 +37,10 @@ const projects = {
 const modal = document.querySelector("#project-preview");
 const closeButton = modal.querySelector(".hpr-modal__close");
 const fields = {
-  title: document.querySelector("#preview-title"), year: document.querySelector("#preview-year"),
+  title: document.querySelector("#preview-title"),
   icon: document.querySelector("#preview-icon"), media: document.querySelector("#preview-media"),
   description: document.querySelector("#preview-description"),
-  contribution: document.querySelector("#preview-contribution"), scope: document.querySelector("#preview-scope"),
-  team: document.querySelector("#preview-team"), link: document.querySelector("#preview-link")
+  contribution: document.querySelector("#preview-contribution"), focus: document.querySelector("#preview-focus"), link: document.querySelector("#preview-link")
 };
 
 function closePreview() {
@@ -57,8 +56,16 @@ document.querySelectorAll("[data-project]").forEach((card) => card.addEventListe
     else if (key === "link") element.href = data[key];
     else element.textContent = data[key];
   });
+  const pills = document.querySelector("#preview-pills");
+  pills.replaceChildren(...data.pills.map((label) => {
+    const pill = document.createElement("span");
+    pill.textContent = label;
+    return pill;
+  }));
+  fields.focus.textContent = data.focus.split(" · ").join("\n");
   fields.media.alt = `${data.title} project preview`;
   fields.icon.alt = "";
+  modal.dataset.project = card.dataset.project;
   modal.classList.add("is-open");
   modal.setAttribute("aria-hidden", "false");
   document.body.classList.add("hpr-modal-open");
