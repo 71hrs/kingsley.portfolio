@@ -1329,6 +1329,53 @@ body.hpr-modal-open .hpr-footer {
   pointer-events: none;
 }
 
+/* Unified Selected Work preview geometry.
+   Product media may differ in shape, but every preview shares the UIRCS split. */
+@media (min-width: 901px) {
+  .hpr-modal__card,
+  .hpr-modal[data-project="polyverse"] .hpr-modal__card,
+  .hpr-modal[data-project="dollar-flip"] .hpr-modal__card,
+  .hpr-modal[data-project="uircs"] .hpr-modal__card {
+    grid-template-columns: minmax(0, .82fr) minmax(0, 1fr);
+    gap: 46px;
+  }
+
+  .hpr-modal[data-project="polyverse"] .hpr-modal__media,
+  .hpr-modal[data-project="dollar-flip"] .hpr-modal__media,
+  .hpr-modal[data-project="uircs"] .hpr-modal__media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 500px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .hpr-modal[data-project="polyverse"] #preview-media,
+  .hpr-modal[data-project="dollar-flip"] #preview-media {
+    display: block;
+    width: auto;
+    height: 470px;
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    object-fit: contain;
+  }
+}
+
+/* Match the restrained scale response used by the reference portfolio. */
+.hpr-modal__button {
+  transition: transform .2s ease, opacity .2s ease, background .2s ease, border-color .2s ease;
+}
+.hpr-modal__button:hover,
+.hpr-modal__button:focus-visible {
+  transform: scale(1.05);
+}
+
 @media (max-width: 600px) {
   .hpr-footer {
     position: relative;
