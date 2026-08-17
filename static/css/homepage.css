@@ -1376,6 +1376,33 @@ body.hpr-modal-open .hpr-footer {
   transform: scale(1.05);
 }
 
+/* Never expose the previous project's final GIF frame while the next media is
+   loading. The right column remains transparent until the selected asset is ready. */
+.hpr-modal.is-open:not(.is-media-ready) .hpr-modal__media {
+  opacity: 0;
+  transform: translateX(18px);
+}
+.hpr-modal.is-open.is-media-ready .hpr-modal__media {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* A darker colored glass CTA separates the action from the neutral topic pills. */
+.hpr-modal__button {
+  border-color: rgba(176, 171, 255, .42);
+  color: #fff;
+  background: rgba(71, 66, 142, .82);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 12px 32px rgba(7,8,24,.28);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+}
+.hpr-modal__button:hover,
+.hpr-modal__button:focus-visible {
+  border-color: rgba(198, 194, 255, .68);
+  background: rgba(82, 76, 160, .94);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.26), 0 16px 38px rgba(7,8,24,.34);
+}
+
 @media (max-width: 600px) {
   .hpr-footer {
     position: relative;

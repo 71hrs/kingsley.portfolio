@@ -4,7 +4,7 @@ const projects = {
     pills: ["AI Consumer Product", "0→1 Product", "Contextual AI"],
     year: "2025",
     icon: "static/picture/homepage/polyverse-logo.svg",
-    media: "static/picture/homepage/polyverse-preview.gif",
+    media: "static/picture/homepage/polyverse-preview-20260817.gif",
     description: "Polyverse explores a new way of discovering cities through contextual AI, transforming personal signals such as time, location, and intent into meaningful experiences.",
     contribution: "Lead Product Designer",
     focus: "AI Product Strategy · Experience Design · Interaction Systems",
@@ -15,7 +15,7 @@ const projects = {
     pills: ["AI Marketplace", "Decision Support", "0→1 Product"],
     year: "2024",
     icon: "static/picture/homepage/dollar-flip-logo.svg",
-    media: "static/picture/homepage/dollar-flip-preview.gif",
+    media: "static/picture/homepage/dollar-flip-preview-20260817.gif",
     description: "Dollar Flip explores how AI can reduce uncertainty in secondhand transactions by helping sellers price confidently and buyers make informed decisions.",
     contribution: "Founding Product Designer",
     focus: "Marketplace Design · AI Decision Support · Product Strategy",
@@ -26,7 +26,7 @@ const projects = {
     pills: ["Enterprise AI System", "Systems Design", "Complex Workflows"],
     year: "2025",
     icon: "static/picture/homepage/uircs-logo.svg",
-    media: "static/picture/homepage/uircs-preview.png",
+    media: "static/picture/homepage/uircs-preview-20260817.png",
     description: "UIRCS explores how AI can transform fragmented infrastructure data into coordinated operational decisions across complex organizations.",
     contribution: "Product & Systems Designer",
     focus: "Enterprise Systems · AI Operations · Complex Workflows",
@@ -43,34 +43,86 @@ const fields = {
   contribution: document.querySelector("#preview-contribution"), focus: document.querySelector("#preview-focus"), link: document.querySelector("#preview-link")
 };
 
-function closePreview() {
-  modal.classList.remove("is-open");
-  modal.setAttribute("aria-hidden", "true");
-  document.body.classList.remove("hpr-modal-open");
+/* The modal reuses one media element. On a deployed site, a previous GIF can
+   remain painted while the next asset is still travelling through the cache.
+   Warm the selected project on intent and let only the latest click commit it. */
+const mediaPreloads = new Map();
+let previewRequest = 0;
+
+function preloadMedia(source) {
+  if (mediaPreloads.has(source)) return mediaPreloads.get(source);
+
+  const pending = new Promise((resolve, reject) => {
+    const image = new Image();
+    image.onload = () => resolve(source);
+    image.onerror = reject;
+    image.src = source;
+  });
+
+  mediaPreloads.set(source, pending);
+  return pending;
 }
 
-document.querySelectorAll("[data-project]").forEach((card) => card.addEventListener("click", () => {
-  const data = projects[card.dataset.project];
-  Object.entries(fields).forEach(([key, element]) => {
-    if (key === "icon" || key === "media") element.src = data[key];
-    else if (key === "link") element.href = data[key];
-    else element.textContent = data[key];
+function closePreview() {
+  previewRequest += 1;
+  modal.classList.remove("is-open");
+  modal.classList.remove("is-media-ready");
+  modal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("hpr-modal-open");
+  fields.media.onload = null;
+  fields.media.removeAttribute("src");
+}
+
+document.querySelectorAll("[data-project]").forEach((card) => {
+  const warmSelectedMedia = () => preloadMedia(projects[card.dataset.project].media).catch(() => {});
+  card.addEventListener("pointerenter", warmSelectedMedia, { once: true });
+  card.addEventListener("focusin", warmSelectedMedia, { once: true });
+
+  card.addEventListener("click", () => {
+    const data = projects[card.dataset.project];
+    const request = ++previewRequest;
+
+    modal.classList.remove("is-media-ready", "is-media-error");
+    fields.media.onload = null;
+    fields.media.removeAttribute("src");
+
+    Object.entries(fields).forEach(([key, element]) => {
+      if (key === "icon") element.src = data[key];
+      else if (key === "media") return;
+      else if (key === "link") element.href = data[key];
+      else element.textContent = data[key];
+    });
+    const pills = document.querySelector("#preview-pills");
+    pills.replaceChildren(...data.pills.map((label) => {
+      const pill = document.createElement("span");
+      pill.textContent = label;
+      return pill;
+    }));
+    fields.focus.textContent = data.focus;
+    fields.media.alt = `${data.title} project preview`;
+    fields.icon.alt = "";
+    modal.dataset.project = card.dataset.project;
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("hpr-modal-open");
+    closeButton.focus();
+
+    preloadMedia(data.media).then(() => {
+      if (request !== previewRequest || !modal.classList.contains("is-open")) return;
+
+      const revealMedia = () => {
+        if (request !== previewRequest || fields.media.getAttribute("src") !== data.media) return;
+        modal.classList.add("is-media-ready");
+      };
+
+      fields.media.onload = revealMedia;
+      fields.media.src = data.media;
+      if (fields.media.complete && fields.media.naturalWidth > 0) revealMedia();
+    }).catch(() => {
+      if (request === previewRequest) modal.classList.add("is-media-error");
+    });
   });
-  const pills = document.querySelector("#preview-pills");
-  pills.replaceChildren(...data.pills.map((label) => {
-    const pill = document.createElement("span");
-    pill.textContent = label;
-    return pill;
-  }));
-  fields.focus.textContent = data.focus;
-  fields.media.alt = `${data.title} project preview`;
-  fields.icon.alt = "";
-  modal.dataset.project = card.dataset.project;
-  modal.classList.add("is-open");
-  modal.setAttribute("aria-hidden", "false");
-  document.body.classList.add("hpr-modal-open");
-  closeButton.focus();
-}));
+});
 
 closeButton.addEventListener("click", closePreview);
 modal.addEventListener("click", (event) => { if (event.target === modal) closePreview(); });
@@ -113,8 +165,11 @@ fields.link.addEventListener("click", navigateWithTransition);
 /* Browsers preserve body classes in the back-forward cache. Always restore the
    homepage to its neutral state when history navigation brings it back. */
 window.addEventListener("pageshow", () => {
+  previewRequest += 1;
   document.body.classList.remove("hpr-is-leaving", "hpr-modal-open");
-  modal.classList.remove("is-open");
+  modal.classList.remove("is-open", "is-media-ready", "is-media-error");
   modal.setAttribute("aria-hidden", "true");
+  fields.media.onload = null;
+  fields.media.removeAttribute("src");
   closeMenu();
 });

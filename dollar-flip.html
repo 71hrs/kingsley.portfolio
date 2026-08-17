@@ -9,8 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Heebo:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link href="static/css/dollar-flip.css" rel="stylesheet">
-    <script src="static/js/dollar-flip.js" defer></script>
+    <link href="static/css/dollar-flip.css?v=20260817-1" rel="stylesheet">
+    <script src="static/js/dollar-flip.js?v=20260817-1" defer></script>
   </head>
   <body>
     <header class="dfr-header">
@@ -18,7 +18,11 @@
         <img src="static/MIT-picture/favicon.png" alt="">
       </a>
       <div class="dfr-header__title-grid"><h1 id="dfr-title">Dollar Flip</h1></div>
-      <a class="dfr-back" href="works.html"><span>Back to gallery</span></a>
+      <div class="dfr-header-actions">
+        <a class="dfr-back" href="works.html"><span>Back to gallery</span></a>
+        <button class="dfr-menu-toggle" type="button" aria-expanded="false" aria-controls="dfr-nav-menu" aria-label="Open navigation"><span></span><span></span><span></span></button>
+        <nav class="dfr-nav-menu" id="dfr-nav-menu" aria-label="Portfolio navigation"><a href="index.html">Home</a><a href="works.html">Works</a><a href="highlights.html">Highlights</a><a href="about.html">About</a></nav>
+      </div>
     </header>
 
     <main>
