@@ -64,3 +64,12 @@ document.addEventListener("DOMContentLoaded", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const items = document.querySelectorAll(".dfr-chapter__header, .dfr-subsection > h3, .dfr-body-copy, .dfr-case-media, .dfr-overview-details article, .dfr-impact-media-transition, .dfr-reflection__copy > *");
+  if (!items.length || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  document.body.classList.add("case-reveal-ready");
+  items.forEach((item, index) => { item.classList.add("case-reveal"); item.style.setProperty("--reveal-delay", `${Math.min(index % 3, 2) * 70}ms`); });
+  const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add("is-revealed"); observer.unobserve(entry.target); } }), { rootMargin: "0px 0px -10%", threshold: .08 });
+  items.forEach(item => observer.observe(item));
+});

@@ -50,3 +50,12 @@ document.addEventListener("DOMContentLoaded", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const items = document.querySelectorAll(".pvr-chapter__header, .pvr-subsection > h3, .pvr-body-copy, .pvr-process-block, .pvr-case-media, .pvr-overview-details article, .pvr-impact-media-transition, .pvr-reflection__copy > *");
+  if (!items.length || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  document.body.classList.add("case-reveal-ready");
+  items.forEach((item, index) => { item.classList.add("case-reveal"); item.style.setProperty("--reveal-delay", `${Math.min(index % 3, 2) * 70}ms`); });
+  const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add("is-revealed"); observer.unobserve(entry.target); } }), { rootMargin: "0px 0px -10%", threshold: .08 });
+  items.forEach(item => observer.observe(item));
+});

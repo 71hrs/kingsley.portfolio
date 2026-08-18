@@ -16,6 +16,8 @@
 
 * { box-sizing: border-box; }
 
+.case-reveal-ready .case-reveal{opacity:0;translate:0 34px;transition:opacity 900ms cubic-bezier(.22,1,.36,1) var(--reveal-delay,0ms),translate 1100ms cubic-bezier(.16,1,.3,1) var(--reveal-delay,0ms);will-change:opacity,translate}.case-reveal-ready .case-reveal.is-revealed{opacity:1;translate:none}@media(prefers-reduced-motion:reduce){.case-reveal{opacity:1!important;translate:none!important}}
+
 html.polyverse-redesign-case { scroll-behavior: auto; background: var(--pvr-paper); }
 
 body {
@@ -936,6 +938,63 @@ img.pvr-comparison-board__arrow { display: block; width: 28px; height: auto; jus
 
 @media (prefers-reduced-motion: reduce) {
   html.polyverse-redesign-case { scroll-behavior: auto; }
+}
+
+/* Evidence and validation polish */
+.pvr-case-media + .pvr-body-copy { margin-top: clamp(52px, 6vw, 78px); }
+.pvr-experience-workflow,
+.pvr-experience-workflow :where(span, strong, b, small, li),
+.pvr-final-showcase > div,
+.pvr-final-showcase > div :where(span, strong, b, small, p) { color: var(--pvr-ink); }
+.pvr-experience-workflow li small,
+.pvr-final-showcase span p { color: rgba(33, 29, 24, .64); }
+.pvr-experience-workflow li:not(:last-child)::after { background: rgba(158, 79, 24, .24); }
+.pvr-experience-workflow li::before { border-color: rgba(158, 79, 24, .28); color: #9e4f18; }
+.pvr-quote-evidence blockquote { color: var(--pvr-ink); }
+.pvr-quote-evidence blockquote p { margin-top: 30px; font-size: clamp(22px, 2.3vw, 30px); line-height: 1.2; }
+.pvr-quote-evidence blockquote span,
+.pvr-quote-evidence blockquote p b { color: #9e4f18; }
+.pvr-quote-evidence blockquote cite { margin-top: 26px; border-color: rgba(33, 29, 24, .14); color: rgba(33, 29, 24, .58); }
+
+.pvr-hypothesis-board,
+.pvr-attempt-board { display: grid; grid-template-columns: 55% 45%; min-height: 440px; overflow: hidden; background: var(--pvr-placeholder); color: var(--pvr-ink); }
+.pvr-hypothesis-ui,
+.pvr-attempt-ui { display: flex; padding: clamp(42px, 6vw, 76px); align-items: center; justify-content: center; flex-direction: column; border-right: 1px solid rgba(33, 29, 24, .14); background: #e5b24b; text-align: center; }
+.pvr-hypothesis-ui small,
+.pvr-attempt-ui small,
+.pvr-hypothesis-board blockquote small,
+.pvr-attempt-board blockquote small { color: #9e4f18; font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.pvr-hypothesis-ui strong,
+.pvr-attempt-ui strong { max-width: 18em; margin-top: 20px; font-family: "EB Garamond", Georgia, serif; font-size: clamp(27px, 3.2vw, 42px); font-weight: 500; line-height: 1.08; }
+.pvr-hypothesis-ui p,
+.pvr-attempt-ui p { max-width: 28em; margin: 20px 0 0; color: rgba(33, 29, 24, .66); font-size: 14px; line-height: 23px; }
+.pvr-hypothesis-board blockquote,
+.pvr-attempt-board blockquote { display: flex; margin: 0; padding: clamp(42px, 5vw, 70px); justify-content: center; flex-direction: column; }
+.pvr-hypothesis-board blockquote p,
+.pvr-attempt-board blockquote p { margin: 26px 0 0; font-family: "EB Garamond", Georgia, serif; font-size: clamp(23px, 2.5vw, 32px); line-height: 1.18; }
+
+.pvr-tradeoff-strip { display: grid; grid-template-columns: 1fr 34px 1fr; gap: clamp(24px, 4vw, 54px); min-height: 0; padding: clamp(34px, 5vw, 58px); align-items: center; background: var(--pvr-placeholder); color: var(--pvr-ink); }
+.pvr-tradeoff-strip article { min-width: 0; }
+.pvr-tradeoff-strip small { color: #9e4f18; font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.pvr-tradeoff-strip strong { display: block; margin-top: 12px; font-family: "EB Garamond", Georgia, serif; font-size: clamp(23px, 2.6vw, 32px); font-weight: 500; line-height: 1.1; }
+.pvr-tradeoff-strip p { margin: 16px 0 0; color: rgba(33, 29, 24, .64); font-size: 14px; line-height: 23px; }
+.pvr-tradeoff-strip > span { width: 0; height: 0; justify-self: center; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 12px solid #9e4f18; }
+
+.pvr-figo-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(18px, 3vw, 38px); margin-top: var(--pvr-media-space); align-items: stretch; }
+.pvr-figo-gallery .pvr-case-media { display: grid; width: 100%; min-height: 420px; margin-top: 0; transform: none; place-items: center; background: #edc978; }
+.pvr-figo-gallery img { width: 100%; height: 100%; max-height: 620px; object-fit: contain; }
+.pvr-impact-evidence img { width: 100%; aspect-ratio: 16 / 8.2; object-fit: cover; object-position: center; }
+
+@media (max-width: 700px) {
+  .pvr-hypothesis-board,
+  .pvr-attempt-board,
+  .pvr-tradeoff-strip,
+  .pvr-figo-gallery { grid-template-columns: 1fr; }
+  .pvr-hypothesis-ui,
+  .pvr-attempt-ui { min-height: 340px; border-right: 0; border-bottom: 1px solid rgba(33, 29, 24, .14); }
+  .pvr-tradeoff-strip > span { transform: rotate(90deg); }
+  .pvr-figo-gallery .pvr-case-media { min-height: 300px; }
+  .pvr-impact-evidence img { aspect-ratio: 4 / 3; }
 }
 
 /* 2026 Polyverse visual system */
