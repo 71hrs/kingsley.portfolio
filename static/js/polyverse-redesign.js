@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector(".pvr-header");
   const backToTop = document.querySelector(".pvr-back-to-top");
+  const menuToggle = document.querySelector(".pvr-menu-toggle");
+  const navMenu = document.querySelector(".pvr-nav-menu");
 
   if (!header || !backToTop) return;
 
@@ -38,6 +40,11 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", requestContrastUpdate, { passive: true });
   window.addEventListener("resize", requestContrastUpdate);
   updateBackToTopContrast();
+
+  const closeMenu = () => { menuToggle?.setAttribute("aria-expanded", "false"); navMenu?.classList.remove("is-open"); };
+  menuToggle?.addEventListener("click", () => { const opening = menuToggle.getAttribute("aria-expanded") !== "true"; menuToggle.setAttribute("aria-expanded", String(opening)); navMenu?.classList.toggle("is-open", opening); });
+  document.addEventListener("click", event => { if (!event.target.closest(".pvr-header-actions")) closeMenu(); });
+  document.addEventListener("keydown", event => { if (event.key === "Escape") closeMenu(); });
 
   backToTop.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });

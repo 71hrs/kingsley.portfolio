@@ -4,18 +4,16 @@
   height: 28px;
   flex: 0 0 auto;
   color: inherit;
-  background-color: currentColor;
-  -webkit-mask: url("../picture/brand/yuhuiqi-logo.svg") center / contain no-repeat;
-  mask: url("../picture/brand/yuhuiqi-logo.svg") center / contain no-repeat;
+  background: url("../picture/brand/yuhuiqi-logo.svg") center / contain no-repeat;
   transition: opacity 220ms ease, transform 320ms cubic-bezier(.22, 1, .36, 1);
 }
 
-.hpr-logo,
-.interior-header .logo,
-.navbar .logo { color: #fff; }
+.hpr-logo .site-brand-logo,
+.interior-header .logo .site-brand-logo,
+.navbar .logo .site-brand-logo { filter: brightness(0) invert(1); }
 
-.dfr-brand { color: var(--dfr-accent); }
-.pvr-brand { color: #9e4f18; }
+.dfr-brand .site-brand-logo { filter: brightness(0) saturate(100%) invert(77%) sepia(20%) saturate(860%) hue-rotate(202deg) brightness(104%); }
+.pvr-brand .site-brand-logo { filter: brightness(0) saturate(100%) invert(31%) sepia(39%) saturate(1790%) hue-rotate(346deg) brightness(92%); }
 
 .logo:hover .site-brand-logo,
 .hpr-logo:hover .site-brand-logo,

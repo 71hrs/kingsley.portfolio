@@ -1389,18 +1389,18 @@ body.hpr-modal-open .hpr-footer {
 
 /* A darker colored glass CTA separates the action from the neutral topic pills. */
 .hpr-modal__button {
-  border-color: rgba(176, 171, 255, .42);
+  border-color: rgba(183, 202, 215, .38);
   color: #fff;
-  background: rgba(71, 66, 142, .82);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 12px 32px rgba(7,8,24,.28);
+  background: rgba(25, 38, 49, .88);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.18), 0 12px 32px rgba(8,14,18,.28);
   backdrop-filter: blur(20px) saturate(150%);
   -webkit-backdrop-filter: blur(20px) saturate(150%);
 }
 .hpr-modal__button:hover,
 .hpr-modal__button:focus-visible {
-  border-color: rgba(198, 194, 255, .68);
-  background: rgba(82, 76, 160, .94);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.26), 0 16px 38px rgba(7,8,24,.34);
+  border-color: rgba(205, 221, 232, .64);
+  background: rgba(37, 54, 68, .96);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.24), 0 16px 38px rgba(8,14,18,.34);
 }
 
 @media (max-width: 600px) {
