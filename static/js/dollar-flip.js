@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const items = document.querySelectorAll(".dfr-chapter__header, .dfr-subsection > h3, .dfr-body-copy, .dfr-case-media, .dfr-overview-details article, .dfr-impact-media-transition, .dfr-reflection__copy > *");
+  const items = document.querySelectorAll(".dfr-chapter__header, .dfr-subsection > h3, .dfr-body-copy, .dfr-case-media:not(.dfr-impact-evidence), .dfr-overview-details article, .dfr-reflection__copy > *");
   if (!items.length || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   document.body.classList.add("case-reveal-ready");
   items.forEach((item, index) => { item.classList.add("case-reveal"); item.style.setProperty("--reveal-delay", `${Math.min(index % 3, 2) * 70}ms`); });

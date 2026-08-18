@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const items = document.querySelectorAll(".pvr-chapter__header, .pvr-subsection > h3, .pvr-body-copy, .pvr-process-block, .pvr-case-media, .pvr-overview-details article, .pvr-impact-media-transition, .pvr-reflection__copy > *");
+  const items = document.querySelectorAll(".pvr-chapter__header, .pvr-subsection > h3, .pvr-body-copy, .pvr-process-block, .pvr-case-media:not(.pvr-impact-evidence), .pvr-overview-details article, .pvr-reflection__copy > *");
   if (!items.length || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   document.body.classList.add("case-reveal-ready");
   items.forEach((item, index) => { item.classList.add("case-reveal"); item.style.setProperty("--reveal-delay", `${Math.min(index % 3, 2) * 70}ms`); });
