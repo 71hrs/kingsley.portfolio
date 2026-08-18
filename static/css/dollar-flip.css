@@ -948,3 +948,17 @@ a { color: inherit; text-decoration: none; }
 .dfr-impact-evidence,
 .dfr-impact-evidence > img { background-color: transparent; }
 .dfr-impact-evidence { opacity: 1 !important; translate: none !important; }
+
+/* Native WebM replacements preserve the established phone presentation. */
+.dfr-assumption-board__screens video,
+.dfr-final-showcase video,
+.dfr-experience-board section video {
+  display: block;
+  width: min(100%, 270px);
+  max-height: 540px;
+  margin-inline: auto;
+  object-fit: contain;
+  border-radius: 15% / 7.5%;
+  clip-path: inset(1px round 15% / 7.5%);
+}
+.dfr-assumption-board__screens video { width: min(100%, 230px); max-height: 500px; }

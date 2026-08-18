@@ -4,7 +4,8 @@ const projects = {
     pills: ["AI Consumer Product", "0→1 Product", "Contextual AI"],
     year: "2025",
     icon: "static/picture/homepage/polyverse-logo.svg",
-    media: "static/picture/homepage/polyverse-preview-20260817.gif",
+    media: "static/picture/homepage/polyverse-preview.webm",
+    mediaType: "video",
     description: "Polyverse explores a new way of discovering cities through contextual AI, transforming personal signals such as time, location, and intent into meaningful experiences.",
     contribution: "Lead Product Designer",
     focus: "AI Product Strategy · Experience Design · Interaction Systems",
@@ -15,7 +16,8 @@ const projects = {
     pills: ["AI Marketplace", "Decision Support", "0→1 Product"],
     year: "2024",
     icon: "static/picture/homepage/dollar-flip-logo.svg",
-    media: "static/picture/homepage/dollar-flip-preview-20260817.gif",
+    media: "static/picture/homepage/dollar-flip-preview.webm",
+    mediaType: "video",
     description: "Dollar Flip explores how AI can reduce uncertainty in secondhand transactions by helping sellers price confidently and buyers make informed decisions.",
     contribution: "Founding Product Designer",
     focus: "Marketplace Design · AI Decision Support · Product Strategy",
@@ -27,6 +29,7 @@ const projects = {
     year: "2025",
     icon: "static/picture/homepage/uircs-logo.svg",
     media: "static/picture/homepage/uircs-preview-20260817.png",
+    mediaType: "image",
     description: "UIRCS explores how AI can transform fragmented infrastructure data into coordinated operational decisions across complex organizations.",
     contribution: "Product & Systems Designer",
     focus: "Enterprise Systems · AI Operations · Complex Workflows",
@@ -49,10 +52,19 @@ const fields = {
 const mediaPreloads = new Map();
 let previewRequest = 0;
 
-function preloadMedia(source) {
+function preloadMedia(source, mediaType = "image") {
   if (mediaPreloads.has(source)) return mediaPreloads.get(source);
 
   const pending = new Promise((resolve, reject) => {
+    if (mediaType === "video") {
+      const video = document.createElement("video");
+      video.preload = "auto";
+      video.muted = true;
+      video.onloadeddata = () => resolve(source);
+      video.onerror = reject;
+      video.src = source;
+      return;
+    }
     const image = new Image();
     image.onload = () => resolve(source);
     image.onerror = reject;
@@ -63,6 +75,22 @@ function preloadMedia(source) {
   return pending;
 }
 
+function ensurePreviewMedia(type) {
+  const wantedTag = type === "video" ? "VIDEO" : "IMG";
+  if (fields.media.tagName === wantedTag) return fields.media;
+  const next = document.createElement(type === "video" ? "video" : "img");
+  next.id = "preview-media";
+  if (type === "video") {
+    next.autoplay = true;
+    next.muted = true;
+    next.loop = true;
+    next.playsInline = true;
+  }
+  fields.media.replaceWith(next);
+  fields.media = next;
+  return next;
+}
+
 function closePreview() {
   previewRequest += 1;
   modal.classList.remove("is-open");
@@ -70,11 +98,15 @@ function closePreview() {
   modal.setAttribute("aria-hidden", "true");
   document.body.classList.remove("hpr-modal-open");
   fields.media.onload = null;
+  if (fields.media.tagName === "VIDEO") fields.media.pause();
   fields.media.removeAttribute("src");
 }
 
 document.querySelectorAll("[data-project]").forEach((card) => {
-  const warmSelectedMedia = () => preloadMedia(projects[card.dataset.project].media).catch(() => {});
+  const warmSelectedMedia = () => {
+    const project = projects[card.dataset.project];
+    return preloadMedia(project.media, project.mediaType).catch(() => {});
+  };
   card.addEventListener("pointerenter", warmSelectedMedia, { once: true });
   card.addEventListener("focusin", warmSelectedMedia, { once: true });
 
@@ -83,8 +115,10 @@ document.querySelectorAll("[data-project]").forEach((card) => {
     const request = ++previewRequest;
 
     modal.classList.remove("is-media-ready", "is-media-error");
-    fields.media.onload = null;
-    fields.media.removeAttribute("src");
+    const media = ensurePreviewMedia(data.mediaType);
+    media.onload = null;
+    if (media.tagName === "VIDEO") media.pause();
+    media.removeAttribute("src");
 
     Object.entries(fields).forEach(([key, element]) => {
       if (key === "icon") element.src = data[key];
@@ -99,7 +133,8 @@ document.querySelectorAll("[data-project]").forEach((card) => {
       return pill;
     }));
     fields.focus.textContent = data.focus;
-    fields.media.alt = `${data.title} project preview`;
+    if (media.tagName === "IMG") media.alt = `${data.title} project preview`;
+    else media.setAttribute("aria-label", `${data.title} project preview`);
     fields.icon.alt = "";
     modal.dataset.project = card.dataset.project;
     modal.classList.add("is-open");
@@ -107,17 +142,24 @@ document.querySelectorAll("[data-project]").forEach((card) => {
     document.body.classList.add("hpr-modal-open");
     closeButton.focus();
 
-    preloadMedia(data.media).then(() => {
+    preloadMedia(data.media, data.mediaType).then(() => {
       if (request !== previewRequest || !modal.classList.contains("is-open")) return;
 
       const revealMedia = () => {
-        if (request !== previewRequest || fields.media.getAttribute("src") !== data.media) return;
+        if (request !== previewRequest || media.getAttribute("src") !== data.media) return;
         modal.classList.add("is-media-ready");
       };
 
-      fields.media.onload = revealMedia;
-      fields.media.src = data.media;
-      if (fields.media.complete && fields.media.naturalWidth > 0) revealMedia();
+      if (media.tagName === "VIDEO") {
+        media.onloadeddata = revealMedia;
+        media.src = data.media;
+        media.load();
+        media.play().catch(() => {});
+      } else {
+        media.onload = revealMedia;
+        media.src = data.media;
+        if (media.complete && media.naturalWidth > 0) revealMedia();
+      }
     }).catch(() => {
       if (request === previewRequest) modal.classList.add("is-media-error");
     });
@@ -170,6 +212,7 @@ window.addEventListener("pageshow", () => {
   modal.classList.remove("is-open", "is-media-ready", "is-media-error");
   modal.setAttribute("aria-hidden", "true");
   fields.media.onload = null;
+  if (fields.media.tagName === "VIDEO") fields.media.pause();
   fields.media.removeAttribute("src");
   closeMenu();
 });
