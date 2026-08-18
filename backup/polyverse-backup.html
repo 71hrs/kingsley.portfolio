@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en" class="polyverse-backup">
+  <head>
+    <base href="../">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polyverse Backup</title>
+    <link rel="icon" type="image/png" href="static/picture/brand/favicon.png">
+    <link href="static/css/MIT.css" rel="stylesheet">
+    <link href="static/css/brand.css?v=20260817-1" rel="stylesheet">
+    <link href="https://use.typekit.net/wvs7ihr.css" rel="stylesheet" > <!--Futura-->
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Heebo:wght@100..900&display=swap" rel="stylesheet">
+  </head>
+  <body class="polyverse-backup">
+
+    <!--
+    <div id="lockscreen" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#111;color:#fff;display:flex;align-items:center;justify-content:center;z-index:9999;">
+      <div style="background:#222;padding:20px;border-radius:8px;text-align:center;">
+        <p>Enter password to continue</p>
+        <input type="password" id="pw" style="padding:8px;" />
+        <button onclick="checkPw()">Enter</button>
+        <p id="err" style="color:#f88;display:none;">Wrong password</p>
+      </div>
+    </div>
+
+    <script>
+      var password = "mypassword"; // 换成你的密码
+      function checkPw(){
+        var val = document.getElementById("pw").value;
+        if(val === password){
+          document.getElementById("lockscreen").style.display="none";
+        } else {
+          document.getElementById("err").style.display="block";
+        }
+      }
+    </script>
+    -->
+
+    <header>
+      <nav class="navbar">
+        <!-- 左边 Logo -->
+        <div class="logo">
+          <span class="site-brand-logo" aria-hidden="true"></span>
+        </div>
+        <!-- 右边导航 -->
+        <div class="nav-links">
+          <a href="works.html"
+            onclick="
+              const timer = setTimeout(function(){ location.href = 'works.html'; }, 200);
+              window.addEventListener('pagehide', function(){ clearTimeout(timer); }, { once: true });
+              history.back();
+              return false;
+            ">
+            Back to Gallery
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <div class="project-container">
+
+      <section class="project-title-section">
+        <div class="project-title-left-spacer" aria-hidden="true"></div>
+        <div class="project-title-right">
+          <div class="project-title-text" style="color: black;">Polyverse</div>
+        </div>
+      </section>
+
+      <section class="project-header-section">
+        <div class="project-header-left">
+        </div>
+        <div class="project-header-right">
+          <p class="project-header-text" style="color: black;">
+            Reimagining city exploration through the intersection of real-time hotspots and task-driven missions.
+          </p>
+        </div>
+      </section>
+
+      <section class="project-caption-section">
+        <div class="project-caption-left">
+          <span class="project-caption" style="color: black;">Yuhui Qi</span>
+        </div>
+        <div class="project-caption-right">
+          <span class="project-caption"  style="color: black;">Product Design / User Research / Usability Testing</span>
+        </div>
+        <div class="project-caption-floating">
+          <span class="project-caption" style="color: black;">2025</span>
+        </div>
+      </section>
+
+      <div class="project-cover">
+        <img src="static/MIT-picture/polyverse-overview.png" alt="Project image">
+      </div>
+
+      <section class="project-content-chapter">
+      <section class="project-content-unit">
+        <div class="project-left-column">
+          <span class="project-title">/ 01 Overview</span>
+        </div>
+        <div class="project-right-column">
+          <p class="project-paragraph">
+            Polyverse is a mobile product that redefines how Gen Z users explore cities in their fragmented time. By combining a real-time hotspot map with a task-based system, Polyverse helps users quickly discover trending places, plan spontaneous activities, and collect achievements through exploration. The project was designed and developed from research to high-fidelity prototyping, focusing on lowering the barrier to participation while creating a playful and engaging urban experience.
+          </p>
+        </div>
+      </section>
+
+      <section class="project-content-unit">
+        <div class="project-overview">
+          <img src="static/MIT-picture/polyverse-overview-2.png" alt="Project image">
+        </div>
+      </section>
+      </section>
+
+      <section class="project-content-chapter">
+      <section class="project-content-unit">
+        <div class="project-left-column">
+          <span class="project-title">/ 02 Background</span>
+        </div>
+        <div class="project-right-column">
+          <p class="project-paragraph">
+            Polyverse was initiated from the observation that Gen Z users often face idle moments in the city without a clear plan. These fragmented periods present an opportunity for spontaneous exploration, yet existing tools rarely support this behavior. The goal of the project is to design a product that transforms such moments into meaningful experiences by lowering the barrier to participation and encouraging playful, real-time discovery.
+          </p>
+        </div>
+      </section>
+      </section>
+
+      <section class="project-content-chapter">
+      <section class="project-content-unit">
+        <div class="project-left-column">
+          <span class="project-title">/ 03 Research</span>
+        </div>
+        <div class="project-right-column">
+          <p class="project-paragraph">
+            To define the design direction, I conducted both market research and user research. This process helped me understand existing gaps in the market and uncover user behaviors around fragmented time, ultimately forming the foundation for the product’s design strategy.
+          </p>
+          <p class="project-paragraph-highlight">
+            1 / Market Research
+          </p>
+          <p class="project-paragraph">
+            Many fragmented-time scenarios in daily urban life resemble behaviors seen in travel — moments of waiting, sudden schedule changes, or the need for quick inspiration. To better understand these patterns, I started by analyzing the travel app ecosystem, which highlights how most products emphasize planning and booking while overlooking real-time, lightweight exploration.
+          </p>
+          <p class="project-paragraph">
+            I mapped the travel app ecosystem into three phases: before, during, and after the trip. Most platforms—such as Pinterest, Klook, or Tripadvisor—concentrate on inspiration, planning, and sharing. Very few provide support for spontaneous decisions during the trip, which mirrors the gap in fragmented-time exploration for urban life.
+          </p>
+        </div>
+      </section>
+
+      <section class="project-content-unit">
+        <figure class="polyverse-ecosystem-mapping">
+          <img src="static/MIT-picture/polyverse-ecosystem-mapping.png">
+        </figure>
+      </section>
+
+      <section class="project-content-unit">
+        <div class="project-left-column">
+        </div>
+        <div class="project-right-column">
+          <p class="project-paragraph">
+            After mapping the ecosystem, I conducted a competitive analysis of eight representative platforms. I compared them across dimensions such as core offering, target users, map integration, AI utilization, personalization, and gamification. The findings show that most platforms focus heavily on booking, reviews, or planning. Very few place maps at the center of interaction, and almost none combine real-time hotspot discovery with gamified task systems — leaving a clear gap that defines Polyverse’s opportunity.
+          </p>
+        </div>
+      </section>
+
+      <section class="project-content-unit">
+        <figure class="polyverse-competitive-analysis">
+          <img src="static/MIT-picture/polyverse-competitive-analysis.png">
+        </figure>
+      </section>
+
+      <section class="project-content-unit">
+        <div class="project-left-column">
+        </div>
+        <div class="project-right-column">
+          <p class="project-paragraph">
+            The market research revealed three clear problems:
+	          <br>
+            1.	Most existing products emphasize planning, booking, or sharing, but provide little support for spontaneous, fragmented-time exploration.
+	          <br>
+            2.	Few integrate maps as the core interaction, and almost none combine real-time hotspots with gamified task systems.
+	          <br>
+            3.	The shutdown of Zenly left a gap in lightweight, socialized mapping experiences — a demand that continues to grow among Gen Z users.
+          </p>
+        </div>
+      </section>
+
+      <section class="project-content-unit">
+        <div class="project-left-column">
+        </div>
+        <div class="project-right-column">
+          <p class="project-paragraph-highlight">
+            2 / User Research
+          </p>
+          <p class="project-paragraph">
+            To uncover how Gen Z users manage fragmented time and what drives their exploration behavior, I conducted user research combining surveys and interviews. This helped me capture both broad behavioral patterns and deeper personal motivations, forming the foundation for Polyverse.
+          </p>
+          <p class="project-paragraph">
+            The survey revealed clear patterns: most users tend to spend short breaks on quick entertainment, but a significant number expressed interest in discovering nearby places or activities. This highlighted both the opportunity to redirect idle time toward exploration and the importance of low-barrier access.
+          </p>
+        </div>
+      </section>
+
+      <section class="project-content-unit">
+        <figure class="polyverse-survey">
+          <img src="static/MIT-picture/polyverse-survey.png">
+        </figure>
+      </section>
+
+      <section class="project-content-unit">
+        <div class="project-left-column">
+        </div>
+        <div class="project-right-column">
+          <p class="project-paragraph">
+            To represent these insights in a tangible way, I created a persona named Danny — a curious and social Gen Z student who often has short breaks between classes and activities. His goals, pain points, and motivations reflect the broader needs uncovered in the research.
+          </p>
+        </div>
+      </section>
+
+      <section class="project-content-unit">
+        <figure class="polyverse-persona">
+          <img src="static/MIT-picture/polyverse-persona.png">
+        </figure>
+      </section>
+
+      <section class="project-content-unit">
+        <div class="project-left-column">
+        </div>
+        <div class="project-right-column">
+          <p class="project-paragraph">
+            Together, the survey and persona revealed that Gen Z users are eager for lightweight, spontaneous ways to turn fragmented time into meaningful exploration. These findings guided the problem definition and shaped the core direction of the design.
+          </p>
+        </div>
+      </section>
+
+      <section class="project-content-unit">
+        <div class="project-left-column">
+        </div>
+        <div class="project-right-column">
+          <p class="project-paragraph-highlight">
+            3 / Key Insights
+          </p>
+          <p class="project-paragraph">
+            The research revealed four key insights. First, both the market and users demand low-barrier and lightweight interactions, as fragmented-time exploration cannot rely on complex planning. Second, there is a clear need for real-time hotspot discovery, especially during short breaks or idle moments. Third, social influence plays a critical role, as users are more motivated to explore when recommendations come from friends or communities. Finally, recognition and achievement systems are essential to sustain engagement, yet they remain largely unsupported in existing solutions.
+          </p>
+        </div>
+      </section>
+      </section>
+
+      <section class="project-content-chapter">
+      <section class="project-content-unit">
+        <div class="project-left-column">
+          <span class="project-title">/ 04 Problem Definition</span>
+        </div>
+        <div class="project-right-column">
+          <p class="project-paragraph">
+            Based on the market and user research, I defined the core problem that Polyverse needs to address. Existing platforms either focus on planning, booking, or sharing, but rarely support spontaneous exploration in fragmented time. At the same time, Gen Z users expect lightweight, low-barrier interactions, real-time recommendations, and playful mechanisms that keep them engaged.
+          </p>
+          <p class="project-paragraph-highlight">
+            Problem Statement
+          </p>
+          <p class="project-paragraph">
+            How might we help Gen Z users transform fragmented time into meaningful urban exploration through real-time, low-barrier interactions, while sustaining their engagement with social and achievement-driven features?
+          </p>
+        </div>
+      </section>
+      </section>
+
+      <section class="project-content-chapter">
+      <section class="project-content-unit">
+        <div class="project-left-column">
+          <span class="project-title">/ 05 Information Architecture</span>
+        </div>
+        <div class="project-right-column">
+          <p class="project-paragraph">
+            To move from research insights into concrete design, I first structured the information architecture. This step defined how the product should be organized across its main modules, ensuring that the overall system is intuitive, scalable, and directly aligned with the needs uncovered in research.
+          </p>
+        </div>
+      </section>
+
+      <section class="project-content-unit">
+        <figure class="polyverse-information-architecture" style="padding-left: 15%; padding-right: 15%;">
+          <img src="static/MIT-picture/polyverse-information-architecture.png">
+        </figure>
+      </section>
+
+      <section class="project-content-unit">
+        <div class="project-left-column">
+        </div>
+        <div class="project-right-column">
+          <p class="project-paragraph">
+            Polyverse is organized around four main tabs. City Pulse is the entry point for real-time exploration, where users can browse hotspots on a map or through a feed. Flow functions as a lightweight task manager, allowing activities to be saved, planned, and tracked across three states. Moment offers curated and community content for inspiration and long-term accumulation. Me serves as the personal hub, integrating profiles, Passport achievements, and AI tools.
+          </p>
+          <p class="project-paragraph">
+            This architecture connects spontaneous discovery, task execution, content inspiration, and personal recognition into a coherent exploration experience.
+          </p>
+        </div>
+      </section>
+      </section>
+
+      <section class="project-content-chapter">
+      <section class="project-content-unit">
+        <div class="project-left-column">
+          <span class="project-title">/ 06 User Journey</span>
+        </div>
+        <div class="project-right-column">
+          <p class="project-paragraph">
+            To better understand how users interact with Polyverse in real-life contexts, I mapped the user journey. This visualization captures the typical path Gen Z users take when they engage with the product during fragmented time, from their initial motivation to the final sense of achievement.
+          </p>
+        </div>
+      </section>
+
+      <section class="project-content-unit">
+        <figure class="polyverse-user-journey">
+          <img src="static/MIT-picture/polyverse-user-journey.png">
+        </figure>
+      </section>
+
+      <section class="project-content-unit">
+        <div class="project-left-column">
+        </div>
+        <div class="project-right-column">
+          <p class="project-paragraph">
+            The journey highlights five key stages — motivation, discovery, decision, action, and reflection — showing how Polyverse connects each step into a seamless exploration experience.
+          </p>
+        </div>
+      </section>
+      </section>
+
+      <section class="project-content-chapter">
+      <section class="project-content-unit">
+        <div class="project-left-column">
+          <span class="project-title">/ 07 Design Process</span>
+        </div>
+        <div class="project-right-column">
+          <p class="project-paragraph">
+            With the research and problem definition in place, I moved into the design process. This stage focused on translating insights into concrete solutions through ideation, iteration, and refinement, ultimately shaping the final experience of Polyverse.
+          </p>
+          <p class="project-paragraph-highlight">
+            1 / Ideation & Wireframing
+          </p>
+          <p class="project-paragraph">
+            To quickly translate ideas into tangible forms, I began with low-fidelity sketches and wireframes. This stage allowed me to explore different layouts and interaction patterns without the distraction of visual details.
+          </p>
+        </div>
+      </section>
+
+      <section class="project-content-unit">
+        <figure class="polyverse-wireframing">
+          <img src="static/MIT-picture/polyverse-wireframing.png">
+        </figure>
+      </section>
+
+      <section class="project-content-unit">
+        <div class="project-left-column">
+        </div>
+        <div class="project-right-column">
+          <p class="project-paragraph-highlight">
+            2 / Iteration & Prototype
+          </p>
+          <p class="project-paragraph">
+            After building the initial wireframes, I moved into iterative prototyping to validate the core interactions and refine the experience. This stage focused on translating early concepts into testable flows, gathering feedback, and improving usability step by step.
+          </p>
+          <p class="project-paragraph">
+            Iteration 01: During early prototyping, I found that relying solely on the map view limited efficiency when users needed to make quick decisions. To address this, I introduced a complementary List Mode, allowing users to switch between immersive spatial exploration and fast card-based browsing.
+          </p>
+        </div>
+      </section>
+
+      <section class="project-content-unit">
+        <figure class="polyverse-iteration">
+          <img src="static/MIT-picture/polyverse-iteration-01.png">
+        </figure>
+      </section>
+
+      <section class="project-content-unit">
+        <div class="project-left-column">
+        </div>
+        <div class="project-right-column">
+          <p class="project-paragraph">
+            Iteration 02: The Mission system was already represented as a “Current Mission” card on the Explore page, but users still had to switch tabs to view full details. This broke the flow between exploration and task execution. I streamlined this by making the Current Mission card itself clickable, enabling users to continue directly into the full Mission interface from Explore.
+          </p>
+        </div>
+      </section>
+
+      <section class="project-content-unit">
+        <figure class="polyverse-iteration">
+          <img src="static/MIT-picture/polyverse-iteration-02.png">
+        </figure>
+      </section>
+
+      <section class="project-content-unit">
+        <div class="project-left-column">
+        </div>
+        <div class="project-right-column">
+          <p class="project-paragraph-highlight">
+            3 / Design System
+          </p>
+          <p class="project-paragraph">
+            Building on the validated prototypes, I developed high-fidelity designs that refined the visual system and finalized the core interactions. At this stage, the focus was on ensuring clarity and consistency while shaping a distinctive brand identity for Polyverse.
+          </p>
+          <p class="project-paragraph">
+            To ensure visual consistency and scalability, I developed a design system that defined the core elements—colors, typography, components, and spacing. This system created a unified language that supported both clarity and flexibility across the product.
+          </p>
+        </div>
+      </section>
+
+      <section class="project-content-unit">
+        <figure class="polyverse-design-system">
+          <img src="static/MIT-picture/polyverse-color.png">
+          <figcaption>Design System - Color Palette</figcaption>
+        </figure>
+      </section>
+
+      <section class="project-content-unit">
+        <figure class="polyverse-design-system">
+          <img src="static/MIT-picture/polyverse-typography.png">
+          <figcaption>Design System - Typography</figcaption>
+        </figure>
+      </section>
+
+      <section class="project-content-unit">
+        <figure class="polyverse-design-system" style="padding-left: 13%; padding-right: 13%;">
+          <img src="static/MIT-picture/polyverse-iconography.png">
+          <figcaption>Design System - Iconography</figcaption>
+        </figure>
+      </section>
+
+      <section class="project-content-unit">
+        <figure class="polyverse-design-system" style="padding-left: 12%; padding-right: 12%;">
+          <img src="static/MIT-picture/polyverse-components.png">
+          <figcaption>Design System - Components (Part)</figcaption>
+        </figure>
+      </section>
+
+      <section class="project-content-unit">
+        <div class="project-left-column">
+        </div>
+        <div class="project-right-column">
+          <p class="project-paragraph-highlight">
+            4 / IP Character Design
+          </p>
+          <p class="project-paragraph">
+            Beyond the core design system, I also created a unique IP character—a New York pigeon styled as a witty urban informant. This character adds personality and storytelling to the product, making the brand more memorable and relatable to users.
+          </p>
+        </div>
+      </section>
+
+      <section class="project-content-unit">
+        <figure class="polyverse-ip">
+          <img src="static/MIT-picture/polyverse-ip.png">
+        </figure>
+      </section>
+
+      <section class="project-content-unit">
+        <div class="project-left-column">
+        </div>
+        <div class="project-right-column">
+          <p class="project-paragraph-highlight">
+            5 / Hi-fi Design
+          </p>
+          <p class="project-paragraph">
+            Building on the design system, I translated the core user flows into high-fidelity UI screens. These key interfaces showcase how the product comes together—balancing functionality with a clean, engaging visual style tailored for quick, everyday use.
+          </p>
+        </div>
+      </section>
+
+      <section class="project-content-unit">
+        <figure class="polyverse-wireframing">
+          <img src="static/MIT-picture/polyverse-hifi.png">
+        </figure>
+      </section>
+      </section>
+
+      <section class="project-content-chapter">
+      <section class="project-content-unit">
+        <div class="project-left-column">
+          <span class="project-title">/ 08 Design Specs & Handoff</span>
+        </div>
+        <div class="project-right-column">
+          <p class="project-paragraph">
+            To ensure smooth collaboration between design and engineering, I documented clear specifications, interaction behaviors, and edge case handling for seamless implementation. This section demonstrates how design decisions were translated into actionable handoff materials—bridging visual design with real product development.
+          </p>
+          <p class="project-paragraph">
+            My focus was on creating a system that is scalable, consistent, and implementation-ready, so the development team could build with accuracy and speed.
+          </p>
+          <p class="project-paragraph-highlight">
+            1 / Interaction Specs & States
+          </p>
+          <p class="project-paragraph">
+            For every core user flow — including task creation, map interactions, and content publishing — I defined detailed interaction states and micro-behaviors. This covered transitions between active, hover, loading, and completed states, ensuring a clear and intuitive experience across different components. By documenting these specs directly in Figma Dev Mode, I made sure engineers could easily understand how each element should behave, not just how it should look.
+          </p>
+        </div>
+      </section>
+
+      <section class="project-content-unit">
+        <figure class="polyverse-state">
+          <img src="static/MIT-picture/polyverse-state-01.png">
+          <figcaption>Five key completed states</figcaption>
+        </figure>
+      </section>
+
+      <section class="project-content-unit">
+        <div class="project-left-column">
+        </div>
+        <div class="project-right-column">
+          <p class="project-paragraph-highlight">
+            2 / Edge & Error States
+          </p>
+          <p class="project-paragraph">
+            Beyond ideal flows, I also outlined edge and error scenarios to maintain product reliability under unexpected user actions or network issues. This included empty states, failed submissions, and interrupted map interactions, ensuring the system provides clear guidance and recovery options for users. By addressing these cases early, we reduced ambiguity for engineers and improved the overall UX consistency.
+          </p>
+        </div>
+      </section>
+
+      <section class="project-content-unit">
+        <figure class="polyverse-state">
+          <img src="static/MIT-picture/polyverse-state-02.png">
+        </figure>
+      </section>
+
+      <section class="project-content-unit">
+        <div class="project-left-column">
+        </div>
+        <div class="project-right-column">
+          <p class="project-paragraph-highlight">
+            3 / Handoff Notes
+          </p>
+          <p class="project-paragraph">
+            All final design deliverables were accompanied by handoff documentation, including component specs, spacing tokens, color variables, and responsive behavior notes. I worked closely with developers to ensure every pixel and interaction had clear references, reducing the need for additional clarifications during development. This process improved handoff efficiency and allowed the engineering team to build faster with fewer rounds of back-and-forth.
+          </p>
+        </div>
+      </section>
+
+      <section class="project-content-unit">
+        <figure class="polyverse-handoff">
+          <img src="static/MIT-picture/polyverse-handoff-figma-01.png">
+          <figcaption>Figma Variables — Semantic Color Tokens</figcaption>
+        </figure>
+      </section>
+
+      <section class="project-content-unit">
+        <figure class="polyverse-handoff">
+          <img src="static/MIT-picture/polyverse-handoff-figma-02.png">
+          <figcaption>Figma Variables — Semantic Typography Tokens</figcaption>
+        </figure>
+      </section>
+
+      <section class="project-content-unit">
+        <figure class="polyverse-handoff">
+          <img src="static/MIT-picture/polyverse-handoff-notion-01.png">
+          <figcaption>Token Documentation — Notion</figcaption>
+        </figure>
+      </section>
+      </section>
+
+      <section class="project-content-chapter">
+      <section class="project-content-unit">
+        <div class="project-left-column">
+          <span class="project-title">/ 09 Usability Testing</span>
+        </div>
+        <div class="project-right-column">
+          <p class="project-paragraph">
+            To evaluate the effectiveness of the high-fidelity design and uncover potential usability issues, I conducted usability testing with Gen Z participants. The goal was to observe how easily users could navigate key tasks — such as discovering hotspots, adding activities, and tracking progress — and to identify opportunities for refinement.
+          </p>
+          <p class="project-paragraph-highlight">
+            Case 01: Notification Recommendation
+          </p>
+          <p class="project-paragraph">
+            During usability testing, users expressed a common expectation: they wanted the product to provide timely suggestions at the right moments, rather than relying solely on active exploration. Based on this feedback, I introduced an interest- and location-based notification feature, allowing the app to act like a “companion” that proactively recommends nearby places of interest, making the exploration experience more natural and immediate.
+          </p>
+        </div>
+      </section>
+
+      <section class="project-content-unit">
+        <figure class="polyverse-usability-testing">
+          <img src="static/MIT-picture/polyverse-usability-testing-01.png">
+        </figure>
+      </section>
+
+      <section class="project-content-unit">
+        <div class="project-left-column">
+        </div>
+        <div class="project-right-column">
+          <p class="project-paragraph-highlight">
+            Case 02: Automatic Mission Completion
+          </p>
+          <p class="project-paragraph">
+            In testing, I observed that users found the manual “check-off” step after completing a mission to be cumbersome and disruptive to their flow. They wanted a smarter and more lightweight way to update their progress. Based on this feedback, I changed the process to automatically mark missions as completed, making the flow smoother and more seamless.
+          </p>
+        </div>
+      </section>
+
+      <section class="project-content-unit">
+        <figure class="polyverse-usability-testing">
+          <img src="static/MIT-picture/polyverse-usability-testing-02.png">
+        </figure>
+      </section>
+      </section>
+
+      <section class="project-content-chapter">
+      <section class="project-content-unit">
+        <div class="project-left-column">
+          <span class="project-title">/ 10 Final Outcome</span>
+        </div>
+        <div class="project-right-column">
+          <p class="project-paragraph">
+            The final outcome brings together all stages of the design process into a cohesive product experience. Polyverse transforms fragmented time into meaningful urban exploration by combining real-time discovery, lightweight task management, inspiring community content, and achievement-driven recognition.
+          </p>
+        </div>
+      </section>
+      
+      <section class="project-content-unit">
+        <figure class="polyverse-video-embed">
+          <div class="polyverse-video-embed__ratio">
+            <iframe
+              src="https://player.vimeo.com/video/1122634002?badge=0&autopause=0&player_id=0&app_id=58479"
+              title="Polyverse - Demo Video"
+              frameborder="0"
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin">
+            </iframe>
+          </div>
+        </figure>
+      </section>
+
+      <script defer src="https://player.vimeo.com/api/player.js"></script>
+
+      <section class="project-content-unit">
+        <div class="polyverse-ui-container">
+          <div class="polyverse-ui-row">
+            <div class="polyverse-ui-image">
+              <img src="static/MIT-picture/polyverse-ui-01.gif" alt="Main page">
+            </div>
+            <div class="polyverse-ui-text">
+              <a class="polyverse-ui-title">1 - Onboarding</a>
+              <p>Quickly sign up and personalize your profile to start exploring the city with Polyverse.</p>
+            </div>
+            <div class="polyverse-ui-image">
+              <img src="static/MIT-picture/polyverse-ui-02.gif" alt="Edit your image">
+            </div>
+            <div class="polyverse-ui-text">
+              <a class="polyverse-ui-title">2 - Explore</a>
+              <p>Navigate the city through map and list views, finding trending spots that match your interests.</p>
+            </div>
+          </div>
+
+          <div class="polyverse-ui-row">
+            <div class="polyverse-ui-image">
+              <img src="static/MIT-picture/polyverse-ui-03.gif" alt="Edit your event">
+            </div>
+            <div class="polyverse-ui-text">
+              <a class="polyverse-ui-title">3 - Pack</a>
+              <p>Save and organize places into Missions, creating flexible plans for your free time.</p>
+            </div>
+            <div class="polyverse-ui-image">
+              <img src="static/MIT-picture/polyverse-ui-04.gif" alt="Motion capture">
+            </div>
+            <div class="polyverse-ui-text">
+              <a class="polyverse-ui-title">4 - News</a>
+              <p>Browse curated themes and community posts to discover fresh ideas and upcoming activities.</p>
+            </div>
+          </div>
+
+          <div class="polyverse-ui-row">
+            <div class="polyverse-ui-image">
+              <img src="static/MIT-picture/polyverse-ui-05.gif" alt="Check your message">
+            </div>
+            <div class="polyverse-ui-text">
+              <a class="polyverse-ui-title">5 - Passport</a>
+              <p>Collect badges and milestones as you complete Missions, building your personal exploration record.</p>
+            </div>
+            <div class="polyverse-ui-image">
+              <img src="static/MIT-picture/polyverse-ui-06.gif" alt="Check your message">
+            </div>
+            <div class="polyverse-ui-text">
+              <a class="polyverse-ui-title">6 - Setting</a>
+              <p>Manage preferences, notifications, and account details to tailor Polyverse to your needs.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      </section>
+
+      <section class="project-content-chapter">
+      <section class="project-content-unit">
+        <div class="project-left-column">
+          <span class="project-title">/ 11 Reflection</span>
+        </div>
+        <div class="project-right-column">
+          <p class="project-paragraph">
+            This project was not only about building a functional product but also about refining my design thinking process. From the early low-fidelity iterations, I learned how simple changes—such as introducing a list mode or integrating mission flows directly into the map—could dramatically shift user efficiency and engagement. Through usability testing, I confronted real user pain points and translated feedback into actionable improvements, which guided the hi-fidelity iterations where interface clarity and interaction smoothness became my focus.
+          </p>
+          <p class="project-paragraph">
+            Ultimately, Polyverse taught me to balance exploration with structure: creating an experience that feels open and spontaneous, yet grounded in usability and clarity. As a product designer, this journey reinforced the importance of iterative testing, designing with both system logic and emotional resonance in mind, and being willing to reframe solutions when user behavior revealed new insights.
+          </p>
+        </div>
+      </section>
+      </section>
+
+
+
+
+
+    </div>
+    
+
+    <!--
+    <footer>
+      <nav class="footer-navbar">
+        <a id="contact" href="mailto:yuhui.qi@outlook.com">Contact Yuhui</a>
+        <a id="copyright">Copyright © Yuhui Qi 2025</a>
+      </nav>
+    </footer>
+    -->
+
+    <!--
+    <script id="snoise-function" type="x-shader/x-vertex">
+      vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+      vec2 mod289(vec2 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+      vec3 permute(vec3 x) { return mod289(((x*34.0)+1.0)*x); }
+
+      float snoise(vec2 v) {
+          const vec4 C = vec4(0.211324865405187,  // (3.0-sqrt(3.0))/6.0
+                              0.366025403784439,  // 0.5*(sqrt(3.0)-1.0)
+                              -0.577350269189626,  // -1.0 + 2.0 * C.x
+                              0.024390243902439); // 1.0 / 41.0
+          vec2 i  = floor(v + dot(v, C.yy) );
+          vec2 x0 = v -   i + dot(i, C.xx);
+          vec2 i1;
+          i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
+          vec4 x12 = x0.xyxy + C.xxzz;
+          x12.xy -= i1;
+          i = mod289(i); // Avoid truncation effects in permutation
+          vec3 p = permute( permute( i.y + vec3(0.0, i1.y, 1.0 ))
+              + i.x + vec3(0.0, i1.x, 1.0 ));
+
+          vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy), dot(x12.zw,x12.zw)), 0.0);
+          m = m*m ;
+          m = m*m ;
+          vec3 x = 2.0 * fract(p * C.www) - 1.0;
+          vec3 h = abs(x) - 0.5;
+          vec3 ox = floor(x + 0.5);
+          vec3 a0 = x - ox;
+          m *= 1.79284291400159 - 0.85373472095314 * ( a0*a0 + h*h );
+          vec3 g;
+          g.x  = a0.x  * x0.x  + h.x  * x0.y;
+          g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+          return 130.0 * dot(m, g);
+      }
+    </script>
+    <script id="vertex-shader" type="x-shader/x-vertex">
+      uniform float u_time;
+      uniform vec2 u_randomisePosition;
+
+      varying float vDistortion;
+      varying float xDistortion;
+      varying vec2 vUv;
+
+      void main() {
+          vUv = uv;
+          vDistortion = snoise(vUv.xx * 3. - u_randomisePosition * 0.15);
+          xDistortion = snoise(vUv.yy * 1. - u_randomisePosition * 0.05);
+          vec3 pos = position;
+          pos.z += (vDistortion * 35.);
+          pos.x += (xDistortion * 25.);
+
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
+      }
+    </script>
+    <script id="fragment-shader" type="x-shader/x-fragment">
+
+      vec3 rgb(float r, float g, float b) {
+          return vec3(r / 255., g / 255., b / 255.);
+      }
+
+      vec3 rgb(float c) {
+          return vec3(c / 255., c / 255., c / 255.);
+      }
+
+      uniform vec3 u_bg;
+      uniform vec3 u_bgMain;
+      uniform vec3 u_color1;
+      uniform vec3 u_color2;
+      uniform float u_time;
+
+      varying vec2 vUv;
+      varying float vDistortion;
+
+      void main() {
+          vec3 bg = rgb(u_bg.r, u_bg.g, u_bg.b);
+          vec3 c1 = rgb(u_color1.r, u_color1.g, u_color1.b);
+          vec3 c2 = rgb(u_color2.r, u_color2.g, u_color2.b);
+          vec3 bgMain = rgb(u_bgMain.r, u_bgMain.g, u_bgMain.b);
+
+          float noise1 = snoise(vUv + u_time * 0.08);
+          float noise2 = snoise(vUv * 2. + u_time * 0.1);
+
+          vec3 color = bg;
+          color = mix(color, c1, noise1 * 0.6);
+          color = mix(color, c2, noise2 * .4);
+
+          color = mix(color, mix(c1, c2, vUv.x), vDistortion);
+
+          float border = smoothstep(0.1, 0.6, vUv.x);
+
+          color = mix(color, bgMain, 1. -border);
+
+          gl_FragColor = vec4(color, 1.0);
+      }
+    </script>
+    <script src="static/js/animated-background.js" type="module"></script>
+    -->
+  </body>
+</html>

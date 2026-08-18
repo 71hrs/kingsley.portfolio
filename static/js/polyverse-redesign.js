@@ -46,6 +46,19 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("click", event => { if (!event.target.closest(".pvr-header-actions")) closeMenu(); });
   document.addEventListener("keydown", event => { if (event.key === "Escape") closeMenu(); });
 
+  const vimeoCover = document.querySelector(".pvr-vimeo-cover");
+  vimeoCover?.addEventListener("click", () => {
+    const videoId = vimeoCover.dataset.vimeoId;
+    if (!videoId || vimeoCover.dataset.playing === "true") return;
+    vimeoCover.dataset.playing = "true";
+    const frame = document.createElement("iframe");
+    frame.src = `https://player.vimeo.com/video/${videoId}?autoplay=1&badge=0&autopause=0&title=0&byline=0&portrait=0`;
+    frame.title = "Polyverse product demo";
+    frame.allow = "autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share";
+    frame.allowFullscreen = true;
+    vimeoCover.replaceWith(frame);
+  });
+
   backToTop.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
