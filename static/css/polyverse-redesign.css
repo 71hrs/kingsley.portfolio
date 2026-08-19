@@ -1445,3 +1445,156 @@ img.pvr-comparison-board__arrow { display: block; width: 28px; height: auto; jus
   .pvr-approach-principles article + article { border-top: 1px solid rgba(255,255,255,.15); border-left: 0; }
 }
 .pvr-journey-testing img { object-position: 27% center; }
+
+/* Decision studies share the same balanced product-and-evidence frame. */
+.pvr-hypothesis-board { grid-template-columns: 45% 55%; }
+.pvr-hypothesis-board > .pvr-hypothesis-ui--media {
+  padding: 0;
+  border-right: 0;
+}
+.pvr-hypothesis-board .pvr-hypothesis-ui--media video {
+  width: min(100%, 290px);
+  max-height: 560px;
+}
+.pvr-hypothesis-board {
+  padding: clamp(54px, 7vw, 88px);
+  box-sizing: border-box;
+}
+.pvr-hypothesis-board blockquote { padding: 0; }
+.pvr-section-index { display: block; margin-bottom: 12px; color: var(--pvr-orange); font-family: "Heebo", Helvetica, Arial, sans-serif; font-size: 10px; font-weight: 600; letter-spacing: .12em; line-height: 1; text-transform: uppercase; }
+
+/* The trade-off is a decision record rather than another pair of cards. */
+.pvr-tradeoff-table { display: grid; grid-template-columns: .8fr 1.15fr 1.35fr; overflow: hidden; color: var(--pvr-ink); border: 1px solid rgba(33,29,24,.3); border-radius: 18px; background: #f8e9ab; }
+.pvr-tradeoff-table__head { display: contents; }
+.pvr-tradeoff-table__head span { padding: 23px clamp(22px, 3vw, 46px); border-bottom: 1px solid rgba(33,29,24,.22); color: rgba(33,29,24,.58); font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.pvr-tradeoff-table__head span:not(:last-child) { border-right: 1px solid rgba(33,29,24,.16); }
+.pvr-tradeoff-table article { display: contents; }
+.pvr-tradeoff-table article > * { min-width: 0; margin: 0; padding: clamp(30px, 3.7vw, 52px) clamp(22px, 3vw, 46px); border-bottom: 1px solid rgba(33,29,24,.18); }
+.pvr-tradeoff-table article > *:not(:last-child) { border-right: 1px solid rgba(33,29,24,.14); }
+.pvr-tradeoff-table article:last-child > * { border-bottom: 0; background: rgba(255,255,255,.16); }
+.pvr-tradeoff-table small { display: block; color: var(--pvr-orange); font-size: 11px; font-weight: 600; letter-spacing: .03em; line-height: 1.45; }
+.pvr-tradeoff-table strong { font-family: "EB Garamond", Georgia, serif; font-size: clamp(19px, 1.7vw, 25px); font-weight: 500; line-height: 1.16; }
+.pvr-tradeoff-table p { color: rgba(33,29,24,.7); font-size: 14px; line-height: 1.7; }
+
+/* Figo and the design system are intentionally browsable, not a static image stack. */
+.pvr-media-carousel { position: relative; width: min(calc(100vw - (2 * var(--pvr-gutter))), var(--pvr-center)); margin-top: var(--pvr-media-space); overflow: hidden; border: 1px solid rgba(33,29,24,.3); border-radius: 28px; background: var(--pvr-placeholder); transform: translateX(-44.35%); }
+.pvr-media-carousel__viewport { position: relative; min-height: clamp(490px, 52vw, 690px); }
+.pvr-media-carousel__slide { position: absolute; inset: 0; margin: 0; opacity: 0; pointer-events: none; transform: translateX(4%); transition: opacity 300ms ease, transform 520ms cubic-bezier(.22,1,.36,1); }
+.pvr-media-carousel__slide.is-active { position: relative; opacity: 1; pointer-events: auto; transform: none; }
+.pvr-media-carousel__chip { position: absolute; top: clamp(26px, 3vw, 42px); left: clamp(32px, 4vw, 58px); z-index: 3; margin: 0; padding: 9px 21px; border: 1px solid var(--pvr-orange); border-radius: 999px; color: var(--pvr-orange); background: rgba(255,241,186,.68); font-size: 11px; font-weight: 600; letter-spacing: .04em; }
+.pvr-media-carousel__slide { display: grid; place-items: center; }
+.pvr-media-carousel__slide img { display: block; width: min(100%, 920px); height: 100%; max-height: 560px; object-fit: contain; }
+.pvr-media-carousel__arrow { position: absolute; top: 50%; z-index: 2; display: grid; width: 40px; height: 72px; padding: 0; place-items: center; border: 0; color: rgba(33,29,24,.58); background: transparent; font-family: Arial, sans-serif; font-size: 54px; font-weight: 200; line-height: 1; cursor: pointer; transform: translateY(-50%); transition: color 200ms ease, transform 260ms cubic-bezier(.22,1,.36,1); }
+.pvr-media-carousel__arrow:hover { color: var(--pvr-orange); transform: translateY(-50%) scale(1.12); }
+.pvr-media-carousel__arrow--prev { left: clamp(14px, 1.9vw, 30px); }
+.pvr-media-carousel__arrow--next { right: clamp(14px, 1.9vw, 30px); }
+.pvr-media-carousel__dots { position: absolute; bottom: clamp(24px, 3vw, 38px); left: 50%; z-index: 2; display: flex; gap: 12px; transform: translateX(-50%); }
+.pvr-media-carousel__dots button { width: 9px; height: 9px; padding: 0; border: 0; border-radius: 50%; background: rgba(33,29,24,.26); cursor: pointer; transition: transform 220ms ease, background 220ms ease; }
+.pvr-media-carousel__dots button.is-active { background: var(--pvr-orange); transform: scale(1.35); }
+
+/* The testing panels share the exact grid rhythm of the final Iteration frame:
+   product proof at left, evidence at right, with the same intentional gutter. */
+.pvr-hypothesis-board {
+  align-items: center;
+  gap: clamp(36px, 6vw, 84px);
+}
+.pvr-hypothesis-board blockquote {
+  justify-content: center;
+  align-self: stretch;
+}
+.pvr-hypothesis-board blockquote > span { display: block; margin: 0 0 22px; }
+.pvr-hypothesis-board blockquote p { margin: 0; }
+.pvr-hypothesis-board blockquote cite { margin: 24px 0 0; }
+
+/* Carousel chrome stays still. Only the protected media stage moves, leaving
+   breathing room below the title and around the navigation controls. */
+.pvr-media-carousel {
+  --pvr-carousel-top: clamp(108px, 11vw, 142px);
+  --pvr-carousel-side: clamp(86px, 10vw, 148px);
+  --pvr-carousel-bottom: clamp(72px, 7vw, 98px);
+}
+.pvr-media-carousel__viewport {
+  height: clamp(500px, 52vw, 690px);
+  min-height: 0;
+}
+.pvr-media-carousel__slide,
+.pvr-media-carousel__slide.is-active {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template: minmax(0, 1fr) / minmax(0, 1fr);
+  padding: var(--pvr-carousel-top) var(--pvr-carousel-side) var(--pvr-carousel-bottom);
+  place-items: center;
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 0;
+}
+.pvr-media-carousel__slide {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(28px);
+  transition: opacity 260ms ease, transform 560ms cubic-bezier(.22, 1, .36, 1);
+}
+.pvr-media-carousel__slide.is-active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+.pvr-media-carousel__slide.is-entering-from-left,
+.pvr-media-carousel__slide.is-exiting-to-left { transform: translateX(-28px); }
+.pvr-media-carousel__slide.is-entering-from-right,
+.pvr-media-carousel__slide.is-exiting-to-right { transform: translateX(28px); }
+.pvr-media-carousel__slide img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  min-width: 0;
+  min-height: 0;
+  object-fit: contain;
+}
+
+/* A short entry bridge introduces each case study without competing with the
+   progressive reveal that follows while scrolling. */
+@media (prefers-reduced-motion: no-preference) {
+  html.case-entry-ready .pvr-header,
+  html.case-entry-ready main { opacity: 0; translate: 0 16px; }
+  html.case-entry-ready.case-entry-complete .pvr-header,
+  html.case-entry-ready.case-entry-complete main {
+    opacity: 1;
+    translate: none;
+    transition: opacity 620ms cubic-bezier(.22, 1, .36, 1), translate 760ms cubic-bezier(.16, 1, .3, 1);
+  }
+  html.case-entry-ready.case-entry-complete main { transition-delay: 70ms; }
+}
+
+/* Case-study media crosses only a quarter into the adjacent color field. */
+.pvr-intro-media-transition { background: var(--pvr-paper); }
+.pvr-intro-media-transition::before { inset: 0 0 75%; background: var(--pvr-yellow); }
+.pvr-impact-media-transition { background: linear-gradient(to bottom, var(--pvr-paper) 0 75%, var(--pvr-yellow) 75% 100%); }
+
+/* The gallery arrow reads as one control, not a detached icon. */
+.pvr-back { gap: 10px; }
+
+@media (max-width: 700px) {
+  .pvr-hypothesis-board { grid-template-columns: 1fr; padding: 0; }
+  .pvr-hypothesis-board > .pvr-hypothesis-ui--media,
+  .pvr-hypothesis-board blockquote { padding: 34px 28px; }
+  .pvr-tradeoff-table { grid-template-columns: 1fr; }
+  .pvr-tradeoff-table__head { display: none; }
+  .pvr-tradeoff-table article { display: grid; grid-template-columns: 1fr; }
+  .pvr-tradeoff-table article > * { padding: 20px 24px; border-bottom: 0; }
+  .pvr-tradeoff-table article > small { padding-bottom: 0; color: var(--pvr-orange); font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+  .pvr-tradeoff-table article > strong { padding-top: 14px; padding-bottom: 0; }
+  .pvr-tradeoff-table article > p { padding-top: 14px; }
+  .pvr-tradeoff-table article + article { border-top: 1px solid rgba(33,29,24,.14); }
+  .pvr-media-carousel { width: 100%; margin-top: 56px; border-radius: 20px; transform: none; }
+  .pvr-media-carousel {
+    --pvr-carousel-top: 82px;
+    --pvr-carousel-side: 62px;
+    --pvr-carousel-bottom: 62px;
+  }
+  .pvr-media-carousel__viewport { height: clamp(320px, 94vw, 480px); min-height: 0; }
+  .pvr-media-carousel__chip { top: 18px; left: 20px; font-size: 10px; }
+  .pvr-media-carousel__arrow { width: 36px; height: 54px; font-size: 46px; }
+}

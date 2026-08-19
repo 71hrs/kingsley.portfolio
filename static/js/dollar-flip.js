@@ -1,3 +1,10 @@
+if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  document.documentElement.classList.add("case-entry-ready");
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    document.documentElement.classList.add("case-entry-complete");
+  }));
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector(".dfr-header");
   const backToTop = document.querySelector(".dfr-back-to-top");

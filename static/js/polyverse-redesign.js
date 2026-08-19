@@ -1,3 +1,10 @@
+if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  document.documentElement.classList.add("case-entry-ready");
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    document.documentElement.classList.add("case-entry-complete");
+  }));
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector(".pvr-header");
   const backToTop = document.querySelector(".pvr-back-to-top");
@@ -61,6 +68,67 @@ document.addEventListener("DOMContentLoaded", () => {
 
   backToTop.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("[data-carousel]").forEach(carousel => {
+    const slides = [...carousel.querySelectorAll(".pvr-media-carousel__slide")];
+    const dots = [...carousel.querySelectorAll(".pvr-media-carousel__dots button")];
+    if (slides.length < 2) return;
+
+    let activeIndex = Math.max(0, slides.findIndex(slide => slide.classList.contains("is-active")));
+    let exitTimer = 0;
+    const syncControls = () => {
+      const label = carousel.querySelector("[data-carousel-chip]");
+      if (label) label.textContent = slides[activeIndex].dataset.carouselTitle || label.textContent;
+      dots.forEach((dot, index) => {
+        const isActive = index === activeIndex;
+        dot.classList.toggle("is-active", isActive);
+        dot.setAttribute("aria-current", String(isActive));
+      });
+    };
+
+    const showSlide = (nextIndex, initial = false) => {
+      const resolvedIndex = (nextIndex + slides.length) % slides.length;
+      if (initial) {
+        activeIndex = resolvedIndex;
+        slides.forEach((slide, index) => {
+          slide.classList.remove("is-entering-from-left", "is-entering-from-right", "is-exiting-to-left", "is-exiting-to-right");
+          slide.classList.toggle("is-active", index === activeIndex);
+        });
+        syncControls();
+        return;
+      }
+      if (resolvedIndex === activeIndex) return;
+
+      const previousIndex = activeIndex;
+      const forward = (resolvedIndex - previousIndex + slides.length) % slides.length <= slides.length / 2;
+      const previous = slides[previousIndex];
+      const incoming = slides[resolvedIndex];
+      const enterClass = forward ? "is-entering-from-right" : "is-entering-from-left";
+      const exitClass = forward ? "is-exiting-to-left" : "is-exiting-to-right";
+
+      window.clearTimeout(exitTimer);
+      slides.forEach(slide => slide.classList.remove("is-entering-from-left", "is-entering-from-right", "is-exiting-to-left", "is-exiting-to-right"));
+      incoming.classList.remove("is-active");
+      incoming.classList.add(enterClass);
+      previous.classList.remove("is-active");
+      previous.classList.add(exitClass);
+      activeIndex = resolvedIndex;
+      syncControls();
+
+      requestAnimationFrame(() => {
+        incoming.classList.remove(enterClass);
+        incoming.classList.add("is-active");
+      });
+      exitTimer = window.setTimeout(() => previous.classList.remove(exitClass), 620);
+    };
+
+    carousel.querySelector("[data-carousel-prev]")?.addEventListener("click", () => showSlide(activeIndex - 1));
+    carousel.querySelector("[data-carousel-next]")?.addEventListener("click", () => showSlide(activeIndex + 1));
+    dots.forEach((dot, index) => dot.addEventListener("click", () => showSlide(index)));
+    showSlide(activeIndex, true);
   });
 });
 

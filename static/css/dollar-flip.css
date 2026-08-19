@@ -16,6 +16,18 @@
 
 .case-reveal-ready .case-reveal{opacity:0;translate:0 34px;transition:opacity 900ms cubic-bezier(.22,1,.36,1) var(--reveal-delay,0ms),translate 1100ms cubic-bezier(.16,1,.3,1) var(--reveal-delay,0ms);will-change:opacity,translate}.case-reveal-ready .case-reveal.is-revealed{opacity:1;translate:none}@media(prefers-reduced-motion:reduce){.case-reveal{opacity:1!important;translate:none!important}}
 
+@media (prefers-reduced-motion: no-preference) {
+  html.case-entry-ready .dfr-header,
+  html.case-entry-ready main { opacity: 0; translate: 0 16px; }
+  html.case-entry-ready.case-entry-complete .dfr-header,
+  html.case-entry-ready.case-entry-complete main {
+    opacity: 1;
+    translate: none;
+    transition: opacity 620ms cubic-bezier(.22, 1, .36, 1), translate 760ms cubic-bezier(.16, 1, .3, 1);
+  }
+  html.case-entry-ready.case-entry-complete main { transition-delay: 70ms; }
+}
+
 html.dollar-flip-case { scroll-behavior: auto; background: var(--dfr-paper); }
 
 body {
@@ -962,3 +974,8 @@ a { color: inherit; text-decoration: none; }
   clip-path: inset(1px round 15% / 7.5%);
 }
 .dfr-assumption-board__screens video { width: min(100%, 230px); max-height: 500px; }
+
+/* Match the tighter case-study navigation and quarter-depth media transition. */
+.dfr-back { gap: 10px; }
+.dfr-intro-media-transition { background: linear-gradient(to bottom, var(--dfr-night) 0 25%, var(--dfr-paper) 25% 100%); }
+.dfr-impact-media-transition { background: linear-gradient(to bottom, var(--dfr-paper) 0 75%, var(--dfr-night) 75% 100%); }
