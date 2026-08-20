@@ -17,13 +17,34 @@ menuToggle?.addEventListener("click", () => {
   navLinks?.classList.toggle("is-open", open);
 });
 
-function restoreAboutPage() {
-  document.body.classList.remove("interior-page-loading", "interior-is-leaving");
+function restoreAboutPage(event) {
+  if (event?.persisted) {
+    document.body.classList.add("interior-page-loading");
+    requestAnimationFrame(() => requestAnimationFrame(() => document.body.classList.remove("interior-page-loading")));
+  } else {
+    document.body.classList.remove("interior-page-loading");
+  }
+  document.body.classList.remove("interior-is-leaving");
   closeMenu();
 }
 
-requestAnimationFrame(() => requestAnimationFrame(restoreAboutPage));
+requestAnimationFrame(() => requestAnimationFrame(() => restoreAboutPage()));
 window.addEventListener("pageshow", restoreAboutPage);
+
+function revealReturnedFromCase() {
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  try {
+    const [destination, source] = (sessionStorage.getItem("portfolio-case-return") || "").split("|");
+    if (destination !== location.pathname || !/\/(?:polyverse|dollar-flip)\.html$/.test(source)) return;
+    sessionStorage.removeItem("portfolio-case-return");
+    const tone = source.includes("dollar-flip") ? "case-return--dollar" : "case-return--polyverse";
+    document.documentElement.classList.remove("case-return--dollar", "case-return--polyverse", "case-return-complete");
+    document.documentElement.classList.add("case-return-ready", tone);
+    requestAnimationFrame(() => requestAnimationFrame(() => document.documentElement.classList.add("case-return-complete")));
+    window.setTimeout(() => document.documentElement.classList.remove("case-return-ready", tone, "case-return-complete"), 700);
+  } catch (_) {}
+}
+window.addEventListener("pageshow", revealReturnedFromCase);
 
 document.querySelectorAll(".navbar a").forEach((link) => {
   link.addEventListener("click", (event) => {

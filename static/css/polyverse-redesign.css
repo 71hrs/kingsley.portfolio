@@ -1699,3 +1699,144 @@ img.pvr-comparison-board__arrow { display: block; width: 28px; height: auto; jus
   .pvr-media-carousel__chip { left: 54px; }
   .pvr-media-carousel__arrow { width: 28px; height: 50px; font-size: 40px; }
 }
+
+/* A full-page curtain gives case-study navigation a continuous entrance and
+   exit without delaying the underlying page render. */
+html.polyverse-redesign-case::before {
+  position: fixed;
+  z-index: 2000;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background: var(--pvr-night);
+  opacity: 0;
+  clip-path: inset(0 100% 0 0);
+}
+html.polyverse-redesign-case.case-entry-ready::before { opacity: 1; clip-path: inset(0 0 0 0); }
+html.polyverse-redesign-case.case-entry-ready.case-entry-complete::before {
+  clip-path: inset(0 0 0 100%);
+  transition: clip-path 760ms cubic-bezier(.76, 0, .24, 1) 130ms;
+}
+html.polyverse-redesign-case::after {
+  position: fixed;
+  z-index: 2001;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background: var(--pvr-accent);
+  clip-path: inset(0 100% 0 0);
+}
+html.polyverse-redesign-case.case-entry-ready::after { clip-path: inset(0 0 0 0); }
+html.polyverse-redesign-case.case-entry-ready.case-entry-complete::after {
+  clip-path: inset(0 0 0 100%);
+  transition: clip-path 520ms cubic-bezier(.76, 0, .24, 1);
+}
+html.polyverse-redesign-case.case-is-leaving::after {
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 520ms cubic-bezier(.76, 0, .24, 1);
+}
+html.polyverse-redesign-case.case-is-leaving::before {
+  opacity: 1;
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 700ms cubic-bezier(.76, 0, .24, 1) 110ms;
+}
+@media (prefers-reduced-motion: reduce) { html.polyverse-redesign-case::before, html.polyverse-redesign-case::after { display: none; } }
+
+/* Carousel geometry: the title, media stage, and pagination share one frame;
+   the navigation sits exactly halfway between that frame and the outer edge. */
+.pvr-media-carousel {
+  --pvr-carousel-inset: clamp(22px, 2.6vw, 42px);
+  --pvr-carousel-chip-height: 38px;
+  --pvr-carousel-gap: var(--pvr-carousel-inset);
+  --pvr-carousel-media-side: clamp(38px, 4vw, 64px);
+  --pvr-carousel-stage-side: calc(var(--pvr-carousel-inset) + var(--pvr-carousel-media-side));
+  --pvr-carousel-arrow-width: 34px;
+  --pvr-carousel-arrow-offset: calc((var(--pvr-carousel-stage-side) - var(--pvr-carousel-arrow-width)) / 2);
+}
+.pvr-media-carousel__chip {
+  top: var(--pvr-carousel-inset);
+  left: var(--pvr-carousel-stage-side);
+}
+.pvr-media-carousel__stage {
+  top: calc(var(--pvr-carousel-inset) + var(--pvr-carousel-chip-height) + var(--pvr-carousel-gap));
+  right: var(--pvr-carousel-stage-side);
+  bottom: calc((2 * var(--pvr-carousel-inset)) + 7px);
+  left: var(--pvr-carousel-stage-side);
+}
+.pvr-media-carousel__arrow { width: var(--pvr-carousel-arrow-width); }
+.pvr-media-carousel__arrow--prev { left: var(--pvr-carousel-arrow-offset); }
+.pvr-media-carousel__arrow--next { right: var(--pvr-carousel-arrow-offset); }
+.pvr-media-carousel__dots { bottom: var(--pvr-carousel-inset); }
+
+/* Allocate space to the two decision approaches rather than an empty label column. */
+.pvr-tradeoff-table__head,
+.pvr-tradeoff-table article {
+  grid-template-columns: minmax(155px, .84fr) minmax(320px, 1.72fr) minmax(190px, .94fr);
+  column-gap: clamp(18px, 2.2vw, 34px);
+}
+
+/* The Polyverse outcome image follows the same evidence pattern as Dollar Flip,
+   while keeping the project’s yellow palette. */
+.pvr-impact-evidence { position: relative; overflow: hidden; }
+.pvr-scene-metrics {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  width: min(36%, 368px);
+  padding: 0 clamp(24px, 2.8vw, 38px);
+  color: var(--pvr-ink);
+  background: rgba(255, 241, 186, .92);
+  backdrop-filter: blur(10px);
+}
+.pvr-scene-metrics article { display: flex; min-width: 0; flex-direction: column; justify-content: center; padding-block: 20px; }
+.pvr-scene-metrics article + article { border-top: 1px solid rgba(33, 29, 24, .16); }
+.pvr-scene-metrics strong { display: block; color: var(--pvr-orange); font-family: "EB Garamond", Georgia, serif; font-size: clamp(36px, 4vw, 54px); font-weight: 400; line-height: .95; }
+.pvr-scene-metrics h3 { margin: 18px 0 0; color: var(--pvr-ink); font-size: 13px; font-weight: 600; line-height: 18px; }
+.pvr-scene-metrics p { max-width: 19em; margin: 9px 0 0; color: rgba(33, 29, 24, .68); font-size: 12px; line-height: 20px; }
+
+/* Give the comparison its reading priority: perspective is an index, while
+   strategy and the resulting design direction receive the usable space. */
+.pvr-tradeoff-table__head,
+.pvr-tradeoff-table article {
+  grid-template-columns: minmax(104px, .48fr) minmax(200px, 1.12fr) minmax(260px, 1.5fr);
+}
+.pvr-tradeoff-table__head span,
+.pvr-tradeoff-table article > * { border-inline: 0 !important; }
+
+@media (max-width: 700px) {
+  .pvr-media-carousel {
+    --pvr-carousel-inset: 18px;
+    --pvr-carousel-stage-side: 54px;
+    --pvr-carousel-arrow-width: 28px;
+  }
+  .pvr-media-carousel__stage { right: var(--pvr-carousel-stage-side); left: var(--pvr-carousel-stage-side); }
+  .pvr-media-carousel__chip { left: var(--pvr-carousel-stage-side); }
+  .pvr-scene-metrics { position: static; display: block; width: auto; padding: 10px 28px; background: var(--pvr-placeholder); backdrop-filter: none; }
+  .pvr-scene-metrics article,
+  .pvr-scene-metrics article:first-child { display: grid; grid-template-columns: 90px minmax(0, 1fr); align-items: start; gap: 4px 16px; padding: 28px 0; }
+  .pvr-scene-metrics strong { grid-row: 1 / 3; padding-top: 2px; font-size: 36px; }
+  .pvr-scene-metrics h3 { margin-top: 0; }
+  .pvr-scene-metrics p { margin-top: 7px; }
+}
+
+@media (min-width: 701px) {
+  .pvr-tradeoff-table__head,
+  .pvr-tradeoff-table article {
+    grid-template-columns: minmax(155px, .84fr) minmax(320px, 1.72fr) minmax(190px, .94fr);
+    column-gap: clamp(18px, 2.2vw, 34px);
+  }
+}
+
+/* One project-coloured curtain bridges the gallery and the case. Keeping the
+   underlying page visible until this sheet arrives avoids a third colour beat. */
+html.polyverse-redesign-case::before { display: none !important; }
+html.polyverse-redesign-case::after { background: #d8a849; }
+html.polyverse-redesign-case.case-entry-ready.case-entry-complete::after {
+  transition-duration: 1000ms;
+}
+html.polyverse-redesign-case.case-is-leaving::after {
+  transition-duration: 500ms;
+}

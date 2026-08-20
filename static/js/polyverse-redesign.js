@@ -1,4 +1,35 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const root = document.documentElement;
+  const playCaseEntry = () => {
+    root.classList.add("case-entry-ready");
+    root.classList.remove("case-entry-complete");
+    requestAnimationFrame(() => requestAnimationFrame(() => root.classList.add("case-entry-complete")));
+  };
+  if (document.documentElement.classList.contains("case-entry-ready")) {
+    playCaseEntry();
+  }
+  window.addEventListener("pageshow", (event) => {
+    root.classList.remove("case-is-leaving");
+    if (event.persisted) playCaseEntry();
+  });
+  document.querySelectorAll('a[href]').forEach(link => {
+    link.addEventListener("click", event => {
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || link.target === "_blank") return;
+      const target = new URL(link.href, location.href);
+      if (target.origin !== location.origin || (target.pathname === location.pathname && target.hash)) return;
+      event.preventDefault();
+      if (/\/(?:polyverse|dollar-flip)\.html$/.test(target.pathname)) {
+        try { sessionStorage.setItem("portfolio-case-entry", target.pathname); } catch (_) {}
+      }
+      root.classList.add("case-is-leaving");
+      try {
+        if (!/\/(?:polyverse|dollar-flip)\.html$/.test(target.pathname)) {
+          sessionStorage.setItem("portfolio-case-return", `${target.pathname}|${location.pathname}`);
+        }
+      } catch (_) {}
+      window.setTimeout(() => { window.location.href = target.href; }, 500);
+    });
+  });
   const header = document.querySelector(".pvr-header");
   const backToTop = document.querySelector(".pvr-back-to-top");
   const menuToggle = document.querySelector(".pvr-menu-toggle");
@@ -135,12 +166,13 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Keep the chapter marker available before its narrative or media enters so
-  // readers never encounter body content without its section context.
+  const chapterHeaders = document.querySelectorAll(".pvr-chapter__header");
   const items = document.querySelectorAll(".pvr-subsection > h3, .pvr-body-copy, .pvr-process-block, .pvr-case-media:not(.pvr-impact-evidence), .pvr-overview-details article, .pvr-reflection__copy > *");
-  if (!items.length || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if ((!items.length && !chapterHeaders.length) || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   document.body.classList.add("case-reveal-ready");
-  items.forEach(item => { item.classList.add("case-reveal"); item.style.setProperty("--reveal-delay", "0ms"); });
-  const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add("is-revealed"); observer.unobserve(entry.target); } }), { rootMargin: "0px 0px -10%", threshold: .08 });
+  chapterHeaders.forEach(item => { item.classList.add("case-reveal"); item.style.setProperty("--reveal-delay", "0ms"); });
+  items.forEach(item => { item.classList.add("case-reveal"); item.style.setProperty("--reveal-delay", "70ms"); });
+  const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add("is-revealed"); observer.unobserve(entry.target); } }), { rootMargin: "0px 0px -8%", threshold: .04 });
+  chapterHeaders.forEach(item => observer.observe(item));
   items.forEach(item => observer.observe(item));
 });

@@ -18,6 +18,54 @@
 
 html.dollar-flip-case { scroll-behavior: auto; background: var(--dfr-paper); }
 
+/* A full-page curtain gives case-study navigation a continuous entrance and
+   exit without delaying the underlying page render. */
+html.dollar-flip-case::before {
+  position: fixed;
+  z-index: 2000;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background: var(--dfr-night);
+  opacity: 0;
+  clip-path: inset(0 100% 0 0);
+}
+html.dollar-flip-case.case-entry-ready::before { opacity: 1; clip-path: inset(0 0 0 0); }
+html.dollar-flip-case.case-entry-ready.case-entry-complete::before {
+  clip-path: inset(0 0 0 100%);
+  transition: clip-path 760ms cubic-bezier(.76, 0, .24, 1) 130ms;
+}
+html.dollar-flip-case::after {
+  position: fixed;
+  z-index: 2001;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background: var(--dfr-accent);
+  clip-path: inset(0 100% 0 0);
+}
+html.dollar-flip-case.case-entry-ready::after { clip-path: inset(0 0 0 0); }
+html.dollar-flip-case.case-entry-ready.case-entry-complete::after {
+  clip-path: inset(0 0 0 100%);
+  transition: clip-path 520ms cubic-bezier(.76, 0, .24, 1);
+}
+html.dollar-flip-case.case-is-leaving::after {
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 520ms cubic-bezier(.76, 0, .24, 1);
+}
+html.dollar-flip-case.case-is-leaving::before {
+  opacity: 1;
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 700ms cubic-bezier(.76, 0, .24, 1) 110ms;
+}
+@media (prefers-reduced-motion: reduce) { html.dollar-flip-case::before, html.dollar-flip-case::after { display: none; } }
+
+/* A single muted indigo sheet bridges the gallery and the case. */
+html.dollar-flip-case::before { display: none !important; }
+html.dollar-flip-case::after { background: #706ca5; }
+html.dollar-flip-case.case-entry-ready.case-entry-complete::after { transition-duration: 1000ms; }
+html.dollar-flip-case.case-is-leaving::after { transition-duration: 500ms; }
+
 body {
   min-width: 320px;
   margin: 0;
