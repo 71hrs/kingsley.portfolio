@@ -1,9 +1,3 @@
-if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  requestAnimationFrame(() => requestAnimationFrame(() => {
-    document.documentElement.classList.add("case-entry-complete");
-  }));
-}
-
 document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector(".dfr-header");
   const backToTop = document.querySelector(".dfr-back-to-top");
@@ -72,10 +66,12 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const items = document.querySelectorAll(".dfr-chapter__header, .dfr-subsection > h3, .dfr-body-copy, .dfr-case-media:not(.dfr-impact-evidence), .dfr-overview-details article, .dfr-reflection__copy > *");
+  // Chapter labels remain immediately legible; the supporting content can then
+  // enter progressively without ever overtaking its section title.
+  const items = document.querySelectorAll(".dfr-subsection > h3, .dfr-body-copy, .dfr-case-media:not(.dfr-impact-evidence), .dfr-overview-details article, .dfr-reflection__copy > *");
   if (!items.length || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   document.body.classList.add("case-reveal-ready");
-  items.forEach((item, index) => { item.classList.add("case-reveal"); item.style.setProperty("--reveal-delay", `${Math.min(index % 3, 2) * 70}ms`); });
+  items.forEach(item => { item.classList.add("case-reveal"); item.style.setProperty("--reveal-delay", "0ms"); });
   const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add("is-revealed"); observer.unobserve(entry.target); } }), { rootMargin: "0px 0px -10%", threshold: .08 });
   items.forEach(item => observer.observe(item));
 });

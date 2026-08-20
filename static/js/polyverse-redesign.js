@@ -1,9 +1,3 @@
-if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  requestAnimationFrame(() => requestAnimationFrame(() => {
-    document.documentElement.classList.add("case-entry-complete");
-  }));
-}
-
 document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector(".pvr-header");
   const backToTop = document.querySelector(".pvr-back-to-top");
@@ -141,10 +135,12 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const items = document.querySelectorAll(".pvr-chapter__header, .pvr-subsection > h3, .pvr-body-copy, .pvr-process-block, .pvr-case-media:not(.pvr-impact-evidence), .pvr-overview-details article, .pvr-reflection__copy > *");
+  // Keep the chapter marker available before its narrative or media enters so
+  // readers never encounter body content without its section context.
+  const items = document.querySelectorAll(".pvr-subsection > h3, .pvr-body-copy, .pvr-process-block, .pvr-case-media:not(.pvr-impact-evidence), .pvr-overview-details article, .pvr-reflection__copy > *");
   if (!items.length || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   document.body.classList.add("case-reveal-ready");
-  items.forEach((item, index) => { item.classList.add("case-reveal"); item.style.setProperty("--reveal-delay", `${Math.min(index % 3, 2) * 70}ms`); });
+  items.forEach(item => { item.classList.add("case-reveal"); item.style.setProperty("--reveal-delay", "0ms"); });
   const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add("is-revealed"); observer.unobserve(entry.target); } }), { rootMargin: "0px 0px -10%", threshold: .08 });
   items.forEach(item => observer.observe(item));
 });
