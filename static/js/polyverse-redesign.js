@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.documentElement;
+  let isNavigatingAway = false;
   const playCaseEntry = () => {
     root.classList.add("case-entry-ready");
     root.classList.remove("case-entry-complete");
@@ -18,6 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const target = new URL(link.href, location.href);
       if (target.origin !== location.origin || (target.pathname === location.pathname && target.hash)) return;
       event.preventDefault();
+      if (isNavigatingAway) return;
+      isNavigatingAway = true;
       if (/\/(?:polyverse|dollar-flip)\.html$/.test(target.pathname)) {
         try { sessionStorage.setItem("portfolio-case-entry", target.pathname); } catch (_) {}
       }

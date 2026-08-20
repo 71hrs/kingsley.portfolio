@@ -43,6 +43,7 @@ html.dollar-flip-case::after {
   pointer-events: none;
   background: var(--dfr-accent);
   clip-path: inset(0 100% 0 0);
+  transition: clip-path 500ms cubic-bezier(.76, 0, .24, 1);
 }
 html.dollar-flip-case.case-entry-ready::after { clip-path: inset(0 0 0 0); }
 html.dollar-flip-case.case-entry-ready.case-entry-complete::after {
@@ -63,8 +64,15 @@ html.dollar-flip-case.case-is-leaving::before {
 /* A single muted indigo sheet bridges the gallery and the case. */
 html.dollar-flip-case::before { display: none !important; }
 html.dollar-flip-case::after { background: #706ca5; }
-html.dollar-flip-case.case-entry-ready.case-entry-complete::after { transition-duration: 1000ms; }
+html.dollar-flip-case.case-entry-ready.case-entry-complete::after { transition-duration: 500ms; }
 html.dollar-flip-case.case-is-leaving::after { transition-duration: 500ms; }
+/* The completed entry selector is more specific than the normal exit state.
+   Combine both states so an exit curtain begins on the click frame. */
+html.dollar-flip-case.case-entry-ready.case-entry-complete.case-is-leaving::after {
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 500ms cubic-bezier(.76, 0, .24, 1);
+  will-change: clip-path;
+}
 
 body {
   min-width: 320px;
