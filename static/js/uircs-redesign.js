@@ -1,4 +1,5 @@
 if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  document.documentElement.classList.add("case-entry-ready");
   requestAnimationFrame(() => requestAnimationFrame(() => {
     document.documentElement.classList.add("case-entry-complete");
   }));

@@ -1,5 +1,4 @@
 if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  document.documentElement.classList.add("case-entry-ready");
   requestAnimationFrame(() => requestAnimationFrame(() => {
     document.documentElement.classList.add("case-entry-complete");
   }));
@@ -75,10 +74,31 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("[data-carousel]").forEach(carousel => {
     const slides = [...carousel.querySelectorAll(".pvr-media-carousel__slide")];
     const dots = [...carousel.querySelectorAll(".pvr-media-carousel__dots button")];
+    const viewport = carousel.querySelector(".pvr-media-carousel__viewport");
     if (slides.length < 2) return;
 
+    let stage = carousel.querySelector(".pvr-media-carousel__stage");
+    if (!stage && viewport) {
+      stage = document.createElement("div");
+      stage.className = "pvr-media-carousel__stage";
+      viewport.before(stage);
+      stage.append(viewport);
+    }
+
+    const firstClone = slides[0].cloneNode(true);
+    const lastClone = slides[slides.length - 1].cloneNode(true);
+    firstClone.setAttribute("aria-hidden", "true");
+    lastClone.setAttribute("aria-hidden", "true");
+    viewport?.prepend(lastClone);
+    viewport?.append(firstClone);
+
     let activeIndex = Math.max(0, slides.findIndex(slide => slide.classList.contains("is-active")));
-    let exitTimer = 0;
+    let physicalIndex = activeIndex + 1;
+    const moveTrack = (animate = true) => {
+      if (!viewport) return;
+      viewport.style.transition = animate ? "transform 500ms cubic-bezier(.22, 1, .36, 1)" : "none";
+      viewport.style.transform = `translate3d(-${physicalIndex * 100}%, 0, 0)`;
+    };
     const syncControls = () => {
       const label = carousel.querySelector("[data-carousel-chip]");
       if (label) label.textContent = slides[activeIndex].dataset.carouselTitle || label.textContent;
@@ -87,48 +107,36 @@ document.addEventListener("DOMContentLoaded", () => {
         dot.classList.toggle("is-active", isActive);
         dot.setAttribute("aria-current", String(isActive));
       });
+      slides.forEach((slide, index) => {
+        slide.classList.toggle("is-active", index === activeIndex);
+        slide.setAttribute("aria-hidden", String(index !== activeIndex));
+      });
     };
 
-    const showSlide = (nextIndex, initial = false) => {
+    const showSlide = nextIndex => {
       const resolvedIndex = (nextIndex + slides.length) % slides.length;
-      if (initial) {
-        activeIndex = resolvedIndex;
-        slides.forEach((slide, index) => {
-          slide.classList.remove("is-entering-from-left", "is-entering-from-right", "is-exiting-to-left", "is-exiting-to-right");
-          slide.classList.toggle("is-active", index === activeIndex);
-        });
-        syncControls();
-        return;
-      }
       if (resolvedIndex === activeIndex) return;
-
-      const previousIndex = activeIndex;
-      const forward = (resolvedIndex - previousIndex + slides.length) % slides.length <= slides.length / 2;
-      const previous = slides[previousIndex];
-      const incoming = slides[resolvedIndex];
-      const enterClass = forward ? "is-entering-from-right" : "is-entering-from-left";
-      const exitClass = forward ? "is-exiting-to-left" : "is-exiting-to-right";
-
-      window.clearTimeout(exitTimer);
-      slides.forEach(slide => slide.classList.remove("is-entering-from-left", "is-entering-from-right", "is-exiting-to-left", "is-exiting-to-right"));
-      incoming.classList.remove("is-active");
-      incoming.classList.add(enterClass);
-      previous.classList.remove("is-active");
-      previous.classList.add(exitClass);
       activeIndex = resolvedIndex;
+      physicalIndex += nextIndex > activeIndex ? -1 : 1;
+      /* Buttons advance in their pressed direction; direct dot jumps use the
+         corresponding original slide inside the same track. */
+      if (nextIndex >= 0 && nextIndex < slides.length) physicalIndex = nextIndex + 1;
+      else if (nextIndex < 0) physicalIndex = 0;
+      else if (nextIndex >= slides.length) physicalIndex = slides.length + 1;
       syncControls();
-
-      requestAnimationFrame(() => {
-        incoming.classList.remove(enterClass);
-        incoming.classList.add("is-active");
-      });
-      exitTimer = window.setTimeout(() => previous.classList.remove(exitClass), 620);
+      moveTrack();
     };
 
     carousel.querySelector("[data-carousel-prev]")?.addEventListener("click", () => showSlide(activeIndex - 1));
     carousel.querySelector("[data-carousel-next]")?.addEventListener("click", () => showSlide(activeIndex + 1));
     dots.forEach((dot, index) => dot.addEventListener("click", () => showSlide(index)));
-    showSlide(activeIndex, true);
+    syncControls();
+    moveTrack(false);
+    viewport?.addEventListener("transitionend", event => {
+      if (event.propertyName !== "transform") return;
+      if (physicalIndex === 0) { physicalIndex = slides.length; moveTrack(false); }
+      if (physicalIndex === slides.length + 1) { physicalIndex = 1; moveTrack(false); }
+    });
   });
 });
 

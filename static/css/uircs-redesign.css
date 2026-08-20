@@ -1,0 +1,100 @@
+@import url("dollar-flip.css?v=20260820-1");
+
+:root {
+  --dfr-night: #1d2827;
+  --dfr-paper: #f4f2eb;
+  --dfr-ink: #20302d;
+  --dfr-muted: rgba(32, 48, 45, .62);
+  --dfr-light-muted: rgba(255, 255, 255, .64);
+  --dfr-accent: #d4b66d;
+  --dfr-purple: #42645e;
+  --dfr-placeholder: #c9d6ca;
+}
+
+html.uircs-case { scroll-behavior: auto; background: var(--dfr-paper); }
+.uircs-case .site-brand-logo,
+.uircs-case .dfr-back,
+.uircs-case .dfr-menu-toggle { color: var(--dfr-accent); }
+.uircs-case .dfr-nav-menu { background: rgba(29, 40, 39, .9); }
+.uircs-case .dfr-hero-image { object-position: center; }
+.uircs-case .dfr-overview-details h3 { color: var(--dfr-purple); }
+
+/* All diagrams share a stable, centered canvas instead of per-section offsets. */
+.uircs-case .dfr-case-media:not(.dfr-case-media--wide):not(.dfr-impact-evidence) {
+  width: min(calc(100vw - (2 * var(--dfr-gutter))), var(--dfr-center));
+  margin-top: var(--dfr-media-space);
+  transform: translateX(-44.35%);
+  background: #e1e9e0;
+}
+.uircs-case .dfr-case-media img { display: block; width: 100%; height: auto; object-fit: contain; }
+.uircs-case .dfr-case-media--wide {
+  width: min(calc(100vw - (2 * var(--dfr-gutter))), var(--dfr-center));
+  margin-top: var(--dfr-media-space);
+  transform: none;
+}
+.uircs-interface-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(22px, 2.4vw, 36px);
+  width: min(calc(100vw - (2 * var(--dfr-gutter))), var(--dfr-center));
+  margin-top: var(--dfr-media-space);
+  transform: translateX(-44.35%);
+}
+.uircs-case .uircs-interface-grid .dfr-case-media:not(.dfr-case-media--wide):not(.dfr-impact-evidence) {
+  width: 100%;
+  margin: 0;
+  transform: none;
+  border: 1px solid rgba(32, 48, 45, .14);
+  background: #edf1eb;
+}
+
+/* Decision boards follow the same editorial three-column rhythm as Dollar Flip. */
+.uircs-validation-board,
+.uircs-impact-board {
+  width: min(calc(100vw - (2 * var(--dfr-gutter))), var(--dfr-center));
+  margin-top: var(--dfr-media-space);
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  color: var(--dfr-ink);
+  background: var(--dfr-placeholder);
+  transform: translateX(-44.35%);
+}
+.uircs-validation-board article,
+.uircs-impact-board article {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  gap: clamp(24px, 4vw, 54px);
+  min-height: 112px;
+  padding: 26px clamp(38px, 5vw, 64px);
+}
+.uircs-validation-board article + article,
+.uircs-impact-board article + article { border-top: 1px solid rgba(32, 48, 45, .16); }
+.uircs-validation-board span,
+.uircs-impact-board span { color: #477067; font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.uircs-validation-board h3,
+.uircs-impact-board h3 { margin: 0; color: var(--dfr-ink); font-family: "EB Garamond", Georgia, serif; font-size: clamp(22px, 2.2vw, 29px); font-weight: 500; line-height: 1.08; }
+.uircs-validation-board p,
+.uircs-impact-board p { margin: 0; color: rgba(32, 48, 45, .66); font-size: 13px; line-height: 21px; }
+
+.uircs-case .dfr-impact-media-transition { background: linear-gradient(to bottom, var(--dfr-paper) 0 50%, var(--dfr-night) 50% 100%); }
+.uircs-case .dfr-impact-media-transition {
+  grid-column: 1 / -1;
+  width: calc(100% + (2 * var(--dfr-gutter)));
+  margin-left: calc(-1 * var(--dfr-gutter));
+}
+.uircs-case .dfr-footer { background: #42645e; color: #fff; }
+.uircs-case .dfr-footer__meta span { color: var(--dfr-accent); }
+.uircs-case .dfr-site-footer { background: var(--dfr-night); }
+
+@media (max-width: 700px) {
+  .uircs-case .dfr-case-media:not(.dfr-case-media--wide):not(.dfr-impact-evidence),
+  .uircs-interface-grid,
+  .uircs-validation-board,
+  .uircs-impact-board { width: 100%; transform: none; }
+  .uircs-interface-grid { grid-template-columns: 1fr; gap: 22px; }
+  .uircs-case .dfr-case-media--wide { width: 100%; }
+  .uircs-validation-board article,
+  .uircs-impact-board article { grid-template-columns: 1fr; gap: 12px; min-height: 0; padding: 30px 26px; }
+}

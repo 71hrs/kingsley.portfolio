@@ -1510,48 +1510,50 @@ img.pvr-comparison-board__arrow { display: block; width: 28px; height: auto; jus
    breathing room below the title and around the navigation controls. */
 .pvr-media-carousel {
   --pvr-carousel-top: clamp(108px, 11vw, 142px);
-  --pvr-carousel-side: clamp(86px, 10vw, 148px);
+  --pvr-carousel-side: clamp(88px, 11vw, 154px);
   --pvr-carousel-bottom: clamp(72px, 7vw, 98px);
+  --pvr-carousel-media-width: min(76%, 920px);
 }
 .pvr-media-carousel__viewport {
   height: clamp(500px, 52vw, 690px);
   min-height: 0;
+  display: flex;
+  overflow: visible;
+  transform: translate3d(0, 0, 0);
+  transition: transform 500ms ease;
+  will-change: transform;
 }
 .pvr-media-carousel__slide,
 .pvr-media-carousel__slide.is-active {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  inset: auto;
+  flex: 0 0 100%;
   display: grid;
   grid-template: minmax(0, 1fr) / minmax(0, 1fr);
-  padding: var(--pvr-carousel-top) var(--pvr-carousel-side) var(--pvr-carousel-bottom);
+  padding: var(--pvr-carousel-top) 0 var(--pvr-carousel-bottom);
   place-items: center;
   box-sizing: border-box;
   min-width: 0;
   min-height: 0;
-}
-.pvr-media-carousel__slide {
-  opacity: 0;
-  pointer-events: none;
-  transform: translateX(28px);
-  transition: opacity 260ms ease, transform 560ms cubic-bezier(.22, 1, .36, 1);
-}
-.pvr-media-carousel__slide.is-active {
   opacity: 1;
-  pointer-events: auto;
-  transform: translateX(0);
+  pointer-events: none;
+  transform: none;
+  transition: none;
 }
-.pvr-media-carousel__slide.is-entering-from-left,
-.pvr-media-carousel__slide.is-exiting-to-left { transform: translateX(-28px); }
-.pvr-media-carousel__slide.is-entering-from-right,
-.pvr-media-carousel__slide.is-exiting-to-right { transform: translateX(28px); }
 .pvr-media-carousel__slide img {
-  width: auto;
+  width: var(--pvr-carousel-media-width);
   height: auto;
-  max-width: 100%;
-  max-height: 100%;
+  max-width: none;
+  max-height: calc(100% - var(--pvr-carousel-top) - var(--pvr-carousel-bottom));
   min-width: 0;
   min-height: 0;
   object-fit: contain;
+}
+.pvr-media-carousel__chip {
+  left: calc((100% - var(--pvr-carousel-media-width)) / 2);
+}
+.pvr-media-carousel--system .pvr-media-carousel__slide img {
+  max-height: min(500px, calc(100% - var(--pvr-carousel-top) - var(--pvr-carousel-bottom)));
 }
 
 /* A short entry bridge introduces each case study without competing with the
@@ -1576,6 +1578,36 @@ img.pvr-comparison-board__arrow { display: block; width: 28px; height: auto; jus
 /* The gallery arrow reads as one control, not a detached icon. */
 .pvr-back { gap: 10px; }
 
+/* Final alignment pass: shared Decision panels retain the same breathing room
+   as Dollar Flip, while Polyverse keeps its own warm product palette. */
+.pvr-hypothesis-board blockquote { padding-right: clamp(44px, 5vw, 76px); }
+
+/* Trade-off uses the same editorial decision-map rhythm as Dollar Flip. */
+.pvr-tradeoff-table { padding: clamp(42px, 6vw, 74px) clamp(38px, 5vw, 64px) clamp(38px, 5vw, 58px); overflow: hidden; color: var(--pvr-ink); border: 0; border-radius: 0; background: var(--pvr-placeholder); }
+.pvr-tradeoff-table__head,
+.pvr-tradeoff-table article { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(24px, 4vw, 54px); }
+.pvr-tradeoff-table__head { margin-bottom: 30px; padding-bottom: 18px; border-bottom: 1px solid rgba(33,29,24,.24); }
+.pvr-tradeoff-table__head span { padding: 0; border: 0; color: rgba(33,29,24,.58); font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.pvr-tradeoff-table article { align-items: start; padding-block: 28px; }
+.pvr-tradeoff-table article + article { border-top: 1px solid rgba(33,29,24,.18); }
+.pvr-tradeoff-table article > * { min-width: 0; margin: 0; padding: 0; border: 0; background: transparent !important; }
+.pvr-tradeoff-table small { display: block; color: var(--pvr-orange); font-size: 11px; font-weight: 600; letter-spacing: .08em; line-height: 1.45; text-transform: uppercase; }
+.pvr-tradeoff-table strong { font-family: "EB Garamond", Georgia, serif; font-size: clamp(22px, 2.1vw, 29px); font-weight: 500; line-height: 1.1; }
+.pvr-tradeoff-table p { color: rgba(33,29,24,.72); font-size: 14px; line-height: 1.7; }
+
+/* Carousel chrome remains fixed; only the image track moves inside a stage. */
+.pvr-media-carousel__stage { height: clamp(500px, 52vw, 690px); margin: var(--pvr-carousel-top) var(--pvr-carousel-side) var(--pvr-carousel-bottom); overflow: hidden; border: 1px solid rgba(33,29,24,.18); border-radius: 18px; background: rgba(255,245,205,.34); }
+.pvr-media-carousel__viewport { height: 100%; min-height: 0; overflow: visible; }
+.pvr-media-carousel__slide,
+.pvr-media-carousel__slide.is-active { padding: 0; }
+.pvr-media-carousel__slide img { width: 100%; height: 100%; max-width: 100%; max-height: 100%; object-fit: contain; }
+.pvr-media-carousel__chip { left: var(--pvr-carousel-side); }
+.pvr-media-carousel--system .pvr-media-carousel__slide img { max-height: 100%; }
+
+/* The case-study media crosses halfway into its adjacent color field. */
+.pvr-intro-media-transition::before { inset: 0 0 50%; }
+.pvr-impact-media-transition { background: linear-gradient(to bottom, var(--pvr-paper) 0 50%, var(--pvr-yellow) 50% 100%); }
+
 @media (max-width: 700px) {
   .pvr-hypothesis-board { grid-template-columns: 1fr; padding: 0; }
   .pvr-hypothesis-board > .pvr-hypothesis-ui--media,
@@ -1593,8 +1625,84 @@ img.pvr-comparison-board__arrow { display: block; width: 28px; height: auto; jus
     --pvr-carousel-top: 82px;
     --pvr-carousel-side: 62px;
     --pvr-carousel-bottom: 62px;
+    --pvr-carousel-media-width: 72%;
   }
   .pvr-media-carousel__viewport { height: clamp(320px, 94vw, 480px); min-height: 0; }
   .pvr-media-carousel__chip { top: 18px; left: 20px; font-size: 10px; }
   .pvr-media-carousel__arrow { width: 36px; height: 54px; font-size: 46px; }
+}
+
+@media (max-width: 700px) {
+  .pvr-hypothesis-board blockquote { padding-right: 28px; }
+  .pvr-tradeoff-table { padding: 28px; }
+  .pvr-tradeoff-table__head { display: none; }
+  .pvr-tradeoff-table article { grid-template-columns: 1fr; gap: 14px; padding-block: 24px; }
+  .pvr-media-carousel__stage { height: clamp(320px, 94vw, 480px); margin: 82px 62px 62px; }
+  .pvr-media-carousel__chip { left: 62px; }
+}
+
+/* Final media and decision-map system: one implementation, shared rhythm. */
+.pvr-approach-principles { padding-top: 0; }
+
+.pvr-tradeoff-table {
+  display: block;
+  padding: clamp(42px, 6vw, 74px) clamp(38px, 5vw, 64px) clamp(38px, 5vw, 58px);
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  color: var(--pvr-ink);
+  background: var(--pvr-placeholder);
+}
+.pvr-tradeoff-table__head,
+.pvr-tradeoff-table article {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(24px, 4vw, 54px);
+}
+.pvr-tradeoff-table__head { margin: 0; padding: 0 0 24px; border-bottom: 1px solid rgba(33, 29, 24, .2); }
+.pvr-tradeoff-table__head span { padding: 0; border: 0; color: var(--pvr-orange); font-size: 9px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.pvr-tradeoff-table article { align-items: center; min-height: 112px; padding: 24px 0; }
+.pvr-tradeoff-table article + article { border-top: 1px solid rgba(33, 29, 24, .14); }
+.pvr-tradeoff-table article > * { min-width: 0; margin: 0; padding: 0; border: 0; background: transparent !important; }
+.pvr-tradeoff-table small { color: var(--pvr-orange); font-size: 10px; font-weight: 600; letter-spacing: .1em; line-height: 1.45; text-transform: uppercase; }
+.pvr-tradeoff-table strong { font-family: "EB Garamond", Georgia, serif; font-size: clamp(20px, 2.3vw, 28px); font-weight: 500; line-height: 1.08; }
+.pvr-tradeoff-table p { color: rgba(33, 29, 24, .62); font-size: 12px; line-height: 20px; }
+
+.pvr-media-carousel {
+  --pvr-carousel-inset: clamp(30px, 3.6vw, 58px);
+  --pvr-carousel-chip-height: 38px;
+  --pvr-carousel-gap: var(--pvr-carousel-inset);
+  position: relative;
+  width: min(calc(100vw - (2 * var(--pvr-gutter))), var(--pvr-center));
+  aspect-ratio: 16 / 9;
+  min-height: 0;
+  margin-top: var(--pvr-media-space);
+  overflow: hidden;
+  border: 1px solid rgba(33, 29, 24, .3);
+  border-radius: 28px;
+  background: var(--pvr-placeholder);
+  transform: translateX(-44.35%);
+}
+.pvr-media-carousel__chip { top: var(--pvr-carousel-inset); left: var(--pvr-carousel-inset); z-index: 4; min-height: var(--pvr-carousel-chip-height); box-sizing: border-box; }
+.pvr-media-carousel__stage { position: absolute; top: calc(var(--pvr-carousel-inset) + var(--pvr-carousel-chip-height) + var(--pvr-carousel-gap)); right: calc(var(--pvr-carousel-inset) + clamp(38px, 4vw, 64px)); bottom: calc((2 * var(--pvr-carousel-inset)) + 7px); left: calc(var(--pvr-carousel-inset) + clamp(38px, 4vw, 64px)); height: auto; margin: 0; overflow: hidden; border: 0; border-radius: 0; background: transparent; }
+.pvr-media-carousel__viewport { width: 100%; height: 100%; min-height: 0; overflow: visible; }
+.pvr-media-carousel__slide,
+.pvr-media-carousel__slide.is-active { display: grid; flex: 0 0 100%; width: 100%; height: 100%; padding: 0; place-items: center; }
+.pvr-media-carousel__slide img,
+.pvr-media-carousel--system .pvr-media-carousel__slide img { display: block; width: 100%; height: 100%; max-width: none; max-height: none; object-fit: contain; }
+.pvr-media-carousel__arrow { top: 56%; width: 34px; height: 58px; font-size: 48px; }
+.pvr-media-carousel__arrow--prev { left: var(--pvr-carousel-inset); }
+.pvr-media-carousel__arrow--next { right: var(--pvr-carousel-inset); }
+.pvr-media-carousel__dots { bottom: var(--pvr-carousel-inset); gap: 9px; }
+.pvr-media-carousel__dots button { width: 7px; height: 7px; }
+.pvr-media-carousel__dots button.is-active { transform: scale(1.25); }
+
+@media (max-width: 700px) {
+  .pvr-tradeoff-table { padding: 32px 28px; }
+  .pvr-tradeoff-table__head { display: none; }
+  .pvr-tradeoff-table article { grid-template-columns: 1fr; gap: 16px; min-height: 0; padding: 34px 0; }
+  .pvr-tradeoff-table article strong { grid-row: 1; }
+  .pvr-media-carousel { width: 100%; transform: none; border-radius: 20px; }
+  .pvr-media-carousel__stage { right: 54px; left: 54px; }
+  .pvr-media-carousel__arrow { width: 28px; height: 50px; font-size: 40px; }
 }
