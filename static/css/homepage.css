@@ -14,39 +14,6 @@ body {
     width: 100%;
 }
 
-/* Returning from a case study uses one project-tinted sheet: it covers the
-   outgoing case first, then reveals the destination from left to right. */
-html.case-return-ready::after {
-    position: fixed;
-    z-index: 5000;
-    inset: 0;
-    content: "";
-    pointer-events: none;
-    transform: translate3d(0, 0, 0);
-    will-change: transform;
-    backface-visibility: hidden;
-}
-html.case-return--polyverse::after { background: #d8a849; }
-html.case-return--dollar::after { background: #706ca5; }
-html.case-return-ready.case-return-complete::after {
-    transform: translate3d(-100%, 0, 0);
-    transition: transform 500ms cubic-bezier(.76,0,.24,1);
-}
-html.case-transition-prepared::after {
-  position: fixed;
-  z-index: 5000;
-  inset: 0;
-  content: "";
-  pointer-events: none;
-  transform: translate3d(-100%, 0, 0);
-  transition: transform 500ms cubic-bezier(.76,0,.24,1);
-  will-change: transform;
-  backface-visibility: hidden;
-}
-html.case-transition--polyverse::after { background: #d8a849; }
-html.case-transition--dollar::after { background: #706ca5; }
-html.case-transition-prepared.case-transition-leaving::after { transform: translate3d(0, 0, 0); }
-
 .hpr-background {
     width: 100%;
     height: 100%;

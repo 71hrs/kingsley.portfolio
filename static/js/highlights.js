@@ -37,22 +37,6 @@ function restoreHighlightsPage(event) {
 requestAnimationFrame(() => requestAnimationFrame(() => restoreHighlightsPage()));
 window.addEventListener("pageshow", restoreHighlightsPage);
 
-function revealReturnedFromCase() {
-  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  try {
-    const [destination, source] = (sessionStorage.getItem("portfolio-case-return") || "").split("|");
-    if (destination !== location.pathname || !/\/(?:polyverse|dollar-flip)\.html$/.test(source)) return;
-    sessionStorage.removeItem("portfolio-case-return");
-    const tone = source.includes("dollar-flip") ? "case-return--dollar" : "case-return--polyverse";
-    document.documentElement.classList.remove("case-return--dollar", "case-return--polyverse", "case-return-complete");
-    document.documentElement.classList.add("case-return-ready", tone);
-    requestAnimationFrame(() => requestAnimationFrame(() => document.documentElement.classList.add("case-return-complete")));
-    window.setTimeout(() => document.documentElement.classList.remove("case-return-ready", tone, "case-return-complete"), 700);
-  } catch (_) {}
-}
-window.addEventListener("pageshow", revealReturnedFromCase);
-requestAnimationFrame(revealReturnedFromCase);
-
 document.querySelectorAll(".navbar a").forEach((link) => {
   link.addEventListener("click", (event) => {
     if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || document.body.classList.contains("interior-is-leaving")) return;

@@ -193,25 +193,10 @@ function navigateWithTransition(event) {
   const destination = event.currentTarget.href;
   if (!destination || document.body.classList.contains("hpr-is-leaving")) return;
   event.preventDefault();
-  let isCaseTarget = false;
-  let caseTone = "";
-  try {
-    const target = new URL(destination, window.location.href);
-    if (target.pathname.endsWith("/polyverse.html") || target.pathname.endsWith("/dollar-flip.html")) {
-      isCaseTarget = true;
-      caseTone = target.pathname.endsWith("/dollar-flip.html") ? "case-transition--dollar" : "case-transition--polyverse";
-      sessionStorage.setItem("portfolio-case-entry", target.pathname);
-      sessionStorage.setItem("portfolio-case-return", `${location.pathname}|${target.pathname}`);
-    }
-  } catch (_) {}
   closeMenu();
   closePreview();
   document.body.classList.add("hpr-is-leaving");
-  if (isCaseTarget) {
-    document.documentElement.classList.add("case-transition-prepared", caseTone);
-    requestAnimationFrame(() => document.documentElement.classList.add("case-transition-leaving"));
-  }
-  window.setTimeout(() => { window.location.href = destination; }, isCaseTarget ? 500 : 420);
+  window.setTimeout(() => { window.location.href = destination; }, 420);
 }
 
 document.querySelectorAll(".hpr-page-link").forEach((link) => {
@@ -221,20 +206,6 @@ fields.link.addEventListener("click", navigateWithTransition);
 
 /* Browsers preserve body classes in the back-forward cache. Always restore the
    homepage to its neutral state when history navigation brings it back. */
-function revealReturnedFromCase() {
-  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  try {
-    const [destination, source] = (sessionStorage.getItem("portfolio-case-return") || "").split("|");
-    if (destination !== location.pathname || !/\/(?:polyverse|dollar-flip)\.html$/.test(source)) return;
-    sessionStorage.removeItem("portfolio-case-return");
-    const tone = source.includes("dollar-flip") ? "case-return--dollar" : "case-return--polyverse";
-    document.documentElement.classList.remove("case-return--dollar", "case-return--polyverse", "case-return-complete");
-    document.documentElement.classList.add("case-return-ready", tone);
-    requestAnimationFrame(() => requestAnimationFrame(() => document.documentElement.classList.add("case-return-complete")));
-    window.setTimeout(() => document.documentElement.classList.remove("case-return-ready", tone, "case-return-complete"), 700);
-  } catch (_) {}
-}
-
 function clearStaleCaseTransition() {
   document.documentElement.classList.remove(
     "case-transition-prepared",
@@ -246,7 +217,6 @@ function clearStaleCaseTransition() {
 
 function restoreCaseNavigationState() {
   clearStaleCaseTransition();
-  revealReturnedFromCase();
 }
 
 window.addEventListener("pageshow", () => {

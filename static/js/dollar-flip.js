@@ -1,38 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.documentElement;
-  let isNavigatingAway = false;
-  const playCaseEntry = () => {
-    root.classList.add("case-entry-ready");
-    root.classList.remove("case-entry-complete");
-    requestAnimationFrame(() => requestAnimationFrame(() => root.classList.add("case-entry-complete")));
-  };
-  if (document.documentElement.classList.contains("case-entry-ready")) {
-    playCaseEntry();
-  }
+  const revealPage = () => requestAnimationFrame(() => requestAnimationFrame(() => root.classList.remove("case-page-loading")));
+  revealPage();
   window.addEventListener("pageshow", (event) => {
-    isNavigatingAway = false;
-    root.classList.remove("case-is-leaving");
-    if (event.persisted) playCaseEntry();
-  });
-  document.querySelectorAll('a[href]').forEach(link => {
-    link.addEventListener("click", event => {
-      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || link.target === "_blank") return;
-      const target = new URL(link.href, location.href);
-      if (target.origin !== location.origin || (target.pathname === location.pathname && target.hash)) return;
-      event.preventDefault();
-      if (isNavigatingAway) return;
-      isNavigatingAway = true;
-      if (/\/(?:polyverse|dollar-flip)\.html$/.test(target.pathname)) {
-        try { sessionStorage.setItem("portfolio-case-entry", target.pathname); } catch (_) {}
-      }
-      root.classList.add("case-is-leaving");
-      try {
-        if (!/\/(?:polyverse|dollar-flip)\.html$/.test(target.pathname)) {
-          sessionStorage.setItem("portfolio-case-return", `${target.pathname}|${location.pathname}`);
-        }
-      } catch (_) {}
-      window.setTimeout(() => { window.location.href = target.href; }, 500);
-    });
+    if (!event.persisted) return;
+    root.classList.add("case-page-loading");
+    revealPage();
   });
   const header = document.querySelector(".dfr-header");
   const backToTop = document.querySelector(".dfr-back-to-top");
