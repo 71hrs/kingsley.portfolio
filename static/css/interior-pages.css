@@ -110,3 +110,296 @@ body.interior-page-loading .highlights-container { opacity:1; transform:none; }
   .works-page .rail-label { margin: 0; font-size: 12px; }
   .works-page .ra-gallery { padding-top: 28px; padding-bottom: 28px; }
 }
+
+/* ================================================================
+   Works gallery — Refik Anadol–inspired grid system
+
+   Desktop keeps four square cells inside the reference's capped
+   1560px working grid (an 1800px canvas minus 120px on each side). At the
+   reference site's mobile breakpoint the cards become persistent
+   image-and-information tiles instead of relying on hover content.
+   ================================================================ */
+body.works-page {
+  --works-edge: clamp(34px, 6.25vw, 120px);
+  --works-gap: 25px;
+  height: auto;
+  min-height: 100%;
+  overflow-x: clip;
+  overflow-y: auto;
+}
+
+.works-page .works-container {
+  --gapX: var(--works-gap);
+  --padTop: clamp(52px, 4vw, 72px);
+  --padBottom: clamp(88px, 7vw, 118px);
+  position: relative;
+  inset: auto;
+  box-sizing: border-box;
+  width: min(1560px, calc(100% - var(--works-edge) - var(--works-edge)));
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 148px 0 180px;
+  overflow: visible;
+}
+
+.works-page .works-quote-section {
+  width: min(900px, 82%);
+  margin: 34px auto clamp(108px, 10vw, 168px);
+  padding: 0;
+}
+
+.works-page .works-quote-text {
+  margin: 0;
+  font-size: clamp(28px, 2.15vw, 40px);
+  line-height: 1.35;
+}
+
+.works-page .ra-section {
+  display: block;
+  width: 100%;
+  margin: 0 0 clamp(92px, 8vw, 136px);
+}
+
+.works-page .rail-label {
+  position: static;
+  display: block;
+  width: auto;
+  margin: 0 0 32px;
+  padding: 0;
+  color: rgba(255, 255, 255, .86);
+  font-family: 'Heebo', Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: .09em;
+  writing-mode: horizontal-tb;
+  text-orientation: mixed;
+  transform: none;
+  translate: none;
+}
+
+.works-page .section-body {
+  display: block;
+  width: 100%;
+}
+
+.works-page .ra-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--works-gap);
+  width: 100%;
+  padding: var(--padTop) var(--works-gap) var(--padBottom);
+  margin: calc(-1 * var(--padTop)) calc(-1 * var(--works-gap)) calc(-1 * var(--padBottom));
+}
+
+.works-page .ra-card {
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 1;
+}
+
+.works-page .ra-clip {
+  width: 100%;
+  height: 100%;
+  background: rgba(18, 18, 18, .18);
+}
+
+.works-page .ra-clip img {
+  transition: transform 700ms cubic-bezier(.22, 1, .36, 1), filter 500ms ease;
+}
+
+.works-page .ra-card:hover .ra-clip img,
+.works-page .ra-card:focus-visible .ra-clip img {
+  transform: scale(1.025);
+}
+
+.works-page .ra-card::after,
+.works-page .ra-panel {
+  transition-duration: 320ms;
+}
+
+.works-page .ra-card:focus-visible {
+  z-index: 200;
+  outline: none;
+}
+
+.works-page .ra-card:focus-visible::after,
+.works-page .ra-card:focus-visible .ra-panel {
+  opacity: 1;
+}
+
+/* Refik's desktop grid remains four columns up to its 1800px cap. */
+@media (min-width: 1025px) {
+  .works-page .ra-gallery {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--works-gap);
+  }
+}
+
+/* The reference switches to persistent information cards at 1024px. */
+@media (max-width: 1024px) {
+  body.works-page {
+    --works-edge: clamp(28px, 5.85vw, 60px);
+    --works-gap: 10px;
+  }
+
+  .works-page .works-container {
+    left: auto;
+    width: calc(100% - var(--works-edge) - var(--works-edge));
+    margin: 0 auto;
+    padding: 128px 0 128px;
+  }
+
+  .works-page .works-quote-section {
+    width: min(760px, 90%);
+    margin: 32px auto 96px;
+  }
+
+  .works-page .ra-section {
+    margin: 0 0 84px;
+  }
+
+  .works-page .rail-label {
+    margin-bottom: 24px;
+    font-size: 12px;
+  }
+
+  .works-page .ra-gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--works-gap);
+    margin: 0;
+    padding: 0;
+  }
+
+  .works-page .ra-card {
+    display: flex;
+    flex-direction: column;
+    aspect-ratio: auto;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, .12);
+    background: rgba(27, 29, 29, .42);
+    backdrop-filter: blur(10px);
+  }
+
+  .works-page .ra-clip {
+    flex: none;
+    aspect-ratio: 1;
+    height: auto;
+  }
+
+  .works-page .ra-card::after {
+    display: none;
+  }
+
+  .works-page .ra-panel {
+    position: relative;
+    inset: auto;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    min-height: 118px;
+    padding: 13px 14px 16px;
+    box-sizing: border-box;
+    opacity: 1;
+    pointer-events: none;
+  }
+
+  .works-page .ra-meta,
+  .works-page .ra-bottom {
+    position: static;
+    inset: auto;
+  }
+
+  .works-page .ra-meta {
+    order: 2;
+    margin-top: auto;
+    padding-top: 16px;
+    font-size: 10px;
+    white-space: normal;
+    opacity: .72;
+  }
+
+  .works-page .ra-bottom {
+    order: 1;
+  }
+
+  .works-page .ra-title {
+    margin-bottom: 8px;
+    font-size: 16px;
+    line-height: 1.2;
+    white-space: normal;
+  }
+
+  .works-page .ra-tags {
+    display: block;
+    font-size: 11px;
+    line-height: 1.35;
+    opacity: .72;
+  }
+
+  .works-page .works-container::before {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  body.works-page {
+    --works-edge: 18px;
+  }
+
+  .works-page .works-container {
+    width: calc(100% - 36px);
+    padding: 106px 0 96px;
+  }
+
+  .works-page .works-quote-section {
+    width: 100%;
+    margin: 24px auto 76px;
+  }
+
+  .works-page .works-quote-text {
+    font-size: clamp(24px, 7vw, 30px);
+  }
+
+  .works-page .ra-section {
+    margin-bottom: 70px;
+  }
+
+  .works-page .ra-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .works-page .ra-panel {
+    min-height: 124px;
+    padding: 12px 11px 14px;
+  }
+
+  .works-page .ra-meta {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3px;
+    padding-top: 13px;
+  }
+
+  .works-page .ra-date {
+    display: none;
+  }
+
+  .works-page .ra-title {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 390px) {
+  .works-page .ra-panel {
+    min-height: 118px;
+  }
+
+  .works-page .ra-title {
+    font-size: 14px;
+  }
+
+  .works-page .ra-tags {
+    font-size: 10px;
+  }
+}
