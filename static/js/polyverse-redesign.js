@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     playCaseEntry();
   }
   window.addEventListener("pageshow", (event) => {
+    isNavigatingAway = false;
     root.classList.remove("case-is-leaving");
     if (event.persisted) playCaseEntry();
   });

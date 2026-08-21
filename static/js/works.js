@@ -18,6 +18,12 @@ menuToggle?.addEventListener("click", () => {
 });
 
 function restoreWorksPage(event) {
+  document.documentElement.classList.remove(
+    "case-transition-prepared",
+    "case-transition-leaving",
+    "case-transition--polyverse",
+    "case-transition--dollar"
+  );
   if (event?.persisted) {
     document.body.classList.add("interior-page-loading");
     requestAnimationFrame(() => requestAnimationFrame(() => document.body.classList.remove("interior-page-loading")));
@@ -52,7 +58,7 @@ document.querySelectorAll('.navbar a, .ra-card[href]:not([target="_blank"])').fo
       document.documentElement.classList.add("case-transition-prepared", caseTone);
       requestAnimationFrame(() => document.documentElement.classList.add("case-transition-leaving"));
     }
-    window.setTimeout(() => { window.location.href = link.href; }, isCaseTarget ? 1000 : 420);
+    window.setTimeout(() => { window.location.href = link.href; }, isCaseTarget ? 500 : 420);
   });
 });
 
@@ -71,3 +77,4 @@ function revealReturnedFromCase() {
 }
 
 window.addEventListener("pageshow", revealReturnedFromCase);
+requestAnimationFrame(revealReturnedFromCase);

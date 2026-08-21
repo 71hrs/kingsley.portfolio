@@ -211,7 +211,7 @@ function navigateWithTransition(event) {
     document.documentElement.classList.add("case-transition-prepared", caseTone);
     requestAnimationFrame(() => document.documentElement.classList.add("case-transition-leaving"));
   }
-  window.setTimeout(() => { window.location.href = destination; }, isCaseTarget ? 1000 : 420);
+  window.setTimeout(() => { window.location.href = destination; }, isCaseTarget ? 500 : 420);
 }
 
 document.querySelectorAll(".hpr-page-link").forEach((link) => {
@@ -235,6 +235,20 @@ function revealReturnedFromCase() {
   } catch (_) {}
 }
 
+function clearStaleCaseTransition() {
+  document.documentElement.classList.remove(
+    "case-transition-prepared",
+    "case-transition-leaving",
+    "case-transition--polyverse",
+    "case-transition--dollar"
+  );
+}
+
+function restoreCaseNavigationState() {
+  clearStaleCaseTransition();
+  revealReturnedFromCase();
+}
+
 window.addEventListener("pageshow", () => {
   previewRequest += 1;
   document.body.classList.remove("hpr-is-leaving", "hpr-modal-open");
@@ -244,5 +258,6 @@ window.addEventListener("pageshow", () => {
   if (fields.media.tagName === "VIDEO") fields.media.pause();
   fields.media.removeAttribute("src");
   closeMenu();
-  revealReturnedFromCase();
+  restoreCaseNavigationState();
 });
+requestAnimationFrame(restoreCaseNavigationState);

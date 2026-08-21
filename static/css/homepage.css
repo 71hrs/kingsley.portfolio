@@ -22,13 +22,15 @@ html.case-return-ready::after {
     inset: 0;
     content: "";
     pointer-events: none;
-    clip-path: inset(0 0 0 0);
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+    backface-visibility: hidden;
 }
 html.case-return--polyverse::after { background: #d8a849; }
 html.case-return--dollar::after { background: #706ca5; }
 html.case-return-ready.case-return-complete::after {
-  clip-path: inset(0 0 0 100%);
-    transition: clip-path 500ms cubic-bezier(.76,0,.24,1);
+    transform: translate3d(-100%, 0, 0);
+    transition: transform 500ms cubic-bezier(.76,0,.24,1);
 }
 html.case-transition-prepared::after {
   position: fixed;
@@ -36,12 +38,14 @@ html.case-transition-prepared::after {
   inset: 0;
   content: "";
   pointer-events: none;
-  clip-path: inset(0 100% 0 0);
-  transition: clip-path 1000ms cubic-bezier(.76,0,.24,1);
+  transform: translate3d(-100%, 0, 0);
+  transition: transform 500ms cubic-bezier(.76,0,.24,1);
+  will-change: transform;
+  backface-visibility: hidden;
 }
 html.case-transition--polyverse::after { background: #d8a849; }
 html.case-transition--dollar::after { background: #706ca5; }
-html.case-transition-prepared.case-transition-leaving::after { clip-path: inset(0 0 0 0); }
+html.case-transition-prepared.case-transition-leaving::after { transform: translate3d(0, 0, 0); }
 
 .hpr-background {
     width: 100%;

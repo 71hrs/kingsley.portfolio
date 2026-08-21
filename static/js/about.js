@@ -18,6 +18,12 @@ menuToggle?.addEventListener("click", () => {
 });
 
 function restoreAboutPage(event) {
+  document.documentElement.classList.remove(
+    "case-transition-prepared",
+    "case-transition-leaving",
+    "case-transition--polyverse",
+    "case-transition--dollar"
+  );
   if (event?.persisted) {
     document.body.classList.add("interior-page-loading");
     requestAnimationFrame(() => requestAnimationFrame(() => document.body.classList.remove("interior-page-loading")));
@@ -45,6 +51,7 @@ function revealReturnedFromCase() {
   } catch (_) {}
 }
 window.addEventListener("pageshow", revealReturnedFromCase);
+requestAnimationFrame(revealReturnedFromCase);
 
 document.querySelectorAll(".navbar a").forEach((link) => {
   link.addEventListener("click", (event) => {
