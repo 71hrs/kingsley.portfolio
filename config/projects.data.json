@@ -1,0 +1,17 @@
+{
+  "polyverse": { "title": "Polyverse", "source": "polyverse.html", "protected": false },
+  "dollar-flip": { "title": "Dollar Flip", "source": "dollar-flip.html", "protected": false },
+  "uircs-redesign": { "title": "UIRCS", "source": "uircs-redesign.html", "protected": false },
+  "UIRCS": { "title": "UIRCS", "source": "UIRCS.html", "protected": false },
+  "close-to-me": { "title": "Close To Me", "source": "close-to-me.html", "protected": false },
+  "chem-guard": { "title": "Chem Guard", "source": "chem-guard.html", "protected": false },
+  "organisms-utopia": { "title": "Organisms Utopia", "source": "organisms-utopia.html", "protected": false },
+  "glamhub": { "title": "Glamhub", "source": "glamhub.html", "protected": true },
+  "the-underground-palace": { "title": "The Underground Palace", "source": "the-underground-palace.html", "protected": false },
+  "wave": { "title": "Wave", "source": "wave.html", "protected": false },
+  "valentino-beauty": { "title": "Valentino Beauty", "source": "valentino-beauty.html", "protected": false },
+  "armani-beauty": { "title": "Armani Beauty", "source": "armani-beauty.html", "protected": true },
+  "louis-vuitton-bugatti": { "title": "Louis Vuitton × Bugatti", "source": "louis-vuitton-bugatti.html", "protected": true },
+  "operation-management-system": { "title": "Operation Management System", "source": "operation-management-system.html", "protected": false },
+  "post-lending-management-system": { "title": "Post-Lending Management System", "source": "post-lending-management-system.html", "protected": false }
+}

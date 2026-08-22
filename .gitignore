@@ -1,0 +1,12 @@
+node_modules/
+.pnpm-store/
+.next/
+public/static/
+.env
+.env.local
+.vercel/
+private-content/
+private-assets/
+*.log
+*.tsbuildinfo
+.DS_Store

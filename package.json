@@ -1,0 +1,24 @@
+{
+  "name": "yuhui-qi-portfolio",
+  "private": true,
+  "scripts": {
+    "dev": "node scripts/prepare-public-assets.mjs && next dev",
+    "build": "node scripts/prepare-public-assets.mjs && next build",
+    "start": "next start",
+    "test:security": "node --test tests/security.test.mjs",
+    "auth:hash": "node scripts/hash-password.mjs",
+    "assets:upload": "node scripts/upload-private-assets.mjs"
+  },
+  "dependencies": {
+    "@vercel/blob": "^2.0.0",
+    "next": "^16.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.9.0"
+  }
+}
