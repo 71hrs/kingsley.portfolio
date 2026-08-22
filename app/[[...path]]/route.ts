@@ -51,13 +51,25 @@ export async function GET(request: NextRequest, context: Context) {
 export async function POST(request: NextRequest, context: Context) {
   const { path } = await context.params;
   const route = resolveRoute(path);
+  const wantsJson = request.headers.get("accept")?.includes("application/json") ?? false;
   if (!route.project?.protected) return new NextResponse("Not Found", { status: 404 });
-  if (!requestHasSameOrigin(request)) return html(passwordPage(route.project.title, true), true);
+  if (!requestHasSameOrigin(request)) {
+    if (wantsJson) return NextResponse.json({ ok: false, error: "Unable to verify the password. Please try again." }, { status: 403, headers: PROTECTED_HEADERS });
+    return html(passwordPage(route.project.title, true), true);
+  }
 
   const form = await request.formData();
   const candidate = form.get("password");
   if (typeof candidate !== "string" || !verifyPortfolioPassword(candidate)) {
+    if (wantsJson) return NextResponse.json({ ok: false, error: "Incorrect password. Please try again." }, { status: 400, headers: PROTECTED_HEADERS });
     return html(passwordPage(route.project.title, true), true);
+  }
+
+  if (wantsJson) {
+    const response = NextResponse.json({ ok: true }, { headers: PROTECTED_HEADERS });
+    const cookie = sessionCookie(process.env.NODE_ENV === "production");
+    response.cookies.set(cookie.name, cookie.value, cookie.options);
+    return response;
   }
 
   const response = NextResponse.redirect(request.nextUrl, 303);

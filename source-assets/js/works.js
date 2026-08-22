@@ -43,6 +43,10 @@ document.querySelectorAll('.navbar a, .ra-card[href]:not([target="_blank"])').fo
     event.preventDefault();
     closeMenu();
     document.body.classList.add("interior-is-leaving");
-    window.setTimeout(() => { window.location.href = link.href; }, 420);
+    const configuredPath = link.getAttribute("href");
+    const destination = window.location.protocol === "file:" && configuredPath?.startsWith("/work/")
+      ? `http://localhost:3000${configuredPath}`
+      : link.href;
+    window.setTimeout(() => { window.location.href = destination; }, 420);
   });
 });
