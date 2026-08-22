@@ -979,3 +979,41 @@ a { color: inherit; text-decoration: none; }
 .dfr-back { gap: 10px; }
 .dfr-intro-media-transition { background: linear-gradient(to bottom, var(--dfr-night) 0 50%, var(--dfr-paper) 50% 100%); }
 .dfr-impact-media-transition { background: linear-gradient(to bottom, var(--dfr-paper) 0 50%, var(--dfr-night) 50% 100%); }
+
+/* Shared case-study mobile rhythm. Keep the project menu as the only mobile
+   navigation and align every narrative/media block to one content edge. */
+@media (max-width: 700px) {
+  .dfr-back,
+  .dfr-back-to-top {
+    display: none !important;
+  }
+
+  .dfr-chapter,
+  .dfr-overview-details,
+  .dfr-reflection__inner,
+  .dfr-footer__inner,
+  .dfr-site-footer__inner {
+    width: calc(100% - (2 * var(--dfr-gutter)));
+    max-width: none;
+    margin-inline: auto;
+    padding-inline: 0;
+  }
+
+  .dfr-chapter__body,
+  .dfr-subsection,
+  .dfr-process-block,
+  .dfr-body-copy,
+  .dfr-case-media,
+  .dfr-research-evidence {
+    width: 100%;
+    max-width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+    transform: none;
+  }
+
+  .dfr-subsection > .dfr-case-media,
+  .dfr-subsection > .dfr-research-evidence {
+    margin-top: var(--dfr-media-space);
+  }
+}

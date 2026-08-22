@@ -2043,3 +2043,57 @@ html.polyverse-redesign-case.case-page-loading body {
   .pvr-final-showcase span { padding-inline: 24px; }
   .pvr-scene-metrics { padding-inline: 24px; }
 }
+
+/* Shared case-study mobile rhythm.
+   Navigation is handled by the menu; every narrative and media block follows
+   the same content edge and spacing scale. */
+@media (max-width: 700px) {
+  .pvr-back,
+  .pvr-back-to-top {
+    display: none !important;
+  }
+
+  .pvr-chapter,
+  .pvr-overview-details,
+  .pvr-reflection__inner,
+  .pvr-footer__inner,
+  .pvr-site-footer__inner {
+    width: calc(100% - (2 * var(--pvr-gutter)));
+    max-width: none;
+    margin-inline: auto;
+    padding-inline: 0;
+  }
+
+  .pvr-chapter__body,
+  .pvr-subsection,
+  .pvr-process-block,
+  .pvr-body-copy,
+  .pvr-case-media,
+  .pvr-research-evidence,
+  .pvr-media-carousel {
+    width: 100%;
+    max-width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+    transform: none;
+  }
+
+  .pvr-subsection > .pvr-case-media,
+  .pvr-subsection > .pvr-research-evidence,
+  .pvr-subsection > .pvr-media-carousel {
+    margin-top: var(--pvr-media-space);
+  }
+
+  /* Prevent the First Hypothesis board from receiving two nested gutters. */
+  .pvr-hypothesis-compare {
+    width: 100%;
+    padding: 0;
+  }
+  .pvr-hypothesis-compare > div {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 38px 26px 42px;
+    box-sizing: border-box;
+  }
+}
