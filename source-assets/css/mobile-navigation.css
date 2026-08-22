@@ -1,0 +1,263 @@
+/*
+ * Shared portfolio header and mobile navigation.
+ *
+ * This file is intentionally loaded after each page's own stylesheet. The
+ * portfolio grew with two header class systems, so keeping the final mobile
+ * geometry here prevents older page-specific rules from shifting the logo,
+ * hamburger, or expanded menu by a few pixels.
+ */
+@keyframes mobileNavigationEntry {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*
+ * One visual header baseline for the whole portfolio.
+ *
+ * Older pages enlarged the logo with transform: scale(), which changed the
+ * painted position without changing the flex box used for alignment.  That is
+ * why the logo and the controls could look offset even when their boxes were
+ * technically aligned.  Give every logo its real painted size instead and let
+ * flexbox align the actual geometry.
+ */
+.hpr-logo,
+.interior-header .logo,
+.dfr-brand,
+.pvr-brand {
+  display: flex;
+  align-items: center;
+  flex: 0 0 104.4px;
+  width: 104.4px;
+  height: 33.6px;
+  transform: none !important;
+  transform-origin: center;
+}
+
+.hpr-logo .site-brand-logo,
+.interior-header .logo .site-brand-logo,
+.dfr-brand .site-brand-logo,
+.pvr-brand .site-brand-logo {
+  width: 104.4px;
+  height: 33.6px;
+}
+
+.hpr-navbar,
+.interior-header .navbar,
+.dfr-header,
+.pvr-header,
+.dfr-header-actions,
+.pvr-header-actions {
+  align-items: center;
+}
+
+/* Case-study title rows use the same vertical center as the shared logo. */
+.dfr-header__title-grid,
+.pvr-header__title-grid {
+  height: 33.6px;
+}
+
+/* The main pages already switch to a 24px gutter on tablet.  Match the case
+   study headers to that same anchor instead of leaving them at 4vw. */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .dfr-header,
+  .pvr-header {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  .dfr-header__title-grid,
+  .pvr-header__title-grid {
+    width: calc(100% - 48px);
+  }
+}
+
+@media (max-width: 600px) {
+  .hpr-header,
+  .interior-header {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 80;
+    height: 72px;
+    padding: 0;
+    background: transparent;
+    opacity: 0;
+    transform: translateY(-16px);
+    animation: mobileNavigationEntry 800ms cubic-bezier(.34, 1.56, .64, 1) 80ms both;
+  }
+
+  body.interior-page-loading .interior-header {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+
+  .hpr-navbar,
+  .interior-header .navbar {
+    position: absolute;
+    top: calc(3vh - 10px);
+    right: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(100% - 40px);
+    height: 44px;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .hpr-logo,
+  .interior-header .logo,
+  .dfr-brand,
+  .pvr-brand {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    flex: 0 0 90px;
+    width: 90px;
+    height: 28.8px;
+    transform: none !important;
+  }
+
+  .hpr-logo .site-brand-logo,
+  .interior-header .logo .site-brand-logo,
+  .dfr-brand .site-brand-logo,
+  .pvr-brand .site-brand-logo {
+    width: 90px;
+    height: 28.8px;
+  }
+
+  .dfr-header,
+  .pvr-header {
+    height: 44px;
+    margin-top: calc(3vh - 10px);
+    padding: 0 20px;
+  }
+
+  .dfr-header__title-grid,
+  .pvr-header__title-grid {
+    top: 0;
+    width: calc(100% - 40px);
+    height: 44px;
+  }
+
+  .hpr-menu-toggle,
+  .interior-menu-toggle {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-radius: 50%;
+    background: rgba(55, 58, 58, .3);
+    box-shadow: inset 0 1px rgba(255, 255, 255, .18), 0 8px 24px rgba(0, 0, 0, .1);
+    appearance: none;
+    -webkit-appearance: none;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .hpr-menu-toggle span,
+  .interior-menu-toggle span {
+    position: absolute;
+    left: 50%;
+    width: 15px;
+    height: 1px;
+    margin: 0;
+    background: currentColor;
+    transform: translateX(-50%);
+    transition: top .28s ease, transform .28s ease;
+  }
+
+  .hpr-menu-toggle span:first-child,
+  .interior-menu-toggle span:first-child { top: 17px; }
+
+  .hpr-menu-toggle span:last-child,
+  .interior-menu-toggle span:last-child { top: 23px; }
+
+  .hpr-menu-toggle[aria-expanded="true"] span:first-child,
+  .interior-menu-toggle[aria-expanded="true"] span:first-child {
+    top: 20px;
+    transform: translateX(-50%) rotate(45deg);
+  }
+
+  .hpr-menu-toggle[aria-expanded="true"] span:last-child,
+  .interior-menu-toggle[aria-expanded="true"] span:last-child {
+    top: 20px;
+    transform: translateX(-50%) rotate(-45deg);
+  }
+
+  .hpr-nav-links,
+  .interior-header .navbar .nav-links {
+    position: absolute;
+    top: -8px;
+    right: -6px;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: stretch;
+    gap: 0;
+    width: min(224px, calc(100vw - 36px));
+    margin: 0;
+    padding: 66px 16px 13px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, .18);
+    border-radius: 28px;
+    background: rgba(42, 45, 45, .76);
+    box-shadow: 0 20px 55px rgba(0, 0, 0, .2), inset 0 1px rgba(255, 255, 255, .16);
+    opacity: 0;
+    transform: translateY(-8px) scale(.97);
+    transform-origin: top right;
+    pointer-events: none;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: opacity .25s ease, transform .35s cubic-bezier(.22, 1, .36, 1);
+  }
+
+  .hpr-nav-links.is-open,
+  .interior-header .navbar .nav-links.is-open {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+
+  .hpr-nav-links a,
+  .interior-header .navbar .nav-links a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 52px;
+    margin: 0;
+    padding: 13px 10px;
+    box-sizing: border-box;
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, .13);
+    color: #fff;
+    font-family: "Heebo", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: .01em;
+    text-align: left;
+    text-transform: none;
+  }
+
+  .hpr-nav-links a:first-child,
+  .interior-header .navbar .nav-links a:first-child { border-top: 0; }
+
+  .hpr-nav-links a::after,
+  .interior-header .navbar .nav-links a::after { display: none; }
+}
