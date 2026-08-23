@@ -18,7 +18,7 @@ function safeSource(source: string): string {
 export async function readLegacyPage(source: string, protectedPage = false): Promise<string> {
   const filename = safeSource(source);
   const privatePath = path.join(process.cwd(), "private-content", filename);
-  const publicPath = path.join(process.cwd(), "legacy-pages", filename);
+  const publicPath = path.join(process.cwd(), "Website Pages", filename);
   let html: string;
   if (protectedPage) {
     try {

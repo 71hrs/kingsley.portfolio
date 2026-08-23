@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 
 const template = readFileSync(
-  path.join(process.cwd(), "lib", "auth", "password-page.html"),
+  path.join(process.cwd(), "Password System", "auth", "password-page.html"),
   "utf8",
 );
 

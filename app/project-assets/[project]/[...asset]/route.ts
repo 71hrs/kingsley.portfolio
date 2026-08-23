@@ -1,6 +1,6 @@
-import { getProject } from "@/config/projects.config";
-import { hasValidSession } from "@/lib/auth/session";
-import { PROTECTED_HEADERS } from "@/lib/auth/security";
+import { getProject } from "@/Password System/config/projects.config";
+import { hasValidSession } from "@/Password System/auth/session";
+import { PROTECTED_HEADERS } from "@/Password System/auth/security";
 import { get } from "@vercel/blob";
 import { createReadStream } from "node:fs";
 import { stat } from "node:fs/promises";
@@ -43,7 +43,9 @@ export async function GET(request: NextRequest, context: Context) {
 
   // Vercel uses OIDC for connected projects; legacy/local setups may still
   // provide a read-write token directly.
-  if (process.env.BLOB_READ_WRITE_TOKEN || process.env.VERCEL_OIDC_TOKEN) {
+  // A pulled Development OIDC token expires quickly, so local preview always
+  // uses the editable Assets folder. Vercel production uses Private Blob.
+  if (process.env.VERCEL === "1" || process.env.BLOB_READ_WRITE_TOKEN) {
     const range = request.headers.get("range");
     const result = await get(blobPath, { access: "private", headers: range ? { Range: range } : undefined });
     if (!result || ![200, 206].includes(result.statusCode) || !result.stream) return denied();
@@ -61,7 +63,7 @@ export async function GET(request: NextRequest, context: Context) {
   }
 
   // Local development reads from the single editable source library.
-  const sourceRoot = path.resolve(process.cwd(), "source-assets");
+  const sourceRoot = path.resolve(process.cwd(), "Assets");
   const sourceSegments = asset[0] === "static" ? asset.slice(1) : asset;
   const filename = path.resolve(sourceRoot, ...sourceSegments);
   if (!filename.startsWith(`${sourceRoot}${path.sep}`)) return denied();

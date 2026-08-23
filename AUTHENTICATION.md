@@ -1,12 +1,12 @@
 # Portfolio access and asset system
 
-The site keeps its original HTML in `legacy-pages/` and its unchanged asset sources in `source-assets/`. Every Case Study uses the same `/project-assets/...` media gateway. The project configuration decides whether that gateway is public or password protected.
+The site keeps its original HTML in `Website Pages/` and its unchanged asset sources in `Assets/`. Every Case Study uses the same `/project-assets/...` media gateway. The project configuration decides whether that gateway is public or password protected.
 
-`source-assets/` is the only editable asset source. `public/static/` is generated and should not be edited. `legacy-pages/static` is a symbolic link, not another copy. Authentication files are grouped in `lib/auth/`.
+`Assets/` is the only editable asset source. `public/static/` is generated and should not be edited. `Website Pages/static` is a symbolic link, not another copy. Authentication files and project access configuration are grouped in `Password System/`.
 
 ## Configure a project
 
-Change only `protected: false` to `protected: true` in `config/projects.data.json` when a project needs a password. Both the page and its media immediately use the same rule. No files need to be moved.
+Change only `protected: false` to `protected: true` in `Password System/config/projects.data.json` when a project needs a password. Both the page and its media immediately use the same rule. No files need to be moved.
 
 Keep the GitHub repository private. Case Study media is stored once in Vercel Private Blob under `library/static/`; public projects are served without a password and protected projects require the signed session cookie.
 
@@ -17,7 +17,7 @@ Keep the GitHub repository private. Case Study media is stored once in Vercel Pr
 3. Generate `SESSION_SECRET` with `openssl rand -base64 32`.
 4. Run `pnpm dev` and open `http://localhost:3000`.
 
-Local development reads all project media directly from `source-assets/` through the same controlled route.
+Local development reads all project media directly from `Assets/` through the same controlled route.
 
 ## Vercel deployment
 

@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   // Legacy HTML stays server-side. These files are traced into the deployment
   // function but are never copied into the public directory.
   outputFileTracingIncludes: {
-    "/**": ["./legacy-pages/**/*.html", "./private-content/**/*.html", "./lib/auth/**/*.html"],
+    "/**": ["./Website Pages/**/*.html", "./private-content/**/*.html", "./Password System/auth/**/*.html"],
   },
   async headers() {
     return [

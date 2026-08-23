@@ -5,8 +5,8 @@ import { readFile } from "node:fs/promises";
 test("password is not embedded in browser-facing source", async () => {
   const files = [
     "app/[[...path]]/route.ts",
-    "lib/auth/password-page.ts",
-    "config/projects.config.ts",
+    "Password System/auth/password-page.ts",
+    "Password System/config/projects.config.ts",
   ];
   for (const file of files) {
     const source = await readFile(new URL(`../${file}`, import.meta.url), "utf8");
@@ -16,13 +16,13 @@ test("password is not embedded in browser-facing source", async () => {
 });
 
 test("protected responses disable shared caching", async () => {
-  const source = await readFile(new URL("../lib/auth/security.ts", import.meta.url), "utf8");
+  const source = await readFile(new URL("../Password%20System/auth/security.ts", import.meta.url), "utf8");
   assert.match(source, /private, no-store/);
   assert.match(source, /Vercel-CDN-Cache-Control/);
 });
 
 test("session cookie uses required security flags", async () => {
-  const source = await readFile(new URL("../lib/auth/session.ts", import.meta.url), "utf8");
+  const source = await readFile(new URL("../Password%20System/auth/session.ts", import.meta.url), "utf8");
   assert.match(source, /httpOnly:\s*true/);
   assert.match(source, /sameSite:\s*"lax"/);
   assert.match(source, /SECURE_COOKIE/);
@@ -38,7 +38,7 @@ test("all project media uses the unified server-controlled asset route", async (
 
 test("rendered pages load casual media save deterrence", async () => {
   const html = await readFile(new URL("../lib/legacy/html.ts", import.meta.url), "utf8");
-  const browserScript = await readFile(new URL("../source-assets/js/content-protection.js", import.meta.url), "utf8");
+  const browserScript = await readFile(new URL("../Assets/js/content-protection.js", import.meta.url), "utf8");
   assert.match(html, /content-protection\.js/);
   assert.match(browserScript, /contextmenu/);
   assert.match(browserScript, /dragstart/);
