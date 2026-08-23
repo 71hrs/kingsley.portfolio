@@ -1,9 +1,9 @@
 import { getProject } from "@/config/projects.config";
 import { verifyPortfolioPassword } from "@/lib/auth/password";
 import { hasValidSession, sessionCookie } from "@/lib/auth/session";
-import { PROTECTED_HEADERS, requestHasSameOrigin } from "@/lib/http/security";
-import { protectLegacyAssetUrls, publicPageSource, readLegacyPage } from "@/lib/legacy/html";
-import { passwordPage } from "@/lib/ui/password-page";
+import { PROTECTED_HEADERS, requestHasSameOrigin } from "@/lib/auth/security";
+import { projectAssetUrls, publicPageSource, readLegacyPage } from "@/lib/legacy/html";
+import { passwordPage } from "@/lib/auth/password-page";
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
@@ -41,7 +41,7 @@ export async function GET(request: NextRequest, context: Context) {
       return html(passwordPage(route.project.title), true);
     }
     const source = await readLegacyPage(route.project.source, route.project.protected);
-    const body = route.project.protected ? protectLegacyAssetUrls(source, route.slug) : source;
+    const body = projectAssetUrls(source, route.slug);
     return html(body, route.project.protected);
   }
   if (route.source) return html(await readLegacyPage(route.source));

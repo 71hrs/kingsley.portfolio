@@ -44,8 +44,10 @@ document.querySelectorAll('.navbar a, .ra-card[href]:not([target="_blank"])').fo
     closeMenu();
     document.body.classList.add("interior-is-leaving");
     const configuredPath = link.getAttribute("href");
+    // A file:// page has no authentication server. Send protected projects to
+    // the production server instead of a localhost port that may not be running.
     const destination = window.location.protocol === "file:" && configuredPath?.startsWith("/work/")
-      ? `http://localhost:3000${configuredPath}`
+      ? `https://www.yuhuiqi.com${configuredPath}`
       : link.href;
     window.setTimeout(() => { window.location.href = destination; }, 420);
   });
