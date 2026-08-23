@@ -1016,4 +1016,19 @@ a { color: inherit; text-decoration: none; }
   .dfr-subsection > .dfr-research-evidence {
     margin-top: var(--dfr-media-space);
   }
+
+  /* Impact is outside the chapter grid; align it to the same mobile content
+     edge instead of allowing the transition band to make it full-bleed. */
+  .dfr-impact-evidence {
+    width: calc(100% - (2 * var(--dfr-gutter)));
+    max-width: none;
+    margin-inline: auto;
+    overflow: hidden;
+  }
+
+  /* Reflection already receives the mobile gutter from its section. Avoid
+     subtracting that gutter a second time on the inner content wrapper. */
+  .dfr-reflection__inner {
+    width: 100%;
+  }
 }
