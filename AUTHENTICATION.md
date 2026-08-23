@@ -1,14 +1,14 @@
-# Portfolio project protection
+# Portfolio access and asset system
 
-The site keeps its original HTML in `legacy-pages/` and its unchanged asset sources in `source-assets/`. The build publishes only public files at the original `/static/...` URLs. Next.js now provides routing and server-side access control around those files.
+The site keeps its original HTML in `legacy-pages/` and its unchanged asset sources in `source-assets/`. Every Case Study uses the same `/project-assets/...` media gateway. The project configuration decides whether that gateway is public or password protected.
 
-`source-assets/` is the editable source of truth. `public/static/` is a generated, gitignored deployment copy and should not be edited. `legacy-pages/static` is a symbolic link to `source-assets/`, not another copy.
+`source-assets/` is the only editable asset source. `public/static/` is generated and should not be edited. `legacy-pages/static` is a symbolic link, not another copy. Authentication files are grouped in `lib/auth/`.
 
 ## Configure a project
 
-All current projects are public. Change only `protected: false` to `protected: true` in `config/projects.data.json` when a project is ready. Both `/work/project-slug` and the legacy `/project-slug.html` URL use the same rule. `config/projects.config.ts` is the server-only typed reader and normally needs no edits.
+Change only `protected: false` to `protected: true` in `config/projects.data.json` when a project needs a password. Both the page and its media immediately use the same rule. No files need to be moved.
 
-Protected source content must not remain in a public GitHub repository. Before enabling protection, make the repository private and place sensitive HTML in `private-content/<source>.html`. Local private media belongs under `private-assets/<project-slug>/`; production media belongs in Vercel Private Blob under the same project-prefixed pathname.
+Keep the GitHub repository private. Case Study media is stored once in Vercel Private Blob under `library/static/`; public projects are served without a password and protected projects require the signed session cookie.
 
 ## Local development
 
@@ -17,14 +17,14 @@ Protected source content must not remain in a public GitHub repository. Before e
 3. Generate `SESSION_SECRET` with `openssl rand -base64 32`.
 4. Run `pnpm dev` and open `http://localhost:3000`.
 
-For a local protected media URL such as `/protected-assets/example/demo.webm`, store the file as `private-assets/example/demo.webm`.
+Local development reads all project media directly from `source-assets/` through the same controlled route.
 
 ## Vercel deployment
 
 1. Import the private GitHub repository into Vercel.
 2. Add `PORTFOLIO_PASSWORD_HASH`, `SESSION_SECRET`, and `AUTH_VERSION` to Production and Preview environment variables.
 3. Create and connect a Private Vercel Blob store. Keep `BLOB_READ_WRITE_TOKEN` server-only.
-4. Run `pnpm assets:upload -- <project-slug>` to upload every media dependency of that Case Study to Private Blob.
+4. Run `pnpm assets:upload-all` after adding or replacing project media. Assets are deduplicated into one private library.
 5. Deploy a preview, complete the security tests, then attach `yuhuiqi.com`.
 6. Disable the old GitHub Pages deployment so legacy public HTML cannot bypass authentication.
 

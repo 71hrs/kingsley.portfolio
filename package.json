@@ -7,7 +7,7 @@
     "start": "next start",
     "test:security": "node --test tests/security.test.mjs",
     "auth:hash": "node scripts/hash-password.mjs",
-    "assets:upload": "node scripts/upload-private-assets.mjs"
+    "assets:upload-all": "node scripts/upload-project-assets.mjs"
   },
   "dependencies": {
     "@vercel/blob": "^2.0.0",

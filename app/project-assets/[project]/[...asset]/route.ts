@@ -1,6 +1,6 @@
 import { getProject } from "@/config/projects.config";
 import { hasValidSession } from "@/lib/auth/session";
-import { PROTECTED_HEADERS } from "@/lib/http/security";
+import { PROTECTED_HEADERS } from "@/lib/auth/security";
 import { get } from "@vercel/blob";
 import { createReadStream } from "node:fs";
 import { stat } from "node:fs/promises";
@@ -20,31 +20,39 @@ const MIME: Record<string, string> = {
 
 type Context = { params: Promise<{ project: string; asset: string[] }> };
 
+function responseHeaders(isProtected: boolean) {
+  return isProtected
+    ? PROTECTED_HEADERS
+    : { "Cache-Control": "public, max-age=3600, stale-while-revalidate=86400", "X-Content-Type-Options": "nosniff" };
+}
+
 function denied() {
-  // Deliberately use 404 so the route does not reveal whether a private asset exists.
   return new Response("Not Found", { status: 404, headers: PROTECTED_HEADERS });
 }
 
+/** One media gateway for every project; config alone controls password access. */
 export async function GET(request: NextRequest, context: Context) {
   const { project: slug, asset } = await context.params;
   const project = getProject(slug);
-  if (!project?.protected || !hasValidSession(request)) return denied();
+  if (!project || (project.protected && !hasValidSession(request))) return denied();
   if (asset.some((segment) => !segment || segment === "." || segment === "..")) return denied();
 
-  const pathname = `${slug}/${asset.join("/")}`;
-  if (process.env.BLOB_READ_WRITE_TOKEN) {
+  const assetPath = asset.join("/");
+  const blobPath = `library/${assetPath}`;
+  const headers = responseHeaders(project.protected);
+
+  // Vercel uses OIDC for connected projects; legacy/local setups may still
+  // provide a read-write token directly.
+  if (process.env.BLOB_READ_WRITE_TOKEN || process.env.VERCEL_OIDC_TOKEN) {
     const range = request.headers.get("range");
-    const result = await get(pathname, {
-      access: "private",
-      headers: range ? { Range: range } : undefined,
-    });
-    if (!result || result.statusCode !== 200 || !result.stream) return denied();
+    const result = await get(blobPath, { access: "private", headers: range ? { Range: range } : undefined });
+    if (!result || ![200, 206].includes(result.statusCode) || !result.stream) return denied();
     const contentRange = result.headers.get("content-range");
     return new Response(result.stream, {
       status: contentRange ? 206 : 200,
       headers: {
-        ...PROTECTED_HEADERS,
-        "Content-Type": result.blob.contentType || MIME[path.extname(pathname).toLowerCase()] || "application/octet-stream",
+        ...headers,
+        "Content-Type": result.blob.contentType || MIME[path.extname(blobPath).toLowerCase()] || "application/octet-stream",
         "Accept-Ranges": "bytes",
         ...(contentRange ? { "Content-Range": contentRange } : {}),
         ...(result.headers.get("content-length") ? { "Content-Length": result.headers.get("content-length")! } : {}),
@@ -52,23 +60,12 @@ export async function GET(request: NextRequest, context: Context) {
     });
   }
 
-  // Local development fallback. This directory is gitignored and never public.
-  const privateRoot = path.resolve(process.cwd(), "private-assets", slug);
+  // Local development reads from the single editable source library.
   const sourceRoot = path.resolve(process.cwd(), "source-assets");
-  const privateFilename = path.resolve(privateRoot, ...asset);
   const sourceSegments = asset[0] === "static" ? asset.slice(1) : asset;
-  const sourceFilename = path.resolve(sourceRoot, ...sourceSegments);
-  let root = privateRoot;
-  let filename = privateFilename;
-  try {
-    await stat(privateFilename);
-  } catch {
-    // Source fallback is development-only. Production must use Private Blob.
-    if (process.env.NODE_ENV === "production") return denied();
-    root = sourceRoot;
-    filename = sourceFilename;
-  }
-  if (!filename.startsWith(`${root}${path.sep}`)) return denied();
+  const filename = path.resolve(sourceRoot, ...sourceSegments);
+  if (!filename.startsWith(`${sourceRoot}${path.sep}`)) return denied();
+
   try {
     const info = await stat(filename);
     const requestedRange = request.headers.get("range");
@@ -77,11 +74,11 @@ export async function GET(request: NextRequest, context: Context) {
     let statusCode = 200;
     if (requestedRange) {
       const match = /^bytes=(\d*)-(\d*)$/.exec(requestedRange);
-      if (!match) return new Response(null, { status: 416, headers: { ...PROTECTED_HEADERS, "Content-Range": `bytes */${info.size}` } });
+      if (!match) return new Response(null, { status: 416, headers: { ...headers, "Content-Range": `bytes */${info.size}` } });
       start = match[1] ? Number(match[1]) : 0;
       end = match[2] ? Math.min(Number(match[2]), info.size - 1) : info.size - 1;
       if (!Number.isSafeInteger(start) || !Number.isSafeInteger(end) || start > end || start >= info.size) {
-        return new Response(null, { status: 416, headers: { ...PROTECTED_HEADERS, "Content-Range": `bytes */${info.size}` } });
+        return new Response(null, { status: 416, headers: { ...headers, "Content-Range": `bytes */${info.size}` } });
       }
       statusCode = 206;
     }
@@ -89,7 +86,7 @@ export async function GET(request: NextRequest, context: Context) {
     return new Response(stream, {
       status: statusCode,
       headers: {
-        ...PROTECTED_HEADERS,
+        ...headers,
         "Content-Type": MIME[path.extname(filename).toLowerCase()] ?? "application/octet-stream",
         "Content-Length": String(end - start + 1),
         "Accept-Ranges": "bytes",

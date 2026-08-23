@@ -11,20 +11,22 @@ const projectData = JSON.parse(await readFile(path.join(root, "config", "project
 async function referencedAssets(source) {
   const html = await readFile(path.join(root, "legacy-pages", source), "utf8");
   return new Set([...html.matchAll(/["']\/?static\/([^"'?#]+)(?:[?#][^"']*)?["']/gi)]
-    .map((match) => decodeURIComponent(match[1])));
+    .map((match) => decodeURIComponent(match[1]))
+    .filter((relative) => !relative.endsWith("/")));
 }
 
 const publicReferences = new Set();
-const protectedReferences = new Set();
+const projectReferences = new Set();
 for (const project of Object.values(projectData)) {
-  const target = project.protected ? protectedReferences : publicReferences;
-  for (const asset of await referencedAssets(project.source)) target.add(asset);
+  for (const asset of await referencedAssets(project.source)) projectReferences.add(asset);
 }
 for (const source of ["index.html", "works.html", "highlights.html", "about.html"]) {
   for (const asset of await referencedAssets(source)) publicReferences.add(asset);
 }
 
-const privateOnly = new Set([...protectedReferences].filter((asset) => !publicReferences.has(asset)));
+// Case-study media is served through /project-assets for every project. Keep
+// only assets also needed by the public home/gallery/about pages in public/.
+const privateOnly = new Set([...projectReferences].filter((asset) => !publicReferences.has(asset)));
 const sharedPrefixes = ["css/", "js/", "font/", "fonts/", "picture/brand/"];
 const isSharedInfrastructure = (relative) => sharedPrefixes.some((prefix) => relative.split(path.sep).join("/").startsWith(prefix));
 
@@ -41,4 +43,4 @@ await cp(source, destination, {
   },
 });
 
-process.stdout.write(`Prepared public assets; excluded ${privateOnly.size} protected-only files.\n`);
+process.stdout.write(`Prepared public assets; excluded ${privateOnly.size} project-only files.\n`);

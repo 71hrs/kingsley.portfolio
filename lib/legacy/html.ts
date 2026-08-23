@@ -29,7 +29,7 @@ export async function readLegacyPage(source: string, protectedPage = false): Pro
   } else {
     html = await readFile(publicPath, "utf8");
   }
-  return normalizeLegacyUrls(html);
+  return addContentProtection(normalizeLegacyUrls(html));
 }
 
 export function publicPageSource(pathname: string): string | undefined {
@@ -53,9 +53,13 @@ export function normalizeLegacyUrls(html: string): string {
 
 const PUBLIC_ASSET_PREFIXES = ["css/", "js/", "font/", "fonts/", "picture/brand/"];
 
-/** Protect case-study content, while keeping shared site infrastructure reusable. */
-export function protectLegacyAssetUrls(html: string, projectSlug: string): string {
-  const prefix = `/protected-assets/${encodeURIComponent(projectSlug)}/static/`;
+/**
+ * All case-study media uses one server-controlled route. Public projects are
+ * allowed through without a password; protected projects require the session.
+ * Shared CSS, JavaScript, fonts, and brand assets remain public infrastructure.
+ */
+export function projectAssetUrls(html: string, projectSlug: string): string {
+  const prefix = `/project-assets/${encodeURIComponent(projectSlug)}/static/`;
   return html.replace(/(["'])\/?static\/([^"']+)/gi, (_match, quote: string, asset: string) => {
     const pathname = asset.split(/[?#]/, 1)[0].toLowerCase();
     if (PUBLIC_ASSET_PREFIXES.some((publicPrefix) => pathname.startsWith(publicPrefix))) {
@@ -63,4 +67,11 @@ export function protectLegacyAssetUrls(html: string, projectSlug: string): strin
     }
     return `${quote}${prefix}${asset}`;
   });
+}
+
+/** Apply the same lightweight save-deterrence behavior to every rendered page. */
+function addContentProtection(html: string): string {
+  if (html.includes("/static/js/content-protection.js")) return html;
+  const script = '<script src="/static/js/content-protection.js" defer></script>';
+  return /<\/body>/i.test(html) ? html.replace(/<\/body>/i, `${script}</body>`) : `${html}${script}`;
 }

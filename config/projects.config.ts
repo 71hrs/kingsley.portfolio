@@ -10,9 +10,8 @@ export type ProjectConfig = {
 /**
  * The single source of truth for project access.
  *
- * Existing projects deliberately remain public. To protect a project later,
- * change only `protected` to true, connect Private Blob, and deploy from a
- * private repository. Authentication and route logic require no changes.
+ * Every project uses the same private media library. To protect a project,
+ * change only `protected` to true. No content or asset files need to move.
  */
 export const projects = projectData satisfies Record<string, ProjectConfig>;
 
