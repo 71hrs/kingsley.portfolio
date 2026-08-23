@@ -25,6 +25,8 @@ for (const source of ["index.html", "works.html", "highlights.html", "about.html
 }
 
 const privateOnly = new Set([...protectedReferences].filter((asset) => !publicReferences.has(asset)));
+const sharedPrefixes = ["css/", "js/", "font/", "fonts/", "picture/brand/"];
+const isSharedInfrastructure = (relative) => sharedPrefixes.some((prefix) => relative.split(path.sep).join("/").startsWith(prefix));
 
 // public/static is generated, never committed. Private project assets must live
 // in private-assets locally or Private Blob in production, not in this tree.
@@ -35,7 +37,7 @@ await cp(source, destination, {
   preserveTimestamps: true,
   filter: (entry) => {
     const relative = path.relative(source, entry);
-    return !privateOnly.has(relative);
+    return isSharedInfrastructure(relative) || !privateOnly.has(relative);
   },
 });
 
