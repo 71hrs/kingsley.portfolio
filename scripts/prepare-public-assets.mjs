@@ -4,12 +4,12 @@ import path from "node:path";
 const root = process.cwd();
 // `static/` at the repository root is implicitly public in Next.js. Keep the
 // source library under a neutral name and selectively publish from it.
-const source = path.join(root, "source-assets");
+const source = path.join(root, "Assets");
 const destination = path.join(root, "public", "static");
-const projectData = JSON.parse(await readFile(path.join(root, "config", "projects.data.json"), "utf8"));
+const projectData = JSON.parse(await readFile(path.join(root, "Password System", "config", "projects.data.json"), "utf8"));
 
 async function referencedAssets(source) {
-  const html = await readFile(path.join(root, "legacy-pages", source), "utf8");
+  const html = await readFile(path.join(root, "Website Pages", source), "utf8");
   return new Set([...html.matchAll(/["']\/?static\/([^"'?#]+)(?:[?#][^"']*)?["']/gi)]
     .map((match) => decodeURIComponent(match[1]))
     .filter((relative) => !relative.endsWith("/")));

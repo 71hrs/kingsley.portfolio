@@ -1,0 +1,35 @@
+{
+  "files.exclude": {
+    "**/.DS_Store": true,
+    ".git": true,
+    ".github": true,
+    ".next": true,
+    ".pnpm-store": true,
+    ".tmp": true,
+    ".vercel": true,
+    ".vscode": true,
+    "app": true,
+    "lib": true,
+    "node_modules": true,
+    "public": true,
+    "scripts": true,
+    "tests": true,
+    ".env.example": true,
+    ".env.local": true,
+    ".gitignore": true,
+    "AUTHENTICATION.md": true,
+    "CNAME": true,
+    "next-env.d.ts": true,
+    "next.config.ts": true,
+    "package.json": true,
+    "pnpm-lock.yaml": true,
+    "README.md": true,
+    "tsconfig.json": true,
+    "tsconfig.tsbuildinfo": true
+  },
+  "search.exclude": {
+    "**/.next": true,
+    "**/node_modules": true,
+    "**/public/static": true
+  }
+}

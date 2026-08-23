@@ -1,9 +1,9 @@
-import { getProject } from "@/config/projects.config";
-import { verifyPortfolioPassword } from "@/lib/auth/password";
-import { hasValidSession, sessionCookie } from "@/lib/auth/session";
-import { PROTECTED_HEADERS, requestHasSameOrigin } from "@/lib/auth/security";
+import { getProject } from "@/Password System/config/projects.config";
+import { verifyPortfolioPassword } from "@/Password System/auth/password";
+import { hasValidSession, sessionCookie } from "@/Password System/auth/session";
+import { PROTECTED_HEADERS, requestHasSameOrigin } from "@/Password System/auth/security";
 import { projectAssetUrls, publicPageSource, readLegacyPage } from "@/lib/legacy/html";
-import { passwordPage } from "@/lib/auth/password-page";
+import { passwordPage } from "@/Password System/auth/password-page";
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
