@@ -41,11 +41,26 @@ export function publicPageSource(pathname: string): string | undefined {
 export function normalizeLegacyUrls(html: string): string {
   return html
     .replace(/((?:src|href)=["'])static\//gi, "$1/static/")
-    .replace(/(<base\s+href=["'])\.\.\//gi, "$1/");
+    .replace(/(<base\s+href=["'])\.\.\//gi, "$1/")
+    // File-relative links break when the document is served at /work/:slug.
+    .replace(/(href=["'])\/?index\.html(?=([?#][^"']*)?["'])/gi, "$1/")
+    .replace(/(href=["'])\/?(works|highlights|about)\.html(?=([?#][^"']*)?["'])/gi, "$1/$2")
+    .replace(/(href=["'])\/?([A-Za-z0-9-]+)\.html(?=([?#][^"']*)?["'])/gi, "$1/work/$2")
+    .replace(/((?:location\.)?href\s*=\s*["'])\/?index\.html(["'])/gi, "$1/$2")
+    .replace(/((?:location\.)?href\s*=\s*["'])\/?(works|highlights|about)\.html(["'])/gi, "$1/$2$3")
+    .replace(/((?:location\.)?href\s*=\s*["'])\/?([A-Za-z0-9-]+)\.html(["'])/gi, "$1/work/$2$3");
 }
 
-/** Route every local dependency of a protected page through the auth check. */
+const PUBLIC_ASSET_PREFIXES = ["css/", "js/", "font/", "fonts/", "picture/brand/"];
+
+/** Protect case-study content, while keeping shared site infrastructure reusable. */
 export function protectLegacyAssetUrls(html: string, projectSlug: string): string {
   const prefix = `/protected-assets/${encodeURIComponent(projectSlug)}/static/`;
-  return html.replace(/(["'])\/?static\//gi, `$1${prefix}`);
+  return html.replace(/(["'])\/?static\/([^"']+)/gi, (_match, quote: string, asset: string) => {
+    const pathname = asset.split(/[?#]/, 1)[0].toLowerCase();
+    if (PUBLIC_ASSET_PREFIXES.some((publicPrefix) => pathname.startsWith(publicPrefix))) {
+      return `${quote}/static/${asset}`;
+    }
+    return `${quote}${prefix}${asset}`;
+  });
 }
