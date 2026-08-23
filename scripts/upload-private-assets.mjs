@@ -21,9 +21,12 @@ if (!project) throw new Error(`Unknown project: ${slug}`);
 const html = await readFile(path.join(root, "legacy-pages", project.source), "utf8");
 const referenced = new Set([...html.matchAll(/["']\/?static\/([^"'?#]+)(?:[?#][^"']*)?["']/gi)]
   .map((match) => decodeURIComponent(match[1])));
+const sharedPrefixes = ["css/", "js/", "font/", "fonts/", "picture/brand/"];
+const isSharedInfrastructure = (relative) => sharedPrefixes.some((prefix) => relative.startsWith(prefix));
 
 const uploads = [];
 for (const relative of referenced) {
+  if (isSharedInfrastructure(relative)) continue;
   uploads.push({
     filename: path.join(root, "source-assets", relative),
     pathname: `${slug}/static/${relative}`,
