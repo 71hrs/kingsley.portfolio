@@ -97,7 +97,7 @@ html.uircs-case { scroll-behavior: auto; background: var(--dfr-paper); }
 .uircs-validation-board span,
 .uircs-impact-board span { color: var(--dfr-accent); font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
 .uircs-validation-board h3,
-.uircs-impact-board h3 { margin: 0; color: var(--dfr-ink); font-family: "EB Garamond", Georgia, serif; font-size: clamp(22px, 2.2vw, 29px); font-weight: 500; line-height: 1.08; }
+.uircs-impact-board h3 { margin: 0; color: var(--dfr-ink); font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif; font-size: clamp(22px, 2.2vw, 29px); font-weight: 500; line-height: 1.08; }
 .uircs-validation-board p,
 .uircs-impact-board p { margin: 0; color: rgba(32, 48, 45, .66); font-size: 13px; line-height: 21px; }
 

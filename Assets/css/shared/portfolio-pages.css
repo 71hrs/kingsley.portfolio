@@ -143,7 +143,7 @@ body.works-page {
 }
 
 .works-page .works-quote-section {
-  width: min(900px, 82%);
+  width: min(1040px, 88%);
   margin: 34px auto clamp(108px, 10vw, 168px);
   padding: 0;
 }
@@ -430,12 +430,26 @@ body.highlights-page {
 }
 
 .highlights-page .highlights-quote-section {
-  /* This quotation is about 12% longer than Works, so it needs a slightly
-     wider desktop measure to preserve the same two-line composition. */
   width: min(1040px, 88%);
   max-width: none;
   margin: 34px auto clamp(108px, 10vw, 168px);
   padding: 0;
+}
+
+/* Works and Highlights share one quotation measure and one typographic rule.
+   Keeping this definition after both page sections prevents either page from
+   drifting into a separate two/three-line composition. */
+.works-page .works-quote-section,
+.highlights-page .highlights-quote-section {
+  width:min(1040px,88%);
+  max-width:none;
+}
+
+.works-page .works-quote-text,
+.highlights-page .highlights-quote-text {
+  margin:0;
+  font-size:clamp(28px,2.15vw,40px);
+  line-height:1.35;
 }
 
 .highlights-page .highlights-quote-text {

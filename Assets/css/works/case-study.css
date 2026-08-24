@@ -86,7 +86,7 @@ header {
   font-size: 13px; /* Font size */
   color: white; /* Text color */
   text-transform: uppercase; /* Transform text to uppercase */
-  font-family: 'Heebo', Helvetica, Arial, sans-serif;
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
   font-weight: 400; /* 设置加粗 */
   letter-spacing: 0.02em;
 }
@@ -148,7 +148,7 @@ footer .footer-navbar {
   font-size: 13px;              /* Font size */
   color: white;                 /* Text color */
   text-transform: uppercase;    /* Uppercase text */
-  font-family: 'Heebo', Helvetica, Arial, sans-serif;
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
   font-weight: 400; /* 设置加粗 */
   letter-spacing: 0.02em;
 }
@@ -223,7 +223,7 @@ footer .footer-navbar a {
 
 
 .homepage-content h2 {
-  font-family: 'EB Garamond', Georgia, serif;
+  font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif;
   font-size: 2em;
   font-weight: 700;  /* 或 400~800 之间 有斜体*/
   margin: 0;
@@ -231,7 +231,7 @@ footer .footer-navbar a {
 }
 
 .homepage-content h4 {
-  font-family: 'Heebo', Helvetica, Arial, sans-serif;
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
   font-weight: 200;    /* 100–900 都可以 */
   font-size: 1em;
   line-height: 25px;
@@ -314,7 +314,7 @@ footer .footer-navbar a {
   font-weight: 400;
   line-height: 1.4;
   margin-bottom: 24px;
-  font-family: 'EB Garamond', Georgia, serif;
+  font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif;
   color: white;
 }
 
@@ -344,7 +344,7 @@ footer .footer-navbar a {
   writing-mode: vertical-rl;
   text-orientation: mixed;
   transform: rotate(180deg);   /* 自下而上；要自上而下就删掉这一行 */
-  font-family: 'Heebo', Helvetica, Arial, sans-serif;
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
   letter-spacing:0.02em;
   font-weight:500;
   font-size:14px;
@@ -433,7 +433,7 @@ footer .footer-navbar a {
   position: absolute;
   top: 24px;
   left: 24px; right: 24px;
-  font-family: 'Heebo', Helvetica, Arial, sans-serif;
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
   display: flex; justify-content: space-between; gap: 16px;
   color: #fff; font-size: 14px; line-height: 1.2;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
@@ -449,14 +449,14 @@ footer .footer-navbar a {
 }
 .ra-title{
   margin: 0 0 8px 0;
-  font-family: 'Heebo', Helvetica, Arial, sans-serif;
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
   font-size: 20px; line-height: 1.25; font-weight: 700;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   font-weight: 700; 
 }
 .ra-tags{
   margin: 0; padding: 0; list-style: none;
-  font-family: 'Heebo', Helvetica, Arial, sans-serif;
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
   display: flex; gap: 12px; font-size: 14px; flex-wrap: wrap;
   font-weight: 300; 
 }
@@ -534,7 +534,7 @@ footer .footer-navbar a {
   font-weight: 400;
   line-height: 1.4;
   margin-bottom: 24px;
-  font-family: 'EB Garamond', Georgia, serif;
+  font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif;
   color: white;
 }
 
@@ -621,7 +621,7 @@ footer .footer-navbar a {
 
 .highlights-item{
   margin: 12px 0;
-  font-family: 'Heebo', Helvetica, Arial, sans-serif;
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
   font-size: 16px;
   font-weight: 300;    /* 100–900 都可以 */
   line-height: 1.6;
@@ -725,7 +725,7 @@ footer .footer-navbar a {
 }
 .right .quote{ 
   margin:25px 0; 
-  font-family: 'Heebo', Helvetica, Arial, sans-serif;
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
   font-weight: 300;    /* 100–900 都可以 */
   font-size:14px; 
   color:#fff; 
@@ -776,7 +776,7 @@ footer .footer-navbar a {
   opacity:.9;
   margin: 0;
   margin-bottom: 72px;
-  font-family: 'Heebo', Helvetica, Arial, sans-serif;
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
   letter-spacing:0.02em;
   font-weight:500;
   font-size:14px;
@@ -790,7 +790,7 @@ footer .footer-navbar a {
 }
 .about-paragraph{
   margin: 0 0 14px 0;
-  font-family: 'Heebo', Helvetica, Arial, sans-serif;
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
   font-weight: 300;    /* 100–900 都可以 */
   line-height: 1.6;
   font-size: 16px;
@@ -798,7 +798,7 @@ footer .footer-navbar a {
 }
 .about-item{ margin: 0 0 10px 0; }
 .about-item-title{
-  font-family: 'Heebo', Helvetica, Arial, sans-serif;
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
   font-weight: 500;
   color: #fff;
   line-height: 1.6;
@@ -806,7 +806,7 @@ footer .footer-navbar a {
   margin: 0 0 4px 0;
 }
 .about-item-sub{
-  font-family: 'Heebo', Helvetica, Arial, sans-serif;
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
   font-weight: 300;    /* 100–900 都可以 */
   color: #fff;
   opacity: .9;
@@ -920,7 +920,7 @@ footer .footer-navbar a {
 }
 
 .project-title-text{
-  font-family: 'EB Garamond', Georgia, serif;
+  font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif;
   font-size:13px;
   line-height:1.8;
   color:#fff;
@@ -952,7 +952,7 @@ footer .footer-navbar a {
 
 .project-header-text{
   margin:44px 0 0px 0;
-  font-family: 'Heebo', Helvetica, Arial, sans-serif;
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
   font-weight: 200;    /* 100–900 都可以 */
   font-size: 32px;
   line-height:1.2;
@@ -992,7 +992,7 @@ footer .footer-navbar a {
 }
 
 .project-caption{
-  font-family: 'Heebo', Helvetica, Arial, sans-serif;
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
   font-weight:600;
   font-size:13px;
   letter-spacing: 0.03em;
@@ -1051,7 +1051,7 @@ footer .footer-navbar a {
 .project-title{
   display:inline-block;
   margin:0 0 12px 0;
-  font-family: futura-pt, sans-serif; 
+  font-family:"Gilroy Case","Gilroy",Helvetica,Arial,sans-serif;
   font-size:15px;
   text-transform:uppercase;
   color:#000000;
@@ -1059,7 +1059,7 @@ footer .footer-navbar a {
 
 .project-paragraph{
   margin:0 0 16px 0;
-  font-family: 'Heebo', Helvetica, Arial, sans-serif;
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
   font-size:16px;
   font-weight: 300;
   line-height:1.8;
@@ -1068,7 +1068,7 @@ footer .footer-navbar a {
 
 .project-paragraph-highlight{
   margin:0 0 16px 0;
-  font-family: 'EB Garamond', Georgia, serif;
+  font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif;
   font-size:28px;
   font-weight: 600;
   line-height:1.8;
@@ -1209,7 +1209,7 @@ body.chem-guard {
 /* 文字样式 */
 .chem-guard-sketch-container p {
   text-align: center;
-  font-family: 'Heebo', Helvetica, Arial, sans-serif;
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
   font-weight: 300;
   font-size: 14px;
   color: #000000;
@@ -1257,7 +1257,7 @@ body.chem-guard {
 
 /* 文字样式 */
 .chem-guard-3D-modeling-container p {
-  font-family: 'Heebo', Helvetica, Arial, sans-serif;
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
   font-weight: 300;
   font-size: 14px;
   line-height: 1.4em;
@@ -1331,7 +1331,7 @@ body.chem-guard {
 .chem-guard-mockup-title{
   color:rgba(0, 0, 0, 0.9);
   text-decoration:none;
-  font-family: 'Heebo', Helvetica, Arial, sans-serif;
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
   font-weight:500;
   font-size:14px;
   line-height: 1.4em;
@@ -1340,7 +1340,7 @@ body.chem-guard {
 .chem-guard-mockup-text p{
   color:#000000;
   margin:0;
-  font-family: 'Heebo', Helvetica, Arial, sans-serif;
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
   font-weight:300;
   font-size:14px;
   line-height:1.4em;
@@ -1405,7 +1405,7 @@ body.chem-guard {
 
 /* caption 标题行 */
 .chem-guard-caption-title{
-  font: 500 14px 'Heebo', Helvetica, Arial, sans-serif;
+  font: 500 14px "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
   color: #000;
   text-align: center;
   margin-top: 24px;
@@ -1413,7 +1413,7 @@ body.chem-guard {
 
 /* caption 描述行 */
 .chem-guard-caption-desc{
-  font: 300 14px 'Heebo', Helvetica, Arial, sans-serif;
+  font: 300 14px "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
   color: #444;
   text-align: center;
   max-width: 80%;       /* 让文字行宽不要太长 */
@@ -1445,7 +1445,7 @@ body.chem-guard {
 }
 
 .chem-guard-header-eyebrow {
-  font-family: futura-pt, sans-serif;
+  font-family:"Gilroy Case","Gilroy",Helvetica,Arial,sans-serif;
   font-weight:700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -1454,7 +1454,7 @@ body.chem-guard {
 }
 
 .chem-guard-header-headline {
-  font-family: futura-pt, sans-serif;
+  font-family:"Gilroy Case","Gilroy",Helvetica,Arial,sans-serif;
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: 0.02em;
@@ -1464,7 +1464,7 @@ body.chem-guard {
 .chem-guard-header-desc {
   max-width: 40%;
   margin: 0 auto;
-  font: 300 16px 'Heebo', Helvetica, Arial, sans-serif;
+  font: 300 16px "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
   line-height: 1.5;
   color: #d8dde4;  /* 比 headline 更浅的灰色 */
 }
@@ -1512,7 +1512,7 @@ body.chem-guard {
 
 .chem-guard-eeg-system-diagram-caption {
   margin-top: 24px;
-  font: 500 14px 'Heebo', Helvetica, Arial, sans-serif;
+  font: 500 14px "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
   color: #555;
   text-align: center;
 }
@@ -1830,7 +1830,7 @@ body.close-to-me {
   text-align: center;
   margin-top: 10px;  /* Adjust the distance from the image */
   color: #333;
-  font-family: futura-pt, sans-serif;
+  font-family:"Gilroy Case","Gilroy",Helvetica,Arial,sans-serif;
   font-weight: 600;
   font-style: normal;
 }
@@ -1851,7 +1851,7 @@ body.close-to-me {
   text-align: center;
   margin-top: 10px;  /* Adjust the distance from the image */
   color: #333;
-  font-family: futura-pt, sans-serif;
+  font-family:"Gilroy Case","Gilroy",Helvetica,Arial,sans-serif;
   font-weight: 600;
   font-style: normal;
 }
@@ -2014,7 +2014,7 @@ close-to-me-iteration {
 .close-to-me-contestant-title {
   color: #9146FF;
   text-decoration: none;
-  font-family: futura-pt, sans-serif;
+  font-family:"Gilroy Case","Gilroy",Helvetica,Arial,sans-serif;
   font-weight: 600;
   font-style: normal;
   font-size: 16px;
@@ -2024,7 +2024,7 @@ close-to-me-iteration {
 .close-to-me-contestant-text p {
   color: #333;
   margin-top: 10px;
-  font-family: futura-pt, sans-serif;
+  font-family:"Gilroy Case","Gilroy",Helvetica,Arial,sans-serif;
   font-weight: 600;
   font-style: normal;
   font-size: 16px;
@@ -2074,7 +2074,7 @@ close-to-me-iteration {
 .close-to-me-audience-title {
   color: #9146FF;
   text-decoration: none;
-  font-family: futura-pt, sans-serif;
+  font-family:"Gilroy Case","Gilroy",Helvetica,Arial,sans-serif;
   font-weight: 600;
   font-style: normal;
   font-size: 16px;
@@ -2084,7 +2084,7 @@ close-to-me-iteration {
 .close-to-me-audience-text p {
   color: #333;
   margin-top: 10px;
-  font-family: futura-pt, sans-serif;
+  font-family:"Gilroy Case","Gilroy",Helvetica,Arial,sans-serif;
   font-weight: 600;
   font-style: normal;
   font-size: 16px;
@@ -2175,7 +2175,7 @@ body.dollar-flip {
   text-align: center;
   margin-top: 10px;  /* Adjust the distance from the image */
   color: #333;
-  font-family: futura-pt, sans-serif;
+  font-family:"Gilroy Case","Gilroy",Helvetica,Arial,sans-serif;
   font-weight: 600;
   font-style: normal;
 }
@@ -2196,7 +2196,7 @@ body.dollar-flip {
   text-align: center;
   margin-top: 10px;  /* Adjust the distance from the image */
   color: #333;
-  font-family: futura-pt, sans-serif;
+  font-family:"Gilroy Case","Gilroy",Helvetica,Arial,sans-serif;
   font-weight: 600;
   font-style: normal;
 }
@@ -2385,7 +2385,7 @@ body.dollar-flip {
 .dollar-flip-ui-title {
   color: #6927ef;
   text-decoration: none;
-  font-family: futura-pt, sans-serif;
+  font-family:"Gilroy Case","Gilroy",Helvetica,Arial,sans-serif;
   font-weight: 600;
   font-style: normal;
   font-size: 16px;
@@ -2395,7 +2395,7 @@ body.dollar-flip {
 .dollar-flip-ui-text p {
   color: #333;
   margin-top: 10px;
-  font-family: futura-pt, sans-serif;
+  font-family:"Gilroy Case","Gilroy",Helvetica,Arial,sans-serif;
   font-weight: 600;
   font-style: normal;
   font-size: 16px;
@@ -2479,7 +2479,7 @@ body.glamhub {
 
 /* 文字样式 */
 .glamhub-storyboard-item p {
-  font-family: futura-pt, sans-serif;
+  font-family:"Gilroy Case","Gilroy",Helvetica,Arial,sans-serif;
   font-weight: 600;
   font-size: 16px;
   margin-top: 30px; /* 文字与图片之间的间距 */
@@ -2951,347 +2951,6 @@ body.wave {
 
 
 
-
-
-
-
-
-
-
-
-
-
-/* ====== Polyverse ====== */
-
-html.polyverse-backup,
-body.polyverse-backup {
-  background: 
-    linear-gradient(#FFEFA6 0 1870px, #f7fafd 300px 100%);
-}
-
-.polyverse-ecosystem-mapping {
-  width: 100%;
-  text-align: center; /* 让 figcaption 居中 */
-  margin: 0;
-  padding: 0;
-}
-
-.polyverse-ecosystem-mapping img {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-.polyverse-ecosystem-mapping figure {
-  margin: 0;               /* 去掉默认 margin */
-}
-
-.polyverse-ecosystem-mapping figcaption {
-  font: 500 14px 'Heebo', Helvetica, Arial, sans-serif;
-  color: #000;
-  text-align: center;
-  margin-top: 24px;
-}
-
-.polyverse-competitive-analysis {
-  width: 100%;
-  text-align: center; /* 让 figcaption 居中 */
-  margin: 0;
-  padding: 0;
-}
-
-.polyverse-competitive-analysis img {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-.polyverse-competitive-analysis figure {
-  margin: 0;               /* 去掉默认 margin */
-}
-
-.polyverse-competitive-analysis figcaption {
-  font: 500 14px 'Heebo', Helvetica, Arial, sans-serif;
-  color: #000;
-  text-align: center;
-  margin-top: 24px;
-}
-
-.polyverse-information-architecture {
-  width: 100%;
-  text-align: center; /* 让 figcaption 居中 */
-  margin: 0;
-  padding: 0;
-}
-
-.polyverse-information-architecture img {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-.polyverse-user-journey {
-  width: 100%;
-  text-align: center; /* 让 figcaption 居中 */
-  margin: 0;
-  padding: 0;
-}
-
-.polyverse-user-journey img {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-.polyverse-wireframing {
-  width: 100%;
-  text-align: center;
-  margin: 0;
-  padding: 0;
-}
-
-.polyverse-wireframing img {
-  width: 108%;
-  height: auto;
-  display: block;
-  margin: 0 auto;       /* 居中关键 */
-  object-fit: contain;
-  transform: translateX(-4%); /* 偏移一半的溢出量，让左右对称 */
-}
-
-.polyverse-survey {
-  width: 100%;
-  text-align: center; /* 让 figcaption 居中 */
-  margin: 0;
-  padding: 0;
-}
-
-.polyverse-survey img {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-.polyverse-persona {
-  width: 100%;
-  text-align: center; /* 让 figcaption 居中 */
-  margin: 0;
-  padding: 0;
-}
-
-.polyverse-persona img {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-.polyverse-iteration {
-  width: 100%;
-  text-align: center; /* 让 figcaption 居中 */
-  margin: 0;
-  padding: 0;
-}
-
-.polyverse-iteration img {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-.polyverse-ip {
-  width: 100%;
-  text-align: center; /* 让 figcaption 居中 */
-  margin: 0;
-  padding: 0;
-}
-
-.polyverse-ip img {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-.polyverse-design-system {
-  width: 100%;
-  text-align: center; /* 让 figcaption 居中 */
-  margin: 0;
-  padding: 0;
-}
-
-.polyverse-design-system img {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-.polyverse-design-system figure {
-  margin: 0;               /* 去掉默认 margin */
-}
-
-.polyverse-design-system figcaption {
-  font: 500 14px 'Heebo', Helvetica, Arial, sans-serif;
-  color: #000;
-  text-align: center;
-  margin-top: 24px;
-}
-
-/* 让视频块在任何布局里都能撑满一行 */
-.project-content-unit .polyverse-video-embed{
-  width: 100%;
-  margin: 0 auto;
-  /* 如果外层是 CSS Grid：跨所有列 */
-  grid-column: 1 / -1;
-  /* 如果外层是 Flex：占满整行 */
-  flex: 0 0 100%;
-}
-
-.polyverse-video-embed__ratio{
-  position: relative;
-  width: 100%;
-  padding-top: 56.25%; /* 16:9 */
-}
-
-.polyverse-video-embed__ratio iframe{
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  display: block; border: 0;
-}
-
-.polyverse-usability-testing {
-  width: 100%;
-  text-align: center; /* 让 figcaption 居中 */
-  margin: 0;
-  padding: 0;
-}
-
-.polyverse-usability-testing img {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-/* 容器样式 */
-.polyverse-ui-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* 每一行的样式 */
-.polyverse-ui-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 70px; /* 行与行之间的间隔 */
-  width: 100%;
-  gap: 20px; /* 图片与文字之间的间隔 */
-}
-
-/* 每一列图片样式 */
-.polyverse-ui-image {
-  flex: 0 1 40%;  /* 图片占据容器的 40% */
-  display: flex;
-  justify-content: center;
-}
-
-/* 每一列文字样式 */
-.polyverse-ui-text {
-  flex: 0 1 40%;  /* 文字占据容器的 40% */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 10px;  /* 文字部分左右内边距 */
-  text-align: left;
-}
-
-/* 图片样式 */
-.polyverse-ui-image img {
-  max-width: 100%;  /* 确保图片不超出容器 */
-  height: auto;  /* 保持图片的比例 */
-}
-
-/* 标题样式 */
-.polyverse-ui-title {
-  color: #333;
-  text-decoration: none;
-  font-family: futura-pt, sans-serif;
-  font-weight: 600;
-  font-style: normal;
-  font-size: 16px;
-}
-
-/* 文字描述样式 */
-.polyverse-ui-text p {
-  color: #333;
-  margin-top: 10px;
-  font-family: futura-pt, sans-serif;
-  font-weight: 600;
-  font-style: normal;
-  font-size: 16px;
-}
-
-.polyverse-handoff {
-  width: 100%;
-  text-align: center; /* 让 figcaption 居中 */
-  margin: 0;
-  padding: 0;
-}
-
-.polyverse-handoff img {
-  width: 108%;
-  height: auto;
-  display: block;
-  margin: 0 auto;       /* 居中关键 */
-  object-fit: contain;
-  transform: translateX(-4%); /* 偏移一半的溢出量，让左右对称 */
-}
-
-.polyverse-handoff figure {
-  margin: 0;               /* 去掉默认 margin */
-}
-
-.polyverse-handoff figcaption {
-  font: 500 14px 'Heebo', Helvetica, Arial, sans-serif;
-  color: #000;
-  text-align: center;
-  margin-top: 0px;
-}
-
-.polyverse-state {
-  width: 100%;
-  text-align: center; /* 让 figcaption 居中 */
-  margin: 0;
-  padding: 0;
-}
-
-.polyverse-state img {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;       /* 居中关键 */
-  object-fit: contain;
-}
-
-.polyverse-state figure {
-  margin: 0;               /* 去掉默认 margin */
-}
-
-.polyverse-state figcaption {
-  font: 500 14px 'Heebo', Helvetica, Arial, sans-serif;
-  color: #000;
-  text-align: center;
-  margin-top: 24px;
-}
 
 
 

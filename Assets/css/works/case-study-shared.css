@@ -1,0 +1,4300 @@
+/* Shared structural stylesheet for every active portfolio case study. */
+/* Pages load this file plus exactly one project-specific stylesheet. */
+
+@font-face { font-family:"Heebo Case"; src:url("../../font/Heebo-Light.woff2") format("woff2"); font-style:normal; font-weight:300; font-display:swap; }
+@font-face { font-family:"Heebo Case"; src:url("../../font/Heebo-Regular.woff2") format("woff2"); font-style:normal; font-weight:400; font-display:swap; }
+@font-face { font-family:"Heebo Case"; src:url("../../font/Heebo-Medium.woff2") format("woff2"); font-style:normal; font-weight:500; font-display:swap; }
+@font-face { font-family:"Heebo Case"; src:url("../../font/Heebo-Bold.woff2") format("woff2"); font-style:normal; font-weight:700; font-display:swap; }
+@font-face { font-family:"Heebo Case"; src:url("../../font/Heebo-Thin.woff2") format("woff2"); font-style:normal; font-weight:200; font-display:swap; }
+@font-face { font-family:"Gilroy Case"; src:url("../../font/Gilroy-Regular.woff2") format("woff2"); font-style:normal; font-weight:400; font-display:swap; }
+@font-face { font-family:"Gilroy Case"; src:url("../../font/Gilroy-Medium.woff2") format("woff2"); font-style:normal; font-weight:500; font-display:swap; }
+@font-face { font-family:"Gilroy Case"; src:url("../../font/Gilroy-Bold.woff2") format("woff2"); font-style:normal; font-weight:700; font-display:swap; }
+@font-face { font-family:"GT Sectra Case"; src:url("../../font/GTSectraDisplay-Regular.woff2") format("woff2"); font-style:normal; font-weight:400; font-display:swap; }
+@font-face { font-family:"GT Sectra Case"; src:url("../../font/GTSectraDisplay-Medium.woff2") format("woff2"); font-style:normal; font-weight:500; font-display:swap; }
+@font-face { font-family:"GT Sectra Case"; src:url("../../font/GTSectraDisplay-Bold.woff2") format("woff2"); font-style:normal; font-weight:700; font-display:swap; }
+
+/*
+ * Shared Project typography.
+ * This stylesheet is the only source of truth for the project name, hero
+ * statement, region, and year. Project styles may change colors, not type.
+ */
+html,
+body { overflow-x:clip; }
+
+body { font-family:"Heebo Case","Heebo",Helvetica,Arial,sans-serif; }
+
+/* Shared Tomorrowland-style header behavior: visible at rest, hidden while
+   scrolling down, and immediately restored when scrolling up. */
+body > header.case-smart-header {
+  position:fixed !important;
+  inset:0 0 auto !important;
+  z-index:2000 !important;
+  width:100% !important;
+  box-sizing:border-box !important;
+  background:transparent !important;
+  transform:translate3d(0,0,0) !important;
+  transition:transform 420ms cubic-bezier(.22,1,.36,1) !important;
+  will-change:transform;
+}
+
+/* The transparent fixed header no longer participates in document flow.
+   This spacer preserves the project's original title position exactly. */
+.case-smart-header-spacer {
+  width:100%;
+  background:var(--redesign-main);
+}
+
+html.polyverse-redesign-case .case-smart-header-spacer { background:var(--pvr-yellow); }
+html.dollar-flip-case .case-smart-header-spacer,
+html.uircs-case .case-smart-header-spacer { background:var(--dfr-night); }
+html.plms-page .case-smart-header-spacer { background:var(--plms-paper); }
+body.ctm-case .case-smart-header-spacer {
+  background:linear-gradient(135deg,#c9d8ff 0%,#c9c3f4 55%,#efc7e6 100%);
+}
+
+body > header.case-smart-header.is-scroll-hidden {
+  transform:translate3d(0,-110%,0) !important;
+}
+
+/*
+ * Canonical Tomorrowland typography roles.
+ * Every project HTML uses these semantic names. Project styles may change
+ * color only; Back to Gallery and Back to Top intentionally stay outside
+ * this typography system.
+ */
+.case-type-project-name {
+  font-family:"GT Sectra Case","GT Sectra Display",Times,Georgia,serif !important;
+  font-weight:500 !important;
+  font-style:normal !important;
+  font-size:15px !important;
+  line-height:15px !important;
+  letter-spacing:.02em !important;
+}
+
+.case-type-hero-title {
+  font-family:"Heebo Case","Heebo",Helvetica,Arial,sans-serif !important;
+  font-weight:300 !important;
+  font-style:normal !important;
+  font-size:30px !important;
+  line-height:35px !important;
+  letter-spacing:0 !important;
+}
+
+.case-type-section-label,
+.case-type-section-label h2,
+.case-type-section-label span,
+.pvr-chapter__header,
+.pvr-chapter__header h2,
+.pvr-chapter__header span,
+.dfr-chapter__header,
+.dfr-chapter__header h2,
+.dfr-chapter__header span,
+.dfr-reflection__label,
+.dfr-reflection__label h2,
+.dfr-reflection__label span {
+  font-family:"Gilroy Case","Gilroy",Helvetica,Arial,sans-serif !important;
+  font-weight:700 !important;
+  font-style:normal !important;
+  font-size:9px !important;
+  line-height:9px !important;
+  letter-spacing:.37em !important;
+  text-transform:uppercase !important;
+}
+
+.case-type-content-title,
+.redesign-project-details strong,
+.dfr-subsection h3,
+.pvr-subsection h3 {
+  font-family:"GT Sectra Case","GT Sectra Display",Times,Georgia,serif !important;
+  font-weight:500 !important;
+  font-style:normal !important;
+  font-size:30px !important;
+  line-height:35px !important;
+  letter-spacing:0 !important;
+}
+
+.case-type-body,
+.case-body p,
+.pvr-body-copy,
+.dfr-body-copy,
+.pvr-reflection__copy,
+.pvr-reflection__copy > p,
+.pvr-learning-points p,
+.dfr-reflection__copy,
+.dfr-reflection__copy > p,
+.dfr-learning-points p,
+body.portfolio-redesign .project-paragraph,
+.redesign-project-details p {
+  font-family:"Heebo Case","Heebo",Helvetica,Arial,sans-serif !important;
+  font-weight:300 !important;
+  font-style:normal !important;
+  font-size:14px !important;
+  line-height:29.4px !important;
+  letter-spacing:0 !important;
+}
+
+/* Reflection copy is ordinary body copy. Intro paragraphs, numbered points,
+   emphasis, and generated numbers all use exactly the same type metrics. */
+:is(.pvr-reflection__copy,.dfr-reflection__copy) :is(p,strong,span),
+:is(.pvr-learning-points,.dfr-learning-points) :is(p,strong,span),
+:is(.pvr-learning-points,.dfr-learning-points) p::before {
+  font-family:"Heebo Case","Heebo",Helvetica,Arial,sans-serif !important;
+  font-size:14px !important;
+  font-weight:300 !important;
+  font-style:normal !important;
+  line-height:29.4px !important;
+  letter-spacing:0 !important;
+}
+
+/*
+ * Project body system — derived from the Tomorrowland case-study rhythm.
+ * Header and project-specific art direction stay independent.  The shared
+ * body uses a 1024px reading frame, a 580px copy column, 105px section rhythm,
+ * and a wider 1200px media frame.  These are the canonical structural values
+ * for every active project page.
+ */
+:root {
+  --case-reading-width: 1024px;
+  --case-reading-inner-width: 1024px;
+  --case-copy-width: 580px;
+  --case-media-width: 1200px;
+  --case-media-inner-width: 1200px;
+  --case-section-space: 105px;
+  --case-mobile-space: 65px;
+  --case-page-gutter: 45px;
+  --case-media-fluid-width: min(1200px,100vw);
+  --case-media-breakout: -532px;
+  --case-media-row-offset: -88px;
+}
+
+@media (max-width:1199px) and (min-width:1024px) {
+  :root {
+    --case-media-breakout:calc(68px - 50vw);
+    --case-media-row-offset:calc((1024px - 100vw) / 2);
+  }
+}
+
+@media (max-width:1023px) and (min-width:701px) {
+  :root {
+    --case-media-fluid-width:calc(100vw - 90px);
+    --case-media-breakout:calc(670px - 100vw);
+    --case-media-row-offset:0px;
+  }
+}
+
+@media (max-width:1029px) and (min-width:1024px) {
+  :root {
+    --case-media-fluid-width:calc(100vw - 90px);
+    --case-media-breakout:calc(670px - 100vw);
+    --case-media-row-offset:0px;
+  }
+}
+
+@media (max-width:814px) {
+  :root { --case-media-fluid-width:calc(100vw - 70px); }
+}
+
+/* Canonical body geometry for the Polyverse / Dollar Flip component families. */
+.pvr-chapter,
+.dfr-chapter {
+  grid-template-columns:minmax(0,1fr) var(--case-copy-width) !important;
+  width:min(100%,var(--case-reading-width)) !important;
+  padding:var(--case-section-space) 0 !important;
+  box-sizing:border-box !important;
+}
+
+.pvr-chapter__body,
+.dfr-chapter__body,
+.pvr-body-copy,
+.dfr-body-copy { max-width:var(--case-copy-width) !important; }
+
+.pvr-body-copy,
+.dfr-body-copy {
+  font-family:"Heebo Case","Heebo",Helvetica,Arial,sans-serif !important;
+  font-size:14px !important;
+  font-weight:300 !important;
+  line-height:29.4px !important;
+}
+
+.pvr-case-media,
+.dfr-case-media { max-width:var(--case-media-inner-width); }
+
+.pvr-intro-media,
+.dfr-intro-media {
+  width:var(--case-media-fluid-width) !important;
+  max-width:none !important;
+  margin-right:auto !important;
+  margin-left:auto !important;
+}
+
+.pvr-hero__copy,
+.pvr-hero__meta,
+.pvr-header__title-grid,
+.dfr-hero__copy,
+.dfr-hero__meta,
+.dfr-header__title-grid {
+  grid-template-columns:minmax(0,1fr) var(--case-copy-width) !important;
+  width:min(100%,var(--case-reading-width)) !important;
+  padding-inline:var(--case-page-gutter) !important;
+  box-sizing:border-box !important;
+}
+
+@media (max-width:814px) {
+  .pvr-chapter,
+  .dfr-chapter {
+    grid-template-columns:1fr !important;
+    width:100% !important;
+    padding:80px 35px !important;
+  }
+
+  .pvr-hero__copy,
+  .pvr-hero__meta,
+  .pvr-header__title-grid,
+  .dfr-hero__copy,
+  .dfr-hero__meta,
+  .dfr-header__title-grid { width:100% !important; padding-inline:35px !important; }
+}
+
+/* -------------------------------------------------------------------------
+   Canonical case-study content system
+
+   Header art direction remains project-specific. Everything below the hero
+   uses these semantic classes in every active project HTML file:
+   case-section, case-grid, case-label, case-body, case-copy, case-subheading,
+   and case-media. Project styles may skin the contents of a media component,
+   but may not redefine the shared reading/media geometry.
+   ------------------------------------------------------------------------- */
+.case-section {
+  position:relative;
+  width:min(100%,var(--case-reading-width)) !important;
+  margin-inline:auto !important;
+  box-sizing:border-box !important;
+  border-top:0 !important;
+}
+
+.case-section + .case-section::before {
+  position:absolute;
+  top:0;
+  left:50%;
+  width:var(--case-media-fluid-width);
+  height:1px;
+  background:var(--redesign-divider,rgba(36,35,38,.14));
+  content:"";
+  transform:translateX(-50%);
+}
+
+.case-grid {
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) var(--case-copy-width) !important;
+  box-sizing:border-box !important;
+}
+
+body.portfolio-redesign .case-section > .case-grid {
+  position:relative !important;
+  left:auto !important;
+  width:100% !important;
+  margin-right:0 !important;
+  margin-left:0 !important;
+  transform:none !important;
+}
+
+.case-section.case-grid {
+  padding:var(--case-section-space) 0 !important;
+}
+
+.case-label,
+.case-label-column {
+  grid-column:1;
+  min-width:0;
+}
+
+.case-label {
+  color:var(--redesign-ink,#242326);
+  font-family:"Gilroy Case",Gilroy,Helvetica,Arial,sans-serif !important;
+  font-size:9px !important;
+  font-weight:700 !important;
+  line-height:9px !important;
+  letter-spacing:.37em !important;
+  text-transform:uppercase !important;
+  white-space:nowrap;
+}
+
+.case-body {
+  grid-column:2;
+  width:100% !important;
+  max-width:var(--case-copy-width) !important;
+  min-width:0;
+  margin:0 !important;
+  padding:0 !important;
+}
+
+.case-copy {
+  width:100% !important;
+  max-width:var(--case-copy-width) !important;
+  color:var(--redesign-muted,#6e6b70);
+  font-family:"Heebo Case","Heebo",Helvetica,Arial,sans-serif !important;
+  font-size:14px !important;
+  font-weight:300 !important;
+  line-height:29.4px !important;
+  letter-spacing:0 !important;
+}
+
+.case-subheading {
+  margin:0 0 24px !important;
+  color:var(--redesign-ink,#242326);
+  font-family:"GT Sectra Case","GT Sectra Display",Times,Georgia,serif !important;
+  font-size:30px !important;
+  font-weight:500 !important;
+  line-height:35px !important;
+  letter-spacing:0 !important;
+}
+
+/* A media component nested in the 580px copy column breaks out to the exact
+   centered 1200px Tomorrowland media frame. */
+.case-body .case-media {
+  position:relative;
+  width:var(--case-media-fluid-width) !important;
+  max-width:none !important;
+  margin-right:0 !important;
+  margin-left:var(--case-media-breakout) !important;
+  box-sizing:border-box !important;
+  transform:none !important;
+}
+
+.case-media-row {
+  grid-template-columns:1fr !important;
+  place-items:stretch !important;
+}
+
+.case-media-row > .case-media {
+  width:var(--case-media-fluid-width) !important;
+  max-width:none !important;
+  margin-right:0 !important;
+  margin-left:var(--case-media-row-offset) !important;
+  box-sizing:border-box !important;
+  transform:none !important;
+}
+
+.case-media img,
+.case-media video,
+.case-media iframe { max-width:100%; }
+
+.case-media-stack {
+  width:var(--case-media-fluid-width) !important;
+  max-width:none !important;
+  margin-right:auto !important;
+  margin-left:auto !important;
+}
+
+/* Canonical full-width 16:9 media used by every Overview and Impact frame. */
+.case-impact-frame {
+  aspect-ratio:16 / 9 !important;
+  overflow:hidden !important;
+}
+
+.case-impact-frame > img,
+.case-impact-frame > video,
+.case-impact-frame > iframe {
+  display:block;
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center !important;
+}
+
+/* Role / Scope / Team closes with the same full reading-frame divider used
+   by every following chapter. */
+.pvr-overview-details,
+.dfr-overview-details {
+  position:relative;
+  border-bottom:0 !important;
+}
+
+.pvr-overview-details::after,
+.dfr-overview-details::after {
+  position:absolute;
+  bottom:0;
+  left:50%;
+  width:var(--case-media-fluid-width);
+  height:1px;
+  background:var(--redesign-divider,rgba(36,35,38,.14));
+  content:"";
+  transform:translateX(-50%);
+}
+
+@media (max-width:814px) {
+  .case-section,
+  .case-section.case-grid { width:100% !important; }
+  .case-section.case-grid { padding:80px 35px !important; }
+  .case-section + .case-section::before { width:calc(100% - 70px); }
+  .case-grid { grid-template-columns:1fr !important; }
+  .case-label,
+  .case-label-column,
+  .case-body { grid-column:1; }
+  .case-body { max-width:none !important; margin-top:42px !important; }
+  .case-body .case-media,
+  .case-media-row > .case-media {
+    width:100% !important;
+    margin-right:0 !important;
+    margin-left:0 !important;
+  }
+}
+
+@media (max-width:767px) {
+  .pvr-chapter,
+  .dfr-chapter,
+  .case-section.case-grid { padding-top:var(--case-mobile-space) !important; padding-bottom:var(--case-mobile-space) !important; }
+}
+
+/* Tomorrowland's .center only gains horizontal gutters below 64.365em.
+   Keep that original breakpoint and spacing exactly for case-study bodies. */
+@media (max-width:1029px) and (min-width:815px) {
+  .case-section.case-grid { padding-right:45px !important; padding-left:45px !important; }
+  .case-section + .case-section::before { width:calc(100% - 90px); }
+  body.portfolio-redesign .project-content-chapter { padding-right:45px; padding-left:45px; }
+}
+
+.legacy-project-name,
+.pvr-header__title-grid h1,
+.dfr-header__title-grid h1 {
+  font-family:"GT Sectra Case","GT Sectra Display",Times,Georgia,serif !important;
+  font-size:15px !important;
+  font-weight:500 !important;
+  line-height:15px !important;
+  letter-spacing:.02em !important;
+  text-transform:uppercase !important;
+}
+
+.project-header-text,
+.pvr-hero__statement,
+.dfr-hero__statement {
+  max-width:580px !important;
+  font-family:"Heebo Case","Heebo",Helvetica,Arial,sans-serif !important;
+  font-size:30px !important;
+  font-weight:300 !important;
+  line-height:35px !important;
+  letter-spacing:0 !important;
+}
+
+.project-caption,
+.pvr-hero__meta span,
+.dfr-hero__meta span {
+  font-family:"Heebo Case","Heebo",Helvetica,Arial,sans-serif !important;
+  font-size:13px !important;
+  font-weight:600 !important;
+  line-height:13px !important;
+  letter-spacing:0 !important;
+}
+
+@media (max-width:700px) {
+  .project-header-text,
+  .pvr-hero__statement,
+  .dfr-hero__statement {
+    max-width:11em !important;
+    font-size:30px !important;
+    line-height:35px !important;
+  }
+}
+
+/* Source consolidated from: Assets/css/shared/brand.css */
+.site-brand-logo {
+  display: block;
+  width: 87px;
+  height: 28px;
+  flex: 0 0 auto;
+  background: url("../../picture/home/brand/yuhuiqi-logo.svg") center / contain no-repeat;
+  transition: opacity 220ms ease, transform 320ms cubic-bezier(.22, 1, .36, 1);
+}
+
+.hpr-logo .site-brand-logo,
+.interior-header .logo .site-brand-logo,
+.navbar .logo .site-brand-logo { filter: brightness(0) invert(1); }
+
+.dfr-brand .site-brand-logo { filter: brightness(0) saturate(100%) invert(77%) sepia(20%) saturate(860%) hue-rotate(202deg) brightness(104%); }
+.pvr-brand .site-brand-logo { filter: brightness(0) saturate(100%) invert(31%) sepia(39%) saturate(1790%) hue-rotate(346deg) brightness(92%); }
+.ctm-case .pvr-brand .site-brand-logo { filter: brightness(0) saturate(100%) invert(22%) sepia(35%) saturate(2934%) hue-rotate(252deg) brightness(82%) contrast(94%); }
+.uircs-case .dfr-brand .site-brand-logo { filter: brightness(0) saturate(100%) invert(55%) sepia(19%) saturate(1406%) hue-rotate(102deg) brightness(91%) contrast(88%); }
+
+.logo:hover .site-brand-logo,
+.hpr-logo:hover .site-brand-logo,
+.dfr-brand:hover .site-brand-logo,
+.pvr-brand:hover .site-brand-logo {
+  opacity: .82;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .site-brand-logo { width: 75px; height: 24px; }
+}
+
+/* Source consolidated from: Assets/css/shared/mobile-navigation.css */
+/*
+ * Shared portfolio header and mobile navigation.
+ *
+ * This file is intentionally loaded after each page's own stylesheet. The
+ * portfolio grew with two header class systems, so keeping the final mobile
+ * geometry here prevents older page-specific rules from shifting the logo,
+ * hamburger, or expanded menu by a few pixels.
+ */
+@keyframes mobileNavigationEntry {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*
+ * One visual header baseline for the whole portfolio.
+ *
+ * Older pages enlarged the logo with transform: scale(), which changed the
+ * painted position without changing the flex box used for alignment.  That is
+ * why the logo and the controls could look offset even when their boxes were
+ * technically aligned.  Give every logo its real painted size instead and let
+ * flexbox align the actual geometry.
+ */
+.hpr-logo,
+.interior-header .logo,
+.dfr-brand,
+.pvr-brand {
+  display: flex;
+  align-items: center;
+  flex: 0 0 104.4px;
+  width: 104.4px;
+  height: 33.6px;
+  transform: none !important;
+  transform-origin: center;
+}
+
+.hpr-logo .site-brand-logo,
+.interior-header .logo .site-brand-logo,
+.dfr-brand .site-brand-logo,
+.pvr-brand .site-brand-logo {
+  width: 104.4px;
+  height: 33.6px;
+}
+
+.hpr-navbar,
+.interior-header .navbar,
+.dfr-header,
+.pvr-header,
+.dfr-header-actions,
+.pvr-header-actions {
+  align-items: center;
+}
+
+/* Case-study title rows use the same vertical center as the shared logo. */
+.dfr-header__title-grid,
+.pvr-header__title-grid {
+  height: 33.6px;
+}
+
+/* The main pages already switch to a 24px gutter on tablet.  Match the case
+   study headers to that same anchor instead of leaving them at 4vw. */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .dfr-header,
+  .pvr-header {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  .dfr-header__title-grid,
+  .pvr-header__title-grid {
+    width: calc(100% - 48px);
+  }
+}
+
+@media (max-width: 600px) {
+  .hpr-header,
+  .interior-header {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 80;
+    height: 72px;
+    padding: 0;
+    background: transparent;
+    opacity: 0;
+    transform: translateY(-16px);
+    animation: mobileNavigationEntry 800ms cubic-bezier(.34, 1.56, .64, 1) 80ms both;
+  }
+
+  body.interior-page-loading .interior-header {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+
+  .hpr-navbar,
+  .interior-header .navbar {
+    position: absolute;
+    top: calc(3vh - 10px);
+    right: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(100% - 40px);
+    height: 44px;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .hpr-logo,
+  .interior-header .logo,
+  .dfr-brand,
+  .pvr-brand {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    flex: 0 0 90px;
+    width: 90px;
+    height: 28.8px;
+    transform: none !important;
+  }
+
+  .hpr-logo .site-brand-logo,
+  .interior-header .logo .site-brand-logo,
+  .dfr-brand .site-brand-logo,
+  .pvr-brand .site-brand-logo {
+    width: 90px;
+    height: 28.8px;
+  }
+
+  .dfr-header,
+  .pvr-header {
+    height: 44px;
+    margin-top: calc(3vh - 10px);
+    padding: 0 20px;
+  }
+
+  .dfr-header__title-grid,
+  .pvr-header__title-grid {
+    top: 0;
+    width: calc(100% - 40px);
+    height: 44px;
+  }
+
+  .hpr-menu-toggle,
+  .interior-menu-toggle {
+    position: relative;
+    z-index: 31;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-radius: 50%;
+    background: rgba(55, 58, 58, .3);
+    box-shadow: inset 0 1px rgba(255, 255, 255, .18), 0 8px 24px rgba(0, 0, 0, .1);
+    appearance: none;
+    -webkit-appearance: none;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .hpr-menu-toggle span,
+  .interior-menu-toggle span {
+    position: absolute;
+    left: 50%;
+    width: 15px;
+    height: 1px;
+    margin: 0;
+    background: currentColor;
+    transform: translateX(-50%);
+    transition: top .28s ease, transform .28s ease;
+  }
+
+  .hpr-menu-toggle span:first-child,
+  .interior-menu-toggle span:first-child { top: 17px; }
+
+  .hpr-menu-toggle span:last-child,
+  .interior-menu-toggle span:last-child { top: 23px; }
+
+  .hpr-menu-toggle[aria-expanded="true"] span:first-child,
+  .interior-menu-toggle[aria-expanded="true"] span:first-child {
+    top: 20px;
+    transform: translateX(-50%) rotate(45deg);
+  }
+
+  .hpr-menu-toggle[aria-expanded="true"] span:last-child,
+  .interior-menu-toggle[aria-expanded="true"] span:last-child {
+    top: 20px;
+    transform: translateX(-50%) rotate(-45deg);
+  }
+
+  .hpr-nav-links,
+  .interior-header .navbar .nav-links {
+    position: absolute;
+    top: calc(100% + 14px);
+    right: 0;
+    z-index: 30;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: stretch;
+    gap: 0;
+    width: min(220px, calc(100vw - 32px));
+    margin: 0;
+    padding: 12px 16px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-radius: 24px;
+    background: rgba(42, 45, 45, .78);
+    box-shadow: inset 0 1px rgba(255, 255, 255, .18), 0 18px 50px rgba(0, 0, 0, .22);
+    opacity: 0;
+    transform: translateY(-8px) scale(.97);
+    transform-origin: top right;
+    pointer-events: none;
+    backdrop-filter: blur(22px) saturate(145%);
+    -webkit-backdrop-filter: blur(22px) saturate(145%);
+    transition: opacity .22s ease, transform .34s cubic-bezier(.22, 1, .36, 1);
+  }
+
+  .hpr-nav-links.is-open,
+  .interior-header .navbar .nav-links.is-open {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+
+  .hpr-nav-links a,
+  .interior-header .navbar .nav-links a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 0;
+    margin: 0;
+    padding: 13px 4px;
+    box-sizing: border-box;
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, .13);
+    color: #fff;
+    font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: .01em;
+    text-align: left;
+    text-transform: none;
+    transition: padding-left .26s cubic-bezier(.22, 1, .36, 1);
+  }
+
+  .hpr-nav-links a:hover,
+  .hpr-nav-links a:focus-visible,
+  .interior-header .navbar .nav-links a:hover,
+  .interior-header .navbar .nav-links a:focus-visible { padding-left: 9px; }
+
+  .hpr-nav-links a:first-child,
+  .interior-header .navbar .nav-links a:first-child { border-top: 0; }
+
+  .hpr-nav-links a::after,
+  .interior-header .navbar .nav-links a::after { display: none; }
+}
+
+/* Source consolidated from: Assets/css/shared/project-header-emphasis.css */
+/* Shared emphasis for the current long-form project headers. */
+.pvr-header h1,
+.dfr-header h1 {
+  font-weight: 600;
+}
+
+.pvr-hero__meta,
+.dfr-hero__meta {
+  font-weight: 600;
+}
+
+/* Source consolidated from: Assets/css/works/case-study.css */
+/* Legacy rules are intentionally isolated so they cannot alter the rebuilt
+   Dollar Flip / Polyverse family of pages. */
+@scope (body.portfolio-redesign) {
+/* ===== Global Layout Constraint (Like LinkedIn center layout) ===== */
+.project-container {
+  width: 100% !important;
+  max-width: 1280px !important;   /* 你可以改成 1240 / 1320 自己试 */
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+}
+
+
+
+
+
+html {
+  background-color: #797979; /* 也可以在 html 上设置，确保整个页面都能有灰色背景 */
+}
+
+header, nav {
+  display: block;
+}
+
+body {
+  font: 1.2em/1.3 "CB", Helvetica, sans-serif;
+  line-height: 1;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Layout and Content Styles */
+html{
+  height:auto;                 /* 覆盖 100vh */
+  overflow-y:auto;             /* 允许纵向滚动 */
+  overflow-x:hidden;           /* 防横向抖动 */
+}
+
+body{
+  min-height:100%;             /* 正常文档流 */
+}
+
+header{
+  position:fixed;
+  top:0; left:0; right:0;
+  z-index:1000;
+  /* 如果需要背景，自己加：background:transparent; */
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+/* Homepage */
+.homepage-content {
+  display: flex;
+  align-items: center;
+  z-index: 1; /* Ensure content is below navbar */
+  position: absolute;
+  width: 500px;
+  padding-left: 200px;
+  height: 100vh;
+}
+
+/* Header and Navigation */
+header {
+  position: fixed; /* Fix navbar at the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #fff; /* Set a background color if needed */
+  z-index: 1000; /* Ensure navbar is on top of all other elements */
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex; /* Use flex layout */
+  justify-content: space-between; /* Evenly distribute the links */
+  position: absolute;
+  top: 0;
+  left: 4%; /* 5% space from the left */
+  right: 4%; /* 5% space from the right */
+  width: 92%; /* Navbar width occupies 90% of the window */
+  font-size: 13px; /* Font size */
+  color: white; /* Text color */
+  text-transform: uppercase; /* Transform text to uppercase */
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
+  font-weight: 400; /* 设置加粗 */
+  letter-spacing: 0.02em;
+}
+
+.navbar a {
+  margin: 0; /* Remove margin */
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit color from parent (white) */
+}
+
+nav {
+  margin: 3vh 0;
+}
+
+nav > a:last-child {
+  padding-right: 0;
+}
+
+/* 右边导航不变 */
+.navbar .nav-links{
+  display:flex;
+  gap: 28px;              /* 链接间距 */
+  align-items:center;
+  margin-left: auto;      /* 把整组链接推到最右 */
+}
+
+/* 左侧 Logo 容器 */
+.navbar .logo{
+  display:flex;
+  align-items:center;     /* 垂直居中 */
+  transform: translateY(0px);
+  transform: scale(1.2);   /* 放大 1.5 倍 */
+}
+
+/* Logo 图片大小控制 */
+.navbar .logo img{
+  height: 28px;           /* ← 控制 Logo 高度，建议 24–40px */
+  width: auto;            /* 保持比例缩放 */
+  display: block;
+}
+
+/* Footer Styles */
+footer {
+  position: fixed;        /* Use fixed positioning to keep footer at the bottom */
+  bottom: 0;              /* Align at the bottom */
+  left: 4%;               /* Same 4% left space as navbar */
+  right: 4%;              /* Same 4% right space as navbar */
+  width: 92%;             /* Ensure it spans 92% of the window width */
+  z-index: 999;           /* Ensure footer is above other content */
+  box-sizing: border-box; /* Make sure padding doesn't affect width calculation */
+}
+
+/* Footer navbar styles */
+footer .footer-navbar {
+  display: flex;                /* Use flex layout */
+  justify-content: space-between; /* Evenly distribute the links */
+  position: relative;           /* Relative positioning within footer */
+  padding: 10px 0;              /* Top and bottom padding */
+  font-size: 13px;              /* Font size */
+  color: white;                 /* Text color */
+  text-transform: uppercase;    /* Uppercase text */
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
+  font-weight: 400; /* 设置加粗 */
+  letter-spacing: 0.02em;
+}
+
+footer .footer-navbar a {
+  margin: 0; /* Remove margin */
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit color from parent */
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+  html {
+    height: 100%;
+  }
+  
+  .content {
+    width: initial;
+    padding: 20px 30px;
+    height: calc(100% - 40px);
+    align-items: flex-end;
+    margin-top: -30px; /* 向上移动 .content */
+  }
+}
+
+@media (max-width: 640px) {
+  html, body {
+    overflow-x: hidden;
+  }
+
+  .content {
+    margin-top: -30px; /* 在更小屏幕上向上移动 .content */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.homepage-content h2 {
+  font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif;
+  font-size: 2em;
+  font-weight: 700;  /* 或 400~800 之间 有斜体*/
+  margin: 0;
+  color: white;
+}
+
+.homepage-content h4 {
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
+  font-weight: 200;    /* 100–900 都可以 */
+  font-size: 1em;
+  line-height: 25px;
+  color: white;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Works page */
+
+/* ========== 外层容器（滚动容器） ========== */
+.works-container{
+  /* 可调变量 */
+  --railW: 12px;        /* 左侧竖排栏宽度 */
+  --gapX: 24px;         /* 卡片水平间距 & 外板左右厚度 */
+  --padTop: 64px;       /* 外板在图片上方的外扩高度 */
+  --padBottom: 104px;   /* 外板在图片下方的外扩高度（更长） */
+  --stickyTop: var(--padTop); /* 左侧标题吸顶距离（与上外扩对齐） */
+
+  position: absolute;
+  top: 65px; bottom: 0px; left: 3.8%; right: 0%;
+  padding-left: 64px;
+  padding-right: 64px;
+  padding-bottom: 200px;
+  overflow: auto;                 /* 本容器滚动，sticky 参考它 */
+  display: block;
+  background: transparent;
+}
+
+.works-quote-section {
+  text-align: center;          /* 居中 */
+  max-width: 900px;            /* 控制宽度，防止太长 */
+  margin: 80px auto;           /* 居中显示并和上下留白 */
+  padding: 0 20px;             /* 两边留白，适配小屏 */
+}
+
+.works-quote-text {
+  font-size: 32px;             /* 标题大小，可根据需求调 */
+  font-weight: 400;
+  line-height: 1.4;
+  margin-bottom: 24px;
+  font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif;
+  color: white;
+}
+
+/* ========== 分区：一行两列（左标题 + 右内容），保证对齐 ========== */
+.ra-section{
+  display: grid;
+  grid-template-columns: var(--railW) 1fr;  /* 左 fixed, 右自适应 */
+  column-gap: 20px;
+  align-items: start;                       /* 顶端对齐 */
+  margin-bottom: -64px;                      /* 分区间距 */
+  margin-right: 56px;
+}
+
+/* 左侧竖排标题（与右侧图片顶齐，而非外板） */
+.rail-label{
+  grid-column: 1;
+  align-self: start;
+
+  /* sticky 依旧生效，但初始位置也要下沉同样的距离 */
+  position: sticky;
+  top: var(--padTop);          /* 吸顶时离容器顶部 var(--padTop) */
+  margin-top: var(--padTop);   /* 初始也下沉 var(--padTop) 才能与图片顶齐 */
+  margin-bottom: 104px;
+  translate: -64px;
+
+  color:#fff;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);   /* 自下而上；要自上而下就删掉这一行 */
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
+  letter-spacing:0.02em;
+  font-weight:500;
+  font-size:14px;
+  line-height:1;
+  opacity:.9;
+}
+
+/* 右侧分区内容列（包含本分区的 gallery） */
+.section-body{
+  grid-column: 2;
+  margin: 0;
+  padding: 0;
+}
+
+/* ========== 宫格：固定四列 + 预留 hover 外扩缓冲 ========== */
+.ra-gallery{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0,1fr)); /* 一行四个 */
+  gap: var(--gapX);
+
+  /* 预留缓冲，避免最边缘卡片 hover 时外板被裁掉 */
+  padding: var(--padTop) var(--gapX) var(--padBottom);
+}
+
+/* ========== 卡片本体：图片保持 1:1 正方形 ========== */
+.ra-card{
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: visible;          /* 允许外板外扩 */
+  background: transparent;
+  isolation: isolate;
+  text-decoration: none;
+  z-index: 0;                 /* 基础层级 */
+}
+
+.ra-clip{
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+.ra-clip img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* 要完整不裁切可改为 contain（会留空边） */
+  display: block;
+}
+
+/* ========== hover 外板（上下独立、左右跟 gapX） ========== */
+.ra-card::after{
+  content:"";
+  position:absolute;
+  top:    calc(-1 * var(--padTop));
+  bottom: calc(-1 * var(--padBottom));
+  left:   calc(-1 * var(--gapX));
+  right:  calc(-1 * var(--gapX));
+
+  /* —— 新增：毛玻璃 —— */
+  background: rgba(255, 255, 255, 0.22);   /* 轻一点的白色半透明，避免太亮 */
+  backdrop-filter: blur(12px) saturate(115%);
+  -webkit-backdrop-filter: blur(12px) saturate(115%);
+
+  opacity: 0;
+  transition: opacity .2s ease;
+  z-index: 0;                             /* 在图片下，不遮图；但整张卡片 hover 时有更高层级，会压过其它卡片 */
+  pointer-events: none;
+}
+.ra-card:hover::after{ opacity: 1; }
+
+/* ========== Hover 文本层（覆盖整个外板区域） ========== */
+.ra-panel{
+  position: absolute;
+  top:    calc(-1 * var(--padTop));
+  bottom: calc(-1 * var(--padBottom));
+  left:   calc(-1 * var(--gapX));
+  right:  calc(-1 * var(--gapX));
+  z-index: 2;                 /* 在图片与外板之上 */
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+.ra-card:hover .ra-panel{ opacity: 1; }
+
+/* 顶部信息（在上条外板里） */
+.ra-meta{
+  position: absolute;
+  top: 24px;
+  left: 24px; right: 24px;
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
+  display: flex; justify-content: space-between; gap: 16px;
+  color: #fff; font-size: 14px; line-height: 1.2;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  font-weight: 300; 
+}
+
+/* 底部信息（在下条外板里） */
+.ra-bottom{
+  position: absolute;
+  bottom: 32px;
+  left: 24px; right: 24px;
+  color: #fff;
+}
+.ra-title{
+  margin: 0 0 8px 0;
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
+  font-size: 20px; line-height: 1.25; font-weight: 700;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  font-weight: 700; 
+}
+.ra-tags{
+  margin: 0; padding: 0; list-style: none;
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
+  display: flex; gap: 12px; font-size: 14px; flex-wrap: wrap;
+  font-weight: 300; 
+}
+
+/* ========== 全屏遮罩：卡片 hover 时让其它区域变暗 ========== */
+.works-container::before{
+  content: "";
+  position: fixed;           /* 覆盖整个屏幕 */
+  inset: 0;
+  background: rgba(0,0,0,.35);  /* 半透明变暗 */
+  opacity: 0;
+  transition: opacity .2s ease;
+  pointer-events: none;      /* 不挡点击/滚动 */
+  z-index: 100;              /* 在普通内容之上 */
+}
+/* 支持 :has 的浏览器下，任意卡片 hover 时显示遮罩 */
+.works-container:has(.ra-card:hover)::before{ opacity: 1; }
+
+/* 提升被 hover 的卡片层级，确保不被遮罩变暗 */
+.ra-card:hover{ z-index: 200; }
+
+/* ========== 响应式 ========== */
+@media (max-width:1200px){
+  .ra-gallery{ grid-template-columns: repeat(3,1fr); }
+}
+@media (max-width:900px){
+  .ra-gallery{ grid-template-columns: repeat(2,1fr); }
+}
+@media (max-width:560px){
+  /* 小屏单列展示，左侧标题隐藏 */
+  .ra-section{
+    grid-template-columns: 1fr;
+  }
+  .rail-label{ display:none; }
+  .ra-gallery{ grid-template-columns: 1fr; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Highlights page */
+
+.highlights-quote-section {
+  text-align: center;          /* 居中 */
+  max-width: 900px;            /* 控制宽度，防止太长 */
+  margin: 80px auto;           /* 居中显示并和上下留白 */
+  padding: 0 20px;             /* 两边留白，适配小屏 */
+}
+
+.highlights-quote-text {
+  font-size: 32px;             /* 标题大小，可根据需求调 */
+  font-weight: 400;
+  line-height: 1.4;
+  margin-bottom: 24px;
+  font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif;
+  color: white;
+}
+
+/* ========== Highlights 外层容器（滚动容器） ========== */
+.highlights-container{
+  /* 可调变量 */
+  --railW: 12px;        /* 左侧竖排栏宽度 */
+  --gapX: 24px;         /* 行内水平间距 */
+  --padTop: 64px;       /* 与右侧顶边对齐的“下沉”距离（和 Works 对齐） */
+  --padBottom: 104px;   /* 末尾留白 */
+  --stickyTop: var(--padTop); /* 竖排标签吸顶距离 */
+  --railStopGap: 24px;  /* 竖排标签在被下一节顶走前保留下方空隙 */
+  --nudgeY: 6px;        /* ← 右侧整体微上移的校正量（3–8px 之间调） */
+
+  position: absolute;
+  top: 65px; bottom: 0; left: 3.8%; right: 0;
+  padding-left: 64px;
+  padding-right: 64px;
+  padding-bottom: 200px;
+  overflow: auto;                 /* 作为 sticky 的滚动参照 */
+  display: block;
+  background: transparent;
+
+  /* 让每节滚到容器顶部时，顶部会保留与 padTop 同样的内间距，避免被盖住 */
+  scroll-padding-top: var(--stickyTop);
+}
+
+/* ====== 分区布局：左竖排标题 + 右内容 ====== */
+.highlights-section{
+  display: grid;
+  grid-template-columns: var(--railW) 1fr;
+  column-gap: 20px;
+  align-items: start;
+  margin: 0 56px 56px 0;         /* 右边距 + 区块间距 */
+}
+
+/* 左列作为整体 sticky，最稳妥的写法 */
+.highlights-rail-col{
+  grid-column: 1;
+  padding-top: var(--padTop);          /* 与右侧顶边统一“下沉” */
+  padding-bottom: var(--railStopGap);  /* 提前停的缓冲距离 */
+  position: -webkit-sticky;
+  position: sticky;
+  top: var(--stickyTop);
+  align-self: start;
+  z-index: 2;                          /* 不被正文覆盖 */
+}
+
+/* 竖排文字本身仅负责样式，不 sticky */
+.highlights-rail-label{
+  translate: -64px;                    /* 靠左挪出一条导轨（与 Works 一致） */
+  color:#fff;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);           /* 竖排自下而上 */
+  letter-spacing:0.02em;
+  font-weight:500;
+  font-size:14px;
+  line-height:1;
+  opacity:.9;
+}
+
+/* 右侧正文列：与左侧统一“下沉”，再做极小的上移校正 */
+.highlights-section-body{
+  grid-column: 2;
+  margin: 0;
+  padding: 0;
+
+  /* 与左列同等“下沉”后，再整体上移 nudgeY 做精确对齐 */
+  padding-top: calc(var(--padTop));
+  transform: translateY(calc(-1 * var(--nudgeY)));
+}
+
+/* ====== 文本列表（纯条目，无年份） ====== */
+.highlights-list{
+  display: block;
+
+  /* 如果你想让右侧正文离左边再远一点，调这里（例如 64->72/80） */
+  padding-left: 64px;
+
+  /* 有些字体顶部会有额外 leading，少量负值可再微调；不需要就注释掉 */
+  /* margin-top: -1px; */
+}
+
+.highlights-item{
+  margin: 12px 0;
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 300;    /* 100–900 都可以 */
+  line-height: 1.6;
+  color: #fff;
+  opacity: .9;
+}
+
+/* 第一条紧贴顶部（避免意外的额外间隙） */
+.highlights-list > .highlights-item:first-child{ margin-top: 0; }
+
+/* ========== 小屏优化 ========== */
+@media (max-width: 560px){
+  .highlights-section{
+    grid-template-columns: 1fr;
+    margin-right: 0;
+  }
+  .highlights-rail-col{ display:none; }   /* 小屏隐藏竖排标签列 */
+  .highlights-section-body{
+    padding-top: 32px;         /* 给正文一个舒适的上边距 */
+    transform: none;           /* 取消上移校正 */
+  }
+  .highlights-list{ padding-left: 0; }    /* 小屏不再右移 */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===================== About page ===================== */
+
+/* 外层容器 */
+.about-container{
+  --paneRadius: 15px;
+  --paneBg: rgba(255,255,255,0.2);
+  --paneShadow: 0 4px 10px rgba(0,0,0,.2);
+
+  position: absolute;
+  top: 85px;
+  bottom: 90px;
+  left: 3.8%;
+  right: 3.8%;
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+
+  background: var(--paneBg);
+  border-radius: var(--paneRadius);
+  box-shadow: var(--paneShadow);
+  backdrop-filter: blur(10px);
+  color: #333;
+
+  /* 关键：边界裁剪，右栏不会溢出到容器外 */
+  overflow: hidden;
+}
+
+/* 右列：尺寸“雷打不动”，高度不够时右栏内部滚动 */
+.right{
+  flex: 0 0 280px;     /* 固定宽度区间（如需改比例只调这行和下两行） */
+  max-width: 360px;
+  min-width: 280px;
+
+  padding: 40px;
+  min-height: 0;       /* 允许在 flex 容器内收缩以启用内部滚动 */
+  overflow: auto;      /* 高度不足时在右栏内部滚动 */
+
+  /* 隐藏滚动条（可留可去） */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.right::-webkit-scrollbar{ width:0; height:0; }
+
+.right img{ 
+  max-width:100%; 
+  height:auto; 
+  display:block; 
+  margin:0 auto; 
+  object-fit:contain;
+  /* 不限制 max-height —— 保持原有比例与尺寸，不随视口高度变化 */
+}
+.right .quote{ 
+  margin:25px 0; 
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
+  font-weight: 300;    /* 100–900 都可以 */
+  font-size:14px; 
+  color:#fff; 
+  line-height:20px; 
+}
+
+/* 左列：可滚动，隐藏滚动条 */
+.left{
+  --railW: 14px;        
+  --railGap: 36px;      
+  --labelNudge: 2px;    
+
+  flex: 1 1 auto;           
+  min-width: 0;             
+  overflow: auto;           
+  padding: 40px;            
+
+  scrollbar-width: none;    
+  -ms-overflow-style: none; 
+}
+.left::-webkit-scrollbar{ width:0; height:0; }
+
+/* 分区布局 */
+.about-section{
+  display: grid;
+  grid-template-columns: var(--railW) 1fr;
+  column-gap: var(--railGap);
+  align-items: start;
+  margin-bottom: 24px;      /* 控制区块间距（右侧“正文太散”可调这里） */
+}
+
+/* 竖排列 sticky */
+.about-rail-col{
+  position: sticky;
+  top: calc(0px + var(--labelNudge));
+  align-self: start;
+  padding-top: 0;
+  z-index: 1;
+}
+
+/* 竖排文字 */
+.about-rail-label{
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  color:#fff;
+  line-height:1;
+  opacity:.9;
+  margin: 0;
+  margin-bottom: 72px;
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
+  letter-spacing:0.02em;
+  font-weight:500;
+  font-size:14px;
+}
+
+/* 正文列 */
+.about-section-body{
+  margin-bottom: 50px;
+  padding: 0;
+  transform: translateY(-3px);
+}
+.about-paragraph{
+  margin: 0 0 14px 0;
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
+  font-weight: 300;    /* 100–900 都可以 */
+  line-height: 1.6;
+  font-size: 16px;
+  color: #fff;
+}
+.about-item{ margin: 0 0 10px 0; }
+.about-item-title{
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.6;
+  font-size: 16px;
+  margin: 0 0 4px 0;
+}
+.about-item-sub{
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
+  font-weight: 300;    /* 100–900 都可以 */
+  color: #fff;
+  opacity: .9;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ==== 社交 icon 样式（圆形按钮模式） ==== */
+.social-links {
+  margin-top: 12px;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+}
+.social-links .icon{
+  width:36px;
+  height:36px;
+  flex: 0 0 36px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:rgba(255,255,255,.12);
+  color:#fff;
+  text-decoration:none;
+  transition:transform .18s ease, background .18s ease, color .18s ease;
+  box-sizing: border-box;
+}
+.social-links .icon:hover{
+  transform:translateY(-1px) scale(1.06);
+  background:rgba(255,255,255,.22);
+}
+.social-links i{
+  font-size:18px;
+  line-height:1;
+}
+
+/* ===== 小屏宽度优化（与高度无关，不会改变右栏比例） ===== */
+@media (max-width: 720px){
+  .about-container{ left:4%; right:4%; gap: 16px; }
+  .right{ flex: 0 0 280px; padding: 28px; }
+  .left{ padding: 28px; }
+}
+@media (max-width: 560px){
+  .about-container{ flex-direction: column; }
+  .right{ flex: none; max-width: 100%; width: 100%; }
+  .about-section{ grid-template-columns: 1fr; }
+  .about-rail-col{ display:none; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====== Project ====== */
+
+:root{ --navH: 65px; }       /* 顶部给导航留出空间：--navH 按你的导航高度调，默认 65px */
+
+.project-container{
+  width:100%;
+  box-sizing:border-box;
+  margin-top: var(--navH);   /* 避免被固定导航压住 */
+}
+
+/* Title */
+.project-title-section{
+  display:flex;
+  align-items:flex-start;         /* 顶对齐 */
+  padding-left:15%;
+  padding-right:15%;
+  box-sizing:border-box;
+  transform: translateY(-36px);
+}
+
+.project-title-left-spacer{
+  flex:0 0 44%;
+  max-width:44%;
+  box-sizing:border-box;
+}
+
+.project-title-right{
+  flex:1 1 56%;
+  max-width:56%;
+  box-sizing:border-box;
+}
+
+.project-title-text{
+  font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif;
+  font-size:13px;
+  line-height:1.8;
+  color:#fff;
+  opacity:.92;
+  font-weight:600;
+  text-transform: uppercase;
+}
+
+/* Header */
+.project-header-section{
+  display:flex;
+  align-items:flex-start;    /* 顶对齐，不居中 */
+  padding-left:15%;
+  padding-right:15%;
+  margin:0px 0;             /* 分区上下间距 */
+  box-sizing:border-box;
+}
+
+.project-header-left{
+  flex:0 0 44%;
+  max-width:44%;
+  box-sizing:border-box;
+}
+.project-header-right{
+  flex:1 1 56%;
+  max-width:56%;
+  box-sizing:border-box;
+}
+
+.project-header-text{
+  margin:44px 0 0px 0;
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
+  font-weight: 200;    /* 100–900 都可以 */
+  font-size: 32px;
+  line-height:1.2;
+  color:#fff;
+  opacity:.92;
+}
+
+/* Caption */
+.project-caption-section{
+  position: relative;                /* 作为绝对定位参照 */
+  display: grid;
+  grid-template-columns: 44% 1fr;    /* 左 36% | 右自适应 */
+  align-items: start;                /* 顶对齐 */
+  padding-left:15%;
+  padding-right:15%;
+  margin:64px 0;
+  box-sizing:border-box;
+}
+
+.project-caption-left{
+  grid-column: 1;
+  box-sizing: border-box;
+}
+.project-caption-right{
+  grid-column: 2;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.project-caption-floating{
+  position: absolute;
+  top: 0;                             /* 与本行顶部对齐（同一行） */
+  right: 4%;                          /* 放在右侧 16% 留白的中线上，可按需改成 12%、16% 等 */
+  white-space: nowrap;
+  z-index: 1;
+  pointer-events: none;               /* 不挡文字选择/点击（可删） */
+}
+
+.project-caption{
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
+  font-weight:600;
+  font-size:13px;
+  letter-spacing: 0.03em;
+  line-height:1.4;
+  color:#fff;
+  opacity:.9;
+}
+
+/* ====== Project Cover ====== */
+.project-cover {
+  width: 100%;            /* 占满容器宽度 */
+  margin: 0;              /* 去掉外边距 */
+  padding: 0;             /* 去掉内边距 */
+  box-sizing: border-box;
+}
+
+.project-cover img {
+  display: block;         /* 去掉底部多余空隙 */
+  width: 100%;            /* 图片横向拉满 */
+  height: auto;           /* 保持比例 */
+  object-fit: cover;      /* 避免变形，必要时裁切 */
+}
+
+/* Content */
+.project-content-chapter{
+  margin-top:156px;             /* 分区上下间距 */
+  margin-bottom:156px;             /* 分区上下间距 */
+}
+
+.project-content-unit{
+  display:flex;
+  align-items:flex-start;    /* 顶对齐，不居中 */
+  padding-left:15%;
+  padding-right:15%;
+  margin-top:96px;             /* 分区上下间距 */
+  margin-bottom:96px;             /* 分区上下间距 */
+  box-sizing:border-box;
+}
+
+.project-left-column {
+  flex: 0 0 44%;
+  max-width: 44%;
+  box-sizing: border-box;
+
+  display: flex;           /* 让它变成 flex 容器 */
+  flex-direction: column;  /* 垂直排列子元素 */
+  gap: 4px;               /* 可选：子元素之间加点间距 */
+}
+
+.project-right-column{
+  flex:1 1 56%;
+  max-width:56%;
+  box-sizing:border-box;
+}
+
+.project-title{
+  display:inline-block;
+  margin:0 0 12px 0;
+  font-family:"Gilroy Case","Gilroy",Helvetica,Arial,sans-serif; 
+  font-size:15px;
+  text-transform:uppercase;
+  color:#000000;
+}
+
+.project-paragraph{
+  margin:0 0 16px 0;
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
+  font-size:14px;
+  font-weight: 300;
+  line-height:2.1;
+  color:#000000;
+}
+
+.project-paragraph-highlight{
+  margin:0 0 16px 0;
+  font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif;
+  font-size:30px;
+  font-weight:500;
+  line-height:35px;
+  color:#000000;
+}
+
+.project-overview{ width:100%; }
+.project-overview img,
+.project-overview video{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:0;
+}
+
+/* ====== 响应式 ====== */
+@media (max-width: 960px){
+  .project-content-unit{ gap:36px; margin:56px 0; }
+  .project-left-column{ flex-basis:34%; max-width:34%; }
+  .project-right-column{ flex-basis:66%; max-width:66%; }
+}
+@media (max-width: 720px){
+  .project-content-unit{
+    flex-direction:column; gap:16px;
+  }
+  .project-left-column,
+  .project-right-column{
+    flex:0 0 auto; max-width:100%;
+  }
+  .project-title{ margin-bottom:10px; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====== Chem Guard ====== */
+
+html.chem-guard,
+body.chem-guard {
+  background: 
+    linear-gradient(#1E2A32 0 2740px, #f5f7f9 300px 100%);
+}
+
+/* 2×2 宫格：图片之间有间距，外边贴满容器 */
+.chem-guard-scenarios {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;              /* 图片之间的间距 */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 图片铺满格子 */
+.chem-guard-scenarios img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* 保持比例裁切填满 */
+}
+
+/* 容器样式 */
+.chem-guard-research-image {
+  display: flex;
+  justify-content: space-between;  /* 保证图片之间有相等的间隔 */
+  align-items: center;  /* 垂直居中对齐 */
+  gap: 100px;  /* 设置图片之间的间距 */
+  width: 100%;  /* 保证容器占满整个宽度 */
+}
+
+/* 每个图片容器的样式 */
+.chem-guard-research-image-container {
+  flex: 1;  /* 每个图片容器占据相同的空间 */
+  display: flex;
+  justify-content: center;  /* 图片居中 */
+}
+
+/* 图片样式 */
+.chem-guard-research-image-container img {
+  width: 100%;  /* 图片宽度填充容器 */
+  height: auto;  /* 保持图片比例 */
+  object-fit: contain;  /* 保证图片适应容器 */
+}
+
+/* sketch容器 */
+.chem-guard-sketch {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 三列布局 */
+  gap: 40px; /* 每个图片之间的间距 */
+  width: 100%; /* 使图片占满容器 */
+  max-width: 1200px; /* 限制容器最大宽度 */
+}
+
+/* 每个图片容器 */
+.chem-guard-sketch-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 图片样式 */
+.chem-guard-sketch-container img {
+  max-width: 75%;  /* 确保图片不会超出容器 */
+  height: auto;  /* 保持图片比例 */
+}
+
+/* 文字样式 */
+.chem-guard-sketch-container p {
+  text-align: center;
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  color: #000000;
+  max-width: 90%;
+  line-height: 1.4em;
+  margin-top: 10px;
+}
+
+/* 整体容器，居中排列两个框 */
+.chem-guard-3D-modeling {
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  gap: 30px; /* 两个框之间的间距 */
+  width: 100%;
+}
+
+/* 每个图片和文字容器的样式 */
+.chem-guard-3D-modeling-container {
+  display: flex;
+  flex-direction: column; /* 文字在图片下方 */
+  justify-content: center; /* 文字和图片垂直居中对齐 */
+  align-items: center; /* 图片和文字水平方向居中 */
+  width: 45%; /* 每个容器宽度为 45% */
+}
+
+/* 图片样式 */
+.chem-guard-3D-modeling-container img {
+  width: 80%; /* 设置图片宽度为容器的 80% */
+  height: auto; /* 保持图片的比例 */
+  object-fit: contain; /* 确保图片不被拉伸 */
+}
+
+/* 自定义图片1的大小，设置为比右边图片小 */
+.chem-guard-img-01 {
+  width: 80%; /* 设置左边图片宽度为容器的 80% */
+  max-width: 250px; /* 限制最大宽度为 250px */
+}
+
+/* 自定义图片2的大小 */
+.chem-guard-img-02 {
+  width: 80%; /* 设置右边图片宽度为容器的 80% */
+  max-width: 300px; /* 限制最大宽度为 250px */
+}
+
+/* 文字样式 */
+.chem-guard-3D-modeling-container p {
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.4em;
+  text-align: left;
+  padding-top: 50px; /* 文字与图片的间距 */
+  width: 95%; /* 设置文字容器的宽度 */
+  max-width: 500px; /* 限制最大宽度 */
+}
+
+/* ===== 爆炸图 ===== */
+.chem-guard-explosion-diagram {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.chem-guard-explosion-diagram img {
+  display: block;
+  width: 100%;     /* 横向占满容器 */
+  height: auto;    /* 高度按比例缩放 */
+  object-fit: cover;
+}
+
+/* ===== 手机场景图（保持不变） ===== */
+.chem-guard-mobile-scene{width:100%;margin:0;padding:0;}
+.chem-guard-mobile-scene img{display:block;width:100%;height:auto;object-fit:cover;}
+
+/* 容器：两行，行与行之间留白 */
+.chem-guard-mockup-container{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:64px;           /* 两个 row 的间距 */
+  width:100%;
+}
+
+/* 每一行：让左右两块在“纵向”居中对齐 */
+.chem-guard-mockup-row{
+  display:flex;
+  align-items:center; /* ⭐ 关键：让同一行里的块彼此垂直居中 */
+  justify-content:flex-start;
+  width:100%;
+  gap:48px;           /* 图文之间间距 */
+  box-sizing:border-box;
+}
+
+/* 左侧图片块 */
+.chem-guard-mockup-image{
+  flex:0 1 40%;
+  display:flex;
+  justify-content:center;
+  align-items:center; /* 图片本身也在块内居中 */
+}
+.chem-guard-mockup-image img{
+  max-width:100%;
+  height:auto;
+  display:block;
+}
+
+/* 右侧文字块：块内再居中，使文字和图片中线对齐 */
+.chem-guard-mockup-text{
+  flex:0 1 40%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;  /* ⭐ 关键：让文字在自己这块里垂直居中 */
+  align-items:flex-start;
+  text-align:left;
+  padding:0;
+}
+
+/* 标题与正文 */
+.chem-guard-mockup-title{
+  color:rgba(0, 0, 0, 0.9);
+  text-decoration:none;
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
+  font-weight:500;
+  font-size:14px;
+  line-height: 1.4em;
+  margin:0 0 10px;
+}
+.chem-guard-mockup-text p{
+  color:#000000;
+  margin:0;
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
+  font-weight:300;
+  font-size:14px;
+  line-height:1.4em;
+}
+
+.chem-guard-speculative-proposal {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center; /* 让子元素居中 */
+}
+
+.chem-guard-speculative-proposal img {
+  display: block;
+  width: 100%;     
+  height: auto;    
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+/* 包裹层：单列竖排 + 行间距 */
+.chem-guard-3D-modeling-rhino {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 88px;              /* 图片块之间的间隔 */
+  width: 100%;
+}
+
+/* 每块与图片：占满容器宽度 */
+.chem-guard-3D-modeling-rhino-01,
+.chem-guard-3D-modeling-rhino-02{
+  width: 100%;
+}
+
+.chem-guard-3D-modeling-rhino-01 img,
+.chem-guard-3D-modeling-rhino-02 img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* 包裹层：单列竖排 + 行间距 */
+.chem-guard-exploration{
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 72px;              /* 图片块之间的间隔 */
+  width: 100%;
+}
+
+/* 每块与图片：占满容器宽度 */
+.chem-guard-exploration-01,
+.chem-guard-exploration-02{
+  width: 100%;
+}
+
+.chem-guard-exploration-01 img,
+.chem-guard-exploration-02 img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* caption 标题行 */
+.chem-guard-caption-title{
+  font: 500 14px "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
+  color: #000;
+  text-align: center;
+  margin-top: 24px;
+}
+
+/* caption 描述行 */
+.chem-guard-caption-desc{
+  font: 300 14px "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
+  color: #444;
+  text-align: center;
+  max-width: 80%;       /* 让文字行宽不要太长 */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===== ChemGuard Header Styles (adjusted) ===== */
+.chem-guard-headers {
+  background: rgb(68, 81, 90);           /* 固定背景色，可以改成浅灰 #f9fafb 或米色 #fdf6ec */
+  color: #ffffff;                /* 主文字颜色 */
+  padding: 120px 90px;   /* 上下 60px, 左右 20px */
+  display: grid;
+  place-items: center;
+}
+
+.chem-guard-header-container {
+  width: 100%;
+  max-width: 960px;
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+  text-align: center;
+}
+
+.chem-guard-header-block {
+  display: grid;
+  gap: 24px;   /* ✅ Part I/II 和下面主标题的间距更大 */
+}
+
+.chem-guard-header-eyebrow {
+  font-family:"Gilroy Case","Gilroy",Helvetica,Arial,sans-serif;
+  font-weight:700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #9baac0;   /* 次级文字颜色（灰色） */
+  font-size: 16px;
+}
+
+.chem-guard-header-headline {
+  font-family:"Gilroy Case","Gilroy",Helvetica,Arial,sans-serif;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  font-size: 32px;
+}
+
+.chem-guard-header-desc {
+  max-width: 40%;
+  margin: 0 auto;
+  font: 300 16px "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
+  line-height: 1.5;
+  color: #d8dde4;  /* 比 headline 更浅的灰色 */
+}
+
+.chemg-guard-prototyping {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 两列 */
+  gap: 12px;                             /* 间距 */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.chemg-guard-prototyping figure {
+  margin: 0;               /* 去掉默认 margin */
+}
+
+.chemg-guard-prototyping img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.chemg-guard-prototyping figcaption {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  margin-top: 12px;          /* 距离图片稍微缩小点 */
+}
+
+.chem-guard-eeg-system-diagram {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.chem-guard-eeg-system-diagram img {
+  display: block;
+  width: 100%;      /* 横向占满容器 */
+  height: auto;     /* 高度按比例缩放 */
+  object-fit: cover;
+}
+
+.chem-guard-eeg-system-diagram-caption {
+  margin-top: 24px;
+  font: 500 14px "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
+  color: #555;
+  text-align: center;
+}
+
+.chemg-guard-eeg-prototyping {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 两列 */
+  gap: 12px;                             /* 间距 */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.chemg-guard-eeg-prototyping figure {
+  margin: 0;               /* 去掉默认 margin */
+}
+
+.chemg-guard-eeg-prototyping img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.chemg-guard-eeg-prototyping figcaption {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  margin-top: 12px;          /* 距离图片稍微缩小点 */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====== Organisms Utopia ====== */
+
+html.organisms-utopia,
+body.organisms-utopia {
+  background: 
+    linear-gradient(#85b8f8 0 2150px, #f7fafd 300px 100%);
+}
+
+.organisms-utopia-initial-sketch {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.organisms-utopia-initial-sketch img {
+  display: block;
+  width: 100%;     /* 横向占满容器 */
+  height: auto;    /* 高度按比例缩放 */
+  object-fit: cover;
+}
+
+.organisms-utopia-detailed-sketch {
+  display: flex;
+  flex-direction: column;  /* 竖排 */
+  gap: 44px;               /* 图片之间的间隔，可以改成 10px/30px */
+  width: 100%;             /* 撑满父容器 */
+  box-sizing: border-box;
+}
+
+.organisms-utopia-detailed-sketch img {
+  width: 100%;             /* 撑满容器宽度 */
+  height: auto;            /* 保持比例 */
+  display: block;          /* 避免底部有空隙 */
+  object-fit: cover;       /* 图片裁切时保持铺满 */
+}
+
+.organisms-utopia-C4D {
+  display: flex;
+  flex-direction: column;   /* 竖排 */
+  align-items: center;      /* 横向居中 */
+  gap: 20px;                /* 图片之间的间隔 */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.organisms-utopia-C4D img {
+  max-width: 108%;          /* 不超过容器宽度 */
+  height: auto;             /* 保持比例 */
+  display: block;
+  object-fit: contain;      /* 保持完整内容，不裁切 */
+}
+
+.organisms-utopia-3D-modeling {
+  display: flex;
+  flex-direction: column;  /* 竖排 */
+  gap: 44px;               /* 图片之间的间隔，可以改成 10px/30px */
+  width: 100%;             /* 撑满父容器 */
+  box-sizing: border-box;
+}
+
+.organisms-utopia-3D-modeling img {
+  width: 100%;             /* 撑满容器宽度 */
+  height: auto;            /* 保持比例 */
+  display: block;          /* 避免底部有空隙 */
+  object-fit: cover;       /* 图片裁切时保持铺满 */
+}
+
+.organisms-utopia-habitat {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.organisms-utopia-habitat img {
+  display: block;
+  width: 100%;     /* 横向占满容器 */
+  height: auto;    /* 高度按比例缩放 */
+  object-fit: cover;
+}
+
+.organisms-utopia-prototyping {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 三列等分 */
+  gap: 12px;                              /* 中间间隔 */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 网格里的每张图各占一列，宽度自适应 */
+.organisms-utopia-prototyping img {
+  width: 100%;
+  height: auto;            /* 自然比例 */
+  display: block;
+  object-fit: cover;
+}
+
+/* 让说明文字占满整行并居中 */
+.organisms-utopia-prototyping figcaption {
+  grid-column: 1 / -1;     /* 跨越所有列 */
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  margin-top: 16px;
+}
+
+.organisms-utopia-video {
+  width: 100%;
+  max-width: 1200px;   /* 自己控制宽度 */
+  margin: 0 auto;      /* 居中 */
+}
+
+.organisms-utopia-video iframe {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9; /* 自动保持比例，不会上下空隙 */
+  display: block;
+}
+
+.organisms-utopia-sustainability {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* 三等分，防止溢出 */
+  gap: 16px;                                        /* 三图之间的间隔，按需改 */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.organisms-utopia-sustainability img {
+  width: 100%;   /* 每张图占满自己的栅格 */
+  height: auto;  /* 等比缩放 */
+  display: block;/* 去掉 img 默认行内空隙 */
+}
+
+.organisms-utopia-outcome {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr)); /* 三等分，防止溢出 */
+  gap: 16px;                                        /* 三图之间的间隔，按需改 */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.organisms-utopia-outcome img {
+  width: 100%;   /* 每张图占满自己的栅格 */
+  height: auto;  /* 等比缩放 */
+  display: block;/* 去掉 img 默认行内空隙 */
+}
+
+.organisms-utopia-collab {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 两列 */
+  gap: 12px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.organisms-utopia-collab figure {
+  margin: 0;
+}
+
+.organisms-utopia-collab img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.organisms-utopia-collab figcaption {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  margin-top: 20px;
+  line-height: 0.75;
+}
+
+.organisms-utopia-caption-title {
+  font-weight: 600;   /* 粗一点 */
+  display: block;
+  margin-bottom: 2px;
+}
+
+.organisms-utopia-caption-text {
+  font-weight: 400;   /* 正常 */
+}
+
+.organisms-utopia-prototyping-arduino {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.organisms-utopia-prototyping-arduino img {
+  width: 100%;
+  height: auto;     /* 保持比例 */
+  display: block;
+  object-fit: cover;
+}
+
+.organisms-utopia-prototyping-arduino figcaption {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  margin-top: 24px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====== Close To Me ====== */
+
+html.close-to-me,
+body.close-to-me {
+  background: 
+    linear-gradient(#a48ee1 0 1870px, #f6f5fa 300px 100%);
+}
+
+.close-to-me-problem-and-solution {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.close-to-me-problem-and-solution img {
+  display: block;
+  width: 100%;     /* 横向占满容器 */
+  height: auto;    /* 高度按比例缩放 */
+  object-fit: cover;
+}
+
+.close-to-me-survey-image-container {
+  display: flex;
+  flex-direction: column; /* 让图片上下排列 */
+  gap: 50px; /* 图片之间的间距，可以根据需要调整 */
+}
+
+.close-to-me-survey-image-item img {
+  width: 100%; /* 让图片宽度适应容器 */
+  height: auto; /* 保持图片的原始比例 */
+}
+
+.close-to-me-survey-caption {
+  font-size: 14px;  /* Adjust the font size */
+  text-align: center;
+  margin-top: 10px;  /* Adjust the distance from the image */
+  color: #333;
+  font-family:"Gilroy Case","Gilroy",Helvetica,Arial,sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.close-to-me-persona-image-container {
+  display: flex;
+  flex-direction: column; /* 让图片上下排列 */
+  gap: 50px; /* 图片之间的间距，可以根据需要调整 */
+}
+
+.close-to-me-persona-image-item img {
+  width: 100%; /* 让图片宽度适应容器 */
+  height: auto; /* 保持图片的原始比例 */
+}
+
+.close-to-me-persona-caption {
+  font-size: 14px;  /* Adjust the font size */
+  text-align: center;
+  margin-top: 10px;  /* Adjust the distance from the image */
+  color: #333;
+  font-family:"Gilroy Case","Gilroy",Helvetica,Arial,sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.close-to-me-industry-trends {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.close-to-me-industry-trends img {
+  display: block;
+  width: 100%;     /* 横向占满容器 */
+  height: auto;    /* 高度按比例缩放 */
+  object-fit: cover;
+}
+
+close-to-me-competitive-analysis {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.close-to-me-competitive-analysis img {
+  display: block;
+  width: 100%;     /* 横向占满容器 */
+  height: auto;    /* 高度按比例缩放 */
+  object-fit: cover;
+}
+
+.close-to-me-user-flow {
+  display: flex;
+  justify-content: space-between; /* 保证图片之间有间隔 */
+  align-items: center; /* 保证图片垂直居中对齐 */
+  width: 100%; /* 确保容器宽度适应父元素 */
+  box-sizing: border-box; /* 确保宽度计算包含边距 */
+}
+
+.close-to-me-user-flow img {
+  width: calc(50% - 70px); /* 每张图片宽度占50%减去间隔（间隔改为30px） */
+  height: auto; /* 保持图片比例 */
+  margin: 0 35px; /* 增加图片之间的间隔，调整为15px */
+  box-sizing: border-box; /* 确保margin不影响图片宽度 */
+}
+
+close-to-me-why-metaverse {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.close-to-me-why-metaverse img {
+  display: block;
+  width: 100%;     /* 横向占满容器 */
+  height: auto;    /* 高度按比例缩放 */
+  object-fit: cover;
+}
+
+.close-to-me-promotion {
+  width: 100%;       /* 让容器本身充满父级 */
+}
+
+.close-to-me-promotion img {
+  width: 100%;       /* 横向撑满容器 */
+  height: auto;      /* 保持纵横比 */
+  display: block;    /* 去掉底部空隙 */
+  border-radius: 25px; /* 保留圆角 */
+}
+
+close-to-me-ui {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.close-to-me-ui img {
+  display: block;
+  width: 100%;     /* 横向占满容器 */
+  height: auto;    /* 高度按比例缩放 */
+  object-fit: cover;
+}
+
+.close-to-me-motion-capture {
+  width: 100%;       /* 让容器本身充满父级 */
+}
+
+.close-to-me-motion-capture img {
+  width: 100%;       /* 横向撑满容器 */
+  height: auto;      /* 保持纵横比 */
+  display: block;    /* 去掉底部空隙 */
+  border-radius: 25px; /* 保留圆角 */
+}
+
+.close-to-me-usability-testing-audience,
+.close-to-me-usability-testing-contestant {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.close-to-me-usability-testing-audience img,
+.close-to-me-usability-testing-contestant img {
+  display: block;
+  width: 100%;     /* 横向撑满容器 */
+  height: auto;    /* 保持比例 */
+  object-fit: cover;
+}
+
+close-to-me-iteration {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.close-to-me-iteration img {
+  display: block;
+  width: 100%;     /* 横向占满容器 */
+  height: auto;    /* 高度按比例缩放 */
+  object-fit: cover;
+}
+
+/* 容器样式 */
+.close-to-me-contestant-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 每一行的样式 */
+.close-to-me-contestant-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 70px; /* 行与行之间的间隔 */
+  width: 100%;
+  gap: 20px; /* 图片与文字之间的间隔 */
+}
+
+/* 每一列图片样式 */
+.close-to-me-contestant-image {
+  flex: 0 1 40%;  /* 图片占据容器的 45% */
+  display: flex;
+  justify-content: center;
+}
+
+/* 每一列文字样式 */
+.close-to-me-contestant-text {
+  flex: 0 1 40%;  /* 文字占据容器的 45% */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 20px;  /* 文字部分左右内边距 */
+  text-align: left;
+}
+
+/* 图片样式 */
+.close-to-me-contestant-image img {
+  max-width: 100%;  /* 确保图片不超出容器 */
+  height: auto;  /* 保持图片的比例 */
+}
+
+/* 标题样式 */
+.close-to-me-contestant-title {
+  color: #9146FF;
+  text-decoration: none;
+  font-family:"Gilroy Case","Gilroy",Helvetica,Arial,sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 16px;
+}
+
+/* 文字描述样式 */
+.close-to-me-contestant-text p {
+  color: #333;
+  margin-top: 10px;
+  font-family:"Gilroy Case","Gilroy",Helvetica,Arial,sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 16px;
+}
+
+/* 容器样式 */
+.close-to-me-audience-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 每一行的样式 */
+.close-to-me-audience-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 70px; /* 行与行之间的间隔 */
+  width: 100%;
+  gap: 20px; /* 图片与文字之间的间隔 */
+}
+
+/* 每一列图片样式 */
+.close-to-me-audience-image {
+  flex: 0 1 40%;  /* 图片占据容器的 45% */
+  display: flex;
+  justify-content: center;
+}
+
+/* 每一列文字样式 */
+.close-to-me-audience-text {
+  flex: 0 1 40%;  /* 文字占据容器的 45% */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 20px;  /* 文字部分左右内边距 */
+  text-align: left;
+}
+
+/* 图片样式 */
+.close-to-me-audience-image img {
+  max-width: 100%;  /* 确保图片不超出容器 */
+  height: auto;  /* 保持图片的比例 */
+}
+
+/* 标题样式 */
+.close-to-me-audience-title {
+  color: #9146FF;
+  text-decoration: none;
+  font-family:"Gilroy Case","Gilroy",Helvetica,Arial,sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 16px;
+}
+
+/* 文字描述样式 */
+.close-to-me-audience-text p {
+  color: #333;
+  margin-top: 10px;
+  font-family:"Gilroy Case","Gilroy",Helvetica,Arial,sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 16px;
+}
+
+.close-to-me-effect-container {
+  display: flex;
+  justify-content: center;  /* 让整个容器居中 */
+  align-items: center;
+  gap: 50px;  /* 控制图片之间的间隔 */
+}
+
+.close-to-me-effect-image {
+  flex: 1;  /* 让每个图片区域均分可用空间 */
+  display: flex;
+  justify-content: center; /* 让图片在各自的容器内居中 */
+  align-items: center;
+}
+
+.close-to-me-effect-image img {
+  max-width: 100%; /* 控制图片大小，可根据需要调整 */
+  height: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====== Dollar Flip ====== */
+
+html.dollar-flip,
+body.dollar-flip {
+  background: 
+    linear-gradient(#2d2b62 0 1850px, #f4f4f9 300px 100%);
+}
+
+.dollar-flip-design-process {
+  width: 100%;       /* 容器占满父级 */
+}
+
+.dollar-flip-design-process img {
+  width: 80%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+}
+
+.dollar-flip-survey {
+  width: 100%;       /* 容器占满父级 */
+}
+
+.dollar-flip-survey img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+}
+
+.dollar-flip-persona-container {
+  display: flex;
+  flex-direction: column; /* 让图片上下排列 */
+  gap: 50px; /* 图片之间的间距，可以根据需要调整 */
+}
+
+.dollar-flip-persona-image img {
+  width: 100%; /* 让图片宽度适应容器 */
+  height: auto; /* 保持图片的原始比例 */
+}
+
+.dollar-flip-persona-caption {
+  font-size: 14px;  /* Adjust the font size */
+  text-align: center;
+  margin-top: 10px;  /* Adjust the distance from the image */
+  color: #333;
+  font-family:"Gilroy Case","Gilroy",Helvetica,Arial,sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.dollar-flip-competitor-analysis-container {
+  display: flex;
+  flex-direction: column; /* 让图片上下排列 */
+  gap: 50px; /* 图片之间的间距，可以根据需要调整 */
+}
+
+.dollar-flip-competitor-analysis img {
+  width: 100%; /* 让图片宽度适应容器 */
+  height: auto; /* 保持图片的原始比例 */
+}
+
+.dollar-flip-competitor-analysis-caption {
+  font-size: 14px;  /* Adjust the font size */
+  text-align: center;
+  margin-top: 10px;  /* Adjust the distance from the image */
+  color: #333;
+  font-family:"Gilroy Case","Gilroy",Helvetica,Arial,sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.dollar-flip-ideation {
+  width: 100%;       /* 容器占满父级 */
+}
+
+.dollar-flip-ideation img {
+  width: 80%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+}
+
+.dollar-flip-initial-design {
+  width: 100%;       /* 容器占满父级 */
+}
+
+.dollar-flip-initial-design img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+}
+
+.dollar-flip-user-testing {
+  width: 100%;       /* 容器占满父级 */
+}
+
+.dollar-flip-user-testing img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+}
+
+.dollar-flip-color-scheme {
+  width: 100%;       /* 容器占满父级 */
+}
+
+.dollar-flip-color-scheme img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.dollar-flip-logo {
+  width: 100%;       /* 容器占满父级 */
+}
+
+.dollar-flip-logo img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.dollar-flip-icon {
+  width: 100%;       /* 容器占满父级 */
+}
+
+.dollar-flip-icon img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.dollar-flip-typography {
+  width: 100%;       /* 容器占满父级 */
+}
+
+.dollar-flip-typography img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.dollar-flip-hifi {
+  width: 100%;       /* 容器占满父级 */
+}
+
+.dollar-flip-hifi img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+}
+
+.dollar-flip-development {
+  width: 100%;       /* 容器占满父级 */
+}
+
+.dollar-flip-development img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+}
+
+.dollar-flip-usability-testing-1 {
+  width: 100%;       /* 容器占满父级 */
+}
+
+.dollar-flip-usability-testing-1 img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+}
+
+.dollar-flip-usability-testing-2 {
+  width: 100%;       /* 容器占满父级 */
+}
+
+.dollar-flip-usability-testing-2 img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+}
+
+.dollar-flip-ai-implemented {
+  width: 100%;       /* 容器占满父级 */
+}
+
+.dollar-flip-ai-implemented img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+}
+
+/* 容器样式 */
+.dollar-flip-ui-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 每一行的样式 */
+.dollar-flip-ui-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 70px; /* 行与行之间的间隔 */
+  width: 100%;
+  gap: 20px; /* 图片与文字之间的间隔 */
+}
+
+/* 每一列图片样式 */
+.dollar-flip-ui-image {
+  flex: 0 1 40%;  /* 图片占据容器的 40% */
+  display: flex;
+  justify-content: center;
+}
+
+/* 每一列文字样式 */
+.dollar-flip-ui-text {
+  flex: 0 1 40%;  /* 文字占据容器的 40% */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 10px;  /* 文字部分左右内边距 */
+  text-align: left;
+}
+
+/* 图片样式 */
+.dollar-flip-ui-image img {
+  max-width: 100%;  /* 确保图片不超出容器 */
+  height: auto;  /* 保持图片的比例 */
+}
+
+/* 标题样式 */
+.dollar-flip-ui-title {
+  color: #6927ef;
+  text-decoration: none;
+  font-family:"Gilroy Case","Gilroy",Helvetica,Arial,sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 16px;
+}
+
+/* 文字描述样式 */
+.dollar-flip-ui-text p {
+  color: #333;
+  margin-top: 10px;
+  font-family:"Gilroy Case","Gilroy",Helvetica,Arial,sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====== Glamhub ====== */
+
+html.glamhub,
+body.glamhub {
+  background: 
+    linear-gradient(#e79baf 0 1650px, #f9f6f7 300px 100%);
+}
+
+.glamhub-research {
+  display: flex; /* 使用flexbox */
+  flex-direction: column; /* 让图片从上到下排列 */
+  align-items: center; /* 图片居中对齐 */
+  padding-left: 10%; /* 左边保留10%的空间 */
+  gap: 50px; /* 每张图片之间的间隔 */
+}
+
+.glamhub-research img {
+  width: 90%; /* 图片宽度可以调整，80%留给图片 */
+  height: auto; /* 保持图片的比例 */
+}
+
+/* 整体容器 */
+.glamhub-storyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* 每行之间的间距 */
+  align-items: center;
+}
+
+/* 每一行 */
+.glamhub-storyboard-row {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* 图片之间的间距 */
+}
+
+/* 每个图片项 */
+.glamhub-storyboard-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 45%; /* 每个图片项占据容器宽度的 45% */
+  text-align: center;
+}
+
+/* 图片样式 */
+.glamhub-storyboard-item img {
+  width: 100%; /* 图片宽度根据容器调整 */
+  height: auto; /* 保持图片比例 */
+  max-width: 300px; /* 最大宽度 */
+  transition: all 0.3s ease; /* 图片大小过渡效果 */
+}
+
+/* 文字样式 */
+.glamhub-storyboard-item p {
+  font-family:"Gilroy Case","Gilroy",Helvetica,Arial,sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  margin-top: 30px; /* 文字与图片之间的间距 */
+  width: 75%;
+  color: #333;
+}
+
+.glamhub-sharing-economy {
+  width: 100%;       /* 容器占满父级 */
+  padding-top: 24px;
+}
+
+.glamhub-sharing-economy img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+}
+
+/* 图片容器 */
+.glamhub-brand-positioning {
+  display: flex; /* 使用flex布局 */
+  justify-content: center; /* 水平居中图片 */
+  align-items: center; /* 垂直居中图片 */
+}
+
+/* 左侧图片 */
+.glamhub-brand-positioning .left-img {
+  width: 55%; /* 左侧图片占40%，可以调整此百分比 */
+  height: auto; /* 保持图片比例 */
+  margin-right: 40px; /* 右边图片与左边图片之间的间隔，可以调整 */
+}
+
+/* 右侧图片 */
+.glamhub-brand-positioning .right-img {
+  width: 40%; /* 右侧图片占60%，可以调整此百分比 */
+  height: auto; /* 保持图片比例 */
+  margin-right: 40px; /* 右边图片与左边图片之间的间隔，可以调整 */
+}
+
+/* 图片容器 */
+.glamhub-location {
+  display: flex; /* 使用flex布局 */
+  justify-content: space-between; /* 图片之间均匀分布，并保持间距 */
+  align-items: center; /* 垂直居中 */
+  gap: 20px; /* 图片之间的间隔，可以根据需求调整 */
+  flex-wrap: nowrap; /* 禁止换行，确保图片都在同一行 */
+  overflow-x: auto; /* 允许水平滚动，防止图片挤出屏幕 */
+}
+
+/* 图片样式 */
+.glamhub-location img {
+  width: calc(15% - 20px); /* 每张图片占据容器的16.66%，减去间隔 */
+  height: auto; /* 保持图片比例 */
+}
+
+.glamhub-navigation {
+  width: 100%;       /* 容器占满父级 */
+  margin-top: 44px;
+  margin-bottom: 44px;
+}
+
+.glamhub-navigation img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+}
+
+.glamhub-workflow {
+  width: 100%;       /* 容器占满父级 */
+  margin-top: 44px;
+  margin-bottom: 44px;
+}
+
+.glamhub-workflow img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+}
+
+.glamhub-product-design {
+  width: 100%;       /* 容器占满父级 */
+}
+
+.glamhub-product-design img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+}
+
+.glamhub-prototype {
+  width: 100%;       /* 容器占满父级 */
+}
+
+.glamhub-prototype img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+}
+
+/* 外层容器：竖直排列、占满整行、两图之间留间距 */
+.glamhub-outcome{
+  display: flex;
+  flex-direction: column; /* 竖排 */
+  gap: 48px;              /* 两张图之间的间距 */
+  width: 100%;
+  box-sizing: border-box;
+
+  /* 防止被父级 flex 行内并排，强制自己占满一整行 */
+  flex: 0 0 100%;
+  align-self: stretch;
+}
+
+/* 每张图占满容器宽度，保持比例 */
+.glamhub-outcome img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====== Valentino Beauty ====== */
+
+html.valentino-beauty,
+body.valentino-beauty {
+  background: 
+    linear-gradient(#0A0A0A 0 2050px, #f7f7f7 300px 100%);
+}
+
+/* 图片容器 */
+.valentino-beauty-weibo {
+  display: flex; /* 使用flex布局 */
+  flex-direction: column; /* 图片竖直排列 */
+  align-items: center; /* 图片居中 */
+  gap: 20px; /* 图片之间的间隔，可以根据需求调整 */
+}
+
+/* 图片样式 */
+.valentino-beauty-weibo img {
+  width: 100%; /* 控制图片宽度，可以调整为你需要的比例 */
+  height: auto; /* 保持图片比例 */
+}
+
+/* 视频容器 */
+.valentino-beauty-wechat {
+  display: flex; /* 使用 flex 布局 */
+  flex-wrap: wrap; /* 允许换行 */
+  justify-content: space-between; /* 每行视频之间保持间隔 */
+  gap: 10px; /* 设置视频之间的间隔 */
+  width: 100%; /* 容器宽度占满整个父容器 */
+}
+
+/* 每个视频的包裹容器 */
+.valentino-beauty-wechat iframe {
+  width: 45%; /* 设置视频框宽度，宽度是容器的45% */
+  height: auto; /* 自动调整高度，保持原始比例 */
+  aspect-ratio: 16/9; /* 保持视频的宽高比 */
+  max-width: 100%; /* 最大宽度为父容器的100% */
+  display: block; /* 使其为块级元素，居中 */
+  margin: 0 auto; /* 垂直和水平居中 */
+  transform: scale(0.9); /* 按比例缩小视频框，缩小到90% */
+  transform-origin: center; /* 确保缩小是从中心点开始 */
+}
+
+/* 图片容器 */
+.valentino-beauty-red {
+  display: flex; /* 使用 flex 布局 */
+  justify-content: space-between; /* 图片之间留有间隔 */
+  gap: 20px; /* 设置图片之间的间隔 */
+  width: 100%; /* 容器宽度占满整个父容器 */
+}
+
+/* 每张图片 */
+.valentino-beauty-red img {
+  width: 45%; /* 图片宽度是容器的 45% */
+  height: auto; /* 保持图片的比例 */
+  max-width: 100%; /* 最大宽度为父容器的 100% */
+  display: block; /* 使其为块级元素 */
+  margin: 0 auto; /* 垂直和水平居中 */
+  transform: scale(0.9); /* 按比例缩小图片框，缩小到90% */
+  transform-origin: center; /* 确保缩小是从中心点开始 */
+}
+
+/* 图片容器 */
+.valentino-beauty-tiktok {
+  display: flex; /* 使用 flex 布局 */
+  justify-content: space-between; /* 图片之间留有间隔 */
+  gap: 20px; /* 设置图片之间的间隔 */
+  width: 100%; /* 容器宽度占满整个父容器 */
+}
+
+/* 每张图片 */
+.valentino-beauty-tiktok img {
+  width: 45%; /* 图片宽度是容器的 45% */
+  height: auto; /* 保持图片的比例 */
+  max-width: 100%; /* 最大宽度为父容器的 100% */
+  display: block; /* 使其为块级元素 */
+  margin: 0 auto; /* 垂直和水平居中 */
+  transform: scale(0.9); /* 按比例缩小图片框，缩小到90% */
+  transform-origin: center; /* 确保缩小是从中心点开始 */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====== The Underground Palace ====== */
+
+html.the-underground-palace,
+body.the-underground-palace {
+  background: 
+    linear-gradient(#2C2C2E 0 2070px, #f6f6f6 300px 100%);
+}
+
+/* 让视频在任何宽度下都可见、且占满外层容器宽度 */
+.the-underground-palace-video{
+  width: 100%;
+  margin: 0;
+  /* 用比例撑起高度：16:9，可按需改 */
+  aspect-ratio: 16 / 9;
+  background: #000;       /* 加个底色，避免加载时闪白 */
+  position: relative;
+  overflow: hidden;
+}
+
+.the-underground-palace-video iframe{
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+}
+
+.the-underground-palace-expriment {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 两列并排 */
+  gap: 20px; /* 图片之间的间距 */
+  align-items: start;
+}
+
+.the-underground-palace-expriment-item {
+  text-align: center; /* 图片和文字居中 */
+}
+
+.the-underground-palace-expriment img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.the-underground-palace-expriment-caption {
+  margin-top: 8px; 
+  font-size: 14px;
+  color: #555; /* 浅灰色文字 */
+  line-height: 1.4;
+}
+
+.the-underground-palace-narrative {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 三列，每列相等的比例 */
+  gap: 10px; /* 间距大小 */
+  align-items: center;
+  margin: 5px 0;
+}
+
+.the-underground-palace-narrative img {
+  max-width: 100%;
+  height: auto;
+}
+
+.the-underground-palace-3D-modeling {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 两列 */
+  gap: 20px; /* 图片之间的间距，可调 */
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.the-underground-palace-3D-modeling img {
+  width: 100%;      /* 图片填满格子 */
+  height: auto;     /* 保持比例 */
+  display: block;
+  object-fit: cover; /* 保证整齐，可以裁切填满 */
+}
+
+.the-underground-palace-sketch {
+  width: 100%;       /* 容器占满父级 */
+}
+
+.the-underground-palace-sketch img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+}
+
+.the-underground-palace-sound-design {
+  width: 100%;       /* 容器占满父级 */
+}
+
+.the-underground-palace-sound-design img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====== Wave ====== */
+
+html.wave,
+body.wave {
+  background: 
+    linear-gradient(#181818 0 2120px, #f4f4f4 300px 100%);
+}
+
+.wave-operating-system {
+  width: 100%;       /* 容器占满父级 */
+}
+
+.wave-operating-system img {
+  width: 100%;        /* 图片占容器 80% */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* 居中对齐 */
+}
+
+.wave-design-process {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 两列等宽 */
+  gap: 20px;                      /* 中间间隔，保证撑满容器 */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.wave-design-process img {
+  width: 100%;      /* 填满各自格子 */
+  height: auto;     /* 保持比例 */
+  display: block;
+  object-fit: cover;
+}
+
+.wave-coding {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 两列等宽 */
+  gap: 20px;                      /* 中间间隔，保证撑满容器 */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.wave-coding img {
+  width: 100%;      /* 填满各自格子 */
+  height: auto;     /* 保持比例 */
+  display: block;
+  object-fit: cover;
+}
+
+.wave-outcome {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 两列 */
+  grid-template-rows: repeat(2, 1fr);    /* 两行 */
+  gap: 20px;                             /* 图片之间的间隔 */
+  width: 100%;
+  height: 100%;                          /* 占满外层容器 */
+  box-sizing: border-box;
+}
+
+.wave-outcome img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* 保证填满格子，可以裁切 */
+  display: block;
+}
+
+.wave-video {
+  width: 100%;
+  max-width: 1200px;     /* 控制视频最大宽度，可自行调整或去掉 */
+  margin: 0 auto;        /* 居中 */
+  background: #000;      /* 加个黑底避免加载时闪白 */
+  position: relative;
+  overflow: hidden;
+}
+
+.wave-video iframe {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;  /* 自动保持16:9比例 */
+  display: block;
+  border: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====== UIRCS ====== */
+
+html.UIRCS,
+body.UIRCS {
+  background: 
+    linear-gradient(#1F2124 0 1950px, #f4f4f4 300px 100%);
+}
+
+.UIRCS-structural-fragmentation-diagram {
+  width: 75%;
+  padding: 0;
+  margin: 0 auto;   /* 关键 */
+}
+
+.UIRCS-structural-fragmentation-diagram img {
+  display: block;
+  width: 100%;     /* 横向占满容器 */
+  height: auto;    /* 高度按比例缩放 */
+}
+
+.UIRCS-stakeholder-power-map {
+  width: 90%;
+  padding: 0;
+  margin: 0 auto;   /* 关键 */
+}
+
+.UIRCS-stakeholder-power-map img {
+  display: block;
+  width: 100%;     /* 横向占满容器 */
+  height: auto;    /* 高度按比例缩放 */
+}
+
+.UIRCS-AS-IS-workflow {
+  width: 70%;
+  padding: 0;
+  margin: 0 auto;   /* 关键 */
+}
+
+.UIRCS-AS-IS-workflow img {
+  display: block;
+  width: 100%;     /* 横向占满容器 */
+  height: auto;    /* 高度按比例缩放 */
+}
+
+.UIRCS-structural-shift-diagram {
+  width: 100%;
+  padding: 0;
+  margin: 0 auto;   /* 关键 */
+}
+
+.UIRCS-structural-shift-diagram img {
+  display: block;
+  width: 100%;     /* 横向占满容器 */
+  height: auto;    /* 高度按比例缩放 */
+}
+
+.UIRCS-integrated-system-model {
+  width: 100%;
+  padding: 0;
+  margin: 0 auto;   /* 关键 */
+}
+
+.UIRCS-integrated-system-model img {
+  display: block;
+  width: 100%;     /* 横向占满容器 */
+  height: auto;    /* 高度按比例缩放 */
+}
+
+.UIRCS-four-layer-architecture {
+  width: 100%;
+  padding: 0;
+  margin: 0 auto;   /* 关键 */
+}
+
+.UIRCS-four-layer-architecture img {
+  display: block;
+  width: 100%;     /* 横向占满容器 */
+  height: auto;    /* 高度按比例缩放 */
+}
+
+.UIRCS-information-architecture {
+  width: 100%;
+  padding: 0;
+  margin: 0 auto;   /* 关键 */
+}
+
+.UIRCS-information-architecture img {
+  display: block;
+  width: 100%;     /* 横向占满容器 */
+  height: auto;    /* 高度按比例缩放 */
+}
+
+.UIRCS-UI {
+  width: 100%;
+  padding: 0;
+  margin: 0 auto;   /* 关键 */
+}
+
+.UIRCS-UI img {
+  display: block;
+  width: 100%;     /* 横向占满容器 */
+  height: auto;    /* 高度按比例缩放 */
+}
+}
+/* Source consolidated from: Assets/css/shared/project-redesign.css */
+/* Shared redesign layer for portfolio case studies migrated from the legacy layout. */
+:root {
+  --redesign-gutter: clamp(22px, 4vw, 64px);
+  --redesign-center: 1024px;
+  --redesign-paper: #f6f4ef;
+  --redesign-ink: #242326;
+  --redesign-muted: #6e6b70;
+  --redesign-main: #343236;
+  --redesign-next: #454249;
+  --redesign-highlight: #f0c56e;
+  --redesign-divider: rgba(36, 35, 38, .14);
+}
+
+body.portfolio-redesign {
+  margin: 0;
+  color: var(--redesign-ink);
+  background: var(--redesign-paper);
+  font-family: "Heebo", Arial, sans-serif;
+}
+
+body.portfolio-redesign header { position:relative; height:auto; color:var(--redesign-highlight); background:var(--redesign-main); }
+body.portfolio-redesign .navbar {
+  position:relative;
+  box-sizing:border-box;
+  left:auto;
+  right:auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  align-items: center;
+  width:100%;
+  min-height: 0;
+  margin:0 auto;
+  padding:3vh 4% 0;
+}
+body.portfolio-redesign .logo {
+  display:flex;
+  align-items:center;
+  flex:0 0 104.4px;
+  width:104.4px;
+  height:33.6px;
+  transform:none;
+}
+body.portfolio-redesign .logo a { display:block; color:inherit; }
+body.portfolio-redesign .logo .site-brand-logo {
+  width:104.4px;
+  height:33.6px;
+  filter:var(--redesign-logo-filter, brightness(0) saturate(100%) invert(87%) sepia(22%) saturate(704%) hue-rotate(333deg) brightness(101%));
+}
+body.portfolio-redesign .nav-links { grid-column:3; }
+body.portfolio-redesign .nav-links a { display:inline-flex; align-items:center; gap:10px; color:var(--redesign-highlight); font-size:13px; font-weight:500; line-height:13px; text-decoration:none; text-transform:none; }
+body.portfolio-redesign .nav-links a::before { width:8px; height:8px; border-bottom:2px solid currentColor; border-left:2px solid currentColor; content:""; transform:rotate(45deg); }
+
+.legacy-menu-toggle { display:flex; grid-column:4; align-items:flex-end; justify-content:center; width:28px; height:28px; margin-left:34px; padding:0; border:0; flex-direction:column; gap:5px; background:transparent; cursor:pointer; }
+.legacy-menu-toggle span { display:block; width:20px; height:2px; background:var(--redesign-highlight); transition:transform .25s ease, opacity .2s ease; }
+.legacy-menu-toggle span:nth-child(2) { width:15px; }
+.legacy-menu-toggle[aria-expanded="true"] span:first-child { transform:translateY(7px) rotate(45deg); }
+.legacy-menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity:0; }
+.legacy-menu-toggle[aria-expanded="true"] span:last-child { transform:translateY(-7px) rotate(-45deg); }
+.legacy-nav-menu { position:fixed; top:70px; right:var(--redesign-gutter); z-index:90; display:grid; min-width:210px; padding:26px; gap:18px; background:var(--redesign-main); box-shadow:0 18px 50px rgba(0,0,0,.18); opacity:0; visibility:hidden; transform:translateY(-10px); transition:.22s ease; }
+.legacy-nav-menu.is-open { opacity:1; visibility:visible; transform:none; }
+.legacy-nav-menu a { color:#fff; font-size:15px; text-decoration:none; }
+
+body.portfolio-redesign .project-container { width:100% !important; max-width:none !important; margin:0 !important; padding:0 !important; overflow:visible !important; }
+.legacy-project-name {
+  position:absolute;
+  top:3vh;
+  left:50%;
+  z-index:110;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) var(--case-copy-width);
+  align-items:center;
+  width:min(100%,var(--case-reading-width));
+  min-height:15px;
+  padding-inline:var(--case-page-gutter);
+  box-sizing:border-box;
+  color:#fff;
+  font-family:"GT Sectra Case","GT Sectra Display",Times,Georgia,serif;
+  font-size:15px;
+  font-weight:400;
+  line-height:15px;
+  transform:translateX(-50%);
+  pointer-events:none;
+}
+.legacy-project-name span { grid-column:2; }
+body.portfolio-redesign .project-title-section,
+body.portfolio-redesign .project-header-section,
+body.portfolio-redesign .project-caption-section {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) var(--case-copy-width);
+  width:min(100%,var(--case-reading-width));
+  margin:0 auto;
+  padding-inline:var(--case-page-gutter);
+  box-sizing:border-box;
+  color:#fff;
+  background:var(--redesign-main);
+}
+body.portfolio-redesign .project-title-section {
+  display:none;
+}
+body.portfolio-redesign .project-title-right,
+body.portfolio-redesign .project-header-right { grid-column:2; width:100%; max-width:none; padding:0; }
+body.portfolio-redesign .project-title-text.case-type-project-name {
+  color:#fff;
+  font-family:"GT Sectra Case","GT Sectra Display",Times,Georgia,serif !important;
+  font-size:15px !important;
+  font-weight:500 !important;
+  line-height:15px !important;
+  letter-spacing:.02em !important;
+  text-transform:uppercase !important;
+}
+body.portfolio-redesign .project-header-section { padding-top:75px; }
+body.portfolio-redesign .project-header-text { max-width:580px; margin:0; color:#fff; }
+body.portfolio-redesign .project-caption-section { position:relative; padding-top:100px; padding-bottom:60px; color:var(--redesign-highlight); }
+body.portfolio-redesign .project-caption-left { grid-column:1; }
+body.portfolio-redesign .project-caption-right { grid-column:2; }
+body.portfolio-redesign .project-caption-left,
+body.portfolio-redesign .project-caption-right { width:100%; max-width:none; padding:0; }
+body.portfolio-redesign .project-caption-floating { position:absolute; left:calc(var(--case-page-gutter) + (var(--case-reading-inner-width) - var(--case-copy-width))); }
+body.portfolio-redesign .project-caption { color:var(--redesign-highlight); font-size:13px; font-weight:600; }
+body.portfolio-redesign .project-title-section,
+body.portfolio-redesign .project-header-section,
+body.portfolio-redesign .project-caption-section { box-shadow:0 0 0 100vmax var(--redesign-main); clip-path:inset(0 -100vmax); }
+
+body.portfolio-redesign .project-cover { width:100vw; margin:0 0 0 calc(50% - 50vw); background:var(--redesign-main); }
+body.portfolio-redesign .project-cover img { display:block; width:100%; aspect-ratio:1960 / 700; object-fit:cover; object-position:center; border:0; border-radius:0; }
+
+body.portfolio-redesign .project-content-chapter {
+  position:relative;
+  width:min(100%,var(--case-reading-width));
+  margin:0 auto;
+  padding:var(--case-section-space) 0;
+  box-sizing:border-box;
+  border-top:0;
+  background:var(--redesign-paper);
+}
+body.portfolio-redesign .project-content-chapter + .project-content-chapter::before {
+  position:absolute;
+  top:0;
+  left:50%;
+  width:var(--case-media-fluid-width);
+  height:1px;
+  background:var(--redesign-divider);
+  content:"";
+  transform:translateX(-50%);
+}
+body.portfolio-redesign .project-content-unit { position:relative; display:grid; grid-template-columns:minmax(0,1fr) var(--case-copy-width); width:100%; margin:0; padding:0; gap:0; background:transparent; }
+body.portfolio-redesign .project-content-unit + .project-content-unit { margin-top:var(--case-section-space); }
+body.portfolio-redesign .project-content-unit + .project-content-unit:has(.project-title)::before {
+  position:absolute;
+  top:calc(var(--case-section-space) / -2);
+  left:50%;
+  width:var(--case-media-fluid-width);
+  height:1px;
+  background:var(--redesign-divider);
+  content:"";
+  transform:translateX(-50%);
+}
+body.portfolio-redesign .project-left-column { grid-column:1; padding:0 clamp(28px,5vw,80px) 0 0; }
+body.portfolio-redesign .project-right-column { grid-column:2; width:auto; max-width:none; padding:0; }
+body.portfolio-redesign .project-title { display:flex; align-items:baseline; gap:12px; color:var(--redesign-ink) !important; font-family:"Gilroy Case",Gilroy,Helvetica,Arial,sans-serif !important; font-size:9px !important; font-weight:700 !important; letter-spacing:.37em !important; line-height:9px !important; text-transform:uppercase; white-space:nowrap; }
+body.portfolio-redesign .project-title .project-index { flex:0 0 auto; color:var(--redesign-highlight); white-space:nowrap; }
+body.portfolio-redesign .project-title .project-label { color:inherit; }
+body.portfolio-redesign .project-paragraph { width:100%; max-width:580px; margin:0; color:var(--redesign-muted) !important; font-family:"Heebo Case","Heebo",Helvetica,Arial,sans-serif !important; font-size:14px !important; font-weight:300 !important; line-height:29.4px !important; }
+body.portfolio-redesign .project-content-unit > div:not(.project-left-column):not(.project-right-column) { grid-column:1 / -1; width:100%; max-width:none; margin:0; padding:0; }
+body.portfolio-redesign .project-content-unit img,
+body.portfolio-redesign .project-content-unit video,
+body.portfolio-redesign .project-content-unit iframe { max-width:100%; border:0; border-radius:0; }
+body.portfolio-redesign .project-content-unit img { height:auto; object-fit:contain; }
+
+body.portfolio-redesign .redesign-overview {
+  color:#fff;
+  background:var(--redesign-main);
+  box-shadow:0 0 0 100vmax var(--redesign-main);
+  clip-path:inset(0 -100vmax);
+}
+body.portfolio-redesign .redesign-overview:has(.redesign-intro-media-transition) {
+  padding-bottom:0;
+}
+body.portfolio-redesign .project-content-chapter:has(> .redesign-impact-media-transition:last-child) {
+  padding-bottom:0;
+}
+body.portfolio-redesign .redesign-overview .project-title,
+body.portfolio-redesign .redesign-overview .project-paragraph { color:#fff !important; }
+body.portfolio-redesign .redesign-overview .project-title .project-label,
+body.portfolio-redesign .redesign-reflection .project-title .project-label { color:rgba(255,255,255,.58); }
+
+.redesign-project-details { position:relative; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); width:min(100%,var(--case-reading-width)); margin:0 auto; padding:86px var(--case-page-gutter) 104px; box-sizing:border-box; gap:56px; border-top:0; border-bottom:0; }
+.redesign-project-details::after { position:absolute; bottom:0; left:50%; width:var(--case-media-fluid-width); height:1px; background:var(--redesign-divider); content:""; transform:translateX(-50%); }
+.redesign-project-details article { padding-top:18px; border-top:1px solid var(--redesign-divider); }
+.redesign-project-details h3 { margin:0; color:var(--redesign-highlight); font-size:12px; font-weight:600; line-height:14px; letter-spacing:.09em; text-transform:uppercase; }
+.redesign-project-details strong { display:block; margin-top:42px; font-family:"GT Sectra Case","GT Sectra Display",Times,Georgia,serif; font-size:30px; font-weight:500; line-height:35px; }
+.redesign-project-details p { margin:18px 0 0; color:var(--redesign-muted); font-size:14px; line-height:29.4px; }
+
+body.portfolio-redesign .redesign-reflection { color:#fff; background:var(--redesign-main); box-shadow:0 0 0 100vmax var(--redesign-main); clip-path:inset(0 -100vmax); }
+body.portfolio-redesign .redesign-reflection .project-title,
+body.portfolio-redesign .redesign-reflection .project-paragraph { color:#fff !important; }
+
+.redesign-intro-media-transition,
+.redesign-impact-media-transition { width:100vw !important; margin-left:calc(50% - 50vw) !important; padding:0 !important; box-sizing:border-box; }
+.redesign-intro-media-transition { background:linear-gradient(to bottom,var(--redesign-main) 0 50%,var(--redesign-paper) 50% 100%) !important; }
+.redesign-impact-media-transition { background:linear-gradient(to bottom,var(--redesign-paper) 0 50%,var(--redesign-main) 50% 100%) !important; }
+.redesign-intro-frame,
+.redesign-impact-frame { width:min(100%,var(--case-media-inner-width)) !important; aspect-ratio:16 / 9; margin:0 auto !important; overflow:hidden; }
+.case-media-row > .redesign-intro-frame,
+.case-media-row > .redesign-impact-frame {
+  width:min(100%,var(--case-media-inner-width)) !important;
+  margin-right:auto !important;
+  margin-left:auto !important;
+}
+.redesign-intro-frame img,
+.redesign-impact-frame img { display:block; width:100% !important; height:100% !important; object-fit:cover !important; object-position:center !important; }
+.redesign-impact-frame video,
+.redesign-impact-frame iframe { display:block; width:100% !important; height:100% !important; object-fit:cover !important; }
+.redesign-impact-frame--gallery { aspect-ratio:auto; overflow:visible; }
+.redesign-impact-frame--gallery img { height:auto !important; object-fit:contain !important; }
+
+.redesign-impact-media-transition:has(.redesign-impact-frame--gallery) {
+  background:transparent !important;
+}
+
+.redesign-next-case {
+  display:block;
+  position:relative !important;
+  right:auto !important;
+  left:auto !important;
+  width:100% !important;
+  margin:0 !important;
+  padding:0 !important;
+  min-height:clamp(310px,38vw,540px);
+  color:#fff;
+  background:var(--redesign-next);
+  font-size:14px;
+  font-weight:400;
+  line-height:1.6;
+}
+.redesign-next-case__inner {
+  display:grid;
+  align-content:start;
+  width:min(calc(100% - (2 * var(--redesign-gutter))),var(--case-reading-width));
+  min-height:inherit;
+  margin:0 auto;
+  padding-block:clamp(86px,9vw,126px);
+  box-sizing:border-box;
+}
+.redesign-next-case p { margin:0 0 34px; font-size:10px; font-weight:600; line-height:1.6; letter-spacing:.12em; text-transform:uppercase; }
+.redesign-next-case a { position:relative; display:inline-flex; align-items:flex-start; gap:.16em; width:fit-content; color:#fff; font-family:"GT Sectra Case","GT Sectra Display",Times,Georgia,serif; font-size:clamp(44px,5.5vw,74px); font-weight:400; line-height:.92; letter-spacing:-.04em; text-decoration:none; }
+.redesign-next-case a > span { font-family:"Heebo Case","Heebo",Helvetica,Arial,sans-serif; font-size:.4em; line-height:normal; vertical-align:top; transition:transform 360ms cubic-bezier(.22,1,.36,1); }
+.redesign-next-case a::after { position:absolute; right:0; bottom:-14px; left:0; height:2px; background:var(--redesign-highlight); content:""; transform:scaleX(0); transform-origin:right; transition:transform 420ms cubic-bezier(.22,1,.36,1); }
+.redesign-next-case a:hover::after { transform:scaleX(1); transform-origin:left; }
+.redesign-next-case a:hover > span { transform:translate(7px,-7px); }
+.redesign-next-case__meta { display:grid; justify-items:end; max-width:430px; margin-top:clamp(38px,5vw,68px); margin-left:auto; text-align:right; }
+.redesign-next-case__meta span { color:rgba(255,255,255,.65); font-size:11px; font-weight:600; line-height:1.6; letter-spacing:.1em; text-transform:uppercase; }
+.redesign-next-case__meta strong { margin-top:14px; font-family:"GT Sectra Case","GT Sectra Display",Times,Georgia,serif; font-size:clamp(22px,2.4vw,30px); font-weight:500; line-height:1.12; }
+.redesign-site-footer { display:block; position:relative !important; right:auto !important; left:auto !important; width:100% !important; margin:0 !important; padding:0 !important; color:#fff; background:var(--redesign-main); }
+.redesign-site-footer { min-height:92px; font-size:13px; font-weight:400; line-height:1.6; letter-spacing:.02em; text-transform:uppercase; }
+.redesign-site-footer__inner { display:flex; align-items:center; justify-content:space-between; width:min(calc(100% - (2 * var(--redesign-gutter))),var(--case-reading-width)); min-height:inherit; margin-inline:auto; }
+.redesign-site-footer__inner a { color:inherit; text-decoration:none; }
+
+@media (max-width:814px) {
+  body.portfolio-redesign .navbar { display:flex; width:calc(100% - 40px); min-height:72px; }
+  body.portfolio-redesign .logo { width:90px; height:28.8px; }
+  body.portfolio-redesign .logo .site-brand-logo { width:90px; height:28.8px; }
+  body.portfolio-redesign .nav-links { margin-left:auto; }
+  .legacy-menu-toggle { margin-left:20px; }
+  .legacy-nav-menu { top:64px; right:20px; left:20px; }
+  body.portfolio-redesign .project-title-section,
+  body.portfolio-redesign .project-header-section,
+  body.portfolio-redesign .project-caption-section,
+  body.portfolio-redesign .project-content-unit { grid-template-columns:1fr; }
+  body.portfolio-redesign .project-title-section,
+  body.portfolio-redesign .project-header-section,
+  body.portfolio-redesign .project-caption-section { width:100%; padding-right:20px; padding-left:20px; }
+  body.portfolio-redesign .project-title-section { padding-top:42px; }
+  body.portfolio-redesign .project-title-right,
+  body.portfolio-redesign .project-header-right,
+  body.portfolio-redesign .project-caption-left,
+  body.portfolio-redesign .project-caption-right { grid-column:1; }
+  body.portfolio-redesign .project-header-text { font-size:clamp(32px,10vw,44px); }
+  body.portfolio-redesign .project-caption-section { gap:14px; }
+  body.portfolio-redesign .project-caption-floating { position:static; }
+  body.portfolio-redesign .project-cover img { aspect-ratio:4 / 3; }
+  body.portfolio-redesign .project-content-chapter { width:100%; padding:80px 35px; }
+  body.portfolio-redesign .project-left-column,
+  body.portfolio-redesign .project-right-column { grid-column:1; padding:0; }
+  body.portfolio-redesign .project-right-column { margin-top:42px; }
+  .redesign-project-details { grid-template-columns:1fr; }
+  .redesign-intro-media-transition,
+  .redesign-impact-media-transition { padding-inline:35px !important; }
+  .redesign-next-case { min-height:330px; }
+  .redesign-next-case__inner { width:calc(100% - 70px); }
+  .redesign-next-case__meta { max-width:280px; }
+  .redesign-site-footer { min-height:120px; font-size:11px; }
+  .redesign-site-footer__inner { align-items:flex-start; flex-direction:column; justify-content:center; width:calc(100% - 70px); gap:12px; }
+}
+
+@media (max-width:767px) {
+  body.portfolio-redesign .project-content-chapter { padding-top:var(--case-mobile-space); padding-bottom:var(--case-mobile-space); }
+}
+
+/* These responsive rules intentionally live after the legacy project rules.
+   They preserve Tomorrowland's original center gutters without allowing an
+   older project stylesheet to reintroduce a narrower content frame. */
+@media (max-width:1029px) and (min-width:815px) {
+  body.portfolio-redesign .project-content-chapter { padding-right:45px !important; padding-left:45px !important; }
+}
+
+body.portfolio-redesign .case-section > .redesign-intro-media-transition,
+body.portfolio-redesign .case-section > .redesign-impact-media-transition {
+  position:relative !important;
+  left:50% !important;
+  width:100vw !important;
+  margin-left:-50vw !important;
+}
+
+/* Canonical lower-page geometry ------------------------------------------------
+   Reflection, next-project and site-footer content use the same 1024px reading
+   frame as ordinary case-study copy. Their dividers use the same 1200px media
+   frame as project images. This is the single shared source of truth. */
+:is(.pvr-reflection__inner,.dfr-reflection__inner) {
+  position:relative;
+  width:min(100%,var(--case-reading-width)) !important;
+  border-top:0 !important;
+}
+
+:is(.pvr-reflection__inner,.dfr-reflection__inner)::before {
+  position:absolute;
+  top:0;
+  left:50%;
+  width:var(--case-media-fluid-width);
+  height:1px;
+  background:rgba(33,29,24,.20);
+  content:"";
+  transform:translateX(-50%);
+}
+
+.dfr-reflection__inner::before { background:rgba(255,255,255,.18); }
+.ctm-case .pvr-reflection__inner::before { background:var(--project-divider); }
+
+:is(.pvr-reflection__label,.dfr-reflection__label) :is(h2,span) {
+  font-family:"Gilroy Case",Gilroy,Helvetica,Arial,sans-serif !important;
+  font-size:9px !important;
+  font-weight:700 !important;
+  line-height:9px !important;
+  letter-spacing:.37em !important;
+  text-transform:uppercase !important;
+}
+
+:is(.pvr-reflection__copy,.dfr-reflection__copy) :is(p,strong,span),
+:is(.pvr-learning-points,.dfr-learning-points) :is(p,strong,span) {
+  font-family:"Heebo Case","Heebo",Helvetica,Arial,sans-serif !important;
+  font-size:14px !important;
+  font-weight:300 !important;
+  line-height:29.4px !important;
+}
+
+:is(.pvr-footer__inner,.dfr-footer__inner,.pvr-site-footer__inner,.dfr-site-footer__inner,
+    .redesign-next-case__inner,.redesign-site-footer__inner) {
+  width:min(calc(100% - (2 * var(--case-page-gutter))),var(--case-reading-width)) !important;
+  margin-inline:auto !important;
+  box-sizing:border-box;
+}
+
+/* The Close To Me header spacer must be indistinguishable from its hero. */
+body.ctm-case .case-smart-header-spacer {
+  background:var(--project-bg-1) !important;
+}
+
+/* Close To Me's Effect pair is a project-specific composition, but its outer
+   alignment follows the shared 1200px media frame. */
+.ctm-case .ctm-impact {
+  width:min(100%,var(--case-media-inner-width)) !important;
+  height:auto !important;
+  aspect-ratio:auto !important;
+  margin-inline:auto !important;
+  overflow:visible !important;
+}
+.ctm-case .ctm-impact-images {
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  width:100% !important;
+  height:auto !important;
+  gap:clamp(16px,2vw,30px) !important;
+}
+.ctm-case .ctm-impact-images img {
+  display:block !important;
+  width:100% !important;
+  height:auto !important;
+  object-fit:contain !important;
+  object-position:center !important;
+  border-radius:0 !important;
+  background:transparent !important;
+}
+
+/* Legacy borders and full-width shadows caused the stray white/black rules on
+   the newly redesigned pages. Only explicit shared dividers remain visible. */
+body.portfolio-redesign :is(.project-header-section,.project-caption-section,.project-cover,
+  .redesign-overview,.redesign-reflection,.redesign-intro-media-transition,
+  .redesign-impact-media-transition) {
+  border-top:0 !important;
+  border-bottom:0 !important;
+  outline:0 !important;
+}
+
+body.portfolio-redesign .project-header-section,
+body.portfolio-redesign .project-caption-section {
+  box-shadow:0 0 0 100vmax var(--redesign-main) !important;
+}
+
+@media (max-width:814px) {
+  :is(.pvr-footer__inner,.dfr-footer__inner,.pvr-site-footer__inner,.dfr-site-footer__inner,
+      .redesign-next-case__inner,.redesign-site-footer__inner) {
+    width:calc(100% - 70px) !important;
+  }
+  .ctm-case .ctm-impact-images { grid-template-columns:1fr !important; }
+}

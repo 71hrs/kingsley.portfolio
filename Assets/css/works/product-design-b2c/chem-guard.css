@@ -1,0 +1,25 @@
+body.chem-guard { --redesign-main:#1d3935; --redesign-next:#294b45; --redesign-highlight:#9ad4bd; --redesign-paper:#f3f6f2; --redesign-logo-filter:brightness(0) saturate(100%) invert(84%) sepia(18%) saturate(590%) hue-rotate(105deg) brightness(94%); }
+
+body.chem-guard .chem-guard-reflection-media {
+  width:var(--case-media-fluid-width) !important;
+  padding:0 !important;
+  border:0 !important;
+}
+
+body.chem-guard .chem-guard-reflection-media .project-content-unit,
+body.chem-guard .chem-guard-reflection-media .project-overview {
+  width:100% !important;
+  margin:0 !important;
+}
+
+body.chem-guard .chem-guard-reflection-media .project-overview {
+  aspect-ratio:16 / 9;
+  overflow:hidden;
+}
+
+body.chem-guard .chem-guard-reflection-media img {
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center !important;
+}

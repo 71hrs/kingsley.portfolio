@@ -43,7 +43,7 @@ function blobStoragePath(assetPath: string): string {
   if (["polyverse", "dollar-flip", "operation-management-system", "post-lending-management-system"].includes(project)) {
     return `static/picture/${project}/${filename}`;
   }
-  if (project === "uircs" || project === "uircs-backup") return `static/picture/uircs-redesign/${filename}`;
+  if (project === "uircs") return `static/picture/uircs-redesign/${filename}`;
   if (project === "chem-guard") {
     return filename.startsWith("chem-guard-")
       ? `static/MIT-picture/${filename}`

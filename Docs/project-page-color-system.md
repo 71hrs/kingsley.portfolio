@@ -1,5 +1,49 @@
 # Project Page Color System
 
+## CSS architecture and layout standard
+
+Every active Case Study loads exactly two local stylesheets, in this order:
+
+1. `case-study-shared.css` — the single shared structural system.
+2. One project stylesheet — project colors and genuinely unique visual components only.
+
+Do not add separate page-level links for the logo, mobile navigation, header emphasis, dividers, chapter spacing, Reflection, or Impact transitions. Those rules belong to the shared stylesheet. Dollar Flip and Polyverse are the visual references, but their repeated structural rules should be moved into the shared system whenever a page is rebuilt.
+
+Shared desktop measurements:
+
+- Brand logo: `104.4 × 33.6px` on desktop and `90 × 28.8px` on mobile.
+- Content width: `1024px` maximum.
+- Content gutter: no internal desktop gutter above `1029px`; `45px` from `815–1029px`; `35px` at `814px` and below. These are the original Tomorrowland breakpoints.
+- Case-study grid: a flexible `444px` label column plus a fixed `580px` copy column at the maximum reading width.
+- Header position: `3vh` from the top with `4%` horizontal page padding.
+- Project name: EB Garamond, `15px`, weight `400`.
+- Hero statement: Heebo, `35px`, weight `200`, line-height `40px`.
+- Hero statement top spacing: `72px`.
+- Hero metadata top spacing: `96px`.
+- Hero image top spacing: `62px`; standard crop is the established wide hero ratio.
+- Chapter vertical padding: `105px`.
+- Space between subsections: `84px`.
+- Body copy: the local Tomorrowland Heebo font, `16px`, weight `300`, line-height `32px`.
+- Chapter label: the local Tomorrowland Gilroy Bold font, `9px`, line-height `9px`, letter-spacing `.37em`, uppercase.
+- Editorial subheading: the local Tomorrowland GT Sectra Display font, `30px`, line-height `35px`, weight `500`.
+- Chapter numbers and titles remain together on one line.
+- First Overview media: `16:9`, centered crop, with Background 1 behind its upper 50% and Page Background behind its lower 50%.
+- When the Overview transition media is present, the Overview chapter has no bottom padding after the media. No extra Background 1 strip may appear between the image and the following details section.
+- When an Outcome, Impact, or Effect chapter exists, its final complete media block bridges Page Background and Background 1 at its vertical midpoint. A single image or video uses `16:9`; a multi-image gallery keeps its intentional grid and image ratios.
+- Projects without an Outcome, Impact, or Effect chapter do not receive a forced closing-media transition.
+
+### Shared Project Hero typography
+
+The complete Hero block—including the project name inside the fixed header, main project statement, region, and year—is a shared component. Project-specific CSS must not redefine its font family, size, weight, line-height, letter-spacing, or column alignment.
+
+- Project name: EB Garamond, `15px`, weight `400`, line-height `15px`, letter-spacing `.02em`, uppercase.
+- Main project statement: Heebo, `35px`, weight `200`, line-height `40px`, letter-spacing `-.02em`, maximum width `580px`.
+- Region and year: Heebo, `13px`, weight `600`, line-height `13px`, no additional letter-spacing.
+- Mobile main statement: Heebo, `32px`, line-height `38px`, maximum width `11em`.
+- Colors continue to come from each project’s semantic color variables; typography does not.
+
+These measurements are shared rules. Do not redefine them in a project stylesheet unless the project has a documented, intentional exception.
+
 This document defines the required color system for every portfolio project page. New project pages must use these semantic roles instead of adding colors for individual components.
 
 ## Core palette
@@ -71,6 +115,31 @@ Each project page defines only these variables:
 ```
 
 Components must reference these variables. Project-specific components must not contain separate hard-coded presentation colors.
+
+## Shared project body layout — exact Tomorrowland mapping
+
+The body architecture is based on the content rhythm of the archived Tomorrowland reference in `Docs/tomorrowland`. Its header, footer, navigation, credits, and unused case-study modules are not copied.
+
+The portfolio Header remains Yuhui Qi's custom component. Everything after the Header uses the Tomorrowland body geometry and typography as a direct implementation standard, not as loose visual inspiration.
+
+- Reading frame: `1024px` maximum width. On desktop the full `1024px` is usable; there is no extra internal gutter.
+- Main copy column: `580px` maximum width.
+- Label column: `444px` at the maximum reading width.
+- Media frame: the full `1200px` maximum width, centered independently from the reading frame.
+- Desktop chapter spacing: `105px` above and below each chapter.
+- Tablet chapter spacing: `80px` above and below at `814px` and below.
+- Mobile chapter spacing: `65px` above and below at `767px` and below.
+- Text sections use two columns inside the full `1024px` desktop frame: `444px` for the chapter-label column and `580px` for the copy column.
+- The Hero content uses the same column anchors: project name and introduction align with the `580px` right column; region aligns to the left column and year aligns to the right column.
+- The navigation/header height remains fixed; the project name stays inside that header rather than becoming a separate body section.
+- Body copy uses the reference Heebo at `16px / 32px`; section labels use Gilroy Bold at `9px / 9px` with `.37em` tracking; editorial subheadings use GT Sectra Display at `30px / 35px`.
+- Consecutive paragraphs use a consistent `24px` gap. Media follows the same shared section rhythm unless a documented project-specific gallery needs a smaller internal gap.
+- The first Overview media may bridge Background 1 and the Page Background at its vertical midpoint.
+- A closing Outcome, Impact, or Effect transition is attached only to the final complete media block in that chapter. Images, GIFs, video, and iframe embeds all count as media.
+- A transition must never be inferred from an image that is followed by more copy or another media block. This prevents an accidental color band in the middle of a chapter.
+- Multi-image galleries keep their intended grid and aspect ratios; a single closing image or video uses the shared `16:9` frame.
+
+All reusable measurements belong in `Assets/css/works/case-study-shared.css`. Every active project maps its HTML to the shared semantic classes `case-section`, `case-grid`, `case-label`, `case-body`, `case-copy`, `case-subheading`, and `case-media`. A project stylesheet may define only its palette and genuinely exceptional media composition; it must not redefine the shared reading width, columns, media width, section spacing, dividers, or standard typography.
 
 ## Close To Me palette
 

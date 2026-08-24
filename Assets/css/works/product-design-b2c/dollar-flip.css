@@ -36,7 +36,7 @@ body {
   overflow-x: hidden;
   color: #fff;
   background: var(--dfr-night);
-  font-family: "Heebo", Helvetica, Arial, sans-serif;
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
   font-size: 14px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -168,7 +168,7 @@ a { color: inherit; text-decoration: none; }
 .dfr-header h1 {
   grid-column: 2;
   margin: 0;
-  font-family: "EB Garamond", Georgia, serif;
+  font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif;
   font-size: 15px;
   font-weight: 400;
   line-height: 1;
@@ -310,7 +310,7 @@ a { color: inherit; text-decoration: none; }
 
 .dfr-subsection h3 {
   margin: 0 0 28px;
-  font-family: "EB Garamond", Georgia, serif;
+  font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif;
   font-size: 30px;
   font-weight: 500;
   line-height: 35px;
@@ -347,8 +347,8 @@ a { color: inherit; text-decoration: none; }
 }
 
 .dfr-overview-details article { min-width: 0; padding-top: 18px; border-top: 1px solid rgba(24, 24, 26, 0.2); }
-.dfr-overview-details h3 { margin: 0; color: #5e598f; font-family: "Heebo", Helvetica, Arial, sans-serif; font-size: 12px; font-weight: 600; line-height: 14px; letter-spacing: 0.09em; text-transform: uppercase; }
-.dfr-overview-details strong { display: block; margin-top: 42px; color: #4f4b7f; font-family: "EB Garamond", Georgia, serif; font-size: 23px; font-weight: 500; line-height: 28px; }
+.dfr-overview-details h3 { margin: 0; color: #5e598f; font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif; font-size: 12px; font-weight: 600; line-height: 14px; letter-spacing: 0.09em; text-transform: uppercase; }
+.dfr-overview-details strong { display: block; margin-top: 42px; color: #4f4b7f; font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif; font-size: 23px; font-weight: 500; line-height: 28px; }
 .dfr-overview-details p { margin: 18px 0 0; color: rgba(24, 24, 26, 0.66); font-size: 14px; line-height: 24px; }
 
 .dfr-research-evidence {
@@ -370,7 +370,7 @@ a { color: inherit; text-decoration: none; }
   gap: 9px;
   margin-top: 16px;
   color: rgba(27, 27, 37, 0.56);
-  font-family: "Heebo", Helvetica, Arial, sans-serif;
+  font-family: "Heebo Case","Heebo",Helvetica,Arial,sans-serif;
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
@@ -427,7 +427,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .dfr-media-placeholder > div strong {
-  font-family: "EB Garamond", Georgia, serif;
+  font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif;
   font-size: clamp(22px, 3vw, 34px);
   font-weight: 500;
   line-height: 1.15;
@@ -451,7 +451,7 @@ a { color: inherit; text-decoration: none; }
 .dfr-framework-visual > div { grid-area: promise; align-items: center; min-height: 185px; border-bottom: 1px solid rgba(159, 155, 223, 0.44); background: rgba(159, 155, 223, 0.1); text-align: center; }
 .dfr-framework-visual span,
 .dfr-framework-visual small { margin-bottom: 16px; color: var(--dfr-accent); font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
-.dfr-framework-visual strong { font-family: "EB Garamond", Georgia, serif; font-size: clamp(23px, 2.5vw, 32px); font-weight: 500; line-height: 1.08; }
+.dfr-framework-visual strong { font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif; font-size: clamp(23px, 2.5vw, 32px); font-weight: 500; line-height: 1.08; }
 .dfr-framework-visual p { margin: 18px 0 0; color: rgba(255, 255, 255, 0.58); font-size: 12px; line-height: 20px; }
 
 .dfr-insight-synthesis {
@@ -466,21 +466,21 @@ a { color: inherit; text-decoration: none; }
 .dfr-insight-synthesis > div { border-inline: 1px solid rgba(255, 255, 255, 0.14); background: rgba(159, 155, 223, 0.1); text-align: center; }
 .dfr-insight-synthesis span,
 .dfr-insight-synthesis small { margin-bottom: 16px; color: var(--dfr-accent); font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
-.dfr-insight-synthesis strong { font-family: "EB Garamond", Georgia, serif; font-size: clamp(24px, 2.7vw, 34px); font-weight: 500; line-height: 1.08; }
+.dfr-insight-synthesis strong { font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif; font-size: clamp(24px, 2.7vw, 34px); font-weight: 500; line-height: 1.08; }
 .dfr-insight-synthesis p { margin: 18px 0 0; color: rgba(255, 255, 255, 0.58); font-size: 12px; line-height: 20px; }
 
 .dfr-principles-visual { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: clamp(36px, 5vw, 64px); color: #fff; background: var(--dfr-placeholder); }
 .dfr-principles-visual article { display: flex; min-height: 300px; padding: clamp(28px, 4vw, 42px); flex-direction: column; justify-content: center; text-align: center; }
 .dfr-principles-visual article + article { border-left: 1px solid rgba(255, 255, 255, 0.14); }
-.dfr-principles-visual strong { display: block; color: var(--dfr-accent); font-family: "EB Garamond", Georgia, serif; font-size: clamp(36px, 4vw, 54px); font-weight: 400; line-height: 0.95; }
-.dfr-principles-visual span { margin-top: 28px; font-family: "EB Garamond", Georgia, serif; font-size: clamp(21px, 2.3vw, 28px); line-height: 1.08; }
+.dfr-principles-visual strong { display: block; color: var(--dfr-accent); font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif; font-size: clamp(36px, 4vw, 54px); font-weight: 400; line-height: 0.95; }
+.dfr-principles-visual span { margin-top: 28px; font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif; font-size: clamp(21px, 2.3vw, 28px); line-height: 1.08; }
 .dfr-principles-visual p { max-width: 19em; margin: 18px auto 0; color: rgba(255, 255, 255, 0.58); font-size: 12px; line-height: 20px; }
 
 .dfr-decision-bridge { display: grid; grid-template-columns: minmax(0, 1fr) 80px minmax(0, 1fr); align-items: center; padding: clamp(48px, 7vw, 86px); color: #fff; background: var(--dfr-placeholder); }
 .dfr-decision-bridge > div { display: flex; min-height: 250px; padding: clamp(26px, 4vw, 44px); flex-direction: column; justify-content: center; border: 1px solid rgba(255, 255, 255, 0.14); box-sizing: border-box; }
 .dfr-decision-bridge > div:last-of-type { border-color: rgba(159, 155, 223, 0.5); background: rgba(159, 155, 223, 0.1); }
 .dfr-decision-bridge > div > span { color: var(--dfr-accent); font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
-.dfr-decision-bridge > div > strong { display: block; margin-top: 24px; font-family: "EB Garamond", Georgia, serif; font-size: clamp(24px, 2.55vw, 32px); font-weight: 500; line-height: 1.08; }
+.dfr-decision-bridge > div > strong { display: block; margin-top: 24px; font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif; font-size: clamp(24px, 2.55vw, 32px); font-weight: 500; line-height: 1.08; }
 .dfr-decision-bridge > div:first-child > strong { display: flex; align-items: flex-start; gap: 10px; }
 .dfr-decision-bridge > div:first-child > strong::before { flex: 0 0 auto; margin-top: -0.18em; color: rgba(159, 155, 223, 0.62); content: "“"; font-size: 1.75em; font-weight: 400; line-height: 1; }
 .dfr-decision-bridge > div > p { margin: 22px 0 0; color: rgba(255, 255, 255, 0.58); font-size: 13px; line-height: 22px; }
@@ -516,13 +516,13 @@ a { color: inherit; text-decoration: none; }
 }
 
 .dfr-comparison-board__stage img { width: min(100%, 250px); max-height: 510px; margin-inline: auto; object-fit: contain; }
-.dfr-comparison-board__stage h4 { margin: 26px 0 0; font-family: "EB Garamond", Georgia, serif; font-size: 22px; font-weight: 500; line-height: 27px; }
+.dfr-comparison-board__stage h4 { margin: 26px 0 0; font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif; font-size: 22px; font-weight: 500; line-height: 27px; }
 .dfr-comparison-board__stage article p { margin: 12px auto 0; color: rgba(255, 255, 255, 0.62); font-size: 12px; line-height: 20px; }
 
 .dfr-comparison-board__directions { display: grid; gap: 62px; }
 .dfr-comparison-board__directions > div { display: grid; grid-template-columns: 24px 1fr; align-items: center; gap: 6px; }
 .dfr-comparison-board__directions > div:last-child { grid-template-columns: 1fr 24px; text-align: right; }
-.dfr-comparison-board__directions strong { display: block; font-family: "EB Garamond", Georgia, serif; font-size: clamp(14px, 1.45vw, 17px); font-weight: 500; line-height: 1.12; white-space: nowrap; }
+.dfr-comparison-board__directions strong { display: block; font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif; font-size: clamp(14px, 1.45vw, 17px); font-weight: 500; line-height: 1.12; white-space: nowrap; }
 .dfr-comparison-board__directions p { margin: 12px 0 0; color: rgba(255, 255, 255, 0.58); font-size: 11px; line-height: 18px; }
 .dfr-comparison-board__directions img { width: 12px; height: 22px; object-fit: contain; }
 
@@ -531,7 +531,7 @@ a { color: inherit; text-decoration: none; }
 .dfr-testing-table header,
 .dfr-testing-table > div > div { display: grid; grid-template-columns: minmax(150px, 0.72fr) repeat(2, minmax(200px, 1fr)); align-items: center; gap: 20px; }
 .dfr-testing-table header { padding-bottom: 24px; color: rgba(255, 255, 255, 0.52); font-size: 10px; font-weight: 600; line-height: 16px; letter-spacing: 0.07em; text-transform: uppercase; }
-.dfr-testing-table header strong { color: #fff; font-family: "EB Garamond", Georgia, serif; font-size: clamp(18px, 2vw, 24px); font-weight: 500; line-height: 1.08; letter-spacing: 0; text-align: center; text-transform: none; }
+.dfr-testing-table header strong { color: #fff; font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif; font-size: clamp(18px, 2vw, 24px); font-weight: 500; line-height: 1.08; letter-spacing: 0; text-align: center; text-transform: none; }
 .dfr-testing-table > div > div { min-height: 74px; border-top: 1px solid rgba(255, 255, 255, 0.13); }
 .dfr-testing-table > div > div span { color: rgba(255, 255, 255, 0.8); font-size: 13px; }
 .dfr-testing-table em { color: rgba(255, 255, 255, 0.52); font-size: 13px; font-style: normal; text-align: center; }
@@ -554,7 +554,7 @@ a { color: inherit; text-decoration: none; }
   background: var(--dfr-placeholder);
 }
 .dfr-assumption-board__copy small { color: var(--dfr-accent); font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
-.dfr-assumption-board__copy h4 { margin: 22px 0 0; font-family: "EB Garamond", Georgia, serif; font-size: clamp(24px, 2.7vw, 34px); font-weight: 500; line-height: 1.08; }
+.dfr-assumption-board__copy h4 { margin: 22px 0 0; font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif; font-size: clamp(24px, 2.7vw, 34px); font-weight: 500; line-height: 1.08; }
 .dfr-assumption-board__copy p { margin: 28px 0 0; color: rgba(255, 255, 255, 0.62); font-size: 13px; line-height: 22px; }
 .dfr-assumption-board__copy strong { display: block; margin-top: 26px; color: rgba(255, 255, 255, 0.88); font-size: 12px; font-weight: 500; line-height: 20px; }
 .dfr-assumption-board__screens { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(18px, 3vw, 34px); }
@@ -566,12 +566,12 @@ a { color: inherit; text-decoration: none; }
 .dfr-quote-evidence > div > img { width: 100%; height: 100%; min-height: 520px; object-fit: cover; }
 .dfr-quote-evidence blockquote { position: relative; display: flex; margin: 0; padding: clamp(58px, 7vw, 92px); flex-direction: column; justify-content: center; color: #fff; }
 .dfr-quote-evidence blockquote span { color: var(--dfr-accent); font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
-.dfr-quote-evidence blockquote p { display: flex; align-items: flex-start; gap: 12px; margin: 54px 0 0; font-family: "EB Garamond", Georgia, serif; font-size: clamp(25px, 3vw, 36px); font-style: normal; font-weight: 500; line-height: 1.14; }
+.dfr-quote-evidence blockquote p { display: flex; align-items: flex-start; gap: 12px; margin: 54px 0 0; font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif; font-size: clamp(25px, 3vw, 36px); font-style: normal; font-weight: 500; line-height: 1.14; }
 .dfr-quote-evidence blockquote p b { flex: 0 0 auto; margin-top: -0.19em; color: rgba(159, 155, 223, 0.62); font-size: 2em; font-weight: 400; line-height: 1; }
 .dfr-quote-evidence blockquote cite { margin-top: 32px; padding-top: 18px; border-top: 1px solid rgba(255, 255, 255, 0.14); color: rgba(255, 255, 255, 0.55); font-size: 12px; font-style: normal; line-height: 18px; text-align: right; }
 
 .dfr-comparison-board__insight { text-align: center; }
-.dfr-comparison-board__insight strong { display: block; font-family: "EB Garamond", Georgia, serif; font-size: clamp(26px, 3vw, 38px); font-weight: 500; line-height: 1.05; }
+.dfr-comparison-board__insight strong { display: block; font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif; font-size: clamp(26px, 3vw, 38px); font-weight: 500; line-height: 1.05; }
 .dfr-comparison-board__insight span { display: block; margin: 10px 0; color: var(--dfr-accent); font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
 .dfr-comparison-board__insight p { margin: 32px 0 0; color: rgba(255, 255, 255, 0.58); font-size: 12px; line-height: 20px; }
 
@@ -586,14 +586,14 @@ a { color: inherit; text-decoration: none; }
 
 .dfr-final-showcase > div { align-items: center; gap: clamp(46px, 7vw, 100px); padding: clamp(54px, 7vw, 92px); }
 .dfr-final-showcase img { width: min(100%, 270px); max-height: 540px; margin-inline: auto; object-fit: contain; }
-.dfr-final-showcase span strong { display: block; max-width: 11em; font-family: "EB Garamond", Georgia, serif; font-size: clamp(24px, 3vw, 34px); font-weight: 500; line-height: 1.08; }
+.dfr-final-showcase span strong { display: block; max-width: 11em; font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif; font-size: clamp(24px, 3vw, 34px); font-weight: 500; line-height: 1.08; }
 .dfr-final-showcase span p { max-width: 30em; margin: 24px 0 0; color: rgba(255, 255, 255, 0.64); font-size: 14px; line-height: 24px; }
 
 .dfr-experience-board section { display: grid; align-content: center; justify-items: center; min-width: 0; padding: clamp(48px, 7vw, 88px); text-align: center; }
 .dfr-experience-board section:first-child { border-right: 1px solid rgba(255, 255, 255, 0.12); }
 .dfr-experience-board section img { width: min(100%, 270px); max-height: 540px; object-fit: contain; }
 .dfr-experience-workflow { background: rgba(159, 155, 223, 0.08); }
-.dfr-experience-workflow > strong { max-width: 13em; font-family: "EB Garamond", Georgia, serif; font-size: clamp(22px, 2.4vw, 30px); font-weight: 500; line-height: 1.1; }
+.dfr-experience-workflow > strong { max-width: 13em; font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif; font-size: clamp(22px, 2.4vw, 30px); font-weight: 500; line-height: 1.1; }
 .dfr-experience-workflow ol { width: 100%; max-width: 330px; margin: 56px auto 0; padding: 0; list-style: none; text-align: left; transform: translateX(12px); counter-reset: experience-step; }
 .dfr-experience-workflow li { position: relative; padding: 0 0 24px 42px; counter-increment: experience-step; }
 .dfr-experience-workflow li:not(:last-child)::after { position: absolute; top: 29px; bottom: -1px; left: 12px; width: 1px; background: rgba(159, 155, 223, 0.34); content: ""; }
@@ -613,7 +613,7 @@ a { color: inherit; text-decoration: none; }
 .dfr-validation-map article { align-items: center; min-height: 112px; padding: 18px 0; }
 .dfr-validation-map article + article { border-top: 1px solid rgba(255, 255, 255, 0.1); }
 .dfr-validation-map p { margin: 0; color: rgba(255, 255, 255, 0.58); font-size: 12px; line-height: 20px; }
-.dfr-validation-map strong { font-family: "EB Garamond", Georgia, serif; font-size: clamp(20px, 2.3vw, 28px); font-weight: 500; line-height: 1.08; }
+.dfr-validation-map strong { font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif; font-size: clamp(20px, 2.3vw, 28px); font-weight: 500; line-height: 1.08; }
 
 .dfr-closing-copy { margin-top: clamp(66px, 8vw, 104px); }
 
@@ -635,7 +635,7 @@ a { color: inherit; text-decoration: none; }
 .dfr-scene-metrics { position: absolute; top: 0; right: 0; bottom: 0; display: grid; grid-template-rows: repeat(3, minmax(0, 1fr)); width: min(36%, 368px); padding: 0 clamp(24px, 2.8vw, 38px); color: #fff; background: linear-gradient(to right, rgba(28, 26, 67, 0.7), rgba(28, 26, 67, 0.95)); backdrop-filter: blur(10px); }
 .dfr-scene-metrics article { display: flex; min-width: 0; flex-direction: column; justify-content: center; padding-block: 20px; }
 .dfr-scene-metrics article + article { border-top: 1px solid rgba(255, 255, 255, 0.16); }
-.dfr-scene-metrics strong { display: block; color: var(--dfr-accent); font-family: "EB Garamond", Georgia, serif; font-size: clamp(36px, 4vw, 54px); font-weight: 400; line-height: 0.95; }
+.dfr-scene-metrics strong { display: block; color: var(--dfr-accent); font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif; font-size: clamp(36px, 4vw, 54px); font-weight: 400; line-height: 0.95; }
 .dfr-scene-metrics h3 { margin: 18px 0 0; color: #fff; font-size: 13px; font-weight: 600; line-height: 18px; }
 .dfr-scene-metrics p { max-width: 19em; margin: 9px 0 0; color: rgba(255, 255, 255, 0.68); font-size: 12px; line-height: 20px; }
 
@@ -683,11 +683,11 @@ a { color: inherit; text-decoration: none; }
 }
 
 .dfr-impact__copy { display: grid; gap: 54px; }
-.dfr-impact__copy h3 { margin: 0 0 20px; font-family: "EB Garamond", Georgia, serif; font-size: 30px; font-weight: 500; line-height: 35px; }
+.dfr-impact__copy h3 { margin: 0 0 20px; font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif; font-size: 30px; font-weight: 500; line-height: 35px; }
 .dfr-impact__copy p { max-width: 580px; margin: 0; color: rgba(255, 255, 255, 0.68); font-size: 16px; font-weight: 300; line-height: 32px; }
 .dfr-impact__copy p + p { margin-top: 24px; }
 
-.dfr-learnings h3 { margin: 0 0 20px; font-family: "EB Garamond", Georgia, serif; font-size: 30px; font-weight: 500; line-height: 35px; }
+.dfr-learnings h3 { margin: 0 0 20px; font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif; font-size: 30px; font-weight: 500; line-height: 35px; }
 .dfr-learnings > p { max-width: 580px; margin: 0; color: rgba(255, 255, 255, 0.68); font-size: 16px; font-weight: 300; line-height: 32px; }
 .dfr-impact-points,
 .dfr-learning-points { margin-top: 24px; padding-left: 24px; border-left: 1px solid rgba(184, 179, 255, 0.34); }
@@ -709,7 +709,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .dfr-impact__metrics article { min-width: 0; }
-.dfr-impact__metrics strong { display: block; color: var(--dfr-accent); font-family: "EB Garamond", Georgia, serif; font-size: clamp(48px, 5.8vw, 78px); font-weight: 400; line-height: 0.95; }
+.dfr-impact__metrics strong { display: block; color: var(--dfr-accent); font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif; font-size: clamp(48px, 5.8vw, 78px); font-weight: 400; line-height: 0.95; }
 .dfr-impact__metrics h3 { margin: 34px 0 0; color: #fff; font-size: 14px; font-weight: 500; line-height: 20px; }
 .dfr-impact__metrics p { max-width: 18em; margin: 14px 0 0; color: rgba(255, 255, 255, 0.66); font-size: 14px; line-height: 24px; }
 
@@ -725,7 +725,7 @@ a { color: inherit; text-decoration: none; }
 .dfr-impact-board article { display: grid; grid-template-columns: minmax(120px, 0.55fr) minmax(230px, 1.05fr) minmax(280px, 1.4fr); align-items: center; gap: clamp(24px, 4vw, 62px); min-height: 126px; padding-block: 26px; }
 .dfr-impact-board article + article { border-top: 1px solid rgba(255, 255, 255, 0.13); }
 .dfr-impact-board span { color: var(--dfr-accent); font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
-.dfr-impact-board h3 { margin: 0; color: #fff; font-family: "EB Garamond", Georgia, serif; font-size: clamp(23px, 2.4vw, 30px); font-weight: 500; line-height: 1.08; }
+.dfr-impact-board h3 { margin: 0; color: #fff; font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif; font-size: clamp(23px, 2.4vw, 30px); font-weight: 500; line-height: 1.08; }
 .dfr-impact-board p { max-width: 27em; margin: 0; color: rgba(255, 255, 255, 0.62); font-size: 14px; line-height: 25px; }
 
 .dfr-impact-metrics {
@@ -737,7 +737,7 @@ a { color: inherit; text-decoration: none; }
   border-top: 1px solid rgba(255, 255, 255, 0.18);
 }
 .dfr-impact-metrics article { width: min(100%, 240px); min-width: 0; margin-inline: auto; }
-.dfr-impact-metrics strong { display: block; color: var(--dfr-accent); font-family: "EB Garamond", Georgia, serif; font-size: clamp(44px, 5vw, 66px); font-weight: 400; line-height: 0.95; }
+.dfr-impact-metrics strong { display: block; color: var(--dfr-accent); font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif; font-size: clamp(44px, 5vw, 66px); font-weight: 400; line-height: 0.95; }
 .dfr-impact-metrics h3 { margin: 28px 0 0; color: #fff; font-size: 14px; font-weight: 600; line-height: 20px; }
 .dfr-impact-metrics p { max-width: 19em; margin: 12px 0 0; color: rgba(255, 255, 255, 0.64); font-size: 14px; line-height: 24px; }
 
@@ -756,12 +756,6 @@ a { color: inherit; text-decoration: none; }
 .dfr-learning-points p + p { margin-top: 0; }
 .dfr-learning-points strong { color: #fff; font-weight: 600; }
 
-.dfr-back-to-top { position: fixed; right: 4%; bottom: clamp(28px, 4vw, 48px); z-index: 1200; display: inline-flex; align-items: center; padding: 12px 0; border: 0; color: var(--dfr-accent); background: transparent; font-family: "Heebo", sans-serif; font-size: 13px; font-weight: 500; line-height: 13px; opacity: 0; transform: translateY(12px); pointer-events: none; cursor: pointer; transition: color 220ms ease, opacity 220ms ease, transform 280ms cubic-bezier(0.22, 1, 0.36, 1); }
-.dfr-back-to-top.is-on-light { color: var(--dfr-purple); }
-.dfr-back-to-top.is-visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
-.dfr-back-to-top span { position: relative; }
-.dfr-back-to-top span::after { position: absolute; right: 0; bottom: -7px; left: 0; height: 1px; background: currentColor; content: ""; transform: scaleX(0); transform-origin: right; transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1); }
-.dfr-back-to-top:hover span::after { transform: scaleX(1); transform-origin: left; }
 
 .dfr-footer {
   min-height: clamp(310px, 38vw, 540px);
@@ -780,7 +774,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .dfr-footer p { margin: 0 0 34px; font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
-.dfr-footer a { position: relative; display: inline-flex; align-items: flex-start; gap: 0.16em; width: fit-content; font-family: "EB Garamond", Georgia, serif; font-size: clamp(44px, 5.5vw, 74px); line-height: 0.92; letter-spacing: -0.04em; }
+.dfr-footer a { position: relative; display: inline-flex; align-items: flex-start; gap: 0.16em; width: fit-content; font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif; font-size: clamp(44px, 5.5vw, 74px); line-height: 0.92; letter-spacing: -0.04em; }
 .dfr-footer a span { font-family: "Heebo", sans-serif; font-size: 0.4em; vertical-align: top; transition: transform 360ms cubic-bezier(0.22, 1, 0.36, 1); }
 .dfr-footer a::after { position: absolute; right: 0; bottom: -14px; left: 0; height: 2px; background: var(--dfr-accent); content: ""; transform: scaleX(0); transform-origin: right; transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1); }
 .dfr-footer a:hover::after { transform: scaleX(1); transform-origin: left; }
@@ -788,7 +782,7 @@ a { color: inherit; text-decoration: none; }
 
 .dfr-footer__meta { display: grid; justify-items: end; max-width: 430px; margin-top: clamp(38px, 5vw, 68px); margin-left: auto; text-align: right; }
 .dfr-footer__meta span { color: rgba(255, 255, 255, 0.65); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
-.dfr-footer__meta strong { margin-top: 14px; font-family: "EB Garamond", Georgia, serif; font-size: clamp(22px, 2.4vw, 30px); font-weight: 500; line-height: 1.12; }
+.dfr-footer__meta strong { margin-top: 14px; font-family: "GT Sectra Case","GT Sectra Display",Times,Georgia,serif; font-size: clamp(22px, 2.4vw, 30px); font-weight: 500; line-height: 1.12; }
 .dfr-footer__meta small { margin-top: 12px; color: rgba(255, 255, 255, 0.62); font-size: 13px; line-height: 21px; }
 
 .dfr-site-footer {
@@ -945,7 +939,6 @@ a { color: inherit; text-decoration: none; }
   .dfr-learning-points { width: auto; margin-left: 0; }
   .dfr-footer { min-height: 330px; }
   .dfr-footer__meta { max-width: 280px; }
-  .dfr-back-to-top { right: var(--dfr-gutter); font-size: 12px; }
   .dfr-site-footer { min-height: 120px; font-size: 11px; }
   .dfr-site-footer__inner { align-items: flex-start; flex-direction: column; justify-content: center; gap: 12px; }
 }
@@ -983,8 +976,7 @@ a { color: inherit; text-decoration: none; }
 /* Shared case-study mobile rhythm. Keep the project menu as the only mobile
    navigation and align every narrative/media block to one content edge. */
 @media (max-width: 700px) {
-  .dfr-back,
-  .dfr-back-to-top {
+  .dfr-back {
     display: none !important;
   }
 
