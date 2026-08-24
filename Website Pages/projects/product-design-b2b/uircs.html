@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="UIRCS enterprise product and systems design case study by Yuhui Qi.">
-    <title>UIRCS — Redesign</title>
+    <title>UIRCS</title>
     <link rel="icon" type="image/png" href="../../static/picture/home/brand/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Heebo:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link href="../../static/css/works/product-design-b2b/uircs-redesign.css?v=20260820-4" rel="stylesheet">
-    <link href="../../static/css/shared/brand.css?v=20260817-1" rel="stylesheet">
-    <script src="../../static/js/works/product-design-b2b/uircs-redesign.js?v=20260820-1" defer></script>
+    <link href="../../static/css/works/product-design-b2b/uircs.css?v=20260824-3" rel="stylesheet">
+    <link href="../../static/css/shared/brand.css?v=20260824-2" rel="stylesheet">
+    <link href="../../static/css/shared/mobile-navigation.css?v=20260822-3" rel="stylesheet">
+    <link href="../../static/css/shared/project-header-emphasis.css?v=20260824-1" rel="stylesheet">
+    <script src="../../static/js/works/product-design-b2b/uircs.js?v=20260824-1" defer></script>
   </head>
-  <body>
+  <body class="uircs-case">
     <header class="dfr-header">
       <a class="dfr-brand" href="../../index.html" aria-label="Yuhui Qi home"><span class="site-brand-logo" aria-hidden="true"></span></a>
       <div class="dfr-header__title-grid"><h1 id="uircs-title">UIRCS</h1></div>
@@ -28,7 +30,7 @@
       <section class="dfr-hero" aria-labelledby="uircs-title">
         <div class="dfr-hero__copy"><p class="dfr-hero__statement">Designing an AI operational system for coordinated infrastructure risk</p></div>
         <div class="dfr-hero__meta"><span>North America</span><span>2025</span></div>
-        <img class="dfr-hero-image" src="../../static/picture/works/product-design-b2b/uircs-redesign/UIRCS-cover.png" alt="UIRCS enterprise infrastructure risk coordination system">
+        <img class="dfr-hero-image" src="../../static/picture/works/product-design-b2b/uircs/UIRCS-cover.png" alt="UIRCS enterprise infrastructure risk coordination system">
       </section>
 
       <div class="dfr-case-study">
@@ -39,22 +41,24 @@
               <p class="dfr-body-copy">UIRCS is an enterprise operational platform that coordinates infrastructure risk across municipal departments. Instead of adding another reporting dashboard, it connects predictive signals, decision authority, and execution pathways into one shared operational lifecycle.</p>
               <p class="dfr-body-copy">I defined the system architecture, permission model, cross-department workflows, and role-based interaction environments—turning fragmented monitoring tools into a coordinated decision system.</p>
             </article>
-            <div class="dfr-overview-details">
-              <article><h3>Role</h3><p>Product &amp; Systems Designer<br>System architecture and end-to-end experience design</p></article>
-              <article><h3>Scope</h3><p>Enterprise product strategy<br>AI operations and complex workflows</p></article>
-              <article><h3>Team</h3><p>Product, engineering, operations, and municipal stakeholders</p></article>
-            </div>
           </div>
-          <div class="dfr-intro-media-transition"><figure class="dfr-case-media dfr-case-media--wide"><img src="../../static/picture/works/product-design-b2b/uircs-redesign/UIRCS-overview.png" alt="UIRCS product overview"></figure></div>
+        </section>
+
+        <div class="dfr-intro-media-transition"><figure class="dfr-intro-media"><img src="../../static/picture/works/product-design-b2b/uircs/UIRCS-overview.png" alt="UIRCS product overview"></figure></div>
+
+        <section class="dfr-overview-details" aria-label="Project details">
+          <article><h3>Role</h3><strong>Product &amp; Systems Designer</strong><p>System architecture and end-to-end experience design.</p></article>
+          <article><h3>Scope</h3><strong>0 → 1 Enterprise System</strong><p>Enterprise product strategy, AI operations, and complex workflows.</p></article>
+          <article><h3>Team</h3><strong>Cross-functional Team</strong><p>Product, engineering, operations, and municipal stakeholders.</p></article>
         </section>
 
         <section class="dfr-chapter" id="context">
           <header class="dfr-chapter__header"><span>/ 02</span><h2>System Context</h2></header>
           <div class="dfr-chapter__body">
             <article class="dfr-subsection"><h3>Structural Fragmentation</h3><p class="dfr-body-copy">Drainage, power, and transportation teams each maintained dedicated monitoring systems, but risk intelligence remained isolated across organizational boundaries. Warning signals existed; a shared mechanism for interpreting and activating them did not.</p></article>
-            <figure class="dfr-case-media"><img src="../../static/picture/works/product-design-b2b/uircs-redesign/UIRCS-structural-fragmentation-diagram.png" alt="Fragmented infrastructure monitoring systems"></figure>
+            <figure class="dfr-case-media"><img src="../../static/picture/works/product-design-b2b/uircs/UIRCS-structural-fragmentation-diagram.png" alt="Fragmented infrastructure monitoring systems"></figure>
             <article class="dfr-subsection"><h3>Governance Structure</h3><p class="dfr-body-copy">Formal decision authority was distributed across operational departments, a coordination layer, and executive leadership. Mapping those boundaries revealed that the design challenge was not simply data visibility—it was aligning intelligence with the people authorized to act.</p></article>
-            <figure class="dfr-case-media"><img src="../../static/picture/works/product-design-b2b/uircs-redesign/UIRCS-stakeholder-power-map.png" alt="Stakeholder authority and governance map"></figure>
+            <figure class="dfr-case-media"><img src="../../static/picture/works/product-design-b2b/uircs/UIRCS-stakeholder-power-map.png" alt="Stakeholder authority and governance map"></figure>
           </div>
         </section>
 
@@ -62,7 +66,7 @@
           <header class="dfr-chapter__header"><span>/ 03</span><h2>Operational Gap</h2></header>
           <div class="dfr-chapter__body">
             <article class="dfr-subsection"><h3>From Signals to Delayed Action</h3><p class="dfr-body-copy">Under high-risk conditions, detection, authorization, and execution operated as disconnected phases. Manual consolidation and sequential approvals introduced latency precisely when infrastructure dependencies made speed and coordination most important.</p></article>
-            <figure class="dfr-case-media"><img src="../../static/picture/works/product-design-b2b/uircs-redesign/UIRCS-AS-IS-workflow.png" alt="Existing fragmented operational workflow"></figure>
+            <figure class="dfr-case-media"><img src="../../static/picture/works/product-design-b2b/uircs/UIRCS-AS-IS-workflow.png" alt="Existing fragmented operational workflow"></figure>
           </div>
         </section>
 
@@ -70,7 +74,7 @@
           <header class="dfr-chapter__header"><span>/ 04</span><h2>System Strategy</h2></header>
           <div class="dfr-chapter__body">
             <article class="dfr-subsection"><h3>A Unified Risk Lifecycle</h3><p class="dfr-body-copy">The product direction shifted infrastructure management from isolated monitoring toward anticipatory coordination. UIRCS embeds predictive intelligence within a governed lifecycle that connects detection, investigation, authorization, intervention, and audit.</p></article>
-            <figure class="dfr-case-media"><img src="../../static/picture/works/product-design-b2b/uircs-redesign/UIRCS-structural-shift-diagram.png" alt="Strategic shift from fragmented monitoring to coordinated action"></figure>
+            <figure class="dfr-case-media"><img src="../../static/picture/works/product-design-b2b/uircs/UIRCS-structural-shift-diagram.png" alt="Strategic shift from fragmented monitoring to coordinated action"></figure>
           </div>
         </section>
 
@@ -78,9 +82,9 @@
           <header class="dfr-chapter__header"><span>/ 05</span><h2>System Architecture</h2></header>
           <div class="dfr-chapter__body">
             <article class="dfr-subsection"><h3>Modeling the Operating System</h3><p class="dfr-body-copy">Rather than assembling independent features, I modeled the relationships between risk signals, cascade exposure, decision rights, and execution pathways. This created a shared operational model that every interface layer could reference.</p></article>
-            <figure class="dfr-case-media"><img src="../../static/picture/works/product-design-b2b/uircs-redesign/UIRCS-integrated-system-model.png" alt="Integrated UIRCS system model"></figure>
+            <figure class="dfr-case-media"><img src="../../static/picture/works/product-design-b2b/uircs/UIRCS-integrated-system-model.png" alt="Integrated UIRCS system model"></figure>
             <article class="dfr-subsection"><h3>Four Role-Aligned Layers</h3><p class="dfr-body-copy">Command, Investigation, Operations, and Executive environments support different responsibilities while preserving one source of operational truth. The interface reflects governance rather than forcing every role into the same dashboard.</p></article>
-            <figure class="dfr-case-media"><img src="../../static/picture/works/product-design-b2b/uircs-redesign/UIRCS-four-layer-architecture.png" alt="Four-layer role-aligned system architecture"></figure>
+            <figure class="dfr-case-media"><img src="../../static/picture/works/product-design-b2b/uircs/UIRCS-four-layer-architecture.png" alt="Four-layer role-aligned system architecture"></figure>
           </div>
         </section>
 
@@ -88,7 +92,7 @@
           <header class="dfr-chapter__header"><span>/ 06</span><h2>Information Architecture</h2></header>
           <div class="dfr-chapter__body">
             <article class="dfr-subsection"><h3>Organized Around Decisions</h3><p class="dfr-body-copy">Navigation follows the risk lifecycle rather than departmental ownership. Role-based access controls visibility, action privileges, and information density, allowing teams to coordinate through a shared model without losing responsibility boundaries.</p></article>
-            <figure class="dfr-case-media"><img src="../../static/picture/works/product-design-b2b/uircs-redesign/UIRCS-information-architecture.png" alt="UIRCS information architecture"></figure>
+            <figure class="dfr-case-media"><img src="../../static/picture/works/product-design-b2b/uircs/UIRCS-information-architecture.png" alt="UIRCS information architecture"></figure>
           </div>
         </section>
 
@@ -97,10 +101,10 @@
           <div class="dfr-chapter__body">
             <article class="dfr-subsection"><h3>Role-Based Operational Environments</h3><p class="dfr-body-copy">Each workspace is calibrated to a distinct decision context: maintaining situational awareness, investigating evidence, coordinating interventions, or reviewing strategic exposure. Together, the interfaces turn system architecture into actionable work.</p></article>
             <div class="uircs-interface-grid">
-              <figure class="dfr-case-media"><img src="../../static/picture/works/product-design-b2b/uircs-redesign/UIRCS-UI-overview-dashboard.png" alt="Command overview dashboard"></figure>
-              <figure class="dfr-case-media"><img src="../../static/picture/works/product-design-b2b/uircs-redesign/UIRCS-UI-incident-workspace.png" alt="Incident workspace"></figure>
-              <figure class="dfr-case-media"><img src="../../static/picture/works/product-design-b2b/uircs-redesign/UIRCS-UI-investigation-workspace.png" alt="Investigation workspace"></figure>
-              <figure class="dfr-case-media"><img src="../../static/picture/works/product-design-b2b/uircs-redesign/UIRCS-UI-operations-panel.png" alt="Operations coordination panel"></figure>
+              <figure class="dfr-case-media"><img src="../../static/picture/works/product-design-b2b/uircs/UIRCS-UI-overview-dashboard.png" alt="Command overview dashboard"></figure>
+              <figure class="dfr-case-media"><img src="../../static/picture/works/product-design-b2b/uircs/UIRCS-UI-incident-workspace.png" alt="Incident workspace"></figure>
+              <figure class="dfr-case-media"><img src="../../static/picture/works/product-design-b2b/uircs/UIRCS-UI-investigation-workspace.png" alt="Investigation workspace"></figure>
+              <figure class="dfr-case-media"><img src="../../static/picture/works/product-design-b2b/uircs/UIRCS-UI-operations-panel.png" alt="Operations coordination panel"></figure>
             </div>
           </div>
         </section>
@@ -113,24 +117,27 @@
           </div>
         </section>
 
-        <section class="dfr-chapter dfr-impact" id="impact">
+        <section class="dfr-chapter uircs-impact-chapter" id="impact">
           <header class="dfr-chapter__header"><span>/ 09</span><h2>Impact</h2></header>
           <div class="dfr-chapter__body">
             <article class="dfr-subsection"><h3>A Coordinated Enterprise Foundation</h3><p class="dfr-body-copy">UIRCS reframed infrastructure risk from a collection of alerts into a coordinated operating model. The project established a scalable foundation for predictive intelligence, cross-department decision-making, and governed execution.</p></article>
             <div class="uircs-impact-board"><article><span>USER IMPACT</span><h3>Clearer Operational Decisions</h3><p>Role-specific environments surface the evidence, actions, and accountability each team needs.</p></article><article><span>DECISION IMPACT</span><h3>From Detection to Coordination</h3><p>A shared lifecycle connects risk signals to timely authorization and intervention.</p></article><article><span>PRODUCT IMPACT</span><h3>Scalable AI Operations</h3><p>The architecture creates a reusable model for explainable, governed enterprise automation.</p></article></div>
           </div>
-          <div class="dfr-impact-media-transition"><figure class="dfr-case-media dfr-impact-evidence"><img src="../../static/picture/works/product-design-b2b/uircs-redesign/UIRCS-overview.png" alt="UIRCS coordinated operational system"></figure></div>
         </section>
 
-        <section class="dfr-chapter dfr-reflection" id="reflection">
-          <header class="dfr-chapter__header"><span>/ 10</span><h2>Reflection</h2></header>
-          <div class="dfr-chapter__body"><article class="dfr-reflection__copy"><p>Designing UIRCS reinforced that enterprise systems are defined less by interface complexity than by structural clarity. The hardest design questions involved governance boundaries, trust in predictive systems, and cross-department accountability.</p><div class="dfr-learning-points"><p><strong>Architecture before interface:</strong><br>A coherent operating model gives every screen a clear purpose.</p><p><strong>AI requires institutional context:</strong><br>Intelligence becomes useful only when connected to authority and execution.</p><p><strong>Automation must remain accountable:</strong><br>Transparency and human control matter more than invisible efficiency.</p></div></article></div>
+        <div class="dfr-impact-media-transition"><figure class="dfr-case-media dfr-impact-evidence"><img src="../../static/picture/works/product-design-b2b/uircs/UIRCS-overview.png" alt="UIRCS coordinated operational system"></figure></div>
+
+        <section class="dfr-reflection" id="reflection">
+          <div class="dfr-reflection__inner">
+            <header class="dfr-reflection__label"><span>/ 10</span><h2>Reflection</h2></header>
+            <article class="dfr-reflection__copy"><p>Designing UIRCS reinforced that enterprise systems are defined less by interface complexity than by structural clarity. The hardest design questions involved governance boundaries, trust in predictive systems, and cross-department accountability.</p><div class="dfr-learning-points"><p><strong>Architecture before interface:</strong><br>A coherent operating model gives every screen a clear purpose.</p><p><strong>AI requires institutional context:</strong><br>Intelligence becomes useful only when connected to authority and execution.</p><p><strong>Automation must remain accountable:</strong><br>Transparency and human control matter more than invisible efficiency.</p></div></article>
+          </div>
         </section>
       </div>
     </main>
 
     <button class="dfr-back-to-top" type="button" aria-label="Back to top"><span>Back to top</span></button>
-    <footer class="dfr-footer"><div class="dfr-footer__inner"><p>Next case study</p><a href="../product-design-b2c/dollar-flip.html">Dollar Flip <span aria-hidden="true">↗</span></a><aside class="dfr-footer__meta"><span>From Dollar Flip</span><strong>Designing AI guidance that improves decisions without replacing human judgment.</strong></aside></div></footer>
+    <footer class="dfr-footer"><div class="dfr-footer__inner"><p>Next case study</p><a href="../product-design-b2c/dollar-flip.html">Dollar Flip <span aria-hidden="true">↗</span></a><aside class="dfr-footer__meta"><span>From UIRCS</span><strong>Coordinating predictive intelligence, decision authority, and accountable action.</strong></aside></div></footer>
     <footer class="dfr-site-footer"><div class="dfr-site-footer__inner"><a href="mailto:yuhui.qi@outlook.com">Contact Yuhui</a><span>Copyright © Yuhui Qi 2026</span></div></footer>
   </body>
 </html>

@@ -40,10 +40,10 @@ function blobStoragePath(assetPath: string): string {
   if (!match) return assetPath;
 
   const [, project, filename] = match;
-  if (["polyverse", "dollar-flip", "uircs-redesign", "operation-management-system", "post-lending-management-system"].includes(project)) {
+  if (["polyverse", "dollar-flip", "operation-management-system", "post-lending-management-system"].includes(project)) {
     return `static/picture/${project}/${filename}`;
   }
-  if (project === "uircs") return `static/MIT-picture/${filename}`;
+  if (project === "uircs" || project === "uircs-backup") return `static/picture/uircs-redesign/${filename}`;
   if (project === "chem-guard") {
     return filename.startsWith("chem-guard-")
       ? `static/MIT-picture/${filename}`

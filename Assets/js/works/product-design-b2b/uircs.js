@@ -1,3 +1,4 @@
+// UIRCS uses the shared Dollar Flip case-study interaction model.
 if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
   document.documentElement.classList.add("case-entry-ready");
   requestAnimationFrame(() => requestAnimationFrame(() => {

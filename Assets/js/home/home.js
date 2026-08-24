@@ -35,8 +35,8 @@ const projects = {
     description: "UIRCS explores how AI can transform fragmented infrastructure data into coordinated operational decisions across complex organizations.",
     contribution: "Product & Systems Designer",
     focus: "Enterprise Systems · AI Operations · Complex Workflows",
-    link: "UIRCS.html",
-    localLink: "projects/product-design-b2b/UIRCS.html"
+    link: "uircs.html",
+    localLink: "projects/product-design-b2b/uircs.html"
   }
 };
 

@@ -20,10 +20,10 @@ function blobStoragePath(relative) {
   if (!match) return relative;
 
   const [, project, filename] = match;
-  if (["polyverse", "dollar-flip", "uircs-redesign", "operation-management-system", "post-lending-management-system"].includes(project)) {
+  if (["polyverse", "dollar-flip", "operation-management-system", "post-lending-management-system"].includes(project)) {
     return `picture/${project}/${filename}`;
   }
-  if (project === "uircs") return `MIT-picture/${filename}`;
+  if (project === "uircs") return `picture/uircs-redesign/${filename}`;
   if (project === "chem-guard") {
     return filename.startsWith("chem-guard-") ? `MIT-picture/${filename}` : `picture/${filename}`;
   }

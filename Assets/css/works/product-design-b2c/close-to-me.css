@@ -204,8 +204,7 @@ a { color: inherit; text-decoration: none; }
   scroll-margin-top: 30px;
 }
 
-.pvr-chapter + .pvr-chapter { border-top: 1px solid rgba(24, 24, 26, 0.1); }
-#opportunity { border-top: 1px solid rgba(24, 24, 26, 0.1); }
+.pvr-chapter:not(#overview) { border-top: 1px solid rgba(24, 24, 26, 0.1); }
 
 .pvr-overview-details,
 .pvr-chapter:not(#overview) {
@@ -983,7 +982,7 @@ img.pvr-comparison-board__arrow { display: block; width: 28px; height: auto; jus
 .pvr-figo-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(18px, 3vw, 38px); margin-top: var(--pvr-media-space); align-items: stretch; }
 .pvr-figo-gallery .pvr-case-media { display: grid; width: 100%; min-height: 420px; margin-top: 0; transform: none; place-items: center; background: #edc978; }
 .pvr-figo-gallery img { width: 100%; height: 100%; max-height: 620px; object-fit: contain; }
-.pvr-impact-evidence img { width: 100%; aspect-ratio: 16 / 8.2; object-fit: cover; object-position: center; }
+.pvr-impact-evidence img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: center; }
 
 @media (max-width: 700px) {
   .pvr-hypothesis-board,
@@ -994,7 +993,7 @@ img.pvr-comparison-board__arrow { display: block; width: 28px; height: auto; jus
   .pvr-attempt-ui { min-height: 340px; border-right: 0; border-bottom: 1px solid rgba(33, 29, 24, .14); }
   .pvr-tradeoff-strip > span { transform: rotate(90deg); }
   .pvr-figo-gallery .pvr-case-media { min-height: 300px; }
-  .pvr-impact-evidence img { aspect-ratio: 4 / 3; }
+  .pvr-impact-evidence img { aspect-ratio: 16 / 9; }
 }
 
 /* Close To Me visual layer. The structural system above intentionally mirrors
@@ -1204,7 +1203,7 @@ html.close-to-me-redesign-case body,
 }
 
 .ctm-case .pvr-impact-media-transition {
-  background: linear-gradient(to bottom, var(--project-page-bg) 0 50%, var(--project-bg-1) 50% 100%);
+  background: linear-gradient(to bottom, var(--project-page-bg) 0 80%, var(--project-bg-1) 80% 100%);
 }
 
 .ctm-case,
@@ -1311,10 +1310,6 @@ html.close-to-me-redesign-case body,
 
 .ctm-case .pvr-menu-toggle span {
   background: var(--ctm-highlight);
-}
-
-.ctm-case .pvr-brand .site-brand-logo {
-  filter: brightness(0) saturate(100%) invert(40%) sepia(72%) saturate(1744%) hue-rotate(228deg) brightness(91%) contrast(89%);
 }
 
 .ctm-case .pvr-hero-image {
@@ -2402,7 +2397,7 @@ html.polyverse-redesign-case.case-page-loading body {
     overflow: hidden;
   }
   .pvr-impact-evidence > img {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 9;
     object-fit: cover;
     object-position: center;
   }
@@ -2729,7 +2724,6 @@ html.close-to-me-redesign-case body {
 .ctm-case .pvr-learning-points strong,
 .ctm-case .pvr-footer__inner > p { color:var(--ctm-highlight); }
 .ctm-case .pvr-menu-toggle span { background:var(--ctm-highlight); }
-.ctm-case .pvr-brand .site-brand-logo { filter:brightness(0) saturate(100%) invert(40%) sepia(72%) saturate(1744%) hue-rotate(228deg) brightness(91%) contrast(89%); }
 .ctm-case .pvr-hero-image { width:100%; aspect-ratio:1960 / 700; overflow:hidden; }
 .ctm-case .pvr-hero-image img { display:block; width:100%; height:100%; object-fit:fill; }
 .ctm-case .pvr-intro-media-transition { position:relative; width:100%; padding:0 var(--pvr-gutter); background:linear-gradient(to bottom,var(--ctm-main) 0 50%,#fff 50% 100%); }

@@ -38,16 +38,7 @@
   color: var(--project-text-1);
 }
 
-.ctm-case .pvr-brand .site-brand-logo {
-  display: block !important;
-  width: 87px !important;
-  height: 28px !important;
-  object-fit: contain !important;
-  background: none !important;
-  filter: brightness(0) saturate(100%) invert(22%) sepia(35%) saturate(2934%) hue-rotate(252deg) brightness(82%) contrast(94%) !important;
-  -webkit-mask: none;
-  mask: none;
-}
+.ctm-case .pvr-brand { color: var(--project-highlight); }
 
 .ctm-case .pvr-back,
 .ctm-case .pvr-hero__meta,
@@ -74,20 +65,30 @@
   color: var(--project-text-1);
 }
 
-.ctm-case .pvr-chapter + .pvr-chapter,
-.ctm-case #problem,
-.ctm-case #opportunity,
+.ctm-case .pvr-chapter:not(#overview),
 .ctm-case .pvr-overview-details article {
   border-color: var(--project-divider);
-}
-
-.ctm-case #problem {
-  border-top: 1px solid var(--project-divider) !important;
 }
 
 .ctm-case .pvr-reflection__inner {
   border: 0 !important;
   border-top: 1px solid var(--project-divider) !important;
+}
+
+.ctm-case .ctm-impact {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.ctm-case .ctm-impact-images {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  height: 100%;
+}
+
+.ctm-case .ctm-impact-images img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .ctm-case .pvr-learning-points,
