@@ -4,6 +4,7 @@
   "uircs-redesign": { "title": "UIRCS", "source": "projects/product-design-b2b/uircs-redesign.html", "protected": false },
   "UIRCS": { "title": "UIRCS", "source": "projects/product-design-b2b/UIRCS.html", "protected": false },
   "close-to-me": { "title": "Close To Me", "source": "projects/product-design-b2c/close-to-me.html", "protected": false },
+  "close-to-me-backup": { "title": "Close To Me Backup", "source": "projects/product-design-b2c/close-to-me-backup.html", "protected": false },
   "chem-guard": { "title": "Chem Guard", "source": "projects/product-design-b2c/chem-guard.html", "protected": false },
   "organisms-utopia": { "title": "Organisms Utopia", "source": "projects/experimental-design/organisms-utopia.html", "protected": false },
   "glamhub": { "title": "Glamhub", "source": "projects/product-design-b2c/glamhub.html", "protected": true },

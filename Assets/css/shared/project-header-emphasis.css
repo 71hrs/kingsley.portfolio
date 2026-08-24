@@ -1,0 +1,10 @@
+/* Shared emphasis for the current long-form project headers. */
+.pvr-header h1,
+.dfr-header h1 {
+  font-weight: 600;
+}
+
+.pvr-hero__meta,
+.dfr-hero__meta {
+  font-weight: 600;
+}
