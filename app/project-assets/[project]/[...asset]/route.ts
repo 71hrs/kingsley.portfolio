@@ -30,6 +30,35 @@ function denied() {
   return new Response("Not Found", { status: 404, headers: PROTECTED_HEADERS });
 }
 
+/**
+ * The editable Assets library is organized by page. Existing Blob objects keep
+ * their original keys so reorganizing local folders does not duplicate roughly
+ * half a gigabyte of uploads or break a deployed page.
+ */
+function blobStoragePath(assetPath: string): string {
+  const match = /^static\/picture\/works\/[^/]+\/([^/]+)\/(.+)$/.exec(assetPath);
+  if (!match) return assetPath;
+
+  const [, project, filename] = match;
+  if (["polyverse", "dollar-flip", "uircs-redesign", "operation-management-system", "post-lending-management-system"].includes(project)) {
+    return `static/picture/${project}/${filename}`;
+  }
+  if (project === "uircs") return `static/MIT-picture/${filename}`;
+  if (project === "chem-guard") {
+    return filename.startsWith("chem-guard-")
+      ? `static/MIT-picture/${filename}`
+      : `static/picture/${filename}`;
+  }
+  if (project === "organisms-utopia") {
+    const wasMitAsset = /^organisms-utopia-(?:c4d|collab|cover|outcome|overview|prototype)/.test(filename);
+    return wasMitAsset ? `static/MIT-picture/${filename}` : `static/picture/${filename}`;
+  }
+  if (["close-to-me", "glamhub", "the-underground-palace", "valentino-beauty", "wave"].includes(project)) {
+    return `static/picture/${filename}`;
+  }
+  return assetPath;
+}
+
 /** One media gateway for every project; config alone controls password access. */
 export async function GET(request: NextRequest, context: Context) {
   const { project: slug, asset } = await context.params;
@@ -38,7 +67,7 @@ export async function GET(request: NextRequest, context: Context) {
   if (asset.some((segment) => !segment || segment === "." || segment === "..")) return denied();
 
   const assetPath = asset.join("/");
-  const blobPath = `library/${assetPath}`;
+  const blobPath = `library/${blobStoragePath(assetPath)}`;
   const headers = responseHeaders(project.protected);
 
   // Vercel uses OIDC for connected projects; legacy/local setups may still
@@ -70,6 +99,7 @@ export async function GET(request: NextRequest, context: Context) {
 
   try {
     const info = await stat(filename);
+    if (!info.isFile()) return denied();
     const requestedRange = request.headers.get("range");
     let start = 0;
     let end = info.size - 1;

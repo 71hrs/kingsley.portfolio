@@ -33,12 +33,12 @@ test("all project media uses the unified server-controlled asset route", async (
   const assetRoute = await readFile(new URL("../app/project-assets/[project]/[...asset]/route.ts", import.meta.url), "utf8");
   assert.match(pageRoute, /projectAssetUrls\(source, route\.slug\)/);
   assert.match(assetRoute, /project\.protected && !hasValidSession/);
-  assert.match(assetRoute, /library\/\$\{assetPath\}/);
+  assert.match(assetRoute, /library\/\$\{blobStoragePath\(assetPath\)\}/);
 });
 
 test("rendered pages load casual media save deterrence", async () => {
   const html = await readFile(new URL("../lib/legacy/html.ts", import.meta.url), "utf8");
-  const browserScript = await readFile(new URL("../Assets/js/content-protection.js", import.meta.url), "utf8");
+  const browserScript = await readFile(new URL("../Assets/js/shared/content-protection.js", import.meta.url), "utf8");
   assert.match(html, /content-protection\.js/);
   assert.match(browserScript, /contextmenu/);
   assert.match(browserScript, /dragstart/);

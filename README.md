@@ -2,7 +2,7 @@
 
 ## Four folders you normally use
 
-- `Website Pages/` — all website HTML pages
+- `Website Pages/` — HTML organized into Home, Works categories, About, and Highlights
 - `Assets/` — the single source for CSS, JavaScript, images, GIFs, and videos
 - `Password System/` — password page, authentication code, and project access configuration
 - `Docs/` — a drop-off area for reference files and replacement content

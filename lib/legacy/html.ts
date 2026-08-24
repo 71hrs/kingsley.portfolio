@@ -11,7 +11,9 @@ const PUBLIC_PAGES: Record<string, string> = {
 };
 
 function safeSource(source: string): string {
-  if (!/^[A-Za-z0-9-]+\.html$/.test(source)) throw new Error("Invalid legacy page source.");
+  if (!/^(?:[A-Za-z0-9-]+\/)*[A-Za-z0-9-]+\.html$/.test(source)) {
+    throw new Error("Invalid legacy page source.");
+  }
   return source;
 }
 
@@ -40,18 +42,20 @@ export function publicPageSource(pathname: string): string | undefined {
 /** Keep the original markup intact; only make legacy relative URLs route-safe. */
 export function normalizeLegacyUrls(html: string): string {
   return html
-    .replace(/((?:src|href)=["'])static\//gi, "$1/static/")
+    .replace(/((?:src|href)=["'])(?:\/|(?:\.\.\/)*)static\//gi, "$1/static/")
     .replace(/(<base\s+href=["'])\.\.\//gi, "$1/")
     // File-relative links break when the document is served at /work/:slug.
-    .replace(/(href=["'])\/?index\.html(?=([?#][^"']*)?["'])/gi, "$1/")
-    .replace(/(href=["'])\/?(works|highlights|about)\.html(?=([?#][^"']*)?["'])/gi, "$1/$2")
-    .replace(/(href=["'])\/?([A-Za-z0-9-]+)\.html(?=([?#][^"']*)?["'])/gi, "$1/work/$2")
-    .replace(/((?:location\.)?href\s*=\s*["'])\/?index\.html(["'])/gi, "$1/$2")
-    .replace(/((?:location\.)?href\s*=\s*["'])\/?(works|highlights|about)\.html(["'])/gi, "$1/$2$3")
-    .replace(/((?:location\.)?href\s*=\s*["'])\/?([A-Za-z0-9-]+)\.html(["'])/gi, "$1/work/$2$3");
+    .replace(/(href=["'])(?:\/|(?:\.\.\/)*)index\.html(?=([?#][^"']*)?["'])/gi, "$1/")
+    .replace(/(href=["'])(?:\/|(?:\.\.\/)*)(works|highlights|about)\.html(?=([?#][^"']*)?["'])/gi, "$1/$2")
+    .replace(/(href=["'])(?:\/|(?:\.\.\/)*)projects\/(?:[A-Za-z0-9-]+\/)*([A-Za-z0-9-]+)\.html(?=([?#][^"']*)?["'])/gi, "$1/work/$2")
+    .replace(/(href=["'])(?:\.\.\/)+[A-Za-z0-9-]+\/([A-Za-z0-9-]+)\.html(?=([?#][^"']*)?["'])/gi, "$1/work/$2")
+    .replace(/(href=["'])(?:\/|(?:\.\.\/)*)?([A-Za-z0-9-]+)\.html(?=([?#][^"']*)?["'])/gi, "$1/work/$2")
+    .replace(/((?:location\.)?href\s*=\s*["'])(?:\/|(?:\.\.\/)*)index\.html(["'])/gi, "$1/$2")
+    .replace(/((?:location\.)?href\s*=\s*["'])(?:\/|(?:\.\.\/)*)(works|highlights|about)\.html(["'])/gi, "$1/$2$3")
+    .replace(/((?:location\.)?href\s*=\s*["'])(?:\/|(?:\.\.\/)*)?([A-Za-z0-9-]+)\.html(["'])/gi, "$1/work/$2$3");
 }
 
-const PUBLIC_ASSET_PREFIXES = ["css/", "js/", "font/", "fonts/", "picture/brand/"];
+const PUBLIC_ASSET_PREFIXES = ["css/", "js/", "font/", "fonts/", "picture/home/brand/"];
 
 /**
  * All case-study media uses one server-controlled route. Public projects are
@@ -71,7 +75,7 @@ export function projectAssetUrls(html: string, projectSlug: string): string {
 
 /** Apply the same lightweight save-deterrence behavior to every rendered page. */
 function addContentProtection(html: string): string {
-  if (html.includes("/static/js/content-protection.js")) return html;
-  const script = '<script src="/static/js/content-protection.js" defer></script>';
+  if (html.includes("/static/js/shared/content-protection.js")) return html;
+  const script = '<script src="/static/js/shared/content-protection.js" defer></script>';
   return /<\/body>/i.test(html) ? html.replace(/<\/body>/i, `${script}</body>`) : `${html}${script}`;
 }

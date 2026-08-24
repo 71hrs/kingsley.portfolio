@@ -2,7 +2,7 @@
 
 The site keeps its original HTML in `Website Pages/` and its unchanged asset sources in `Assets/`. Every Case Study uses the same `/project-assets/...` media gateway. The project configuration decides whether that gateway is public or password protected.
 
-`Assets/` is the only editable asset source. `public/static/` is generated and should not be edited. `Website Pages/static` is a symbolic link, not another copy. Authentication files and project access configuration are grouped in `Password System/`.
+`Assets/` is the only editable asset source. `public/static/` is generated and should not be edited. HTML pages are organized by site section under `Website Pages/`; use the local server for previews rather than opening nested HTML files directly. Authentication files and project access configuration are grouped in `Password System/`.
 
 ## Configure a project
 

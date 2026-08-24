@@ -10,7 +10,7 @@ const projectData = JSON.parse(await readFile(path.join(root, "Password System",
 
 async function referencedAssets(source) {
   const html = await readFile(path.join(root, "Website Pages", source), "utf8");
-  return new Set([...html.matchAll(/["']\/?static\/([^"'?#]+)(?:[?#][^"']*)?["']/gi)]
+  return new Set([...html.matchAll(/["'](?:\/|(?:\.\.\/)*)static\/([^"'?#]+)(?:[?#][^"']*)?["']/gi)]
     .map((match) => decodeURIComponent(match[1]))
     .filter((relative) => !relative.endsWith("/")));
 }
@@ -27,7 +27,7 @@ for (const source of ["index.html", "works.html", "highlights.html", "about.html
 // Case-study media is served through /project-assets for every project. Keep
 // only assets also needed by the public home/gallery/about pages in public/.
 const privateOnly = new Set([...projectReferences].filter((asset) => !publicReferences.has(asset)));
-const sharedPrefixes = ["css/", "js/", "font/", "fonts/", "picture/brand/"];
+const sharedPrefixes = ["css/", "js/", "font/", "fonts/", "picture/home/brand/"];
 const isSharedInfrastructure = (relative) => sharedPrefixes.some((prefix) => relative.split(path.sep).join("/").startsWith(prefix));
 
 // public/static is generated, never committed. Private project assets must live
