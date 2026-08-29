@@ -2,8 +2,8 @@ import { getProject } from "@/Password System/config/projects.config";
 import { verifyPortfolioPassword } from "@/Password System/auth/password";
 import { hasValidSession, sessionCookie } from "@/Password System/auth/session";
 import { PROTECTED_HEADERS, requestHasSameOrigin } from "@/Password System/auth/security";
-import { projectAssetUrls, publicPageSource, readLegacyPage } from "@/lib/legacy/html";
 import { passwordPage } from "@/Password System/auth/password-page";
+import { projectAssetUrls, publicPageSource, readPage } from "@/lib/site-pages";
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
@@ -17,9 +17,9 @@ function resolveRoute(segments: string[] = []) {
   if (segments[0] === "work" && segments[1] && segments.length === 2) {
     return { project: getProject(segments[1]), slug: segments[1] };
   }
-  const legacySlug = pathname.replace(/\.html$/, "");
-  const project = getProject(legacySlug);
-  if (project) return { project, slug: legacySlug };
+  const fileSlug = pathname.replace(/\.html$/, "");
+  const project = getProject(fileSlug);
+  if (project) return { project, slug: fileSlug };
   return { source: publicPageSource(pathname) };
 }
 
@@ -28,7 +28,12 @@ function html(body: string, protectedPage = false, status = 200) {
     status,
     headers: {
       "Content-Type": "text/html; charset=utf-8",
-      ...(protectedPage ? PROTECTED_HEADERS : { "Cache-Control": "public, max-age=0, must-revalidate" }),
+      ...(protectedPage
+        ? PROTECTED_HEADERS
+        : {
+            "Cache-Control": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800",
+            "Vercel-CDN-Cache-Control": "public, max-age=86400, stale-while-revalidate=604800",
+          }),
     },
   });
 }
@@ -40,11 +45,11 @@ export async function GET(request: NextRequest, context: Context) {
     if (route.project.protected && !hasValidSession(request)) {
       return html(passwordPage(route.project.title), true);
     }
-    const source = await readLegacyPage(route.project.source, route.project.protected);
-    const body = projectAssetUrls(source, route.slug);
+    const source = await readPage(route.project.source, route.project.protected);
+    const body = projectAssetUrls(source, route.slug, route.project.protected);
     return html(body, route.project.protected);
   }
-  if (route.source) return html(await readLegacyPage(route.source));
+  if (route.source) return html(await readPage(route.source));
   return new NextResponse("Not Found", { status: 404 });
 }
 

@@ -2,10 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   agentRules: false,
-  // Legacy HTML stays server-side. These files are traced into the deployment
-  // function but are never copied into the public directory.
+  // Source pages stay server-side and are never copied into the public directory.
   outputFileTracingIncludes: {
-    "/**": ["./Website Pages/**/*.html", "./private-content/**/*.html", "./Password System/auth/**/*.html"],
+    "/**": ["./Website Pages/**/*.html"],
   },
   async headers() {
     return [

@@ -1,16 +1,16 @@
 {
   "polyverse": { "title": "Polyverse", "source": "projects/product-design-b2c/polyverse.html", "protected": false },
   "dollar-flip": { "title": "Dollar Flip", "source": "projects/product-design-b2c/dollar-flip.html", "protected": false },
-  "uircs": { "title": "UIRCS", "source": "projects/product-design-b2b/uircs.html", "protected": false },
   "close-to-me": { "title": "Close To Me", "source": "projects/product-design-b2c/close-to-me.html", "protected": false },
   "chem-guard": { "title": "Chem Guard", "source": "projects/product-design-b2c/chem-guard.html", "protected": false },
-  "organisms-utopia": { "title": "Organisms Utopia", "source": "projects/experimental-design/organisms-utopia.html", "protected": false },
-  "glamhub": { "title": "Glamhub", "source": "projects/product-design-b2c/glamhub.html", "protected": true },
-  "the-underground-palace": { "title": "The Underground Palace", "source": "projects/experimental-design/the-underground-palace.html", "protected": false },
-  "wave": { "title": "Wave", "source": "projects/experimental-design/wave.html", "protected": false },
-  "valentino-beauty": { "title": "Valentino Beauty", "source": "projects/digital-design/valentino-beauty.html", "protected": false },
-  "armani-beauty": { "title": "Armani Beauty", "source": "projects/digital-design/armani-beauty.html", "protected": true },
-  "louis-vuitton-bugatti": { "title": "Louis Vuitton × Bugatti", "source": "projects/digital-design/louis-vuitton-bugatti.html", "protected": true },
+  "glamhub": { "title": "Glamhub", "source": "projects/product-design-b2c/glamhub.html", "protected": false },
+  "post-lending-management-system": { "title": "Post-Lending Management System", "source": "projects/product-design-b2b/post-lending-management-system.html", "protected": false },
   "operation-management-system": { "title": "Operation Management System", "source": "projects/product-design-b2b/operation-management-system.html", "protected": false },
-  "post-lending-management-system": { "title": "Post-Lending Management System", "source": "projects/product-design-b2b/post-lending-management-system.html", "protected": false }
+  "uircs": { "title": "UIRCS", "source": "projects/product-design-b2b/uircs.html", "protected": false },
+  "valentino-beauty": { "title": "Valentino Beauty", "source": "projects/digital-design/valentino-beauty.html", "protected": false },
+  "armani-beauty": { "title": "Armani Beauty", "source": "projects/digital-design/armani-beauty.html", "protected": false },
+  "louis-vuitton-bugatti": { "title": "Louis Vuitton × Bugatti", "source": "projects/digital-design/louis-vuitton-bugatti.html", "protected": false },
+  "organisms-utopia": { "title": "Organisms Utopia", "source": "projects/experimental-design/organisms-utopia.html", "protected": false },
+  "the-underground-palace": { "title": "The Underground Palace", "source": "projects/experimental-design/the-underground-palace.html", "protected": false },
+  "wave": { "title": "Wave", "source": "projects/experimental-design/wave.html", "protected": false }
 }

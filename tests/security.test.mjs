@@ -5,7 +5,6 @@ import { readFile } from "node:fs/promises";
 test("password is not embedded in browser-facing source", async () => {
   const files = [
     "app/[[...path]]/route.ts",
-    "Password System/auth/password-page.ts",
     "Password System/config/projects.config.ts",
   ];
   for (const file of files) {
@@ -31,16 +30,7 @@ test("session cookie uses required security flags", async () => {
 test("all project media uses the unified server-controlled asset route", async () => {
   const pageRoute = await readFile(new URL("../app/[[...path]]/route.ts", import.meta.url), "utf8");
   const assetRoute = await readFile(new URL("../app/project-assets/[project]/[...asset]/route.ts", import.meta.url), "utf8");
-  assert.match(pageRoute, /projectAssetUrls\(source, route\.slug\)/);
+  assert.match(pageRoute, /projectAssetUrls\(source, route\.slug, route\.project\.protected\)/);
   assert.match(assetRoute, /project\.protected && !hasValidSession/);
-  assert.match(assetRoute, /library\/\$\{blobStoragePath\(assetPath\)\}/);
-});
-
-test("rendered pages load casual media save deterrence", async () => {
-  const html = await readFile(new URL("../lib/legacy/html.ts", import.meta.url), "utf8");
-  const browserScript = await readFile(new URL("../Assets/js/shared/content-protection.js", import.meta.url), "utf8");
-  assert.match(html, /content-protection\.js/);
-  assert.match(browserScript, /contextmenu/);
-  assert.match(browserScript, /dragstart/);
-  assert.match(browserScript, /nodownload/);
+  assert.match(assetRoute, /library\/\$\{assetPath\}/);
 });

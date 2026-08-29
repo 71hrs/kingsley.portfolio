@@ -13,7 +13,7 @@ export const dynamic = "force-dynamic";
 
 const MIME: Record<string, string> = {
   ".css": "text/css; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".mjs": "text/javascript; charset=utf-8",
-  ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".gif": "image/gif",
+  ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".webp": "image/webp", ".gif": "image/gif",
   ".svg": "image/svg+xml", ".webm": "video/webm", ".mp4": "video/mp4", ".pdf": "application/pdf",
   ".woff": "font/woff", ".woff2": "font/woff2", ".ttf": "font/ttf", ".otf": "font/otf",
 };
@@ -30,35 +30,6 @@ function denied() {
   return new Response("Not Found", { status: 404, headers: PROTECTED_HEADERS });
 }
 
-/**
- * The editable Assets library is organized by page. Existing Blob objects keep
- * their original keys so reorganizing local folders does not duplicate roughly
- * half a gigabyte of uploads or break a deployed page.
- */
-function blobStoragePath(assetPath: string): string {
-  const match = /^static\/picture\/works\/[^/]+\/([^/]+)\/(.+)$/.exec(assetPath);
-  if (!match) return assetPath;
-
-  const [, project, filename] = match;
-  if (["polyverse", "dollar-flip", "operation-management-system", "post-lending-management-system"].includes(project)) {
-    return `static/picture/${project}/${filename}`;
-  }
-  if (project === "uircs") return `static/picture/uircs-redesign/${filename}`;
-  if (project === "chem-guard") {
-    return filename.startsWith("chem-guard-")
-      ? `static/MIT-picture/${filename}`
-      : `static/picture/${filename}`;
-  }
-  if (project === "organisms-utopia") {
-    const wasMitAsset = /^organisms-utopia-(?:c4d|collab|cover|outcome|overview|prototype)/.test(filename);
-    return wasMitAsset ? `static/MIT-picture/${filename}` : `static/picture/${filename}`;
-  }
-  if (["close-to-me", "glamhub", "the-underground-palace", "valentino-beauty", "wave"].includes(project)) {
-    return `static/picture/${filename}`;
-  }
-  return assetPath;
-}
-
 /** One media gateway for every project; config alone controls password access. */
 export async function GET(request: NextRequest, context: Context) {
   const { project: slug, asset } = await context.params;
@@ -67,11 +38,11 @@ export async function GET(request: NextRequest, context: Context) {
   if (asset.some((segment) => !segment || segment === "." || segment === "..")) return denied();
 
   const assetPath = asset.join("/");
-  const blobPath = `library/${blobStoragePath(assetPath)}`;
+  const blobPath = `library/${assetPath}`;
   const headers = responseHeaders(project.protected);
 
-  // Vercel uses OIDC for connected projects; legacy/local setups may still
-  // provide a read-write token directly.
+  // Vercel uses OIDC for connected projects; local setups may still provide
+  // a read-write token directly.
   // A pulled Development OIDC token expires quickly, so local preview always
   // uses the editable Assets folder. Vercel production uses Private Blob.
   if (process.env.VERCEL === "1" || process.env.BLOB_READ_WRITE_TOKEN) {

@@ -1,227 +1,157 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="about-page">
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="About Yuhui Qi — product designer and multidisciplinary artist.">
     <title>About</title>
-    <link rel="icon" type="image/png" href="static/picture/home/brand/favicon.png">
-    <link href="static/css/works/case-study.css" rel="stylesheet">
-    <link href="static/css/shared/portfolio-pages.css?v=20260821-2" rel="stylesheet">
-    <link href="static/css/shared/brand.css?v=20260824-2" rel="stylesheet">
-    <link href="static/css/shared/mobile-navigation.css?v=20260823-4" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Heebo:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/webp" href="static/picture/home/brand/favicon.webp">
+    <link rel="stylesheet" href="static/css/main.css">
+    <link rel="stylesheet" href="static/css/pages/about.css">
   </head>
-  <body class="interior-page-loading about-page">
-    <header class="interior-header">
-      <nav class="navbar">
-        <a class="logo" href="index.html" aria-label="Home">
-          <span class="site-brand-logo" aria-hidden="true"></span>
+  <body class="about-page">
+    <header class="site-header">
+      <nav class="site-header__bar" aria-label="Primary navigation">
+        <a class="site-brand site-page-link" href="index.html" aria-label="Yuhui Qi home">
+          <img class="site-brand__image" src="static/picture/home/brand/yuhuiqi-logo.svg" alt="">
         </a>
-        <button class="interior-menu-toggle" type="button" aria-expanded="false" aria-controls="interior-nav-links" aria-label="Open navigation"><span></span><span></span></button>
-        <div class="nav-links" id="interior-nav-links">
-          <a id="home" href="index.html">Home</a>
-          <a id="works" href="works.html">Works</a>
-          <a id="press" href="highlights.html">Highlights</a>
-          <a id="about" href="about.html">About</a>
+        <button class="site-menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="site-navigation" aria-label="Open navigation">
+          <span></span><span></span>
+        </button>
+        <div class="site-navigation" id="site-navigation" data-menu>
+          <a class="site-page-link" href="index.html">Home</a>
+          <a class="site-page-link" href="works.html">Works</a>
+          <a class="site-page-link" href="about.html" aria-current="page">About</a>
         </div>
       </nav>
     </header>
 
-    <div class="about-container">
-      <!-- 左列：仅左列可滚动 -->
-      <div class="left">
+    <main class="about-page__content">
+      <div class="about-page__entry">
+        <div class="about-layout">
+          <section class="about-copy" aria-label="About Yuhui Qi">
+            <section class="about-section" aria-labelledby="about-biography-title">
+              <h1 class="about-section__label" id="about-biography-title">Biography</h1>
+              <div class="about-section__body">
+                <p>I’m a Product Designer with 8+ years of experience building consumer products, enterprise platforms, and AI-powered experiences.</p>
+                <p>I specialize in driving product strategy and end-to-end design, transforming complex problems into intuitive and scalable experiences. Throughout my career, I’ve worked across 0→1 products, marketplaces, AI-driven experiences, and enterprise systems — defining product direction, designing user journeys, and building scalable design foundations.</p>
+                <p>I’ve led product design as a Head of Product Design and Founding Product Designer, partnering closely with product, engineering, and business teams to align user needs with strategic goals and deliver impactful products.</p>
+                <p>My work sits at the intersection of product strategy, systems thinking, and execution. I’m passionate about creating products that simplify complexity, improve decision-making, and scale with growing organizations.</p>
+              </div>
+            </section>
 
-        <!-- BIOGRAPHY -->
-        <section class="about-section">
-          <div class="about-rail-col">
-            <div class="about-rail-label">BIOGRAPHY</div>
-          </div>
-          <div class="about-section-body">
-            <p class="about-paragraph">
-              I’m a Product Designer with 8+ years of experience building consumer products, enterprise platforms, and AI-powered experiences.
-            </p>
-            <p class="about-paragraph">
-              I specialize in driving product strategy and end-to-end design, transforming complex problems into intuitive and scalable experiences. Throughout my career, I’ve worked across 0→1 products, marketplaces, AI-driven experiences, and enterprise systems — defining product direction, designing user journeys, and building scalable design foundations.
-            </p>
-            <p class="about-paragraph">
-              I’ve led product design as a Head of Product Design and Founding Product Designer, partnering closely with product, engineering, and business teams to align user needs with strategic goals and deliver impactful products.
-            </p>
-            <p class="about-paragraph">
-              My work sits at the intersection of product strategy, systems thinking, and execution. I’m passionate about creating products that simplify complexity, improve decision-making, and scale with growing organizations.
-            </p>
-          </div>
-        </section>
+            <section class="about-section" aria-labelledby="about-education-title">
+              <h2 class="about-section__label" id="about-education-title">Education</h2>
+              <div class="about-section__body">
+                <article class="about-record">
+                  <h3>MFA, Design and Technology ｜ Parsons School of Design</h3>
+                  <p>New York, USA</p>
+                </article>
+                <article class="about-record">
+                  <h3>BE, Chemical Engineering ｜ Zhejiang University of Technology</h3>
+                  <p>Hangzhou, China</p>
+                </article>
+              </div>
+            </section>
 
-        <!-- EDUCATION -->
-        <section class="about-section">
-          <div class="about-rail-col">
-           <div class="about-rail-label">EDUCATION</div>
-          </div>
-          <div class="about-section-body">
-            <div class="about-item">
-              <div class="about-item-title">MFA, Design and Technology ｜ Parsons School of Design</div>
-              <div class="about-item-sub">New York, USA</div>
-            </div>
-            <div class="about-item">
-              <div class="about-item-title">BE, Chemical Engineering ｜ Zhejiang University of Technology</div>
-              <div class="about-item-sub">Hangzhou, China</div>
-            </div>
-          </div>
-        </section>
+            <section class="about-section" aria-labelledby="about-experience-title">
+              <h2 class="about-section__label" id="about-experience-title">Experience</h2>
+              <div class="about-section__body">
+                <article class="about-record">
+                  <h3>Head of Product Design ｜ Feb 2025 - Present</h3>
+                  <p>Legacy Dept · New York, United States</p>
+                </article>
+                <article class="about-record">
+                  <h3>Product Designer, Digital Designer ｜ Oct 2023 - Feb 2025</h3>
+                  <p>Honest Media · New York, United States</p>
+                </article>
+                <article class="about-record">
+                  <h3>Founding Product Designer ｜ Aug 2023 - Jul 2024</h3>
+                  <p>Douller LLC · New York, United States</p>
+                </article>
+                <article class="about-record">
+                  <h3>Creative Designer ｜ Dec 2020 - Jul 2021</h3>
+                  <p>McCann Worldgroup · Shanghai, China</p>
+                </article>
+                <article class="about-record">
+                  <h3>Product Designer, Digital Designer ｜ Oct 2017 - Nov 2020</h3>
+                  <p>Independent Designer · Shanghai, China</p>
+                </article>
+              </div>
+            </section>
 
-        <!-- EXPERIENCE -->
-        <section class="about-section">
-          <div class="about-rail-col">
-            <div class="about-rail-label">EXPERIENCE</div>
-          </div>
-          <div class="about-section-body">
-            <div class="about-item">
-              <div class="about-item-title">Head of Product Design ｜ Feb 2025 - Present</div>
-              <div class="about-item-sub">Legacy Dept · New York, United States</div>
-            </div>
-            <div class="about-item">
-              <div class="about-item-title">Product Designer, Digital Designer ｜ Oct 2023 - Feb 2025</div>
-              <div class="about-item-sub">Honest Media · New York, United States</div>
-            </div>
-            <div class="about-item">
-              <div class="about-item-title">Founding Product Designer ｜ Aug 2023 - Jul 2024</div>
-              <div class="about-item-sub">Douller LLC · New York, United States</div>
-            </div>
-            <div class="about-item">
-              <div class="about-item-title">Creative Designer ｜ Dec 2020 - Jul 2021</div>
-              <div class="about-item-sub">McCann Worldgroup · Shanghai, China</div>
-            </div>
-            <div class="about-item">
-              <div class="about-item-title">Product Designer, Digital Designer ｜ Oct 2017 - Nov 2020</div>
-              <div class="about-item-sub">Independent Designer · Shanghai, China</div>
-            </div>
-          </div>
-        </section>
+            <section class="about-section" aria-labelledby="about-highlights-title">
+              <h2 class="about-section__label" id="about-highlights-title">Highlights</h2>
+              <div class="about-section__body about-highlights">
+                <section class="about-highlight-group" aria-labelledby="about-awards-title">
+                  <h3 id="about-awards-title">Awards</h3>
+                  <ul>
+                    <li>2026 Red Dot Award: Design Concept — Winner</li>
+                    <li>2024 International Design Awards — Honorable Mention</li>
+                    <li>2024 w3 Awards — Gold Winner</li>
+                    <li>2024 French Design Awards — Silver Winner</li>
+                    <li>2024 New York Digital Awards — Silver Winner</li>
+                    <li>2024 London Design Awards — Gold Winner</li>
+                    <li>2024 Vega Digital Awards — Silver Winner</li>
+                    <li>2024 American Digital Design Awards — Winner</li>
+                    <li>2021 Local Competitions of Young Lions in China — Finalist</li>
+                  </ul>
+                </section>
+                <section class="about-highlight-group" aria-labelledby="about-exhibitions-title">
+                  <h3 id="about-exhibitions-title">Exhibitions</h3>
+                  <ul>
+                    <li>2026 Red Dot Design Museum Exhibition, Singapore</li>
+                    <li>2024 The 6th Shanghai International Design Festival, Shanghai, China</li>
+                    <li>2024 Satellite Art Show, Miami, Florida, US</li>
+                    <li>2024 The Art of Costume Couture, Los Angeles, California, US</li>
+                  </ul>
+                </section>
+                <section class="about-highlight-group" aria-labelledby="about-press-title">
+                  <h3 id="about-press-title">Press</h3>
+                  <ul>
+                    <li>2025 China.com / 中华网 — 戚煜辉：在感知与系统之间，延展艺术的可能性</li>
+                    <li>2025 ELLE China — 柔光之下，未来生长：艺术家戚煜辉的推测性世界</li>
+                    <li>2024 New York Weekly — Yuhui Qi: Leading Design with Art and Technology</li>
+                    <li>2024 Voyage LA — Conversations with Yuhui Qi</li>
+                    <li>2024 Voyage ATL — Rising Stars: Meet Yuhui Qi of New York</li>
+                    <li>2024 Shoutout LA — Meet Yuhui Qi | Creative Designer &amp; Multidisciplinary Artist</li>
+                    <li>2024 Bold Journey — Meet Yuhui Qi</li>
+                    <li>2024 Canvas Rebel Magazine — Meet Yuhui Qi</li>
+                  </ul>
+                </section>
+                <section class="about-highlight-group" aria-labelledby="about-events-title">
+                  <h3 id="about-events-title">Events</h3>
+                  <ul>
+                    <li>2024 The 6th Shanghai International Design Festival GALA, Shanghai, China</li>
+                  </ul>
+                </section>
+                <section class="about-highlight-group" aria-labelledby="about-jury-title">
+                  <h3 id="about-jury-title">Jury</h3>
+                  <ul>
+                    <li>2025 apexart NYC Open Call Juror</li>
+                    <li>2025 apexart International Open Call Juror</li>
+                    <li>2024 apexart NYC Open Call Juror</li>
+                  </ul>
+                </section>
+              </div>
+            </section>
+          </section>
 
-        <!-- 你后续还可以继续追加更多 section，用同样结构即可 -->
-      </div>
-
-      <!-- 右列：保持原样 -->
-      <div class="right">
-        <img src="static/picture/about/profile-picture.jpg" alt="Profile Picture">
-        <p class="quote">“I create at the edge of art and technology, where human stories find new forms.”</p>
-
-        <div class="social-links">
-          <a class="icon resume" href="static/documents/Resume - Yuhui Qi.pdf" target="_blank" aria-label="Resume" rel="noopener noreferrer"><i class="fa-solid fa-file-lines"></i></a>
-          <a class="icon linkedin"  href="https://www.linkedin.com/in/kingsley-qi/" target="_blank" aria-label="LinkedIn"  rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
-          <a class="icon instagram" href="https://www.instagram.com/backup.7.0"   target="_blank" aria-label="Instagram" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
-          <a class="icon behance"   href="https://www.behance.net/"     target="_blank" aria-label="Behance"   rel="noopener noreferrer"><i class="fa-brands fa-behance"></i></a>
-          <a class="icon facebook"  href="https://www.facebook.com/"    target="_blank" aria-label="Facebook"  rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
-          <a class="icon vimeo"     href="https://vimeo.com/kingsleyqi"           target="_blank" aria-label="Vimeo"     rel="noopener noreferrer"><i class="fa-brands fa-vimeo-v"></i></a>
+          <aside class="about-profile">
+            <img src="static/picture/about/profile-picture.webp" alt="Portrait of Yuhui Qi">
+            <blockquote>“I create at the edge of art and technology, where human stories find new forms.”</blockquote>
+            <nav class="about-social" aria-label="Social links">
+              <a href="https://www.linkedin.com/in/kingsley-qi/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+              <a href="https://www.instagram.com/backup.7.0" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+              <a href="static/documents/Resume - Yuhui Qi.pdf" target="_blank" rel="noopener noreferrer" aria-label="Resume"><i class="fa-solid fa-file-lines" aria-hidden="true"></i></a>
+              <a href="mailto:yuhui.qi@outlook.com" aria-label="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a>
+            </nav>
+          </aside>
         </div>
       </div>
+    </main>
 
-    </div>
-
-    <footer>
-      <nav class="footer-navbar">
-        <a id="contact" href="mailto:yuhui.qi@outlook.com">Contact Yuhui</a>
-        <a id="copyright">Copyright © Yuhui Qi 2026</a>
-      </nav>
-    </footer>
-
-    <script id="snoise-function" type="x-shader/x-vertex">
-      vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
-      vec2 mod289(vec2 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
-      vec3 permute(vec3 x) { return mod289(((x*34.0)+1.0)*x); }
-
-      float snoise(vec2 v) {
-          const vec4 C = vec4(0.211324865405187,  // (3.0-sqrt(3.0))/6.0
-                              0.366025403784439,  // 0.5*(sqrt(3.0)-1.0)
-                              -0.577350269189626,  // -1.0 + 2.0 * C.x
-                              0.024390243902439); // 1.0 / 41.0
-          vec2 i  = floor(v + dot(v, C.yy) );
-          vec2 x0 = v -   i + dot(i, C.xx);
-          vec2 i1;
-          i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
-          vec4 x12 = x0.xyxy + C.xxzz;
-          x12.xy -= i1;
-          i = mod289(i); // Avoid truncation effects in permutation
-          vec3 p = permute( permute( i.y + vec3(0.0, i1.y, 1.0 ))
-              + i.x + vec3(0.0, i1.x, 1.0 ));
-
-          vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy), dot(x12.zw,x12.zw)), 0.0);
-          m = m*m ;
-          m = m*m ;
-          vec3 x = 2.0 * fract(p * C.www) - 1.0;
-          vec3 h = abs(x) - 0.5;
-          vec3 ox = floor(x + 0.5);
-          vec3 a0 = x - ox;
-          m *= 1.79284291400159 - 0.85373472095314 * ( a0*a0 + h*h );
-          vec3 g;
-          g.x  = a0.x  * x0.x  + h.x  * x0.y;
-          g.yz = a0.yz * x12.xz + h.yz * x12.yw;
-          return 130.0 * dot(m, g);
-      }
-    </script>
-    <script id="vertex-shader" type="x-shader/x-vertex">
-      uniform float u_time;
-      uniform vec2 u_randomisePosition;
-
-      varying float vDistortion;
-      varying float xDistortion;
-      varying vec2 vUv;
-
-      void main() {
-          vUv = uv;
-          vDistortion = snoise(vUv.xx * 3. - u_randomisePosition * 0.15);
-          xDistortion = snoise(vUv.yy * 1. - u_randomisePosition * 0.05);
-          vec3 pos = position;
-          pos.z += (vDistortion * 35.);
-          pos.x += (xDistortion * 25.);
-
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
-      }
-    </script>
-    <script id="fragment-shader" type="x-shader/x-fragment">
-
-      vec3 rgb(float r, float g, float b) {
-          return vec3(r / 255., g / 255., b / 255.);
-      }
-
-      vec3 rgb(float c) {
-          return vec3(c / 255., c / 255., c / 255.);
-      }
-
-      uniform vec3 u_bg;
-      uniform vec3 u_bgMain;
-      uniform vec3 u_color1;
-      uniform vec3 u_color2;
-      uniform float u_time;
-
-      varying vec2 vUv;
-      varying float vDistortion;
-
-      void main() {
-          vec3 bg = rgb(u_bg.r, u_bg.g, u_bg.b);
-          vec3 c1 = rgb(u_color1.r, u_color1.g, u_color1.b);
-          vec3 c2 = rgb(u_color2.r, u_color2.g, u_color2.b);
-          vec3 bgMain = rgb(u_bgMain.r, u_bgMain.g, u_bgMain.b);
-
-          float noise1 = snoise(vUv + u_time * 0.08);
-          float noise2 = snoise(vUv * 2. + u_time * 0.1);
-
-          vec3 color = bg;
-          color = mix(color, c1, noise1 * 0.6);
-          color = mix(color, c2, noise2 * .4);
-
-          color = mix(color, mix(c1, c2, vUv.x), vDistortion);
-
-          float border = smoothstep(0.1, 0.6, vUv.x);
-
-          color = mix(color, bgMain, 1. -border);
-
-          gl_FragColor = vec4(color, 1.0);
-      }
-    </script>
-    <script src="static/js/about/about.js?v=20260823-4"></script>
-    <script src="static/js/shared/animated-background.js" type="module"></script>
+    <script src="static/js/main.js"></script>
+    <script src="static/js/pages/about.js"></script>
   </body>
 </html>

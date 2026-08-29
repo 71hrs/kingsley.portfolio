@@ -23,7 +23,7 @@ function blobStoragePath(relative) {
   if (["polyverse", "dollar-flip", "operation-management-system", "post-lending-management-system"].includes(project)) {
     return `picture/${project}/${filename}`;
   }
-  if (project === "uircs") return `picture/uircs-redesign/${filename}`;
+  if (project === "uircs") return `picture/uircs/${filename}`;
   if (project === "chem-guard") {
     return filename.startsWith("chem-guard-") ? `MIT-picture/${filename}` : `picture/${filename}`;
   }
@@ -38,6 +38,7 @@ function blobStoragePath(relative) {
 }
 
 for (const project of Object.values(projects)) {
+  if (!project.protected) continue;
   const html = await readFile(path.join(root, "Website Pages", project.source), "utf8");
   for (const match of html.matchAll(/["'](?:\/|(?:\.\.\/)*)static\/([^"'?#]+)(?:[?#][^"']*)?["']/gi)) {
     const relative = decodeURIComponent(match[1]);
