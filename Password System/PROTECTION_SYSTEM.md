@@ -1,6 +1,6 @@
 # Portfolio project protection system
 
-Last reviewed: 2026-08-26
+Last reviewed: 2026-08-29
 
 This document records how the portfolio's password protection was designed so
 that the authentication system can be reconnected after future page or folder
@@ -11,6 +11,23 @@ reorganizations.
 The protection system is server-side. The browser never compares the password,
 stores the password, or receives protected project content before
 authentication.
+
+The current operating mode is public: all registered projects use
+`protected: false`. Public pages and media are served through Vercel's public
+cache/static asset path. The authentication system remains in the same Vercel
+deployment but is dormant until a project is changed to `protected: true`.
+
+### Directory roles during the current rebuild
+
+- `Website Pages/` and `Assets/` are the runtime source directories used by the
+  current Vercel build.
+- `Backup/` keeps the project-page and project-asset versions that are being
+  preserved for future project restructuring. Backup files are not served
+  automatically by the public route.
+- Do not restore an old project HTML file by itself. Legacy pages may depend on
+  legacy CSS, JavaScript, image formats, and filenames as one matching set.
+  Restore or migrate the complete dependency set before switching the runtime
+  source.
 
 The flow is:
 
@@ -67,10 +84,9 @@ In the last committed version (`90681ef`), the protected projects were:
 - `armani-beauty`
 - `louis-vuitton-bugatti`
 
-During the current website rebuild, the project list has been reconnected to
-the Backup case studies and all registered projects are intentionally public.
-This keeps the protection mechanism dormant while the page architecture is
-being finalized.
+The current project list is reconnected to the Backup case studies and all
+registered projects are intentionally public. This keeps the protection
+mechanism dormant while the page architecture continues to evolve.
 
 ## 3. Authentication components
 
@@ -113,6 +129,9 @@ and legacy project URL forms, depending on the active page architecture.
 - `POST` accepts the password form, verifies same-origin requests, validates the
   password, and sets the session cookie.
 - Protected responses are dynamic and are never publicly cached.
+- Public responses may be cached by Vercel CDN for 24 hours, with stale-while-
+  revalidate, so the public site does not need to regenerate HTML on every
+  request.
 
 The password page implementation used by the last committed version was:
 
@@ -131,14 +150,15 @@ served directly from the public static directory.
 
 ### URL rewriting
 
-When a project page is rendered, project media URLs are rewritten to:
+When a protected project page is rendered, project media URLs are rewritten to:
 
 ```text
 /project-assets/<project-slug>/static/<asset-path>
 ```
 
-Shared infrastructure such as CSS, JavaScript, fonts, and brand assets can
-remain under `/static/`.
+Public projects keep their media under `/static/` and are served directly by
+Vercel's static asset layer. Shared infrastructure such as CSS, JavaScript,
+fonts, and brand assets also remains under `/static/`.
 
 ### Asset gateway
 
@@ -177,8 +197,13 @@ Do not make the Blob store public just to simplify rendering.
 - `Assets/` is the editable source library.
 - `public/static/` is generated and ignored by Git.
 - Shared CSS, JavaScript, fonts, and brand files remain public.
-- Project-only files are excluded from the public copy when they are not also
-  needed by a public page.
+- Project-only files belonging to protected projects are excluded from the
+  public copy when they are not also needed by a public page.
+- Project-only files belonging to public projects are included in the public
+  copy so their pages can avoid the dynamic Blob gateway.
+- Use the package scripts (`pnpm dev` or `pnpm build`) so the generated
+  `public/static/` directory is refreshed before the framework starts. Running
+  `next build` directly can leave stale static files from an earlier build.
 
 If page folders or HTML sources change, update the project configuration and
 the asset URL rewriting rules together. A page can be protected correctly while
@@ -205,6 +230,7 @@ remain server-only.
 
 The repository is linked locally to the Vercel project named
 `kingsley-portfolio`; the local link is recorded in `.vercel/project.json`.
+The production site is aliased to `www.yuhuiqi.com`.
 
 The intended deployment arrangement is:
 
@@ -217,9 +243,11 @@ The intended deployment arrangement is:
 7. Attach `yuhuiqi.com` after the Preview checks pass.
 8. Disable any old GitHub Pages deployment that could expose legacy HTML.
 
-Git integration deploys committed and pushed code. Local uncommitted page
-rebuilds do not change the deployed version unless they are explicitly
-deployed by another method.
+Git integration normally deploys committed and pushed code. The current
+Production version was also deployed directly with the authenticated Vercel
+CLI from commit `9b60b74`, because this environment did not have GitHub push
+credentials. Keep the GitHub branch synchronized before the next deployment
+when possible.
 
 ## 8. Reconnection checklist after a page rebuild
 
@@ -232,6 +260,8 @@ Before committing a new page architecture:
 - Restore the password-entry page and connect its form to the server `POST`
   route.
 - Confirm every protected media URL uses `/project-assets/<slug>/...`.
+- Confirm every public project media URL uses `/static/...` and is present in
+  the generated `public/static/` directory.
 - Confirm protected project media is present in Private Blob under the key shape
   expected by the asset route.
 - Confirm public build output does not contain protected HTML or project-only
