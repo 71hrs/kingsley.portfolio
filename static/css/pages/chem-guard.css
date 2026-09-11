@@ -1,0 +1,171 @@
+/* Chem Guard-only adjustment for the neural safety proposal. The source
+ * already carries more visual weight near the bottom, so the frame gives the
+ * top and sides a little more breathing room while keeping the lower inset
+ * intentionally tighter. */
+.chem-guard-neural-proposal-frame {
+  box-sizing: border-box;
+  padding: clamp(1.5rem, 3vw, 3rem) clamp(2rem, 4vw, 4rem) clamp(0.5rem, 1vw, 1rem);
+}
+
+.chem-guard-neural-proposal-frame > .project-media {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* Communication remains inside the article column. Neural Interface uses the
+ * shared full-rail carousel so the next proposal can visibly overflow. */
+.chem-guard #communication-design .project-carousel {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.chem-guard #communication-design .project-carousel__viewport {
+  width: 100%;
+  max-width: 100%;
+  margin-left: 0;
+}
+
+.chem-guard #communication-design .project-carousel__track {
+  padding-inline: 0;
+}
+
+.chem-guard-neural-carousel .project-carousel__slide {
+  aspect-ratio: auto;
+  height: auto;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.chem-guard-neural-carousel .project-media-split__media {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.chem-guard-neural-carousel .project-carousel__media-visual {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  border-radius: var(--project-radius);
+  object-fit: contain;
+}
+
+.chem-guard #neural-interface .project-image-block,
+.chem-guard #communication-design .project-image-block,
+.chem-guard #reflection .project-image-block {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.chem-guard-rhino-carousel .project-carousel__slide {
+  box-sizing: border-box;
+  padding: clamp(1rem, 3vw, 3rem);
+}
+
+.chem-guard-rhino-carousel .project-media-split__media {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.chem-guard-rhino-carousel .project-carousel__media-visual {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.chem-guard-final-form-cluster {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.625rem, 1vw, 1rem);
+  padding-inline: clamp(2.25rem, 6vw, 6rem);
+  align-items: center;
+  justify-items: center;
+}
+
+.chem-guard-final-form-cluster > .project-media-frame {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.chem-guard-final-form-cluster .project-media-frame > .project-media {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: calc(100% - 2rem);
+  object-fit: contain;
+}
+
+.chem-guard-final-form-cluster > :first-child > .project-media {
+  width: 76%;
+  height: auto;
+  justify-self: center;
+  align-self: center;
+}
+
+.chem-guard-research-cluster {
+  align-items: center;
+  justify-items: center;
+}
+
+.chem-guard-research-cluster > :first-child > .project-media {
+  width: 76%;
+  height: 100%;
+  justify-self: center;
+  align-self: center;
+}
+
+.chem-guard-research-cluster .project-media-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.75rem, 1.25vw, 1.125rem);
+  padding-block: clamp(0.5rem, 1vw, 1rem);
+  box-sizing: border-box;
+}
+
+.chem-guard-research-cluster .project-media-frame > .project-media {
+  width: 96%;
+  height: auto;
+  max-width: 100%;
+  max-height: calc(100% - 3rem);
+  flex: 0 1 auto;
+  object-fit: contain;
+}
+
+.chem-guard-research-cluster > :first-child > .project-media {
+  width: 73%;
+  height: auto;
+}
+
+.chem-guard-research-cluster figcaption {
+  width: 100%;
+  margin: 0;
+  color: var(--project-heading);
+  font-family: "Just Another Hand", var(--project-font-text), sans-serif;
+  font-size: clamp(1.25rem, 1.8vw, 1.75rem);
+  line-height: 1.05;
+  text-align: center;
+}

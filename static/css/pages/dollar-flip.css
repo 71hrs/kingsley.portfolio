@@ -1,0 +1,12 @@
+/* Dollar Flip-only composition. The Opportunity visual needs a 48px inset
+ * inside its existing shared media surface; this is intentionally not a
+ * reusable project-wide media rule. */
+.dollar-flip-opportunity-media {
+  padding: 3rem;
+}
+
+.dollar-flip-opportunity-media > .project-media {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}

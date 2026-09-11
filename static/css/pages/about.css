@@ -1,0 +1,347 @@
+/* About-specific narrative layout. Values mirror the Polyverse project system. */
+
+@font-face {
+  font-family: "About SF Pro Text";
+  src: url("../../font/sf-pro/sf-pro-text_regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "About SF Pro Text";
+  src: url("../../font/sf-pro/sf-pro-text_medium.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "About SF Pro Text";
+  src: url("../../font/sf-pro/sf-pro-text_semibold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "About SF Pro Text";
+  src: url("../../font/sf-pro/sf-pro-text_bold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "About SF Pro Display";
+  src: url("../../font/sf-pro/sf-pro-display_regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "About SF Pro Display";
+  src: url("../../font/sf-pro/sf-pro-display_medium.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+body.about-page {
+  --about-heading: rgb(29, 29, 31);
+  --about-body: rgba(29, 29, 31, 0.72);
+  --about-body-soft: rgba(29, 29, 31, 0.56);
+  --about-card-surface: rgb(255, 255, 255);
+  --about-card-border: transparent;
+  --about-card-radius: 28px;
+  --about-section-space: 9rem;
+  --about-apple-viewport-width: 87.5%;
+  --about-apple-lockup-max: 53.333rem;
+  --about-text-max: 52.5rem;
+  --about-content-space: 1.5rem;
+  --about-paragraph-space: 0.875rem;
+  --about-headline-space: 1.75rem;
+  background: var(--page-paper);
+  color: var(--about-heading);
+}
+
+html.about-page,
+body.about-page { overflow-x: clip; }
+
+.about-page .portfolio-content { background: var(--page-paper); }
+
+.about-main {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 7rem 0 8rem;
+  background: var(--page-paper);
+  color: var(--about-heading);
+  font-family: "About SF Pro Text", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: -0.022em;
+  line-height: 1.4705882353;
+}
+
+.about-main * { letter-spacing: inherit; }
+.about-main .about-title { letter-spacing: -0.003em; }
+
+.about-section {
+  padding: 0 0 var(--about-section-space);
+  scroll-margin-top: var(--section-scroll-margin);
+}
+
+.about-section-header {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+/* Match Polyverse's real text lockup while keeping the recognition rail full width. */
+.about-section-header > .about-title,
+.about-section-header > .about-copy {
+  width: min(var(--about-apple-viewport-width), var(--about-apple-lockup-max));
+  max-width: var(--about-text-max);
+}
+
+.about-title {
+  max-width: none;
+  margin: 0 0 var(--about-headline-space);
+  color: var(--about-heading);
+  font-family: "About SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-size: 2.25rem;
+  font-weight: 500;
+  letter-spacing: -0.003em;
+  line-height: 1.0834933333;
+  text-wrap: balance;
+}
+
+.about-copy {
+  display: flex;
+  width: 100%;
+  max-width: none;
+  flex-direction: column;
+  gap: var(--about-paragraph-space);
+  margin-top: var(--about-content-space);
+  color: var(--about-body);
+  font-family: "About SF Pro Text", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: -0.022em;
+  line-height: 1.4705882353;
+}
+
+.about-list {
+  display: grid;
+  gap: var(--about-paragraph-space);
+  margin-top: var(--about-content-space);
+}
+
+.about-list p {
+  display: grid;
+  grid-template-columns: minmax(12rem, 0.7fr) minmax(0, 1.3fr);
+  gap: var(--about-content-space);
+  margin: 0;
+}
+
+.about-list strong,
+.about-list span { font: inherit; }
+.about-list strong { font-weight: 500; }
+.about-list span { color: var(--about-body-soft); }
+
+.about-beyond-carousel {
+  position: relative;
+  width: 100%;
+  margin-top: 3rem;
+  overflow: visible;
+  --about-beyond-card-width: calc((var(--content-max) - 1.5rem) / 2);
+  --about-beyond-card-height: 34rem;
+  --about-beyond-rail-column: var(--portfolio-rail-column);
+  --about-beyond-rail-stop: var(--about-beyond-rail-column);
+  --about-beyond-parent-inset: calc(var(--about-beyond-rail-column) + var(--portfolio-content-gutter));
+  --about-beyond-content-inset: calc(var(--about-beyond-parent-inset) - var(--about-beyond-rail-stop));
+}
+
+.about-beyond-viewport {
+  width: calc(100vw - var(--about-beyond-rail-stop));
+  margin-left: calc(var(--about-beyond-rail-stop) - var(--about-beyond-parent-inset));
+  overflow-x: auto;
+  overflow-y: hidden;
+  cursor: grab;
+  touch-action: pan-y;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  scroll-behavior: auto;
+  scroll-padding-inline: var(--about-beyond-content-inset);
+  /* The carousel settles through its own release animation. Keeping native
+   * snap off avoids inconsistent browser-driven stopping between cards. */
+  scroll-snap-type: none;
+}
+
+.about-beyond-viewport::-webkit-scrollbar { display: none; }
+
+.about-beyond-viewport.is-dragging {
+  cursor: grabbing;
+  user-select: none;
+  scroll-snap-type: none;
+}
+
+.about-beyond-grid {
+  display: flex;
+  width: max-content;
+  flex-wrap: nowrap;
+  gap: 1.5rem;
+  padding-inline: var(--about-beyond-content-inset);
+}
+
+.about-beyond-card {
+  width: var(--about-beyond-card-width);
+  height: var(--about-beyond-card-height);
+  flex: 0 0 var(--about-beyond-card-width);
+  scroll-snap-align: start;
+  padding: clamp(1.5rem, 2.5vw, 2rem);
+  overflow: hidden;
+  border: 1px solid var(--about-card-border);
+  border-radius: var(--about-card-radius);
+  background: var(--about-card-surface);
+  color: var(--about-body);
+}
+
+.about-beyond-card:last-child { scroll-snap-align: start end; }
+
+.about-beyond-card h3 {
+  margin: 0 0 1.5rem;
+  color: var(--about-heading);
+  font-family: "About SF Pro Text", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.4705882353;
+}
+
+.about-beyond-card ul {
+  display: grid;
+  gap: var(--about-paragraph-space);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.about-beyond-card li {
+  margin: 0;
+  color: var(--about-body);
+  font: inherit;
+  line-height: 1.4705882353;
+}
+
+.about-beyond-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 18px;
+  margin-top: 1.5rem;
+  width: fit-content;
+  margin-left: auto;
+}
+
+.about-beyond-controls button {
+  display: inline-grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--glass-control-border);
+  border-radius: 999px;
+  background: var(--glass-control-surface);
+  color: var(--about-heading);
+  cursor: pointer;
+  font: inherit;
+  line-height: 1;
+  -webkit-backdrop-filter: var(--glass-control-backdrop);
+  backdrop-filter: var(--glass-control-backdrop);
+  transition: background 100ms linear, color 100ms linear, opacity 100ms linear;
+}
+
+.about-beyond-controls button svg {
+  display: block;
+  width: 40px;
+  height: 40px;
+}
+
+.about-beyond-controls button path { fill: currentColor; }
+
+.about-beyond-controls button:hover:not(:disabled),
+.about-beyond-controls button:focus-visible {
+  background: var(--local-nav-hover-surface);
+  color: #007aff;
+}
+
+.about-beyond-controls button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.about-beyond-controls button:disabled { cursor: default; opacity: 0.42; pointer-events: none; }
+
+@media (min-width: 48rem) {
+  .about-main { padding-top: 7rem; padding-bottom: 6rem; }
+}
+
+@media (min-width: 64rem) {
+  .about-main { padding-right: 0; padding-left: 0; }
+}
+
+@media (min-width: 110rem) {
+  .about-beyond-carousel {
+    --about-beyond-parent-inset: calc(
+      (100vw + var(--about-beyond-rail-column) - var(--content-max)) / 2
+    );
+    --about-beyond-content-inset: calc(var(--about-beyond-parent-inset) - var(--about-beyond-rail-stop));
+  }
+}
+
+@media (max-width: 66.75rem) {
+  body.about-page {
+    --about-section-space: 7.5rem;
+    --about-content-space: 1.5rem;
+    --about-headline-space: 1.25rem;
+  }
+
+  .about-title {
+    line-height: 1.1;
+    letter-spacing: 0;
+  }
+
+  .about-beyond-grid {
+    gap: 1rem;
+  }
+
+  .about-beyond-card {
+    width: var(--about-beyond-card-width);
+    flex-basis: var(--about-beyond-card-width);
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .about-beyond-carousel {
+    --about-beyond-rail-column: 0px;
+    --about-beyond-parent-inset: var(--portfolio-content-gutter);
+    --about-beyond-content-inset: var(--portfolio-content-gutter);
+  }
+  .about-main { padding: 4rem 0 6rem; }
+}
+
+@media (max-width: 45.875rem) {
+  body.about-page {
+    --about-section-space: 7rem;
+    --about-headline-space: 1rem;
+  }
+
+  .about-title {
+    font-size: 1.875rem;
+    line-height: 1.125;
+    letter-spacing: 0.004em;
+  }
+
+  .about-list p { grid-template-columns: 1fr; gap: 0.125rem; }
+}
