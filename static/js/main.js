@@ -12,7 +12,7 @@
     if (pathname === "/" || /\/index(?:\.html)?$/.test(pathname)) return "index";
     if (/\/works(?:\.html)?$/.test(pathname)) return "works";
     if (/\/about(?:\.html)?$/.test(pathname)) return "about";
-    if (/\/work\/[^/]+$/.test(pathname)) return "project";
+    if (/\/work\/[^/]+\.html$/.test(pathname)) return "project";
     return null;
   }
 
