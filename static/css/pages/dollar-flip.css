@@ -10,3 +10,24 @@
   height: auto;
   object-fit: contain;
 }
+
+/* Keep the design-system board in the same 16:9 module as the other
+ * Dollar Flip media, with a visually even inset on every side. */
+#final-design .project-feature-grid .project-media-frame {
+  aspect-ratio: 16 / 9;
+  box-sizing: border-box;
+  padding: clamp(1rem, 2.5vw, 2.5rem);
+  padding-left: clamp(3rem, 6vw, 6rem);
+}
+
+#final-design .project-feature-grid .project-media-frame > .project-media {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  min-width: 0;
+  min-height: 0;
+  object-fit: contain;
+  justify-self: center;
+  align-self: center;
+}

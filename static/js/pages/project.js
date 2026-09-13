@@ -85,10 +85,11 @@
       var iframe = frame.querySelector("iframe.project-video");
       if (!iframe) return;
 
-      if (posterSource) {
+      var framePosterSource = frame.getAttribute("data-project-video-poster") || posterSource;
+      if (framePosterSource) {
         var poster = document.createElement("img");
         poster.className = "project-video-poster";
-        poster.src = posterSource;
+        poster.src = framePosterSource;
         poster.alt = "";
         poster.setAttribute("aria-hidden", "true");
         frame.insertBefore(poster, iframe);
@@ -97,7 +98,8 @@
       var launch = document.createElement("button");
       launch.className = "project-video-launch";
       launch.type = "button";
-      launch.setAttribute("aria-label", "Play WAVE installation video");
+      var videoTitle = iframe.getAttribute("title") || "project video";
+      launch.setAttribute("aria-label", "Play " + videoTitle);
       launch.innerHTML = '<span class="project-video-launch__icon" aria-hidden="true"></span>';
       frame.appendChild(launch);
 
@@ -252,6 +254,11 @@
     var previous = carousel.querySelector("[data-project-carousel-prev]");
     var next = carousel.querySelector("[data-project-carousel-next]");
     if (!viewport || !track || !slides.length || !previous || !next) return null;
+
+    var previousPath = previous.querySelector("svg path");
+    var nextPath = next.querySelector("svg path");
+    if (previousPath) previousPath.setAttribute("d", "m20 25c-.3838 0-.7676-.1465-1.0605-.4395l-5.5-5.5c-.5859-.5854-.5859-1.5356 0-2.1211l5.5-5.5c.5859-.5859 1.5352-.5859 2.1211 0 .5859.5854.5859 1.5356 0 2.1211l-4.4395 4.4395 4.4395 4.4395c.5859.5854.5859 1.5356 0 2.1211-.293.293-.6768.4395-1.0605.4395z");
+    if (nextPath) nextPath.setAttribute("d", "m22.5597 16.9375-5.5076-5.5c-.5854-.5854-1.5323-.5825-2.1157.0039-.5835.5869-.5815 1.5366.0039 2.1211l4.4438 4.4375-4.4438 4.4375c-.5854.5845-.5874 1.5342-.0039 2.1211.2922.2944.676.4414 1.0598.4414.3818 0 .7637-.1455 1.0559-.4375l5.5076-5.5c.2815-.2812.4403-.6636.4403-1.0625s-.1588-.7812-.4403-1.0625z");
 
     viewport.setAttribute("data-drag-surface", "");
 

@@ -7,6 +7,14 @@
 }
 
 @font-face {
+  font-family: "Pacifico";
+  src: url("../../Pacifico-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
   font-family: "Portfolio SF Pro";
   src: url("../font/sf-pro/SF-Pro-Text-Medium.otf") format("opentype");
   font-style: normal;
@@ -271,10 +279,11 @@ html[data-page-entry="ready"] [data-page-entry] {
 
 .rail-brand {
   display: inline-flex;
-  width: 4rem;
-  height: 1.5rem;
+  width: auto;
+  min-width: 6rem;
+  height: 1.75rem;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   color: inherit;
   cursor: pointer;
   text-decoration: none;
@@ -294,11 +303,25 @@ html[data-page-entry="ready"] [data-page-entry] {
 }
 
 .rail-brand-image {
-  display: block;
+  display: none;
   width: 100%;
   height: auto;
   max-height: 100%;
   object-fit: contain;
+}
+
+.rail-brand::after {
+  content: "YUHUI QI";
+  display: block;
+  color: rgb(0, 0, 0);
+  font-family: "Pacifico", cursive;
+  font-size: 1.1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  -webkit-text-stroke: 0.18px rgb(0, 0, 0);
+  transform: translateY(0.08rem);
+  white-space: nowrap;
 }
 
 .connect-pill {

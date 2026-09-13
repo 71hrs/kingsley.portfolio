@@ -10,6 +10,15 @@
   padding: 4rem 0 8rem;
 }
 
+/* Works is a browsing surface rather than a case-study reveal. Keep the
+   page visible immediately on refresh and when returning from a project. */
+.works-main[data-page-entry],
+html[data-page-entry="pending"] .works-main[data-page-entry] {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
 .works-featured {
   position: relative;
   padding: 3rem 0;
@@ -86,6 +95,14 @@
   opacity: 0;
   transform: translateY(var(--page-reveal-offset));
   transition: opacity var(--page-reveal-duration) var(--page-reveal-ease), transform var(--page-reveal-duration) var(--page-reveal-ease);
+}
+
+/* Keep the Works index immediately readable on every entry. */
+.works-card,
+.works-card[data-visible="true"] {
+  opacity: 1;
+  transform: none;
+  transition: none;
 }
 
 .works-card[data-visible="true"] { opacity: 1; transform: translateY(0); }

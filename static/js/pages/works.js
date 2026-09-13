@@ -7,6 +7,10 @@
     var cards = Array.prototype.slice.call(document.querySelectorAll(".works-card"));
     var grids = Array.prototype.slice.call(document.querySelectorAll(".works-grid"));
     if (!cards.length) return;
+    var navigationEntry = window.performance && window.performance.getEntriesByType
+      ? window.performance.getEntriesByType("navigation")[0]
+      : null;
+    var isHistoryTraversal = navigationEntry && navigationEntry.type === "back_forward";
 
     grids.forEach(function (grid) {
       var gridCards = Array.prototype.slice.call(grid.querySelectorAll(".works-card"));
@@ -17,7 +21,7 @@
       });
     });
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || isHistoryTraversal || !("IntersectionObserver" in window)) {
       cards.forEach(function (card) { card.dataset.visible = "true"; });
       return;
     }

@@ -185,7 +185,7 @@ html.project-page body {
   --space-media: 3rem;
   --project-module-space: 1.5rem;
   --project-carousel-gap: 1.5rem;
-  --project-carousel-control-size: 2.5rem;
+  --project-carousel-control-size: 36px;
   --project-carousel-control-gap: 1.125rem;
   --project-carousel-controls-width: calc((var(--project-carousel-control-size) * 2) + var(--project-carousel-control-gap));
   width: 100%;
@@ -544,6 +544,35 @@ html.project-page body {
   align-self: center;
 }
 
+.wave-operating-system-frame > .project-media {
+  transform: scale(0.85);
+  transform-origin: center;
+}
+
+/* Wave's mechanism study is a full-bleed paper artifact. The annotation sits
+ * above the image so the exported artwork stays clean and reusable. */
+.wave-mechanism-frame {
+  position: relative;
+}
+
+.wave-mechanism-frame > .project-media {
+  object-fit: cover;
+}
+
+.wave-mechanism-annotation {
+  position: absolute;
+  right: 12%;
+  bottom: 13%;
+  z-index: 1;
+  color: rgba(29, 29, 31, 0.72);
+  font-family: "Just Another Hand", cursive;
+  font-size: clamp(1.25rem, 2vw, 2rem);
+  line-height: 1;
+  white-space: nowrap;
+  transform: rotate(-3deg);
+  pointer-events: none;
+}
+
 /* Use when an exported diagram needs a little more breathing room inside its
  * shared surface. The inset belongs to the frame, so the artwork keeps its
  * proportions without being offset or cropped by hand. */
@@ -663,13 +692,24 @@ html.project-page body {
 }
 
 .wave-code-cluster {
-  gap: clamp(0.5rem, 0.875vw, 0.875rem);
+  gap: clamp(0.25rem, 0.5vw, 0.5rem);
   padding: clamp(1.25rem, 3vw, 3rem);
 }
 
 .wave-code-cluster > .project-media-frame > .project-media {
   transform: scale(0.9);
-  transform-origin: center;
+}
+
+.wave-code-cluster > .project-media-frame:first-child > .project-media {
+  transform-origin: right center;
+}
+
+.wave-code-cluster > .project-media-frame > .project-media {
+  border-radius: clamp(0.6rem, 1vw, 1rem);
+}
+
+.wave-code-cluster > .project-media-frame:last-child > .project-media {
+  transform-origin: left center;
 }
 
 .wave-prototype-cluster {
@@ -677,8 +717,42 @@ html.project-page body {
   padding: clamp(1rem, 2.5vw, 2.5rem);
 }
 
+/* Keep Wave's stacked physical studies on the shared project rhythm: the
+ * stack opens with one section-intro gap, then uses the standard module gap. */
+.wave-physical-process-media > .project-media-cluster {
+  margin-top: 0;
+}
+
+.wave-code-cluster .project-media {
+  border-radius: clamp(0.25rem, 0.5vw, 0.5rem);
+}
+
 .wave-prototype-cluster > :first-child > .project-media {
   height: 100%;
+}
+
+.project-carousel--wave-outcome .project-carousel__slide--media-only .project-media-split__media {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+.project-carousel--wave-outcome .project-carousel__media-visual {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  object-fit: cover;
+  object-position: center center;
+  background: #000;
 }
 
 .project-media-cluster--2x2 {
@@ -1105,7 +1179,8 @@ html.project-page body {
   scroll-snap-type: none;
 }
 
-.project-carousel__viewport.is-dragging img {
+.project-carousel__viewport.is-dragging img,
+.project-carousel__viewport.is-dragging video {
   -webkit-user-drag: none;
   user-select: none;
 }
@@ -1168,7 +1243,7 @@ html.project-page body {
   padding: 0;
   border: 0;
   border-radius: 0;
-  background: url("../../picture/works/product-design-b2c/polyverse/polyverse-carousel-hint.svg") center / contain no-repeat;
+  background: url("../../picture/shared/carousel-hint.svg") center / contain no-repeat;
   color: transparent;
   font-size: 0;
   line-height: 0;
@@ -1205,19 +1280,6 @@ html.project-page body {
   object-fit: contain;
 }
 
-/* Organisms Utopia's modelling studies use the same generous framed-card
- * breathing room as the Valentino carousel reference. The image stays fully
- * visible while the card remains the shared 16:9 carousel surface. */
-.project-carousel--organism-models .project-carousel__slide {
-  box-sizing: border-box;
-  padding-block: clamp(1rem, 4.5%, 4rem);
-  padding-inline: clamp(1rem, 10%, 12rem);
-}
-
-.project-carousel--organism-models .project-carousel__slide .project-media-split__media {
-  padding: 0;
-}
-
 /* The organism study exports already include their complete visual surface;
  * let them reach all four edges of the shared carousel card. */
 .project-carousel--organism-studies .project-carousel__slide--media-only .project-media-split__media {
@@ -1232,6 +1294,24 @@ html.project-page body {
 
 .project-carousel--organism-final-forms .project-carousel__slide--media-only .project-media-split__media {
   padding: 0;
+}
+
+/* The C4D exports are taller than the shared 16:9 carousel card. Keep the
+ * artwork fully visible inside an explicit, symmetric inset instead of
+ * letting the lower edge disappear behind the slide. */
+.project-carousel--organism-models .project-carousel__slide--media-only .project-media-split__media {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: clamp(1.5rem, 3vw, 3rem);
+  overflow: hidden;
+}
+
+.project-carousel--organism-models .project-carousel__slide--media-only .project-carousel__media-visual {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
 }
 
 /* Weibo's landscape exports are slightly narrower than the 16:9 card. Keep
@@ -1425,20 +1505,24 @@ html.project-page body {
 }
 
 .project-carousel__button {
+  --project-carousel-arrow-color: rgba(0, 0, 0, 0.56);
+  --project-carousel-arrow-color-hover: rgba(0, 0, 0, 0.64);
+  --project-carousel-arrow-color-active: rgba(0, 0, 0, 0.64);
+  --project-carousel-button-surface: rgba(210, 210, 215, 0.64);
+  --project-carousel-button-surface-hover: rgba(223, 223, 227, 0.6976);
+  --project-carousel-button-surface-active: rgba(193, 193, 198, 0.6544);
   display: inline-grid;
   width: var(--project-carousel-control-size);
   height: var(--project-carousel-control-size);
   place-items: center;
   padding: 0;
-  border: 1px solid var(--glass-control-border);
+  border: 0;
   border-radius: 999px;
-  background: var(--glass-control-surface);
-  color: var(--project-body);
+  background: var(--project-carousel-button-surface);
+  color: var(--project-carousel-arrow-color);
   cursor: pointer;
   font: inherit;
   line-height: 1;
-  -webkit-backdrop-filter: var(--glass-control-backdrop);
-  backdrop-filter: var(--glass-control-backdrop);
   transition: background 100ms linear, color 100ms linear, opacity 100ms linear;
 }
 
@@ -1450,22 +1534,37 @@ html.project-page body {
 
 .project-carousel__button path {
   fill: currentColor;
+  transition: fill 100ms linear;
 }
 
-.project-carousel__button:hover:not(:disabled),
-.project-carousel__button:focus-visible {
-  background: var(--local-nav-hover-surface);
-  color: var(--local-nav-active-color);
+.project-carousel__button:hover:not(:disabled) {
+  background: var(--project-carousel-button-surface-hover);
+  color: var(--project-carousel-arrow-color-hover);
+}
+
+.project-carousel__button:hover:not(:disabled) path {
+  fill: var(--project-carousel-arrow-color-hover);
+}
+
+.project-carousel__button:active:not(:disabled) {
+  background: var(--project-carousel-button-surface-active);
+  color: var(--project-carousel-arrow-color-active);
+  outline: none;
+}
+
+.project-carousel__button:active:not(:disabled) path {
+  fill: var(--project-carousel-arrow-color-active);
 }
 
 .project-carousel__button:focus-visible {
-  outline: 2px solid currentColor;
-  outline-offset: 2px;
+  outline: 2px solid #0071e3;
+  outline-offset: 3px;
 }
 
 .project-carousel__button:disabled {
+  pointer-events: none;
   cursor: default;
-  opacity: 0.35;
+  opacity: 0.42;
 }
 
 .project-feature-grid .project-carousel {
@@ -1565,6 +1664,21 @@ html.project-page body {
   height: auto;
   max-width: 100%;
   object-fit: contain;
+  /* The source GIFs used transparent pixels outside the rounded phone body.
+   * WebM keeps the animation compact but does not reliably expose that alpha
+   * channel in every browser, so clip only the former transparent corners. */
+  border-radius: 11%;
+  clip-path: inset(0 round 11%);
+}
+
+/* Rednote and TikTok screens are individual media assets inside transparent
+ * carousel slides, so the radius belongs to each image or video rather than
+ * the slide or its surrounding spacing. */
+.project-carousel--rednote .project-carousel__media-visual,
+.project-carousel--tiktok .project-carousel__media-visual,
+.project-carousel--wechat .project-carousel__media-visual {
+  border-radius: clamp(0.45rem, 0.8vw, 0.8rem);
+  clip-path: none;
 }
 
 .project-feature-grid .project-feature-copy {
@@ -1759,6 +1873,11 @@ html.project-page body {
   line-height: var(--project-type-body-leading);
 }
 
+.project-copy.project-copy--intro {
+  font-weight: 350;
+  color: rgba(29, 29, 31, 0.64);
+}
+
 .project-panel {
   display: grid;
   width: 100%;
@@ -1767,6 +1886,25 @@ html.project-page body {
   border: var(--project-outline);
   border-radius: var(--project-radius);
   background: var(--project-surface);
+}
+
+/* Full-width, text-only outcome module for launch case studies. */
+.project-impact-panel {
+  width: 100%;
+  max-width: none;
+  padding: clamp(3rem, 5vw, 5rem) clamp(1.5rem, 3vw, 3rem);
+  box-sizing: border-box;
+}
+
+.project-impact-panel p {
+  margin: 0;
+  color: var(--project-heading);
+  font-family: "Just Another Hand", cursive;
+  font-size: clamp(1.5rem, 2.4vw, 2.5rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.15;
+  text-align: center;
 }
 
 .project-section > .project-auto-grid {
@@ -1787,6 +1925,55 @@ html.project-page body {
 
 .project-section > .project-section-header + * ~ * {
   margin-top: var(--project-module-space);
+}
+
+/* Keep each section's media/components in one explicit container. The
+ * container owns the section-to-content rhythm; its direct children only
+ * add the module spacing between sibling components. */
+.project-section-components {
+  min-width: 0;
+}
+
+.project-section-components > * {
+  min-width: 0;
+  margin-top: 0;
+}
+
+.project-section-components > * + * {
+  margin-top: var(--project-module-space);
+}
+
+/* Organisms Utopia's split sections keep the shared component rhythm while
+ * preventing legacy art-step wrappers from adding a second section gap. */
+.project-section-components .project-media-stack[class*="project-media-stack--organisms-"] {
+  gap: var(--project-module-space);
+  margin-top: 0;
+}
+
+.project-section-components .project-media-stack[class*="project-media-stack--organisms-"] > .project-art-step {
+  margin-top: 0;
+  padding-bottom: 0;
+}
+
+.project-section-components .project-media-stack[class*="project-media-stack--organisms-"] .project-art-step__media {
+  margin-top: 0;
+}
+
+.project-section-components .project-media-stack[class*="project-media-stack--organisms-"] > .project-art-step > .project-carousel {
+  margin-top: 0;
+}
+
+.project-section-components .project-media-stack[class*="project-media-stack--organisms-"] > .project-art-step > .project-carousel + .project-carousel {
+  margin-top: var(--project-module-space);
+}
+
+.project-section-components .project-media-stack[class*="project-media-stack--organisms-"] > .project-art-step > .project-media-stack {
+  gap: var(--project-module-space);
+  margin-top: 0;
+}
+
+.project-section-components .project-media-stack[class*="project-media-stack--organisms-"] > .project-art-step > .project-media-stack > .project-media-grid {
+  margin-top: 0;
 }
 
 .project-section > .project-feature-grid.project-feature-intro-gap {

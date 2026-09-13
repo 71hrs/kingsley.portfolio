@@ -11,6 +11,19 @@
     <link rel="stylesheet" href="../static/css/main.css">
     <link rel="stylesheet" href="../static/css/pages/project.css">
     <link rel="stylesheet" href="../static/css/pages/dollar-flip.css">
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const copy = document.querySelector(".project-copy--intro");
+        if (!copy) return;
+        copy.style.fontWeight = "350";
+        copy.style.color = "rgba(29, 29, 31, 0.64)";
+        copy.replaceChildren(...[
+          "Dollar Flip is an AI-assisted secondhand marketplace designed to make buying and selling feel less uncertain.",
+          "It helps sellers understand pricing trade-offs and helps buyers surface the questions that matter before they commit—keeping guidance useful without taking the decision away from them."
+        ].map((text) => { const paragraph = document.createElement("p"); paragraph.textContent = text; return paragraph; }));
+      });
+    </script>
+    <link rel="stylesheet" href="../static/css/main.css?v=20260912-pacifico">
   </head>
   <body>
     <div class="portfolio-frame">

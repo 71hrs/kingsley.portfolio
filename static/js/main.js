@@ -16,13 +16,24 @@
     return null;
   }
 
-  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  var initialNavigationEntry = window.performance && window.performance.getEntriesByType
+    ? window.performance.getEntriesByType("navigation")[0]
+    : null;
+  var skipPageEntry = pageKeyFromUrl(window.location.href) === "works"
+    || (initialNavigationEntry && initialNavigationEntry.type === "back_forward");
+
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && !skipPageEntry) {
     document.documentElement.dataset.pageEntry = "pending";
   }
 
   function setupPageEntry() {
     var entry = document.querySelector("[data-page-entry]");
-    if (!entry || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    var navigationEntry = window.performance && window.performance.getEntriesByType
+      ? window.performance.getEntriesByType("navigation")[0]
+      : null;
+    var isHistoryTraversal = navigationEntry && navigationEntry.type === "back_forward";
+    var isWorksPage = pageKeyFromUrl(window.location.href) === "works";
+    if (!entry || window.matchMedia("(prefers-reduced-motion: reduce)").matches || isHistoryTraversal || isWorksPage) {
       document.documentElement.dataset.pageEntry = "ready";
       return;
     }
@@ -565,7 +576,10 @@
 
   function setupInternalNavigation() {
     if ("scrollRestoration" in window.history) {
-      window.history.scrollRestoration = "manual";
+      // Let the browser restore Back/Forward positions, including BFCache
+      // entries. The custom logic below is only a fallback for a document
+      // navigation where the browser has not restored a saved position.
+      window.history.scrollRestoration = "auto";
     }
 
     var scrollStateKey = "portfolioScrollY";
@@ -603,6 +617,18 @@
     }
 
     function readScrollPosition() {
+      // A history entry is more precise than a URL key when the same page is
+      // opened more than once in a session.
+      try {
+        var state = window.history.state;
+        var historyValue = state && typeof state === "object"
+          ? Number(state[scrollStateKey])
+          : NaN;
+        if (Number.isFinite(historyValue)) return Math.max(0, historyValue);
+      } catch (error) {
+        // Fall through to the session memory below.
+      }
+
       try {
         var stored = Number(window.sessionStorage.getItem(getScrollMemoryKey()));
         if (Number.isFinite(stored)) return Math.max(0, stored);
@@ -610,13 +636,7 @@
         // Fall through to the history entry below.
       }
 
-      try {
-        var state = window.history.state;
-        var value = state && typeof state === "object" ? Number(state[scrollStateKey]) : NaN;
-        return Number.isFinite(value) ? Math.max(0, value) : null;
-      } catch (error) {
-        return null;
-      }
+      return null;
     }
 
     function clearScrollMemory() {
@@ -681,37 +701,105 @@
     }
 
     var freshNavigation = consumeFreshNavigationIntent();
+    var navigationEntry = window.performance && window.performance.getEntriesByType
+      ? window.performance.getEntriesByType("navigation")[0]
+      : null;
+    var isHistoryTraversal = navigationEntry && navigationEntry.type === "back_forward";
     var scrollSavingReady = false;
+    var pageShowHandled = false;
+    var userScrollIntent = false;
 
-    function restoreScrollPosition(top, onComplete) {
-      requestAnimationFrame(function () {
-        requestAnimationFrame(function () {
-          var maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-          var target = Math.min(Math.max(0, top), maxScroll);
-          var previousBehavior = document.documentElement.style.scrollBehavior;
-          document.documentElement.style.scrollBehavior = "auto";
-          window.scrollTo({ top: target, left: 0, behavior: "auto" });
-          document.documentElement.style.scrollBehavior = previousBehavior;
-          if (typeof onComplete === "function") onComplete();
+    function restoreScrollPosition(top) {
+      var maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+      var target = Math.min(Math.max(0, top), maxScroll);
+      var previousBehavior = document.documentElement.style.scrollBehavior;
+      document.documentElement.style.scrollBehavior = "auto";
+      window.scrollTo({ top: target, left: 0, behavior: "auto" });
+      document.documentElement.style.scrollBehavior = previousBehavior;
+    }
+
+    function waitForStableLayout(onStable) {
+      var imageReady = Array.prototype.map.call(document.images, function (image) {
+        if (image.complete) {
+          return image.decode ? image.decode().catch(function () {}) : Promise.resolve();
+        }
+        if (image.loading === "lazy") return Promise.resolve();
+        return new Promise(function (resolve) {
+          image.addEventListener("load", resolve, { once: true });
+          image.addEventListener("error", resolve, { once: true });
+          window.setTimeout(resolve, 1200);
         });
+      });
+      var fontReady = document.fonts && document.fonts.ready
+        ? document.fonts.ready
+        : Promise.resolve();
+
+      Promise.race([
+        Promise.all([Promise.all(imageReady), fontReady]),
+        new Promise(function (resolve) { window.setTimeout(resolve, 1200); })
+      ]).then(function () {
+        var lastHeight = -1;
+        var stableFrames = 0;
+        var startedAt = window.performance && window.performance.now
+          ? window.performance.now()
+          : Date.now();
+
+        function checkHeight() {
+          var height = document.documentElement.scrollHeight;
+          stableFrames = height === lastHeight ? stableFrames + 1 : 0;
+          lastHeight = height;
+          var now = window.performance && window.performance.now
+            ? window.performance.now()
+            : Date.now();
+          if (stableFrames >= 4 || now - startedAt >= 1600) {
+            onStable();
+            return;
+          }
+          window.requestAnimationFrame(checkHeight);
+        }
+
+        window.requestAnimationFrame(checkHeight);
       });
     }
 
-    function handlePageShow() {
-      var remembered = readScrollPosition();
-      if (freshNavigation) {
-        restoreScrollPosition(0, function () { scrollSavingReady = true; });
-        return;
-      }
-      if (window.location.hash && remembered == null) {
+    function handlePageShow(event) {
+      if (pageShowHandled) return;
+      pageShowHandled = true;
+
+      // A persisted page already contains the browser's exact scroll state.
+      // Do not overwrite it with a URL-based fallback.
+      if (event && event.persisted) {
         scrollSavingReady = true;
         return;
       }
-      if (remembered != null) {
-        restoreScrollPosition(remembered, function () { scrollSavingReady = true; });
-      } else {
-        restoreScrollPosition(0, function () { scrollSavingReady = true; });
+
+      var remembered = readScrollPosition();
+      waitForStableLayout(function () {
+        // Never take control back from someone who started scrolling while
+        // images, fonts, or embeds were still settling.
+        if (userScrollIntent) {
+          scrollSavingReady = true;
+          return;
+        }
+        if (freshNavigation) {
+          restoreScrollPosition(0);
+        } else if (!isHistoryTraversal && remembered != null) {
+          restoreScrollPosition(remembered);
+        } else if (isHistoryTraversal && remembered != null && window.scrollY <= 1) {
+          // Native restoration is preferred. This only runs when a full
+          // document traversal returned at the top despite saved state.
+          restoreScrollPosition(remembered);
+        }
+        scrollSavingReady = true;
+      });
+    }
+
+    function markUserScrollIntent(event) {
+      if (event.type === "keydown") {
+        var scrollKeys = ["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End", " "];
+        if (scrollKeys.indexOf(event.key) === -1) return;
       }
+      userScrollIntent = true;
     }
 
     if (freshNavigation) {
@@ -730,6 +818,10 @@
     }
 
     window.addEventListener("scroll", queueScrollSave, { passive: true });
+    window.addEventListener("wheel", markUserScrollIntent, { passive: true, capture: true });
+    window.addEventListener("touchstart", markUserScrollIntent, { passive: true, capture: true });
+    window.addEventListener("pointerdown", markUserScrollIntent, { passive: true, capture: true });
+    document.addEventListener("keydown", markUserScrollIntent, true);
     document.addEventListener("click", markFreshNavigation, true);
     window.addEventListener("pagehide", saveScrollPosition, { passive: true });
     window.addEventListener("beforeunload", saveScrollPosition);
@@ -737,6 +829,9 @@
       if (document.visibilityState === "hidden") saveScrollPosition();
     });
     window.addEventListener("pageshow", handlePageShow, { passive: true });
+    if (document.readyState === "complete") {
+      handlePageShow();
+    }
   }
 
   var resetPointerState = null;

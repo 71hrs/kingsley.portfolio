@@ -13,6 +13,19 @@
     <link rel="stylesheet" href="../static/css/main.css?v=20260907-2228">
     <link rel="stylesheet" href="../static/css/pages/project.css?v=20260908-0815">
     <link rel="stylesheet" href="../static/css/pages/polyverse.css">
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const copy = document.querySelector(".project-copy--intro");
+        if (!copy) return;
+        copy.style.fontWeight = "350";
+        copy.style.color = "rgba(29, 29, 31, 0.64)";
+        copy.replaceChildren(...[
+          "Polyverse helps people move from an open-ended idea to a place they can act on.",
+          "It connects discovery, contextual guidance, and progressive refinement in one city experience, so people can explore without knowing their destination in advance and keep shaping the decision as they go."
+        ].map((text) => { const paragraph = document.createElement("p"); paragraph.textContent = text; return paragraph; }));
+      });
+    </script>
+    <link rel="stylesheet" href="../static/css/main.css?v=20260912-pacifico">
   </head>
   <body>
     <div class="portfolio-frame">
