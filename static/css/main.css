@@ -82,6 +82,7 @@
   --local-nav-active-color: #007aff;
   --local-nav-hover-surface: rgba(118, 118, 128, 0.12);
   --local-nav-active-surface: rgba(118, 118, 128, 0.16);
+  --local-nav-active-radius: 1rem;
   --local-nav-inset-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.42), inset 0 -1px 0 rgba(0, 0, 0, 0.04);
   --local-nav-transition-duration: 0.32s;
   --local-nav-transition-ease: cubic-bezier(.2, .78, .2, 1);
@@ -400,7 +401,7 @@ html[data-page-entry="ready"] [data-page-entry] {
   gap: 0.75rem;
   min-height: 2.75rem;
   padding-inline: var(--rail-inline-bleed);
-  border-radius: 999px;
+  border-radius: var(--local-nav-active-radius);
   color: inherit;
   text-decoration: none;
   transition: color 0.18s ease;
@@ -422,6 +423,10 @@ html[data-page-entry="ready"] [data-page-entry] {
   transform: translate3d(0, 0, 0);
   transition: transform var(--local-nav-transition-duration) var(--local-nav-transition-ease), width var(--local-nav-transition-duration) var(--local-nav-transition-ease), height var(--local-nav-transition-duration) var(--local-nav-transition-ease);
   will-change: transform, width, height;
+}
+
+.rail-project-indicator {
+  border-radius: var(--local-nav-active-radius);
 }
 
 .rail-project-indicator.is-prepared,
