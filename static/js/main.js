@@ -2,6 +2,7 @@
   "use strict";
 
   var SHARED_TAB_TITLE = "Yuhui Qi";
+  var CLICK_EFFECT_NAVIGATION_DELAY = 420;
 
   function setupSharedTabTitle() {
     document.title = SHARED_TAB_TITLE;
@@ -108,7 +109,34 @@
       window.setTimeout(function () { host.remove(); }, duration * 1000);
     }
 
-    document.addEventListener("click", handleClick);
+    var pendingCardNavigation = 0;
+    function handleDocumentClick(event) {
+      var link = event.target && event.target.closest ? event.target.closest("a.works-card[href]") : null;
+      var isModifiedClick = event.metaKey || event.ctrlKey || event.shiftKey || event.altKey;
+      var isCardNavigation = link
+        && link.getAttribute("aria-disabled") !== "true"
+        && link.target !== "_blank"
+        && !link.hasAttribute("download")
+        && !isModifiedClick;
+
+      if (isCardNavigation) {
+        var target = new URL(link.href, window.location.href);
+        if (target.origin === window.location.origin && target.href !== window.location.href && target.hash === "") {
+          event.preventDefault();
+          handleClick(event);
+          if (pendingCardNavigation) window.clearTimeout(pendingCardNavigation);
+          pendingCardNavigation = window.setTimeout(function () {
+            pendingCardNavigation = 0;
+            window.location.assign(target.href);
+          }, CLICK_EFFECT_NAVIGATION_DELAY);
+          return;
+        }
+      }
+
+      handleClick(event);
+    }
+
+    document.addEventListener("click", handleDocumentClick);
   }
 
   function setupMobileNavigation() {
@@ -490,7 +518,7 @@
 
       var delay = window.matchMedia("(prefers-reduced-motion: reduce)").matches
         ? 0
-        : parseFloat(getComputedStyle(indicator).transitionDuration) * 1000 || 320;
+        : Math.max(parseFloat(getComputedStyle(indicator).transitionDuration) * 1000 || 320, CLICK_EFFECT_NAVIGATION_DELAY);
       pendingNavigationTimer = window.setTimeout(function () {
         pendingNavigationTimer = 0;
         window.location.assign(target.href);

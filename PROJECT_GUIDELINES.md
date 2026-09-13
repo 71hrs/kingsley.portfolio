@@ -30,6 +30,8 @@ While a page is loading images, fonts, or embeds, the user’s scroll intent tak
 
 These behaviors were checked against the local preview at `http://localhost:3000/works.html`. If a new navigation or loading issue appears, treat it as a separate, verified change rather than reopening unrelated shared rules.
 
+The portfolio uses a shared local click-feedback effect in `static/js/main.js` and `static/css/main.css`. It is an independent native DOM/SVG/CSS implementation inspired by the Jackie Zhang reference interaction; it has no runtime dependency on that site, Framer, or any remote component. The effect is shared across pages, and internal Works-card links plus the primary sidebar navigation use a `420ms` navigation buffer so the `0.7s` click animation can begin before the document changes. Preserve this buffer when adjusting navigation timing, and verify both card navigation and Overview / Works / About navigation locally.
+
 ## 4. Asset system
 
 ### 4.1 Naming convention
