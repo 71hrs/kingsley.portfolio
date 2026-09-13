@@ -1,4 +1,4 @@
-/* Works-only layout. Shared rail, local navigation, typography, and cursor live in main.css. */
+/* Works-only layout. Shared rail, local navigation, and typography live in main.css. */
 .works-page {
   --works-card-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 10px 24px rgba(0, 0, 0, 0.08);
   --works-card-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.08), 0 16px 36px rgba(0, 0, 0, 0.14);

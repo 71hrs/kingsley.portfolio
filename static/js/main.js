@@ -45,98 +45,70 @@
     });
   }
 
-  function setupPointer() {
-    if (!window.matchMedia("(pointer: fine)").matches) return;
+  function setupClickRays() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    var dot = document.querySelector(".custom-cursor-dot");
-    var ring = document.querySelector(".custom-cursor-ring");
-    if (!dot || !ring) return;
+    // This follows the downloaded Jackie Zhang / Framer Click Effects source:
+    // wavy mode, 85px effect size, 3px stroke, 0.7s draw-and-fade timing.
+    var duration = 0.7;
+    var effectSize = 85;
+    var strokeWidth = 3;
+    var rayAngles = [45, 90, 135, 180];
+    var svgNamespace = "http://www.w3.org/2000/svg";
 
-    var pointer = { x: -100, y: -100 };
-    var ringPosition = { x: -100, y: -100 };
-    var frameRequested = false;
-    var pointerSuspended = false;
-    var reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    function createWavyPath(angle) {
+      var radians = angle * Math.PI / 180;
+      var center = effectSize / 2;
+      var innerDistance = effectSize * 0.1;
+      var outerDistance = effectSize * 0.5;
+      var innerX = center + innerDistance * Math.cos(radians);
+      var innerY = center - innerDistance * Math.sin(radians);
+      var outerX = center + outerDistance * Math.cos(radians);
+      var outerY = center - outerDistance * Math.sin(radians);
+      var midpointX = (innerX + outerX) / 2;
+      var midpointY = (innerY + outerY) / 2;
+      var curveOffset = effectSize * 0.05;
+      var controlX = midpointX + curveOffset * Math.cos(radians + Math.PI / 2);
+      var controlY = midpointY - curveOffset * Math.sin(radians + Math.PI / 2);
 
-    function setPointerState(state) {
-      dot.dataset.state = state;
-      ring.dataset.state = state;
+      return "M " + innerX + " " + innerY + " Q " + controlX + " " + controlY + " " + midpointX + " " + midpointY + " T " + outerX + " " + outerY;
     }
 
-    function syncPointerState(target) {
-      var interactiveTarget = target && target.closest
-        ? target.closest("a, button, [role=\"button\"], [data-cursor]")
-        : null;
-      if (!interactiveTarget) {
-        setPointerState("default");
-        return;
-      }
-      setPointerState(interactiveTarget.dataset.cursor || (interactiveTarget.tagName === "BUTTON" ? "hover" : "link"));
+    function handleClick(event) {
+      if ((event.button != null && event.button !== 0) || !Number.isFinite(event.clientX) || !Number.isFinite(event.clientY)) return;
+
+      var host = document.createElement("div");
+      host.className = "portfolio-click-rays-host";
+      host.setAttribute("aria-hidden", "true");
+      host.style.left = event.clientX + "px";
+      host.style.top = event.clientY + "px";
+
+      var svg = document.createElementNS(svgNamespace, "svg");
+      svg.classList.add("portfolio-click-rays");
+      svg.setAttribute("aria-hidden", "true");
+
+      rayAngles.forEach(function (angle) {
+        var path = document.createElementNS(svgNamespace, "path");
+        path.setAttribute("d", createWavyPath(angle));
+        path.setAttribute("stroke", "#e35342");
+        path.setAttribute("stroke-linecap", "round");
+        path.setAttribute("fill", "none");
+        path.classList.add("portfolio-click-ray");
+        svg.appendChild(path);
+
+        var pathLength = path.getTotalLength();
+        path.style.setProperty("--portfolio-click-ray-length", pathLength + "px");
+        path.style.strokeDasharray = "1px, " + pathLength + "px";
+        path.style.strokeDashoffset = "0px";
+        path.style.strokeWidth = strokeWidth + "px";
+      });
+
+      host.appendChild(svg);
+      document.body.appendChild(host);
+      window.setTimeout(function () { host.remove(); }, duration * 1000);
     }
 
-    function renderPointer() {
-      frameRequested = false;
-      if (pointerSuspended) return;
-      var easing = reducedMotionQuery.matches ? 1 : 0.18;
-      ringPosition.x += (pointer.x - ringPosition.x) * easing;
-      ringPosition.y += (pointer.y - ringPosition.y) * easing;
-      dot.style.transform = "translate3d(" + pointer.x + "px, " + pointer.y + "px, 0) translate3d(-50%, -50%, 0)";
-      ring.style.transform = "translate3d(" + ringPosition.x + "px, " + ringPosition.y + "px, 0) translate3d(-50%, -50%, 0)";
-      if (Math.abs(pointer.x - ringPosition.x) > 0.1 || Math.abs(pointer.y - ringPosition.y) > 0.1) {
-        requestAnimationFrame(renderPointer);
-      }
-    }
-
-    function queuePointerFrame() {
-      if (!frameRequested && !pointerSuspended) {
-        frameRequested = true;
-        requestAnimationFrame(renderPointer);
-      }
-    }
-
-    function suspendPointer(shouldSuspend) {
-      pointerSuspended = shouldSuspend;
-      dot.dataset.suspended = String(shouldSuspend);
-      ring.dataset.suspended = String(shouldSuspend);
-      if (shouldSuspend) {
-        dot.dataset.visible = "false";
-        ring.dataset.visible = "false";
-      }
-    }
-
-    document.addEventListener("pointermove", function (event) {
-      pointer.x = event.clientX;
-      pointer.y = event.clientY;
-      dot.dataset.visible = "true";
-      ring.dataset.visible = "true";
-      syncPointerState(event.target);
-      queuePointerFrame();
-    }, { passive: true });
-
-    document.addEventListener("pointerleave", function () {
-      dot.dataset.visible = "false";
-      ring.dataset.visible = "false";
-    });
-
-    document.addEventListener("pointerover", function (event) {
-      syncPointerState(event.target);
-    });
-
-    document.addEventListener("pointerout", function (event) {
-      var target = event.target.closest("a, button, [role=\"button\"], [data-cursor]");
-      if (target && !target.contains(event.relatedTarget)) {
-        syncPointerState(event.relatedTarget);
-      }
-    });
-
-    document.querySelectorAll("[data-cursor-suspend], .project-video-frame").forEach(function (surface) {
-      surface.addEventListener("pointerenter", function () { suspendPointer(true); }, { passive: true });
-      surface.addEventListener("pointerleave", function () { suspendPointer(false); }, { passive: true });
-    });
-
-    return function resetPointerState() {
-      setPointerState("default");
-    };
+    document.addEventListener("click", handleClick);
   }
 
   function setupMobileNavigation() {
@@ -834,12 +806,10 @@
     }
   }
 
-  var resetPointerState = null;
-
   function initializeSharedRuntime() {
     setupSharedTabTitle();
     setupPageEntry();
-    resetPointerState = setupPointer() || null;
+    setupClickRays();
     setupRailFooter();
     setupMobileNavigation();
     setupPlaceholders();
