@@ -246,14 +246,14 @@ body.about-page { overflow-x: clip; }
 
 .about-beyond-controls button {
   display: inline-grid;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   place-items: center;
   padding: 0;
-  border: 1px solid var(--glass-control-border);
+  border: 0;
   border-radius: 999px;
-  background: var(--glass-control-surface);
-  color: var(--about-heading);
+  background: rgba(210, 210, 215, 0.64);
+  color: rgba(0, 0, 0, 0.56);
   cursor: pointer;
   font: inherit;
   line-height: 1;
@@ -264,16 +264,16 @@ body.about-page { overflow-x: clip; }
 
 .about-beyond-controls button svg {
   display: block;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
 }
 
 .about-beyond-controls button path { fill: currentColor; }
 
 .about-beyond-controls button:hover:not(:disabled),
 .about-beyond-controls button:focus-visible {
-  background: var(--local-nav-hover-surface);
-  color: #007aff;
+  background: rgba(223, 223, 227, 0.6976);
+  color: rgba(0, 0, 0, 0.64);
 }
 
 .about-beyond-controls button:focus-visible {
