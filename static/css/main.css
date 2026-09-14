@@ -56,6 +56,7 @@
 
 :root {
   color-scheme: light;
+  --portfolio-viewport-height: 100vh;
   --portfolio-shell-font: "Portfolio SF Pro", Arial, sans-serif;
   --page-ink: rgb(29, 29, 31);
   /* Apple-style page layer: the broad canvas is the light gray used by
@@ -100,6 +101,13 @@
   --page-reveal-ease: cubic-bezier(.22, 1, .36, 1);
 }
 
+/* Keep the shell height stable while browser chrome expands or collapses.
+ * The small viewport is intentionally used as the fallback target so the
+ * page does not reflow underneath a changing mobile browser toolbar. */
+@supports (height: 100svh) {
+  :root { --portfolio-viewport-height: 100svh; }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -131,7 +139,10 @@ video {
 html {
   height: 100%;
   min-width: 320px;
-  scroll-behavior: smooth;
+  /* Animated scrolling is opt-in in the navigation code. Keeping the root
+     scroll container native prevents browser restoration and wheel input
+     from competing over the same scroll position. */
+  scroll-behavior: auto;
   scrollbar-gutter: stable;
   /* Keep the shared page scroll pinned at its edges on touch, trackpad, and
    * wheel input. This also disables browser pull-to-refresh on mobile. */
@@ -141,7 +152,7 @@ html {
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100%;
+  min-height: var(--portfolio-viewport-height);
   margin: 0;
   background: var(--page-paper);
   color: var(--page-ink);
@@ -231,7 +242,7 @@ html[data-page-entry="ready"] [data-page-entry] {
 
 .portfolio-frame {
   display: grid;
-  min-height: 100vh;
+  min-height: var(--portfolio-viewport-height);
   gap: 0;
 }
 
@@ -362,16 +373,6 @@ html[data-page-entry="ready"] [data-page-entry] {
   border-radius: 50%;
   background: #24c55e;
   box-shadow: 0 0 rgba(36, 197, 94, 0.34);
-}
-
-.status-dot::after {
-  position: absolute;
-  z-index: -1;
-  inset: -0.25rem;
-  border-radius: inherit;
-  background: rgba(36, 197, 94, 0.18);
-  content: "";
-  animation: availability-pulse 1.8s ease-out infinite;
 }
 
 .rail-primary-nav {
@@ -756,11 +757,6 @@ html[data-page-entry="ready"] [data-page-entry] {
   outline-offset: 4px;
 }
 
-@keyframes availability-pulse {
-  0% { opacity: 0.9; transform: scale(0.55); }
-  70%, 100% { opacity: 0; transform: scale(1.35); }
-}
-
 @keyframes next-label-arrive {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
@@ -804,8 +800,8 @@ html[data-page-entry="ready"] [data-page-entry] {
   .portfolio-rail {
     position: sticky;
     top: 0.75rem;
-    height: calc(100vh - 1.5rem);
-    min-height: calc(100vh - 1.5rem);
+    height: calc(var(--portfolio-viewport-height) - 1.5rem);
+    min-height: calc(var(--portfolio-viewport-height) - 1.5rem);
     padding: 2rem 1.75rem;
   }
 

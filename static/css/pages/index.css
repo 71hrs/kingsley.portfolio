@@ -40,7 +40,7 @@
 }
 
 .overview-section {
-  min-height: calc(100vh - 1.5rem);
+  min-height: calc(var(--portfolio-viewport-height) - 1.5rem);
   display: flex;
   align-items: center;
   padding: 3.5rem 0;
@@ -188,7 +188,7 @@
   .overview-marquee { margin-inline: -2.5rem; }
 
   .overview-section {
-    min-height: calc(100vh - 3rem);
+    min-height: calc(var(--portfolio-viewport-height) - 3rem);
     padding: 3.5rem 0;
   }
 
