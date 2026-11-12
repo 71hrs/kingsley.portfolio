@@ -3,7 +3,7 @@
   src: url("../font/sf-pro/SF-Pro-Text-Regular.otf") format("opentype");
   font-style: normal;
   font-weight: 400;
-  font-display: swap;
+  font-display: optional;
 }
 
 @font-face {
@@ -11,7 +11,7 @@
   src: url("../../Pacifico-Regular.ttf") format("truetype");
   font-style: normal;
   font-weight: 400;
-  font-display: swap;
+  font-display: optional;
 }
 
 @font-face {
@@ -19,7 +19,7 @@
   src: url("../font/sf-pro/SF-Pro-Text-Medium.otf") format("opentype");
   font-style: normal;
   font-weight: 500;
-  font-display: swap;
+  font-display: optional;
 }
 
 @font-face {
@@ -27,7 +27,7 @@
   src: url("../font/sf-pro/SF-Pro-Text-Semibold.otf") format("opentype");
   font-style: normal;
   font-weight: 600;
-  font-display: swap;
+  font-display: optional;
 }
 
 @font-face {
@@ -35,7 +35,7 @@
   src: url("../font/sf-pro/SF-Pro-Text-Bold.otf") format("opentype");
   font-style: normal;
   font-weight: 700;
-  font-display: swap;
+  font-display: optional;
 }
 
 @font-face {
@@ -43,7 +43,7 @@
   src: url("../font/sf-pro/SF-Pro-Display-Black.otf") format("opentype");
   font-style: normal;
   font-weight: 900;
-  font-display: swap;
+  font-display: optional;
 }
 
 @font-face {
@@ -51,7 +51,7 @@
   src: url("../font/sf-pro/SF-Pro-Text-MediumItalic.otf") format("opentype");
   font-style: italic;
   font-weight: 500;
-  font-display: swap;
+  font-display: optional;
 }
 
 :root {
