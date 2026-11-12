@@ -15,6 +15,81 @@
 }
 
 @font-face {
+  font-family: "Just Another Hand";
+  src: url("../font/just-another-hand/JustAnotherHand-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: optional;
+}
+
+/* Project and About pages use these same local SF Pro cuts. Keeping the
+ * registry here makes their loading behavior identical to the shared shell
+ * without changing the type treatment those pages already use. */
+@font-face {
+  font-family: "SF Pro Text";
+  src: url("../font/sf-pro/sf-pro-text_regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: optional;
+}
+
+@font-face {
+  font-family: "SF Pro Text";
+  src: url("../font/sf-pro/sf-pro-text_medium.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-display: optional;
+}
+
+@font-face {
+  font-family: "SF Pro Text";
+  src: url("../font/sf-pro/sf-pro-text_semibold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 600;
+  font-display: optional;
+}
+
+@font-face {
+  font-family: "SF Pro Text";
+  src: url("../font/sf-pro/sf-pro-text_bold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: optional;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("../font/sf-pro/sf-pro-display_regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: optional;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("../font/sf-pro/sf-pro-display_medium.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-display: optional;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("../font/sf-pro/sf-pro-display_semibold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 600;
+  font-display: optional;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("../font/sf-pro/sf-pro-display_bold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: optional;
+}
+
+@font-face {
   font-family: "Portfolio SF Pro";
   src: url("../font/sf-pro/SF-Pro-Text-Medium.otf") format("opentype");
   font-style: normal;
@@ -228,6 +303,21 @@ svg {
 /* The page-level entrance is shared; individual pages keep their own internal reveals. */
 [data-page-entry] {
   transition: opacity var(--page-reveal-duration) var(--page-reveal-ease), transform var(--page-reveal-duration) var(--page-reveal-ease);
+}
+
+/*
+ * Font loading is a page-level dependency, not an element-level animation.
+ * Keep the complete shared shell out of the first paint until the font
+ * registry has resolved, so the rail and marquee cannot render in fallback
+ * fonts and then reflow when the local files arrive.
+ */
+html[data-fonts="pending"] .portfolio-frame {
+  visibility: hidden;
+}
+
+html[data-fonts="ready"] .portfolio-frame,
+html:not([data-fonts]) .portfolio-frame {
+  visibility: visible;
 }
 
 html[data-page-entry="pending"] [data-page-entry] {

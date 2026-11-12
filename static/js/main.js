@@ -3,9 +3,43 @@
 
   var SHARED_TAB_TITLE = "Yuhui Qi";
   var CLICK_EFFECT_NAVIGATION_DELAY = 420;
+  var PORTFOLIO_FONT_TIMEOUT = 1200;
+  var PORTFOLIO_CRITICAL_FONTS = [
+    '400 1em "Portfolio SF Pro"',
+    '500 1em "Portfolio SF Pro"',
+    '600 1em "Portfolio SF Pro"',
+    '700 1em "Portfolio SF Pro"',
+    '900 1em "Portfolio SF Pro"',
+    '400 1em "SF Pro Text"',
+    '500 1em "SF Pro Text"',
+    '600 1em "SF Pro Text"',
+    '700 1em "SF Pro Text"',
+    '400 1em "SF Pro Display"',
+    '500 1em "SF Pro Display"',
+    '600 1em "SF Pro Display"',
+    '700 1em "SF Pro Display"',
+    '400 1em "Pacifico"',
+    '400 1em "Just Another Hand"'
+  ];
 
   function setupSharedTabTitle() {
     document.title = SHARED_TAB_TITLE;
+  }
+
+  function waitForPortfolioFonts() {
+    var fonts = document.fonts;
+    if (!fonts || typeof fonts.load !== "function") return Promise.resolve();
+
+    var fontLoads = PORTFOLIO_CRITICAL_FONTS.map(function (font) {
+      return fonts.load(font).catch(function () {
+        return [];
+      });
+    });
+    var timeout = new Promise(function (resolve) {
+      window.setTimeout(resolve, PORTFOLIO_FONT_TIMEOUT);
+    });
+
+    return Promise.race([Promise.all(fontLoads), timeout]);
   }
 
   function pageKeyFromUrl(url) {
@@ -836,7 +870,6 @@
 
   function initializeSharedRuntime() {
     setupSharedTabTitle();
-    setupPageEntry();
     setupClickRays();
     setupRailFooter();
     setupMobileNavigation();
@@ -844,6 +877,11 @@
     setupLocalSectionNav();
     setupRailSelection();
     setupInternalNavigation();
+
+    waitForPortfolioFonts().then(function () {
+      document.documentElement.dataset.fonts = "ready";
+      setupPageEntry();
+    });
   }
 
   if (document.readyState === "loading") {
