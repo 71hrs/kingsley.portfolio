@@ -56,6 +56,7 @@
   max-width: 920px;
   margin: 0;
   padding: 0;
+  container-type: inline-size;
 }
 
 .overview-mobile {
@@ -98,12 +99,12 @@
   max-width: 920px;
   margin: 0;
   color: #151515;
-  font-size: clamp(3.2rem, 10vw, 7.5rem);
+  font-size: clamp(0.875rem, 5.25cqw, 4.25rem);
   font-weight: 900;
   letter-spacing: -0.06em;
   line-height: 0.92;
   text-transform: uppercase;
-  -webkit-text-stroke: 4px #ffffff;
+  -webkit-text-stroke: clamp(1px, 0.32cqw, 4px) #ffffff;
   paint-order: stroke;
 }
 
@@ -122,7 +123,6 @@
 .overview-products-line { white-space: nowrap; }
 
 .overview-mobile .overview-title {
-  font-size: clamp(2rem, 11cqw, 4rem);
   line-height: 1.02;
 }
 
@@ -204,7 +204,6 @@
   .overview-desktop { display: block; }
   .overview-mobile { display: none; }
   .overview-section { padding: 4rem 0; }
-  .overview-title { font-size: clamp(2rem, 5.4vw, 4.25rem); }
 }
 
 @media (min-width: 96rem) {
